@@ -1,0 +1,3 @@
+[submodule "precinct_lookup"]
+	path = precinct_lookup
+	url = https://github.com/thechicagoreporter/precinct_lookup.git
