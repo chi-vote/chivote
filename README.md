@@ -112,7 +112,7 @@ Overview of flow:
 
 Full example:
 
-**`myapp/views.py` (View)**
+`myapp/views.py` (**View**)
 
 ```python
 from django.views import generic
@@ -137,7 +137,7 @@ class HomepageView(generic.TemplateView):
         return context
 ```
 
-**`myapp/templates/index.html` (Template)**
+`myapp/templates/index.html` (**Template**)
 
 ```django
 {% load render_bundle from webpack_loader %}
@@ -153,7 +153,7 @@ class HomepageView(generic.TemplateView):
 {% render_bundle 'main' %}
 ```
 
-**`frontend/webpack-stats.json` (Webpack-Stats)**
+`frontend/webpack-stats.json` (**Webpack-Stats**)
 
 ```js
 // this all builds from webpack, with an entry of frontend/src/index.js
@@ -170,7 +170,7 @@ class HomepageView(generic.TemplateView):
 }
 ```
 
-**`frontend/src/index.js` (Index)**
+`frontend/src/index.js` (**Index**)
 
 ```js
 import React from 'react';
@@ -201,7 +201,7 @@ ReactDOM.render(
 );
 ```
 
-**`frontend/src/App.jsx` (Component)**
+`frontend/src/App.jsx` (**Component**)
 
 ```jsx
 import React, { Component } from 'react';
