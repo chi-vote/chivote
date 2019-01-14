@@ -2,10 +2,14 @@
 
 ## Requirements
 
-python 3.6\
-django 2.1\
-postgres\
-psycopg2
+| Local dependency | Mac setup | Ubuntu setup |
+| ------------- | ------------- | ------------- |
+| python 3.6 | [🔗](https://docs.python-guide.org/starting/install3/osx/)  | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-16-04)  |
+| PostgreSQL | [🔗](https://www.elliotblackburn.com/installing-postgresql-on-macos-osx/)  | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)  |
+| pipenv | [🔗](https://pipenv.readthedocs.io/en/latest/install/#homebrew-installation-of-pipenv)  | [🔗](https://pipenv.readthedocs.io/en/latest/install/#pragmatic-installation-of-pipenv)  |
+| node | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-and-create-a-local-development-environment-on-macos)  | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04)  |
+| yarn | [🔗](https://yarnpkg.com/lang/en/docs/install/#mac-stable)  | [🔗](https://yarnpkg.com/lang/en/docs/install/#debian-stable)  |
+
 
 ## Installation
 
@@ -46,51 +50,52 @@ PG_PASSWORD = sample_password" >> .env
 3. Build the production bundle with the command `yarn build`
 
 **TODO**: Build in code-splitting
+
 **TODO**: Need style support
 
 ## Tasks
 
 These are located in `apps/core/management/commands/serve.py`
 
-### Launch dev environment: `./manage.py serve`
+### `./manage.py serve`
 
-Launches dev environment including...
+**Launches dev environment** by calling...
 
-**Frontend dev server (w/ HMR):**
+Frontend dev server (w/ HMR):
 
 ```
 yarn --cwd ./frontend start
 ```
 
-**Django livereload server:**
+Django livereload server:
 
 ```
 python manage.py livereload --settings=chivote.settings.local
 ```
 
-**Django dev server:**
+Django dev server:
 
 ```
 python manage.py runserver --settings=chivote.settings.local
 ```
 
-### Launch production environment: `./manage.py serve --production`
+### `./manage.py serve --production`
 
-Launches production environment including...
+**Launches production environment** by calling...
 
-**Frontend production build:**
+Frontend production build:
 
 ```
 yarn --cwd ./frontend build
 ```
 
-**Django-bakery build:**
+Django-bakery build:
 
 ```
 python manage.py build --settings=chivote.settings.production
 ```
 
-**Django-bakery production server:**
+Django-bakery production server:
 
 ```
 python manage.py buildserver --settings=chivote.settings.production
