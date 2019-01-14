@@ -19,13 +19,14 @@ class Command(BaseCommand):
 
     devCommands = [
         'yarn --cwd ./frontend start',
-        'python manage.py livereload --settings=locallibrary.settings.local',
-        'python manage.py runserver --settings=locallibrary.settings.local',
+        # 'python manage.py livereload --settings=chivote.settings.local',
+        'python manage.py runserver --settings=chivote.settings.local',
     ]
 
     prodCommands = [
         'yarn --cwd ./frontend build',
-        'python manage.py runserver --settings=locallibrary.settings.production'
+        'python manage.py build --settings=chivote.settings.production',
+        'python manage.py buildserver --settings=chivote.settings.production'
     ]
 
     def add_arguments(self, parser):

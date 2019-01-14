@@ -53,5 +53,3 @@ PG_PASSWORD = sample_password" >> .env
 ### Baking
 
 We're using [`django-bakery`](https://github.com/datadesk/django-bakery) to bake out our app to s3. Please see [their docs](https://django-bakery.readthedocs.io/en/latest/gettingstarted.html) for further instructions.
-
-**TODO**: Encapsulate bake commands in custom management command.
