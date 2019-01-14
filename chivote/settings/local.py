@@ -1,3 +1,3 @@
 from .base import *
 
-# MIDDLEWARE += ['livereload.middleware.LiveReloadScript', ]
+MIDDLEWARE += ['livereload.middleware.LiveReloadScript', ]

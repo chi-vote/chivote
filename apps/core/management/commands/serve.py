@@ -19,7 +19,7 @@ class Command(BaseCommand):
 
     devCommands = [
         'yarn --cwd ./frontend start',
-        # 'python manage.py livereload --settings=chivote.settings.local',
+        'python manage.py livereload --settings=chivote.settings.local',
         'python manage.py runserver --settings=chivote.settings.local',
     ]
 

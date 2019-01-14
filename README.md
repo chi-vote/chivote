@@ -50,6 +50,50 @@ PG_PASSWORD = sample_password" >> .env
 
 ## Tasks
 
-### Baking
+These are located in `apps/core/management/commands/serve.py`
+
+### Launch dev environment: `./manage.py serve`
+
+Launches dev environment including...
+
+**Frontend dev server (w/ HMR):**
+
+```
+yarn --cwd ./frontend start
+```
+
+**Django livereload server:**
+
+```
+python manage.py livereload --settings=chivote.settings.local
+```
+
+**Django dev server:**
+
+```
+python manage.py runserver --settings=chivote.settings.local
+```
+
+### Launch production environment: `./manage.py serve --production`
+
+Launches production environment including...
+
+**Frontend production build:**
+
+```
+yarn --cwd ./frontend build
+```
+
+**Django-bakery build:**
+
+```
+python manage.py build --settings=chivote.settings.production
+```
+
+**Django-bakery production server:**
+
+```
+python manage.py buildserver --settings=chivote.settings.production
+```
 
 We're using [`django-bakery`](https://github.com/datadesk/django-bakery) to bake out our app to s3. Please see [their docs](https://django-bakery.readthedocs.io/en/latest/gettingstarted.html) for further instructions.
