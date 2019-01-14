@@ -2,18 +2,15 @@
 
 ## Requirements
 
-| Local dependency | Mac setup | Ubuntu setup |
-| ------------- | ------------- | ------------- |
-| python 3.6 | [🔗](https://docs.python-guide.org/starting/install3/osx/)  | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-16-04)  |
-| PostgreSQL | [🔗](https://www.elliotblackburn.com/installing-postgresql-on-macos-osx/)  | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)  |
-| pipenv | [🔗](https://pipenv.readthedocs.io/en/latest/install/#homebrew-installation-of-pipenv)  | [🔗](https://pipenv.readthedocs.io/en/latest/install/#pragmatic-installation-of-pipenv)  |
-| node | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-and-create-a-local-development-environment-on-macos)  | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04)  |
-| yarn | [🔗](https://yarnpkg.com/lang/en/docs/install/#mac-stable)  | [🔗](https://yarnpkg.com/lang/en/docs/install/#debian-stable)  |
-
+| Local dependency | Mac setup                                                                                                                         | Ubuntu setup                                                                                                                              |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| python 3.6       | [🔗](https://docs.python-guide.org/starting/install3/osx/)                                                                        | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-16-04) |
+| PostgreSQL       | [🔗](https://www.elliotblackburn.com/installing-postgresql-on-macos-osx/)                                                         | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)                                  |
+| pipenv           | [🔗](https://pipenv.readthedocs.io/en/latest/install/#homebrew-installation-of-pipenv)                                            | [🔗](https://pipenv.readthedocs.io/en/latest/install/#pragmatic-installation-of-pipenv)                                                   |
+| node             | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-and-create-a-local-development-environment-on-macos) | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04)                                             |
+| yarn             | [🔗](https://yarnpkg.com/lang/en/docs/install/#mac-stable)                                                                        | [🔗](https://yarnpkg.com/lang/en/docs/install/#debian-stable)                                                                             |
 
 ## Installation
-
-### Django
 
 1. Clone repo
 2. Set up postgres database
@@ -27,7 +24,6 @@ CREATE DATABASE sample_database WITH OWNER sample_user;
 3. From inside the repo, create .env and add postgres credentials
 
 ```
-cd chivote
 touch .env
 echo "PG_NAME = sample_database
 PG_USER = sample_user
@@ -39,15 +35,11 @@ PG_PASSWORD = sample_password" >> .env
 
 ```
 ./manage.py migrate
+./manage.py createsuperuser
 ./manage.py loaddata catalog
-./manage.py runserver
 ```
 
-### Frontend
-
-1. Run `cd frontend && yarn i`
-2. Start the dev server with the command `yarn start`
-3. Build the production bundle with the command `yarn build`
+6. Build frontend with `yarn --cwd ./frontend install`
 
 **TODO**: Build in code-splitting
 
@@ -59,7 +51,7 @@ These are located in `apps/core/management/commands/serve.py`
 
 ### `./manage.py serve`
 
-**Launches dev environment** by calling...
+**Launches dev environment** at http://localhost:8000/ by calling...
 
 Frontend dev server (w/ HMR):
 
@@ -81,7 +73,7 @@ python manage.py runserver --settings=chivote.settings.local
 
 ### `./manage.py serve --production`
 
-**Launches production environment** by calling...
+**Launches production environment** at http://localhost:8000/ by calling...
 
 Frontend production build:
 
