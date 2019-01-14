@@ -43,8 +43,6 @@ PG_PASSWORD = sample_password" >> .env
 
 ## Tasks
 
-These are located in `apps/core/management/commands/serve.py`
-
 ### `./manage.py serve`
 
 **Launches dev environment** at http://localhost:8000/ by calling...
