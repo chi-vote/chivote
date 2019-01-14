@@ -11,13 +11,13 @@ from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.decorators import permission_required
 
-# from bakery.views import BuildableDetailView, BuildableListView, BuildableTemplateView
+from bakery.views import BuildableDetailView, BuildableListView, BuildableTemplateView
 
 from .forms import RenewBookForm, RenewBookModelForm
 from .models import Book, Author, BookInstance, Genre
 
 
-class HomePageView(TemplateView):
+class HomePageView(BuildableTemplateView):
     """View function for home page of site."""
     template_name = 'index.html'
     # template_name = 'react-demo.html'
@@ -73,7 +73,7 @@ class HomePageView(TemplateView):
         return context
 
 
-class BookListView(generic.ListView):
+class BookListView(BuildableListView):
     """
     Generates a page that will feature a list linking to detail pages about
     each object in the queryset.
@@ -83,20 +83,20 @@ class BookListView(generic.ListView):
     build_path = 'catalog/books/index.html'
 
 
-class BookDetailView(generic.DetailView):
+class BookDetailView(BuildableDetailView):
     """
     Generates a separate HTML page for each object in the queryset.
     """
     model = Book
 
 
-class AuthorListView(generic.ListView):
+class AuthorListView(BuildableListView):
     model = Author
     # paginate_by = 10
     build_path = 'catalog/authors/index.html'
 
 
-class AuthorDetailView(generic.DetailView):
+class AuthorDetailView(BuildableDetailView):
     model = Author
 
 

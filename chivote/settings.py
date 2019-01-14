@@ -122,7 +122,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # suppress S3BotoS3Storage warning
 AWS_DEFAULT_ACL = None
+
+# django-bakery settings
+INSTALLED_APPS += ('bakery',)
+BUILD_DIR = os.path.join(BASE_DIR, 'build')
+BAKERY_VIEWS = (
+    'apps.catalog.views.HomePageView',
+    'apps.catalog.views.BookListView',
+    'apps.catalog.views.BookDetailView',
+    'apps.catalog.views.AuthorListView',
+    'apps.catalog.views.AuthorDetailView'
+)

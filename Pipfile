@@ -12,6 +12,7 @@ bleach = "*"
 django = "==2.1.*"
 "psycopg2-binary" = "*"
 python-decouple = "*"
+django-bakery = "*"
 
 [requires]
 python_version = "3.6"
