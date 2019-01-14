@@ -27,7 +27,6 @@ CREATE DATABASE sample_database WITH OWNER sample_user;
 3. From inside the repo, create .env and add postgres credentials
 
 ```
-cd chivote
 touch .env
 echo "PG_NAME = sample_database
 PG_USER = sample_user
