@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.catalog'  # temp to demonstrate dev flow
 ]
 
 MIDDLEWARE = [
@@ -77,8 +78,9 @@ WSGI_APPLICATION = 'chivote.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': config('pg_user'),
-        'NAME': config('pg_db') 
+        'NAME': config('PG_NAME'),
+        'USER': config('PG_USER'),
+        'PASSWORD': config('PG_PASSWORD', default=''),
     }
 }
 
@@ -120,3 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# suppress S3BotoS3Storage warning
+AWS_DEFAULT_ACL = None

@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+pylint = "*"
+"autopep8" = "*"
+
+[packages]
+bleach = "*"
+django = "==2.1.*"
+"psycopg2-binary" = "*"
+python-decouple = "*"
+
+[requires]
+python_version = "3.6"
