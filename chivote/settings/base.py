@@ -14,7 +14,8 @@ import os
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'livereload',
     'django.contrib.staticfiles',
+    'apps.core',
+    'apps.catalog',  # temp to demonstrate dev flow
 ]
 
 MIDDLEWARE = [
@@ -77,8 +81,9 @@ WSGI_APPLICATION = 'chivote.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': config('pg_user'),
-        'NAME': config('pg_db') 
+        'NAME': config('PG_NAME'),
+        'USER': config('PG_USER'),
+        'PASSWORD': config('PG_PASSWORD', default=''),
     }
 }
 
@@ -120,3 +125,33 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+# suppress S3BotoS3Storage warning
+AWS_DEFAULT_ACL = None
+
+# django-bakery settings
+INSTALLED_APPS += ('bakery',)
+BUILD_DIR = os.path.join(BASE_DIR, 'build')
+BAKERY_VIEWS = (
+    'apps.catalog.views.HomePageView',
+    'apps.catalog.views.BookListView',
+    'apps.catalog.views.BookDetailView',
+    'apps.catalog.views.AuthorListView',
+    'apps.catalog.views.AuthorDetailView'
+)
+
+# webpack_loader settings
+INSTALLED_APPS += ('webpack_loader', )
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'dist/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'frontend/webpack-stats.json')
+    }
+}
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'frontend/app/static'),
+)
