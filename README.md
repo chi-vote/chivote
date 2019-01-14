@@ -31,7 +31,7 @@ PG_PASSWORD = sample_password" >> .env
 ```
 
 4. Install python requirements and activate virtualenv with `pipenv sync && pipenv shell`
-5. Run migrations and start devserver:
+5. Load initial database:
 
 ```
 ./manage.py migrate
@@ -43,48 +43,50 @@ PG_PASSWORD = sample_password" >> .env
 
 ## Tasks
 
-### `./manage.py serve`
+### Launch dev environment: `./manage.py serve`
 
-**Launches dev environment** at http://localhost:8000/ by calling...
+Launches dev environment at http://localhost:8000/. It simply starts the various servers in one terminal instead of three.
 
-Frontend dev server (w/ HMR):
+```python
+# this is pseudo python describing the task
 
-```
-yarn --cwd ./frontend start
-```
+devCommands = [
+    # frontend webpack-dev-server w/ hot module replacement
+    'yarn --cwd ./frontend start',
+    
+    # django-livereload-server, to automatically reload browser on a Django file change
+    'python manage.py livereload --settings=chivote.settings.local',
+    
+    # django server
+    'python manage.py runserver --settings=chivote.settings.local',
+]
 
-Django livereload server:
-
-```
-python manage.py livereload --settings=chivote.settings.local
-```
-
-Django dev server:
-
-```
-python manage.py runserver --settings=chivote.settings.local
-```
-
-### `./manage.py serve --production`
-
-**Launches production environment** at http://localhost:8000/ by calling...
-
-Frontend production build:
-
-```
-yarn --cwd ./frontend build
+for command in devCommands:
+    # do command
+    ...
 ```
 
-Django-bakery build:
+### Launch production environment: `./manage.py serve --production`
 
-```
-python manage.py build --settings=chivote.settings.production
-```
+Launches production environment at http://localhost:8000/. It simply runs the necessary builders to bake the app out as flat files, then serves those files.
 
-Django-bakery production server:
+```python
+# this is pseudo python describing the task
 
-```
-python manage.py buildserver --settings=chivote.settings.production
+prodCommands = [
+    # frontend production build
+    'yarn --cwd ./frontend build',
+    
+    # django-bakery build
+    'python manage.py build --settings=chivote.settings.production',
+    
+    # django-bakery production server
+    'python manage.py buildserver --settings=chivote.settings.production',
+]
+
+for command in prodCommands:
+    # do command
+    ...
 ```
 
 ## Under the hood
@@ -101,9 +103,16 @@ In the frontend, Webpack creates a stats file called `webpack-stats.json`. Djang
 
 We pass data from Django to React by declaring global variables in our Django templates. I adapted this pattern from [`MasterKale/django-cra-helper`](https://github.com/MasterKale/django-cra-helper).
 
-Here's a full example of Django data → React rendering:
+Overview of flow:
+* **View**: Exposes context data for Template
+* **Template**: Exposes context data as JavaScript vars for Index, attaches frontend files from Webpack-Stats
+* **Webpack-Stats**: References built output of compiled Index
+* **Index**: Renders Component, w/ props 
+* **Component**: Loaded with props exposed in Template
 
-**`myapp/views.py`**
+Full example:
+
+**`myapp/views.py` (View)**
 
 ```python
 from django.views import generic
@@ -128,7 +137,7 @@ class HomepageView(generic.TemplateView):
         return context
 ```
 
-**`myapp/templates/index.html`**
+**`myapp/templates/index.html` (Template)**
 
 ```django
 {% load render_bundle from webpack_loader %}
@@ -144,7 +153,7 @@ class HomepageView(generic.TemplateView):
 {% render_bundle 'main' %}
 ```
 
-**`frontend/webpack-stats.json`**
+**`frontend/webpack-stats.json` (Webpack-Stats)**
 
 ```js
 // this all builds from webpack, with an entry of frontend/src/index.js
@@ -161,7 +170,7 @@ class HomepageView(generic.TemplateView):
 }
 ```
 
-**`frontend/src/index.js`**
+**`frontend/src/index.js` (Index)**
 
 ```js
 import React from 'react';
@@ -192,7 +201,7 @@ ReactDOM.render(
 );
 ```
 
-**`frontend/src/App.jsx`**
+**`frontend/src/App.jsx` (Component)**
 
 ```jsx
 import React, { Component } from 'react';
