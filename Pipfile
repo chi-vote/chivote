@@ -6,6 +6,7 @@ name = "pypi"
 [dev-packages]
 pylint = "*"
 "autopep8" = "*"
+django-webpack-loader = "*"
 
 [packages]
 bleach = "*"

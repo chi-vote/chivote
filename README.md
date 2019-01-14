@@ -39,6 +39,15 @@ PG_PASSWORD = sample_password" >> .env
 ./manage.py runserver
 ```
 
+### Frontend
+
+1. Run `cd frontend && yarn i`
+2. Start the dev server with the command `yarn start`
+3. Build the production bundle with the command `yarn build`
+
+**TODO**: Build in code-splitting
+**TODO**: Need style support
+
 ## Tasks
 
 ### Baking

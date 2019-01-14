@@ -138,3 +138,17 @@ BAKERY_VIEWS = (
     'apps.catalog.views.AuthorListView',
     'apps.catalog.views.AuthorDetailView'
 )
+
+# webpack_loader settings
+INSTALLED_APPS += ('webpack_loader', )
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'dist/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'frontend/webpack-stats.json')
+    }
+}
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'frontend/app/static'),
+)

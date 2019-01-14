@@ -19,8 +19,8 @@ from .models import Book, Author, BookInstance, Genre
 
 class HomePageView(BuildableTemplateView):
     """View function for home page of site."""
-    template_name = 'index.html'
-    # template_name = 'react-demo.html'
+    # template_name = 'index.html'
+    template_name = 'react-demo.html'
     build_path = 'catalog/index.html'
 
     def get_context_data(self, **kwargs):
