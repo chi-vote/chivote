@@ -41,10 +41,6 @@ PG_PASSWORD = sample_password" >> .env
 
 6. Build frontend with `yarn --cwd ./frontend install`
 
-**TODO**: Build in code-splitting
-
-**TODO**: Need style support
-
 ## Tasks
 
 These are located in `apps/core/management/commands/serve.py`
@@ -94,3 +90,8 @@ python manage.py buildserver --settings=chivote.settings.production
 ```
 
 We're using [`django-bakery`](https://github.com/datadesk/django-bakery) to bake out our app to s3. Please see [their docs](https://django-bakery.readthedocs.io/en/latest/gettingstarted.html) for further instructions.
+
+## Todos
+
+* Code-splitting
+* .css support
