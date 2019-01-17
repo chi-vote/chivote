@@ -19,7 +19,16 @@ class Header extends Component {
               </span>
             </div>
           </div>
-          <div className="level-right"></div>
+          <div className="level-right">
+            <div className="level-item">
+              <button className="button is-rounded is-medium">What is this?</button>
+            </div>
+            <div className="level-item">
+              <span className="icon is-large has-text-white">
+                <i className="fa fa-bars fa-3x"></i>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     )
