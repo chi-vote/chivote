@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './components/Header';
 import { hot } from 'react-hot-loader/root';
 
 class App extends Component {
@@ -7,8 +8,7 @@ class App extends Component {
 
     return (
       <div>
-        <h1>Hello world!</h1>
-        <h2>Env: {this.props.env}</h2>
+        <Header/>
       </div>
     );
   }

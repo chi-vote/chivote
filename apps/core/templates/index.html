@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% load render_bundle from webpack_loader %}
+{% load helper_tags %}
+
+{% block title %}<title>Chi.Vote</title>{% endblock %}
+
+{% block content %}
+<div id="app"></div>
+
+<script>
+  window.component = '{{ component }}';
+  window.props = {{ props | json }};
+  window.reactRoot = document.getElementById('app');
+</script>
+
+{% render_bundle 'main' %}
+
+{% endblock %}
