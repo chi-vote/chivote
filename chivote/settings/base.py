@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.candidates',
     'apps.places',
-    'apps.offices'
+    'apps.offices',
+    'apps.newsfeed',
+    'apps.races',
 ]
 
 MIDDLEWARE = [

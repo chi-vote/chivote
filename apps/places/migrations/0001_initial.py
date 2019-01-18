@@ -9,7 +9,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('candidates', '0001_initial'),
     ]
 
     operations = [
@@ -20,8 +19,6 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=20)),
                 ('citywide', models.BooleanField()),
                 ('ward_no', models.IntegerField(null=True)),
-                ('lame_duck', models.CharField(max_length=50, null=True)),
-                ('incumbent_candidate', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='candidates.Candidate')),
             ],
         ),
     ]
