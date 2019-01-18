@@ -17,11 +17,7 @@
 
 ```
 sudo su - postgres
-psql
-```
-
-```
-psql
+psql  
 CREATE USER sample_user WITH PASSWORD 'sample_password';
 CREATE DATABASE sample_database WITH OWNER sample_user;
 ALTER USER sample_user WITH SUPERUSER
