@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'livereload',
     'django.contrib.staticfiles',
     'apps.core',
-    'apps.candidates'
+    'apps.candidates',
+    'apps.places',
 ]
 
 MIDDLEWARE = [
