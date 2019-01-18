@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import RaceDetail from './pages/RaceDetail'
+import CandidateDetail from './pages/CandidateDetail'
 
 /**
  * Maintain a simple map of React components to make it easier for
@@ -10,7 +11,8 @@ import RaceDetail from './pages/RaceDetail'
 
 const pages = {
 	App,
-	RaceDetail
+	RaceDetail,
+	CandidateDetail
 };
 
 /**

@@ -3,8 +3,16 @@ import Page from '../components/Page'
 import CandidateItem from '../components/CandidateItem'
 
 export default class RaceDetail extends Component {
+
+  componentDidMount() {
+    console.log(JSON.parse(this.props.candidates))
+  }
+
   render() {
     const { data, candidates } = this.props
+    const parsedData = JSON.parse(data.modelData)[0]
+    console.log(parsedData);
+    
     return (
       <div className="container">
         <Page
@@ -13,12 +21,11 @@ export default class RaceDetail extends Component {
           <div className="candidates-list">
             <h6 className="page-heading title is-6">The Candidates</h6>
             {
-              candidates.map(item => (
+              JSON.parse(candidates).map(item => (
                 <CandidateItem 
-                  key={item.personId}
-                  id={item.personId}
-                  photo={item.photo}
-                  name={item.full_name}
+                  key={item.pk}
+                  id={item.pk}
+                  name={item.fields.name}
                 />
               ))
             }
