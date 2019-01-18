@@ -6,3 +6,5 @@ from apps.offices.models import Office
 class Race(models.Model):
     office = models.ForeignKey(Office,on_delete=models.CASCADE)
     explainer = models.TextField()
+    def __str__(self):
+        return self.office.name
