@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import RaceDetail from './pages/RaceDetail'
 
 /**
  * Maintain a simple map of React components to make it easier for
@@ -8,7 +9,8 @@ import App from './App';
  */
 
 const pages = {
-	App
+	App,
+	RaceDetail
 };
 
 /**
