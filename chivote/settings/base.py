@@ -31,6 +31,11 @@ DEBUG = bool(config('DJANGO_DEBUG', default=True))
 ALLOWED_HOSTS = []
 ALLOWED_HOSTS += [config('DJANGO_URL_ENDPOINT', default=''), ]
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.1/howto/static-files/
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Application definition
 
