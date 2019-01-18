@@ -27,7 +27,6 @@ urlpatterns = [
 # Use include() to add paths from the catalog application
 urlpatterns += [
     path('core/', include('apps.core.urls')),
-    path('catalog/', include('apps.catalog.urls')),
     path('races/', include('apps.races.urls'))
 ]
 
