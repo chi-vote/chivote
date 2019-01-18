@@ -5,16 +5,16 @@ from apps.places.models import Place
 
 
 def load(apps,schema_editor):
-    city=Place.objects.create(
-            name='City of Chicago',
-            citywide=True)
-    city.save()
     for ward_no in range(1,51):
         ward=Place.objects.create(
             name='Ward ' + str(ward_no),
             citywide=False,
             ward_no=ward_no)
         ward.save()
+    city=Place.objects.create(
+            name='City of Chicago',
+            citywide=True)
+    city.save()
 
 class Migration(migrations.Migration):
 

@@ -1,6 +1,9 @@
 from django.db import models
+from apps.places.models import Place
 
 # Create your models here.
 class Office(models.Model):
-    name = models.TextField()
-    type = models.TextField()
+    # someday these could be subclassed if necessary
+    # but that's potentially complicated to implement
+    name = models.CharField(max_length=20)
+    place = models.ForeignKey(Place,on_delete=models.CASCADE)

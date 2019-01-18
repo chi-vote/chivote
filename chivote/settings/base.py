@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.candidates',
     'apps.places',
+    'apps.offices'
 ]
 
 MIDDLEWARE = [
