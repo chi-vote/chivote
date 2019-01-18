@@ -20,4 +20,4 @@ django-livereload-server = "*"
 django-webpack-loader = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
