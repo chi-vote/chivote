@@ -28,6 +28,7 @@ urlpatterns = [
 urlpatterns += [
     path('core/', include('apps.core.urls')),
     path('races/', include('apps.races.urls')),
+    path('candidates/', include('apps.candidates.urls')),
     path('questionnaire/', include('apps.questionnaires.urls'))
 ]
 

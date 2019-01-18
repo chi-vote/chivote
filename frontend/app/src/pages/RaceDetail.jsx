@@ -10,6 +10,9 @@ export default class RaceDetail extends Component {
 
   render() {
     const { data, candidates } = this.props
+    const parsedData = JSON.parse(data.modelData)[0]
+    console.log(parsedData);
+    
     return (
       <div className="container">
         <Page

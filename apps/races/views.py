@@ -29,10 +29,15 @@ class RaceDetailView(BuildableTemplateView):
       race=self.kwargs['raceId']
     )
 
+    raceData = Race.objects.filter(
+      office=self.kwargs['raceId']
+    )
+
     react_dict = {
       'component': 'RaceDetail',
       'props': {
         'data': {
+          'modelData': serializers.serialize('json', raceData),
           'office': 'mayor',
           'description': '''Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi autem, explicabo ipsam
           deserunt id vel eos pariatur aut consequuntur nesciunt optio atque est praesentium quia saepe dicta
@@ -43,27 +48,9 @@ class RaceDetailView(BuildableTemplateView):
           }
         },
         'candidates': serializers.serialize('json', candidates)
-        # 'candidates': [
-        #   {
-        #     'personId': 1,
-        #     'full_name': 'Amara Enyia',
-        #     'photo': ''
-        #   },
-        #   {
-        #     'personId': 2,
-        #     'full_name': 'Toni Periwinkle',
-        #     'photo': ''
-        #   },
-        #   {
-        #     'personId': 3,
-        #     'full_name': 'Susana Mendoza',
-        #     'photo': ''
-        #   },
-        # ]
       }
     }
 
-    # json.dumps(react_dict, indent=4, sort_keys=True, default=str)
 
     context.update(react_dict)
 
