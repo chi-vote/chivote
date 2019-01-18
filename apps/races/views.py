@@ -1,4 +1,5 @@
 import datetime
+import json
 from random import randrange
 
 from django.urls import reverse, reverse_lazy
@@ -16,30 +17,8 @@ from bakery.views import BuildableDetailView, BuildableListView, BuildableTempla
 # from .forms import RenewBookForm, RenewBookModelForm
 # from .models import Book, Author, BookInstance, Genre
 
-
-class HomePageView(BuildableTemplateView):
-    """View function for home page of site."""
-    template_name = 'index.html'
-    # template_name = 'react-demo.html'
-    # build_path = 'catalog/index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        react_dict = {
-            'component': 'App',
-            'props': {
-              'env': 'Django'
-            },
-        }
-
-        # context.update(context_dict)
-        context.update(react_dict)
-
-        return context
-
 class RaceDetailView(BuildableTemplateView):
-  template_name = 'race-view.html'
+  template_name = 'index.html'
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
 
@@ -50,12 +29,12 @@ class RaceDetailView(BuildableTemplateView):
       'props': {
         'data': {
           'office': 'mayor',
-          'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi autem, explicabo ipsam'/ 
-          'deserunt id vel eos pariatur aut consequuntur nesciunt optio atque est praesentium quia saepe dicta'/
-          'exercitationem. In temporibus maiores facilis eligendi laudantium! Esse, corporis dolorum a possimus'/
-          'dolorem harum, perferendis inventore earum, neque ducimus quod odio omnis. Voluptas!',
+          'description': '''Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi autem, explicabo ipsam
+          deserunt id vel eos pariatur aut consequuntur nesciunt optio atque est praesentium quia saepe dicta
+          exercitationem. In temporibus maiores facilis eligendi laudantium! Esse, corporis dolorum a possimus
+          dolorem harum, perferendis inventore earum, neque ducimus quod odio omnis. Voluptas!''',
           'cycle': {
-            'date': datetime.date(2019, 2, 26)
+            'date': 'February 26, 2019'
           }
         },
         'candidates': [
@@ -77,6 +56,8 @@ class RaceDetailView(BuildableTemplateView):
         ]
       }
     }
+
+    # json.dumps(react_dict, indent=4, sort_keys=True, default=str)
 
     context.update(react_dict)
 

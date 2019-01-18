@@ -1,0 +1,22 @@
+.candidate-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #3F3F4D;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.candidate-item__img {
+  height: 65px;
+  width: 65px;
+  margin-right: 1rem;
+  border-radius: 5px;
+  object-fit: cover;
+
+}
+
+.candidate-item__name {
+  margin: 0;
+  color: #55C1E8;
+}
