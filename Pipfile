@@ -6,6 +6,9 @@ name = "pypi"
 [dev-packages]
 pylint = "*"
 "autopep8" = "*"
+gunicorn = "*"
+ipython = "*"
+ipdb = "*"
 
 [packages]
 bleach = "*"

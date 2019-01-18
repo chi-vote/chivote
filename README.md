@@ -41,6 +41,20 @@ PG_PASSWORD = sample_password" >> .env
 
 6. Build frontend with `yarn --cwd ./frontend install`
 
+## Env variables
+
+You need a `.env` file in the root directory with the following filled out:
+
+```
+DJANGO_SECRET_KEY=
+# DJANGO_DEBUG= # uncomment to disable debug mode
+DJANGO_URL_ENDPOINT=
+
+PG_NAME=
+PG_USER=
+PG_PASSWORD=
+```
+
 ## Tasks
 
 ### Launch dev environment: `./manage.py serve`
@@ -53,10 +67,10 @@ Launches dev environment at http://localhost:8000/. It simply starts the various
 devCommands = [
     # frontend webpack-dev-server w/ hot module replacement
     'yarn --cwd ./frontend start',
-    
+
     # django-livereload-server, to automatically reload browser on a Django file change
     'python manage.py livereload --settings=chivote.settings.local',
-    
+
     # django server
     'python manage.py runserver --settings=chivote.settings.local',
 ]
@@ -76,10 +90,10 @@ Launches production environment at http://localhost:8000/. It simply runs the ne
 prodCommands = [
     # frontend production build
     'yarn --cwd ./frontend build',
-    
+
     # django-bakery build
     'python manage.py build --settings=chivote.settings.production',
-    
+
     # django-bakery production server
     'python manage.py buildserver --settings=chivote.settings.production',
 ]
@@ -104,11 +118,12 @@ In the frontend, Webpack creates a stats file called `webpack-stats.json`. Djang
 We pass data from Django to React by declaring global variables in our Django templates. I adapted this pattern from [`MasterKale/django-cra-helper`](https://github.com/MasterKale/django-cra-helper).
 
 Overview of flow:
-* **View**: Exposes context data for Template
-* **Template**: Exposes context data as JavaScript vars for Index, attaches frontend files from Webpack-Stats
-* **Webpack-Stats**: References built output of compiled Index
-* **Index**: Renders Component, w/ props 
-* **Component**: Loaded with props exposed in Template
+
+- **View**: Exposes context data for Template
+- **Template**: Exposes context data as JavaScript vars for Index, attaches frontend files from Webpack-Stats
+- **Webpack-Stats**: References built output of compiled Index
+- **Index**: Renders Component, w/ props
+- **Component**: Loaded with props exposed in Template
 
 Full example:
 
