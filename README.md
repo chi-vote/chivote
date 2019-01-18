@@ -16,9 +16,15 @@
 2. Set up postgres database
 
 ```
+sudo su - postgres
+psql
+```
+
+```
 psql
 CREATE USER sample_user WITH PASSWORD 'sample_password';
 CREATE DATABASE sample_database WITH OWNER sample_user;
+ALTER USER sample_user WITH SUPERUSER
 ```
 
 3. From inside the repo, create .env and add postgres credentials
