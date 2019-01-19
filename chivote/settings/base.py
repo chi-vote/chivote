@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.offices',
     'apps.newsfeed',
     'apps.races',
+    'apps.questionnaires',
 ]
 
 MIDDLEWARE = [
