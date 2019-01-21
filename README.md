@@ -17,7 +17,7 @@
 
 ```
 sudo su - postgres
-psql  
+psql
 CREATE USER sample_user WITH PASSWORD 'sample_password';
 CREATE DATABASE sample_database WITH OWNER sample_user;
 ALTER USER sample_user WITH SUPERUSER
@@ -38,14 +38,13 @@ PG_PASSWORD = sample_password" >> .env
 ```
 ./manage.py migrate
 ./manage.py createsuperuser
-./manage.py loaddata catalog
 ```
 
 6. Build frontend with `yarn --cwd ./frontend install`
 
 ## Env variables
 
-You need a `.env` file in the root directory with the following filled out:
+In production, you need a `.env` file in the root directory with the following filled out:
 
 ```
 DJANGO_SECRET_KEY=

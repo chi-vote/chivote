@@ -9,24 +9,25 @@ import csv
 
 input_file_path = BASE_DIR + '/apps/candidates/data/candidates.csv'
 
-def load(apps,schema_editor):
+
+def load(apps, schema_editor):
     candidates = [x for x in csv.DictReader(open(input_file_path))]
     for candidate in candidates:
         race = get_race(candidate)
         c = Candidate.objects.create(
-                race = race,
-                name = candidate['CndNme'],
-                cboe_id = int(candidate['CndID']),
-                incumbent = candidate['Incumbent'] == 'Y',
-                ballot_order = int(candidate['CndOrd'])
-                )
+            race=race,
+            name=candidate['CndNme'],
+            cboe_id=int(candidate['CndID']),
+            incumbent=candidate['Incumbent'] == 'Y',
+            ballot_order=int(candidate['CndOrd'])
+        )
         c.save()
-        make_contacts(c,candidate)
+        make_contacts(c, candidate)
 
 
 def make_contacts(candidate, row):
-    contact_fields = ['Email1','Campaign Email (if different)','ResAdd1']
-    contacts = dict((field,row[field]) for field in contact_fields)
+    contact_fields = ['Email1', 'Campaign Email (if different)', 'ResAdd1']
+    contacts = dict((field, row[field]) for field in contact_fields)
     for contact_field in contacts:
         if contacts[contact_field]:
             if 'email' in contact_field.lower():
@@ -36,11 +37,12 @@ def make_contacts(candidate, row):
             else:
                 pass
             cc = CandidateContact.objects.create(
-                    candidate=candidate,
-                    contact_type=contact_type,
-                    contact_value=contacts[contact_field]
-                    )
+                candidate=candidate,
+                contact_type=contact_type,
+                contact_value=contacts[contact_field]
+            )
             cc.save()
+
 
 def get_race(candidate):
     office_name = candidate['OffNme'].lower()
@@ -54,17 +56,18 @@ def get_race(candidate):
         ward = candidate['DstHdr']
         office = Office.objects.get(name='Ward ' + ward + ' Alderman')
     else:
-        import ipdb; ipdb.set_trace()
+        import ipdb
+        ipdb.set_trace()
     return office.race_set.first()
-
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
         ('candidates', '0003_auto_20190121_0248'),
+        ('races', '0002_load_races')
     ]
 
     operations = [
-            migrations.RunPython(load)
+        migrations.RunPython(load)
     ]
