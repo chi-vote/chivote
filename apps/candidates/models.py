@@ -4,6 +4,8 @@ from apps.races.models import Race
 # Create your models here.
 class Candidate(models.Model):
     name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name 
 
     cboe_id = models.IntegerField()
     isbe_id = models.IntegerField(null=True)
