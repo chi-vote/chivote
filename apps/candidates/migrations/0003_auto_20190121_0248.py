@@ -14,7 +14,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CandidateContact',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('contact_type', models.CharField(max_length=25)),
                 ('contact_value', models.CharField(max_length=50)),
                 ('notes', models.TextField()),
@@ -48,11 +49,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='candidate',
             name='ballot_order',
-            field=models.IntegerField(null=True),
+            field=models.IntegerField(),
         ),
         migrations.AddField(
             model_name='candidatecontact',
             name='candidate',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='candidates.Candidate'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='candidates.Candidate'),
         ),
     ]
