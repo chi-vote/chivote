@@ -27,7 +27,8 @@ urlpatterns = [
 # Use include() to add paths from the catalog application
 urlpatterns += [
     path('core/', include('apps.core.urls')),
-    path('races/', include('apps.races.urls'))
+    path('races/', include('apps.races.urls')),
+    path('questionnaire/',include('apps.questionnaires.urls'))
 ]
 
 # Add URL maps to redirect the base URL to our application

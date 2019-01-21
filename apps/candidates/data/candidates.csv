@@ -1,0 +1,193 @@
+OffExt,OffTyp,OffNme,DstNme,DstHdr,PtyNme,CndID,CndNme,Email1,Campaign Email (if different),ResAdd1,CndStsCde,CndOrd,FlgDte,FlgOrd,CndStsID,DstID,Incumbent
+100001,Municipal,For Mayor,City Of Chicago,City,NonPartisan,18,JERRY JOYCE,reyeslawoffices@gmail.com,,,F,1,19-Nov-18,52,116,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,13,PAUL VALLAS,paulgvallas@gmail.com,,,F,2,19-Nov-18,46,116,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,1,WILLIE L. WILSON,wwilson@omarinc.com,,,F,3,19-Nov-18,12,116,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,7,TONI PRECKWINKLE,press@toni4chicago.com,,,F,4,19-Nov-18,38,116,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,129,WILLIAM M. DALEY,wmd2501@gmail.com,,,*,7,26-Nov-18,0,667,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,133,GARRY MCCARTHY,fogartyjr@gmail.com,info@garryformayor.com,,*,8,26-Nov-18,0,667,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,132,DOROTHY A. BROWN COOK,info@dorothyformayor.com,,,*,9,26-Nov-18,0,667,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,134,GERY CHICO,gery@chicagoformayor.com,,,F,10,26-Nov-18,0,116,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,159,SUSANA A. MENDOZA,info@susanamendoza.com,,,*,12,26-Nov-18,0,667,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,158,AMARA ENYIA,aenyia@gmail.com,info@amaraenyia.com,,F,13,26-Nov-18,0,116,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,167,LA SHAWN K. FORD,onchicago@fordforchicago.com,,,*,16,26-Nov-18,1,667,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,170,NEAL SÁLES-GRIFFIN,neal@nealformayor.com,,,*,17,26-Nov-18,10,667,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,175,LORI LIGHTFOOT,lori@lightfootforchicago.com,info@lightfootforchicago.com,,*,18,26-Nov-18,17,667,33992,
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,220,"ROBERT ""BOB"" FIORETTI",rw7chicago@yahoo.com,,,F,19,26-Nov-18,45,116,33992,
+
+100001,Municipal,For Mayor,City Of Chicago,,NonPartisan,224,JOHN KENNETH KOZLAR,jkkozlar7@gmail.com,,,F,21,26-Nov-18,43,116,33992,
+100002,Municipal,For City Clerk,City Of Chicago,,NonPartisan,11,ANNA M. VALENCIA,info@voteannavalencia.com,,,*,1,19-Nov-18,23,667,33992,Y
+100002,Municipal,For City Clerk,City Of Chicago,,NonPartisan,14,PATRICIA HORTON,commissionerhorton@yahoo.com,,,*,2,19-Nov-18,1,667,33992,
+100002,Municipal,For City Clerk,City Of Chicago,,NonPartisan,205,"ELIZABETH ""BETTY"" ARIAS-IBARRA",bettyibarra557@gmail.com,bettyforcityclerk@gmail.com,,*,3,26-Nov-18,52,667,33992,
+100003,Municipal,For City Treasurer,City Of Chicago,,NonPartisan,74,MELISSA CONYEARS-ERVIN,mce@melissaforchicago.org,,,*,1,19-Nov-18,105,667,33992,
+100003,Municipal,For City Treasurer,City Of Chicago,,NonPartisan,179,AMEYA PAWAR,info@pawarforchicago.org,,,*,2,26-Nov-18,51,667,33992,
+100003,Municipal,For City Treasurer,City Of Chicago,,NonPartisan,172,PETER GARIEPY,gariepy.peter@gmail.com,peter@peterforchicago.com,,*,3,26-Nov-18,20,667,33992,
+200001,Ward,For Alderman 1st Ward,1st,1,NonPartisan,36,"PROCO ""JOE"" MORENO",ewurth@ildems.com,,1330 North Leavitt Street,F,1,19-Nov-18,25,116,33907,Y
+200001,Ward,For Alderman 1st Ward,1st,1,NonPartisan,64,DANIEL LA SPATA,info@daniellaspata.com,,"2240 N. Campbell Ave., Unit 2",*,2,19-Nov-18,61,667,33907,
+200001,Ward,For Alderman 1st Ward,1st,1,NonPartisan,169,TREVOR JOSEPH GRANT,trevor.d.grant@gmail.com,,2638 West Belden Ave.,*,4,26-Nov-18,0,667,33907,
+200002,Ward,For Alderman 2nd Ward,2nd,2,NonPartisan,85,BRIAN HOPKINS,brian@hopkinsforchicago.com,,2328 North Lakewood Avenue,F,1,19-Nov-18,0,116,33908,Y
+200003,Ward,For Alderman 3rd Ward,3rd,3,NonPartisan,114,"PATRICIA ""PAT"" DOWELL",patd2007@aol.com,,"4414 S. Martin Luther King, Jr. Drive",F,1,19-Nov-18,78,116,33909,Y
+200003,Ward,For Alderman 3rd Ward,3rd,3,NonPartisan,119,ALEXANDRIA WILLIS,alexandria@winwithwillis.com,,4955 S Michigan Avenue Unit 3,F,2,19-Nov-18,0,116,33909,
+200004,Ward,For Alderman 4th Ward,4th,4,NonPartisan,98,SOPHIA KING,sddk@aol.com,info@friendsofsophiaking.com,4957 S. Woodlawn Avenue,F,1,19-Nov-18,115,116,33910,Y
+200004,Ward,For Alderman 4th Ward,4th,4,NonPartisan,72,EBONY D. LUCAS,ebony@lucasfor4th.com,,4138 South Ellis Avenue,*,2,19-Nov-18,114,667,33910,
+200005,Ward,For Alderman 5th Ward,5th,5,NonPartisan,81,LESLIE A. HAIRSTON,hairston5555@msn.com,,6858 South Chappel Avenue,F,1,19-Nov-18,111,116,33911,Y
+200005,Ward,For Alderman 5th Ward,5th,5,NonPartisan,168,WILLIAM CALLOWAY,bobby@poweringcampaigns.com,,6700 South Oglesby Avenue Apartment 2105,F,2,26-Nov-18,2,116,33911,
+200005,Ward,For Alderman 5th Ward,5th,5,NonPartisan,209,GABRIEL PIEMONTE,gabrielpiemonte@gmail.com,,1533 East 65th Street,*,4,26-Nov-18,35,667,33911,
+200006,Ward,For Alderman 6th Ward,6th,6,NonPartisan,93,RODERICK T. SAWYER,rtsawyersr@gmail.com,committeemansawyer@gmail.com,7229 South Prairie Avenue,F,1,19-Nov-18,82,116,33912,Y
+200006,Ward,For Alderman 6th Ward,6th,6,NonPartisan,152,RICHARD A. WOOTEN,richwooten400@gmail.com,,649 East 89th Place,F,2,26-Nov-18,0,116,33912,
+200006,Ward,For Alderman 6th Ward,6th,6,NonPartisan,185,DEBORAH A. FOSTER-BONNER,fosterbonner@deborahfor6thward.com,,8137 South Eberhart Avenue,F,3,26-Nov-18,40,116,33912,
+200007,Ward,For Alderman 7th Ward,7th,7,NonPartisan,97,GREGORY I. MITCHELL,mitchell7thward@gmail.com,,2113 East 93rd Street,F,1,19-Nov-18,66,116,33913,Y
+200007,Ward,For Alderman 7th Ward,7th,7,NonPartisan,125,CHARLES KYLE,friendsofcharleskyle@gmail.com,,7344 S. Crandon Ave.,*,2,23-Nov-18,0,667,33913,
+200007,Ward,For Alderman 7th Ward,7th,7,NonPartisan,203,JEDIDIAH L. BROWN,aboutchange@hotmail.com,,9716 South Chappel Avenue,*,6,26-Nov-18,44,667,33913,
+200008,Ward,For Alderman 8th Ward,8th,8,NonPartisan,69,MICHELLE A. HARRIS,michelle.harris@cityofchicago.org,michelleharris8@gmail.com,8627 South Constance Avenue,F,1,19-Nov-18,26,116,33914,Y
+200008,Ward,For Alderman 8th Ward,8th,8,NonPartisan,124,JEWEL R. EASTERLING-SMITH,easterlingsmith@gmail.com,,9107 South Constance Avenue,*,2,23-Nov-18,0,667,33914,
+200008,Ward,For Alderman 8th Ward,8th,8,NonPartisan,138,LINDA HUDSON,ewac8@att.net,lindahudson.8ward@att.net,8332 S. Dante Ave.,*,3,26-Nov-18,0,667,33914,
+200008,Ward,For Alderman 8th Ward,8th,8,NonPartisan,141,FAHEEM SHABAZZ,f_shabazz@comcast.net,,8311 S. Oglesby Avenue,*,5,26-Nov-18,0,667,33914,
+200008,Ward,For Alderman 8th Ward,8th,8,NonPartisan,221,DIONTE LAWRENCE,ceodlawrence@gmail.com,,7959 South Bennett Avenue,*,6,26-Nov-18,34,667,33914,
+200009,Ward,For Alderman 9th Ward,9th,9,NonPartisan,99,ANTHONY A. BEALE,tonybeale@comcast.net,,10005 South Prairie Avenue,F,1,19-Nov-18,113,116,33915,Y
+200009,Ward,For Alderman 9th Ward,9th,9,NonPartisan,22,CLEOPATRA WATSON,kerryluckett1@gmail.com,,10729 S. Champlain Avenue,F,2,19-Nov-18,9,116,33915,
+200009,Ward,For Alderman 9th Ward,9th,9,NonPartisan,202,PAUL COLLINS,elohiminc@sbcglobal.net,,16 East 124th St.,*,4,26-Nov-18,39,667,33915,
+200009,Ward,For Alderman 9th Ward,9th,9,NonPartisan,190,ESSIE HALL,drhallphd@gmail.com,,13346 South Indiana,*,5,26-Nov-18,23,667,33915,
+200010,Ward,For Alderman 10th Ward,10th,10,NonPartisan,77,SUSAN SADLOWSKI GARZA,camrecho913@yahoo.com,,10654 South Avenue G,F,1,19-Nov-18,110,116,33916,Y
+200010,Ward,For Alderman 10th Ward,10th,10,NonPartisan,63,"ROBERT ""BOBBY"" LONCAR",rloncar@loncarlaw.com,info@bobbyloncar.com,10954 S. Avenue B,F,2,19-Nov-18,94,116,33916,
+200011,Ward,For Alderman 11th Ward,11th,11,NonPartisan,30,PATRICK DALEY THOMPSON,rtoth@daleygeorges.com,,3536 South Lowe Avenue,F,1,19-Nov-18,42,116,33917,Y
+200011,Ward,For Alderman 11th Ward,11th,11,NonPartisan,102,DAVID MIHALYFY,david_mihalyfy@yahoo.com,mihalyfy@letourlightshine11thward.com,"3211 S. Lowe Ave., Apt. 1F",F,2,19-Nov-18,102,116,33917,
+200012,Ward,For Alderman 12th Ward,12th,12,NonPartisan,4,GEORGE CARDENAS,aldcardenas12@gmail,,2323 W. Pershing Road #503,F,1,19-Nov-18,33,116,33918,Y
+200012,Ward,For Alderman 12th Ward,12th,12,NonPartisan,84,SAMUEL ALCANTAR,N/A 773-254-0394,,3333 S. Ashland,*,2,19-Nov-18,89,667,33918,
+200012,Ward,For Alderman 12th Ward,12th,12,NonPartisan,217,PETE DEMAY,petedemay@gmail.com,,3709 S. Honore Street,*,4,26-Nov-18,32,667,33918,
+200012,Ward,For Alderman 12th Ward,12th,12,NonPartisan,229,MARTHA YERANIA RANGEL,N/A (773) 971-9518,,3234 S. Hoyne Ave,*,5,26-Nov-18,53,667,33918,
+200012,Ward,For Alderman 12th Ward,12th,12,NonPartisan,222,JOSE RICO,jose@joserico2019.com,,2441 S. Francisco,*,6,26-Nov-18,16,667,33918,
+200013,Ward,For Alderman 13th Ward,13th,13,NonPartisan,10,MARTY QUINN,ward13@cityofchicago.org,,5843 S. Normandy Ave.,F,1,19-Nov-18,24,116,33919,Y
+200013,Ward,For Alderman 13th Ward,13th,13,NonPartisan,121,DAVID J. KRUPA,krupadavid1028@gmail.com,david@davidkrupa.com,5840 W. 64th Place,*,2,20-Nov-18,0,667,33919,
+200014,Ward,For Alderman 14th Ward,14th,14,NonPartisan,35,JOSE TORREZ,torrezfor14@gmail.com,,4936 S. Kildare,F,1,19-Nov-18,6,116,33920,
+200014,Ward,For Alderman 14th Ward,14th,14,NonPartisan,19,EDWARD M. BURKE,alded14@aol.com,,3914 W. 51st Street,F,2,19-Nov-18,48,116,33920,Y
+200014,Ward,For Alderman 14th Ward,14th,14,NonPartisan,150,JAIME GUZMAN,chicago14ward@voteguzman.com,,"5511 South Whipple St, #10",F,3,26-Nov-18,0,116,33920,
+200014,Ward,For Alderman 14th Ward,14th,14,NonPartisan,154,IRENE CORRAL,jamelsaadeh1@yahoo.com,,5227 South Menard,*,5,26-Nov-18,0,667,33920,
+200014,Ward,For Alderman 14th Ward,14th,14,NonPartisan,232,TANYA G. PATINO,juliana.c.reschke@gmail.com,,4450 S Karlov Avenue,*,6,26-Nov-18,57,667,33920,
+200015,Ward,For Alderman 15th Ward,15th,15,NonPartisan,12,JOSEPH G. WILLIAMS,williamsfor15thward@gmail.com,,6405 South Wolcott Avenue,*,1,19-Nov-18,3,667,33921,
+200015,Ward,For Alderman 15th Ward,15th,15,NonPartisan,83,JOEL RIOJAS,justasrich01@gmail.com,,1902 West 48th Street,*,2,19-Nov-18,88,667,33921,
+200015,Ward,For Alderman 15th Ward,15th,15,NonPartisan,65,"RAFAEL ""RAFA"" YANEZ",rafaelyanezforalderman@gmail.com,,2141 West 49th Place,*,3,19-Nov-18,59,667,33921,
+200015,Ward,For Alderman 15th Ward,15th,15,NonPartisan,45,RAYMOND A. LOPEZ,raymond.lopez@the15thward.org,friendsofraymondlopez@gmail.com,4322 S. Artesian Avenue,F,4,19-Nov-18,55,116,33921,Y
+200015,Ward,For Alderman 15th Ward,15th,15,NonPartisan,20,BERTO AGUAYO,berto@bertoaguayo.org,,4822 S. Honore St.,*,5,19-Nov-18,8,667,33921,
+200015,Ward,For Alderman 15th Ward,15th,15,NonPartisan,206,"OTIS DAVIS, JR.",otisdavis2@gmail.com,,2038 West 51st Street,*,7,26-Nov-18,0,667,33921,
+200016,Ward,For Alderman 16th Ward,16th,16,NonPartisan,8,STEPHANIE D. COLEMAN,daughterofenglewood@gmail.com,,6200 South Ada Street,F,1,19-Nov-18,13,116,33922,
+200016,Ward,For Alderman 16th Ward,16th,16,NonPartisan,39,LATASHA M. SANDERS,latashamsanders@gmail.com,,5334 South Paulina Street,*,2,19-Nov-18,22,667,33922,
+200016,Ward,For Alderman 16th Ward,16th,16,NonPartisan,16,KENNY C. DOSS II,dossforalderman@gmail.com,,6045 South Morgan Street,*,3,19-Nov-18,4,667,33922,
+200016,Ward,For Alderman 16th Ward,16th,16,NonPartisan,48,TONI L. FOULKES,tonilavai50@gmail.com,,6704 South Wood Street,*,4,19-Nov-18,16,667,33922,Y
+200016,Ward,For Alderman 16th Ward,16th,16,NonPartisan,103,JEFFREY L. LEWIS,jeffreylewis7545@sbcglobal.net,,6235 South Ada Street,*,5,19-Nov-18,90,667,33922,
+200016,Ward,For Alderman 16th Ward,16th,16,NonPartisan,231,EDDIE JOHNSON III,eddiejohnson111@gmail.com,,6412 S. Aberdeen St.,*,6,26-Nov-18,56,667,33922,
+200017,Ward,For Alderman 17th Ward,17th,17,NonPartisan,2,DAVID H. MOORE,visionvaluesvoice@yahoo.com,,2318 West 71st Street,F,1,19-Nov-18,14,116,33923,Y
+200017,Ward,For Alderman 17th Ward,17th,17,NonPartisan,110,RAYNETTA GREENLEAF,rlgreenleaf00@gmail.com,greenleafmotivationinc@gmail.com,7841 S. Bishop Avenue,*,2,19-Nov-18,0,667,33923,
+200018,Ward,For Alderman 18th Ward,18th,18,NonPartisan,92,CHUKS ONYEZIA,info@chuksforalderman.com,info@chuksforalderman.com,8600 S. Kolmar Ave.,F,1,19-Nov-18,112,116,33924,
+200018,Ward,For Alderman 18th Ward,18th,18,NonPartisan,112,DERRICK G. CURTIS,dgc018@gmail.com,dgc018@gmail.com,8208 S. Christiana Ave.,*,2,19-Nov-18,0,667,33924,
+200019,Ward,For Alderman 19th Ward,19th,19,NonPartisan,51,MATTHEW J. O'SHEA,mattoshea@the19thward.com,,10551 South Maplewood,F,1,19-Nov-18,31,116,33925,Y
+200019,Ward,For Alderman 19th Ward,19th,19,NonPartisan,136,DAVID A. DEWAR,david@taxfreeretirementsolutions.com,david@taxfreeretirementsolutions.com,11347 S. Millard Ave.,F,2,26-Nov-18,0,116,33925,
+200020,Ward,For Alderman 20th Ward,20th,20,NonPartisan,79,JEANETTE B TAYLOR,taylorfor20th@gmail.com,taylorfor20th@gmail.com,6454 South Maryland Ave.,*,1,19-Nov-18,104,667,33926,
+200020,Ward,For Alderman 20th Ward,20th,20,NonPartisan,31,NICOLE J. JOHNSON,service@nicolejchi.com,service@nicolejchi.com,6505 S. Green St. #2,*,2,19-Nov-18,36,667,33926,
+200020,Ward,For Alderman 20th Ward,20th,20,NonPartisan,131,MAYA HODARI,mayahodari@gmail.com,electmayahodari@gmail.com,6543 S. Drexel Ave.,*,3,26-Nov-18,0,667,33926,
+200020,Ward,For Alderman 20th Ward,20th,20,NonPartisan,135,CHARLES HILLIARD,,,6128 South Ingleside Avenue,*,5,26-Nov-18,0,667,33926,
+200020,Ward,For Alderman 20th Ward,20th,20,NonPartisan,146,JENNIFER O. MADDOX,jenniferomaddox@gmail.com,jenniferomaddox@gmail.com,803 East 61st Street Unit 207,*,8,26-Nov-18,0,667,33926,
+200020,Ward,For Alderman 20th Ward,20th,20,NonPartisan,196,ANDRE SMITH,Andre.Smith1968@gmail.com,,6032 South Wabash Avenue,F,10,26-Nov-18,21,116,33926,
+200020,Ward,For Alderman 20th Ward,20th,20,NonPartisan,194,DERNARD D. NEWELL,dernardnewell@gmail.com,dernardnewell@gmail.com,6350 Drexel Avenue,*,11,26-Nov-18,15,667,33926,
+200020,Ward,For Alderman 20th Ward,20th,20,NonPartisan,211,QUANDRA V. SPEIGHTS,quan7aya@hotmail.com,,6444 South Drexel Avenue,*,12,26-Nov-18,11,667,33926,
+200020,Ward,For Alderman 20th Ward,20th,20,NonPartisan,183,KEVIN M. BAILEY,20thWardDemocrats@gmail.com,,5944 South Calumet Avenue,F,13,26-Nov-18,28,116,33926,
+200020,Ward,For Alderman 20th Ward,20th,20,NonPartisan,191,"ANTHONY DRIVER, JR.",akdriverjr@gmail.com,info@driverfor20th.com,850 West 50th Street,*,14,26-Nov-18,7,667,33926,
+200021,Ward,For Alderman 21st Ward,21st,21,NonPartisan,75,"HOWARD B. BROOKINS, JR.",ward21@cityofchicago.org,ward21@cityofchicago.org,9636 South Winston Avenue,*,1,19-Nov-18,27,667,33927,Y
+200021,Ward,For Alderman 21st Ward,21st,21,NonPartisan,143,MARVIN MCNEIL,marvinmcneil@gmail.com,marvinmcneil@gmail.com,8153 S. Green Street,*,3,26-Nov-18,0,667,33927,
+200021,Ward,For Alderman 21st Ward,21st,21,NonPartisan,188,PATRICIA A. FOSTER,patriciafoster331@yahoo.com,,8047 South Laflin Street,*,4,26-Nov-18,37,667,33927,
+200021,Ward,For Alderman 21st Ward,21st,21,NonPartisan,235,"JOSEPH C. ZIEGLER, JR.",zigjr@zieglerins.com,,8529 South Winchester Ave.,*,5,26-Nov-18,55,667,33927,
+200022,Ward,For Alderman 22nd Ward,22nd,22,NonPartisan,109,MICHAEL D. RODRIGUEZ,rodriguez831@gmail.com,contact@mikerodriguez.org,2621 S. Kedvale Ave.,F,1,19-Nov-18,95,116,33928,
+200022,Ward,For Alderman 22nd Ward,22nd,22,NonPartisan,60,"LISETTE ""LIZ"" LOPEZ",lizlopez4lavillita@gmail.com,,2824 South Hamlin Ave,F,2,19-Nov-18,54,116,33928,
+200022,Ward,For Alderman 22nd Ward,22nd,22,NonPartisan,95,RICHARD JUAREZ,electjuarez@gmail.com,,3053 S. Avers Ave.,F,3,19-Nov-18,92,116,33928,
+200022,Ward,For Alderman 22nd Ward,22nd,22,NonPartisan,101,NEFTALIE GONZALEZ,77eftaliegonzalez@hotmail.com,,2317 S. Millard Ave.,F,4,19-Nov-18,103,116,33928,
+200023,Ward,For Alderman 23rd Ward,23rd,23,NonPartisan,32,SILVANA TABARES,ewurth@ildems.com,,5300 South Normandy Avenue,F,1,19-Nov-18,28,116,33929,Y
+200023,Ward,For Alderman 23rd Ward,23rd,23,NonPartisan,120,"PAULINO R. VILLARREAL, JR.",Paul@VSIChicago.com,Paul@Villarrealfor23.com,6824 West 64th Place,F,2,19-Nov-18,0,116,33929,
+200024,Ward,For Alderman 24th Ward,24th,24,NonPartisan,5,CREATIVE SCOTT,creativesalonpoetry@yahoo.com,creativesalonpoetry@yahoo.com,1858 South Avers Avenue,*,1,19-Nov-18,2,667,33930,
+200024,Ward,For Alderman 24th Ward,24th,24,NonPartisan,41,"MICHAEL  SCOTT, JR.",mscott@aldermanscott.com,mscott@aldermanscott.com,1632 South Albany Avenue,*,2,19-Nov-18,19,667,33930,Y
+200024,Ward,For Alderman 24th Ward,24th,24,NonPartisan,147,TORIANO A. SANZONE,TE@Torianosanzone.com,Toriano@wemust.us,1439 South Komensky Avenue,*,3,26-Nov-18,0,667,33930,
+200024,Ward,For Alderman 24th Ward,24th,24,NonPartisan,192,(PAT) PATRICIA MARSHALL,,,1215 South Troy Street,*,6,26-Nov-18,46,667,33930,
+200024,Ward,For Alderman 24th Ward,24th,24,NonPartisan,199,"TRACI ""TREASURE"" JOHNSON",,,3311 West Flournoy Street,*,7,26-Nov-18,13,667,33930,
+200025,Ward,For Alderman 25th Ward,25th,25,NonPartisan,80,HILARIO DOMINGUEZ,,,2020 South May St.,F,1,19-Nov-18,58,116,33931,
+200025,Ward,For Alderman 25th Ward,25th,25,NonPartisan,78,"ALEXANDER ""ALEX"" ACEVEDO",,,"2520 South Oakley Avenue, #302",F,2,19-Nov-18,53,116,33931,
+200025,Ward,For Alderman 25th Ward,25th,25,NonPartisan,73,TROY ANTONIO HERNANDEZ,,,1413 West 16th Street,F,3,19-Nov-18,107,116,33931,
+200025,Ward,For Alderman 25th Ward,25th,25,NonPartisan,68,BYRON SIGCHO-LOPEZ,,,1813 S. Carpenter St.,*,4,19-Nov-18,77,667,33931,
+200025,Ward,For Alderman 25th Ward,25th,25,NonPartisan,59,AIDA FLORES,,,1633 South Carpenter.,F,5,19-Nov-18,7,116,33931,
+200026,Ward,For Alderman 26th Ward,26th,26,NonPartisan,107,THERESA SIAW,,,3516 W. Hirsch Street,*,1,19-Nov-18,74,667,33932,
+200026,Ward,For Alderman 26th Ward,26th,26,NonPartisan,33,ROBERTO MALDONADO,,,1725 North Troy Street,F,2,19-Nov-18,41,116,33932,Y
+200026,Ward,For Alderman 26th Ward,26th,26,NonPartisan,234,ANGEE GONZALEZ,,,3314 West Pierce Avenue,*,4,26-Nov-18,54,667,33932,
+200027,Ward,For Alderman 27th Ward,27th,27,NonPartisan,28,"WALTER BURNETT, JR.",,,1648 West Warren Boulevard,F,1,19-Nov-18,30,116,33933,Y
+200027,Ward,For Alderman 27th Ward,27th,27,NonPartisan,186,CYNTHIA D. BEDNARZ,,,2724 W. Washington Blvd.,*,2,26-Nov-18,14,667,33933,
+200028,Ward,For Alderman 28th Ward,28th,28,NonPartisan,46,MIGUEL BAUTISTA,,,"2457 W. Greenshaw St., Apt. 2",*,1,19-Nov-18,10,667,33934,
+200028,Ward,For Alderman 28th Ward,28th,28,NonPartisan,70,JASON C. ERVIN,,,3323 W. Jackson Boulevard,F,2,19-Nov-18,106,116,33934,Y
+200028,Ward,For Alderman 28th Ward,28th,28,NonPartisan,128,JASMINE JACKSON,,,2715 West Polk Street,*,3,24-Nov-18,0,667,33934,
+200028,Ward,For Alderman 28th Ward,28th,28,NonPartisan,204,BEVERLY MILES,,,4445 West Washington Boulevard Apt. 1,*,5,26-Nov-18,49,667,33934,
+200029,Ward,For Alderman 29th Ward,29th,29,NonPartisan,21,DWAYNE TRUSS,,,1351 N. Waller Ave.,*,1,19-Nov-18,11,667,33935,
+200029,Ward,For Alderman 29th Ward,29th,29,NonPartisan,71,CHRIS TALIAFERRO,,,3128 N. Octavia Ave.,*,2,19-Nov-18,99,667,33935,Y
+200029,Ward,For Alderman 29th Ward,29th,29,NonPartisan,201,ZERLINA A. SMITH,,,5300 West Quincy Street,*,5,26-Nov-18,8,667,33935,
+200030,Ward,For Alderman 30th Ward,30th,30,NonPartisan,42,JESSICA W. GUTIERREZ,,,4119 West Melrose Street Basement,F,1,19-Nov-18,49,116,33936,
+200030,Ward,For Alderman 30th Ward,30th,30,NonPartisan,9,ARIEL E. REBOYRAS,,,2654 North Parkside Avenue,F,2,19-Nov-18,34,116,33936,Y
+200030,Ward,For Alderman 30th Ward,30th,30,NonPartisan,149,"EDGAR ""EDEK"" ESPARZA",,,5400 W. Schubert Ave.,F,3,26-Nov-18,0,116,33936,
+200031,Ward,For Alderman 31st Ward,31st,31,NonPartisan,108,COLIN BIRD-MARTINEZ,,,"2447 N. Kildare Ave., #1",F,1,19-Nov-18,87,116,33937,
+200031,Ward,For Alderman 31st Ward,31st,31,NonPartisan,57,"MILAGROS ""MILLY"" SANTIAGO",,,3030 North Kolmar Avenue,F,2,19-Nov-18,65,116,33937,Y
+200031,Ward,For Alderman 31st Ward,31st,31,NonPartisan,29,FELIX CARDONA JR.,,,5232 W. Wolfram Street,F,3,19-Nov-18,21,116,33937,
+200032,Ward,For Alderman 32nd Ward,32nd,32,NonPartisan,122,SCOTT WAGUESPACK,,,1939 N. Wilmot Ave.,F,1,20-Nov-18,0,116,33938,Y
+200033,Ward,For Alderman 33rd Ward,33rd,33,NonPartisan,94,KATIE SIERACKI,katie@katie2019.com,info@katie2019.com,4553 N. Bernard St.,F,1,19-Nov-18,62,116,33939,
+200033,Ward,For Alderman 33rd Ward,33rd,33,NonPartisan,23,ROSSANA RODRIGUEZ SANCHEZ,,,"4907 N. Lawndale Ave., Apt. 3",F,2,19-Nov-18,15,116,33939,
+200033,Ward,For Alderman 33rd Ward,33rd,33,NonPartisan,27,DEBORAH L. MELL,,,2656 West Melrose Street,F,3,19-Nov-18,32,116,33939,Y
+200034,Ward,For Alderman 34th Ward,34th,34,NonPartisan,3,CARRIE M. AUSTIN,wilson12124@comcast.net,,500 West 111th Street,F,1,19-Nov-18,5,116,33940,Y
+200034,Ward,For Alderman 34th Ward,34th,34,NonPartisan,148,PRESTON BROWN JR,preston@prestonbrownjr.org,,10501 S. Martin Street,F,2,26-Nov-18,0,116,33940,
+200035,Ward,For Alderman 35th Ward,35th,35,NonPartisan,38,AMANDA YU DIETERICH,morgan@amandafor35.org,info@amandafor35.org,2627 N. Drake,F,1,19-Nov-18,50,116,33941,
+200035,Ward,For Alderman 35th Ward,35th,35,NonPartisan,66,CARLOS  RAMIREZ-ROSA,carlos@carlosrosa.org,,3138 N. Bernard St.,F,2,19-Nov-18,109,116,33941,Y
+200036,Ward,For Alderman 36th Ward,36th,36,NonPartisan,61,GILBERT VILLEGAS,gilbertvillegas36@gmail.com,,3225 North Newland Avenue,F,1,19-Nov-18,79,116,33942,Y
+200037,Ward,For Alderman 37th Ward,37th,37,NonPartisan,6,EMMA M. MITTS,elect-emmamitts@att.net,,4942 W. Rice Street,F,1,19-Nov-18,18,116,33943,Y
+200037,Ward,For Alderman 37th Ward,37th,37,NonPartisan,184,TARA STAMPS,stampstara@yahoo.com,taraforanew37@gmail.com,634 North Long Ave.,*,2,26-Nov-18,3,667,33943,
+200037,Ward,For Alderman 37th Ward,37th,37,NonPartisan,207,DEONDRE RUTUES,deondrerutues@gmail.com,rutuesfor37@gmail.com,1610 North Luna Avenue,*,4,26-Nov-18,63,667,33943,
+200038,Ward,For Alderman 38th Ward,38th,38,NonPartisan,115,NICHOLAS SPOSATO,thenick04@sbcglobal.net,,4608 N. Forestview Ave.,F,1,19-Nov-18,97,116,33944,Y
+200039,Ward,For Alderman 39th Ward,39th,39,NonPartisan,104,ROBERT MURPHY,robert@murphyfor39.com,info@murphyfor39.com,4864 West Berwyn Ave.,F,1,19-Nov-18,101,116,33945,
+200039,Ward,For Alderman 39th Ward,39th,39,NonPartisan,90,"SAMANTHA ""SAM"" NUGENT",sam@samanthanugent39.com,,6121 North Forest Glen Avenue,F,2,19-Nov-18,71,116,33945,
+200039,Ward,For Alderman 39th Ward,39th,39,NonPartisan,233,CASEY SMAGALA,smagalacasey@gmail.com,,4855 N. Springfield Ave. Unit 3,F,4,26-Nov-18,19,116,33945,
+200039,Ward,For Alderman 39th Ward,39th,39,NonPartisan,181,JOE DUPLECHIN,joefor39th@gmail.com,,5904 N. Leonard Ave.,F,5,26-Nov-18,6,116,33945,
+200040,Ward,For Alderman 40th Ward,40th,40,NonPartisan,106,UGO OKERE,ugo@ugo2019.com,nathan@ugo2019.com,5749 N. Sacramento Ave,F,1,19-Nov-18,108,116,33946,
+200040,Ward,For Alderman 40th Ward,40th,40,NonPartisan,89,DIANNE DALEIDEN,diannedaleiden@gmail.com,,5550 N. Paulina St.,F,2,19-Nov-18,67,116,33946,
+200040,Ward,For Alderman 40th Ward,40th,40,NonPartisan,96,ANDRÉ VASQUEZ,jessica@andrefor40th.com,info@andrefor40th.com,6115 N. Ravenswood Ave.,F,3,19-Nov-18,93,116,33946,
+200040,Ward,For Alderman 40th Ward,40th,40,NonPartisan,43,PATRICK J. O'CONNOR,roboconnormery@netscape.net,poc40th@gmail.com,2930 W. Catalpa Avenue,F,4,19-Nov-18,45,116,33946,Y
+200040,Ward,For Alderman 40th Ward,40th,40,NonPartisan,130,MAGGIE O'KEEFE,info@maggie2019.com,,"4816 N. California Ave., #2",F,5,24-Nov-18,0,116,33946,
+200041,Ward,For Alderman 41st Ward,41st,41,NonPartisan,50,TIM HENEGHAN,timheneghan41stward@gmail.com,,6605 N. Oconto Avenue,F,1,19-Nov-18,51,116,33947,
+200041,Ward,For Alderman 41st Ward,41st,41,NonPartisan,49,ANTHONY V. NAPOLITANO,napolitanofor41@aol.com,,7321 W. Greenleaf Ave.,F,2,19-Nov-18,63,116,33947,Y
+200042,Ward,For Alderman 42nd Ward,42nd,42,NonPartisan,17,BRENDAN REILLY,office@reillyforchicago.com,,222 West Erie Street,F,1,19-Nov-18,20,116,33948,Y
+200043,Ward,For Alderman 43rd Ward,43rd,43,NonPartisan,58,DEREK LINDBLOM,info@voteforderek.com,,1232 W. Draper Street,F,1,19-Nov-18,72,116,33949,
+200043,Ward,For Alderman 43rd Ward,43rd,43,NonPartisan,56,MICHELE SMITH,tkarmik@gmail.com,,1627 North Vine Street,F,2,19-Nov-18,73,116,33949,Y
+200043,Ward,For Alderman 43rd Ward,43rd,43,NonPartisan,87,LESLIE FOX,lesliefox@foxfor43.com,,2124 N. Cleveland Avenue,F,3,19-Nov-18,85,116,33949,
+200043,Ward,For Alderman 43rd Ward,43rd,43,NonPartisan,116,JACOB RINGER,jacob@ringer4results.com,,614 W. Willow St.,F,4,19-Nov-18,98,116,33949,
+200043,Ward,For Alderman 43rd Ward,43rd,43,NonPartisan,237,STEVEN MCCLELLAN,steven.mcclellan@gmail.com,,1800 North Hudson Avenue Unit 2F,*,6,26-Nov-18,62,667,33949,
+200043,Ward,For Alderman 43rd Ward,43rd,43,NonPartisan,173,REBECCA JANOWITZ,rebeccajanowitz@gmail.com,,"1 East Schiller Street, 19A",*,7,26-Nov-18,22,667,33949,
+200044,Ward,For Alderman 44th Ward,44th,44,NonPartisan,26,TOM TUNNEY,tomtunney44@gmail.com,tomtunney@tomtunney.com,330 West Diversey Parkway,F,2,19-Nov-18,17,116,33950,Y
+200044,Ward,For Alderman 44th Ward,44th,44,NonPartisan,52,AUSTIN BAIDAS,agbaidas@gmail.com,austinfor44@gmail.com,800 W. Cornelia Ave. #400,*,3,19-Nov-18,69,667,33950,
+200044,Ward,For Alderman 44th Ward,44th,44,NonPartisan,176,ELIZABETH SHYDLOWSKI,lshydlowski@gmail.com,info@elizabethshydlowski.com,"632 W. Wellington Avenue, #1W",*,4,26-Nov-18,5,667,33950,
+200045,Ward,For Alderman 45th Ward,45th,45,NonPartisan,40,MARILYN MORALES,marmorales41@yahoo.com,,5359 W. Winona Street,F,1,19-Nov-18,37,116,33951,
+200045,Ward,For Alderman 45th Ward,45th,45,NonPartisan,67,JOHN S. ARENA,john@arenafor45.com,,4137 N. LeClaire Ave.,*,2,19-Nov-18,57,667,33951,Y
+200045,Ward,For Alderman 45th Ward,45th,45,NonPartisan,34,"JAMES ""JIM"" GARDINER",gardiner45th@gmail.com,info@gardiner45th.com,5941 North Mobile Avenue,F,3,19-Nov-18,40,116,33951,
+200045,Ward,For Alderman 45th Ward,45th,45,NonPartisan,180,ROBERT A. BANK,robertbank@sbcglobal.net,bobbank@our45thward.com,5506 N. Lotus Ave.,F,4,26-Nov-18,12,116,33951,
+200046,Ward,For Alderman 46th Ward,46th,46,NonPartisan,25,MARIANNE LALONDE,marianne.lalonde@gmail.com,,903 W. Lawrence Ave. #2E,F,1,19-Nov-18,35,116,33952,
+200046,Ward,For Alderman 46th Ward,46th,46,NonPartisan,47,ERIKA WOZNIAK FRANCIS,jordan@erikafor46thward.com,info@erikafor46thward.com,"937 W. Sunnyside Ave., #2E",F,2,19-Nov-18,86,116,33952,
+200046,Ward,For Alderman 46th Ward,46th,46,NonPartisan,91,JUSTIN KREINDLER,justin@justinfor46.com,,733 W. Waveland Ave,*,3,19-Nov-18,96,667,33952,
+200046,Ward,For Alderman 46th Ward,46th,46,NonPartisan,55,JAMES CAPPLEMAN,james46ward@gmail.com,,4727 N. Kenmore Avenue #1,F,4,19-Nov-18,83,116,33952,Y
+200046,Ward,For Alderman 46th Ward,46th,46,NonPartisan,198,ANGELA CLAY,clayfor46@gmail.com,,4509 N. Hazel Street,*,5,26-Nov-18,27,667,33952,
+200046,Ward,For Alderman 46th Ward,46th,46,NonPartisan,212,JON-ROBERT MCDOWELL,jonrobertmcdowell@gmail.com,jrfor46@gmail.com,"4210 N. Kenmore Ave., Apt. 1D",*,6,26-Nov-18,29,667,33952,
+200047,Ward,For Alderman 47th Ward,47th,47,NonPartisan,86,EILEEN DORDEK,edords68@gmail.com,friends@eileendordek.org,2154 W. Windsor Avenue,F,1,19-Nov-18,80,116,33953,
+200047,Ward,For Alderman 47th Ward,47th,47,NonPartisan,76,"ANGELA ""ANGIE"" MALONEY",angiemaloney47@gmail.com,,4606 N. Damen #1,F,2,19-Nov-18,100,116,33953,
+200047,Ward,For Alderman 47th Ward,47th,47,NonPartisan,54,HEATHER WAY KITZES,info@wayforward47.org,,4916 N. Hermitage Ave.,F,3,19-Nov-18,47,116,33953,
+200047,Ward,For Alderman 47th Ward,47th,47,NonPartisan,53,MICHAEL A. NEGRON,michaelnegron01@gmail.com,michael@negronfor47.com,2253 West Cullom Avenue,F,4,19-Nov-18,60,116,33953,
+200047,Ward,For Alderman 47th Ward,47th,47,NonPartisan,82,MATT MARTIN,laura@matt47.com,info@matt47.com,2011 W. Eastwood Ave.,F,5,19-Nov-18,56,116,33953,
+200047,Ward,For Alderman 47th Ward,47th,47,NonPartisan,113,GUS KATSAFAROS,gkatsafaros@yahoo.com,,"4315 N. Damen Ave., Unit 3",F,6,19-Nov-18,84,116,33953,
+200047,Ward,For Alderman 47th Ward,47th,47,NonPartisan,117,THOMAS M. SCHWARTZERS,"tomfor47@gmail.com
+",pericles1@gmail.com,1431 West Cuyler 3R,F,7,19-Nov-18,70,116,33953,
+200047,Ward,For Alderman 47th Ward,47th,47,NonPartisan,200,KIMBALL LADIEN,kladienmd@yahoo.com,,1732 W. School Street.,F,8,26-Nov-18,47,116,33953,
+200047,Ward,For Alderman 47th Ward,47th,47,NonPartisan,177,JEFF JENKINS,friendsofjeffjenkins@gmail.com,,2233 W. Cullom Ave.,F,9,26-Nov-18,31,116,33953,
+200048,Ward,For Alderman 48th Ward,48th,48,NonPartisan,100,HARRY OSTERMAN,harryosterman@sbcglobal.net,jacque@harryosterman.org,1249 W. Norwood Street,F,1,19-Nov-18,76,116,33954,Y
+200048,Ward,For Alderman 48th Ward,48th,48,NonPartisan,182,DAVID EARL WILLIAMS III,david@dewforpolitics.com,,1055 West Granville Ave. Apt 703,F,2,26-Nov-18,41,116,33954,
+200049,Ward,For Alderman 49th Ward,49th,49,NonPartisan,88,JOE MOORE,joe@joemoore.org,democrats@the49thward.com,"1200 W. Sherwin Avenue, Unit L-O",F,1,19-Nov-18,81,116,33955,Y
+200049,Ward,For Alderman 49th Ward,49th,49,NonPartisan,37,MARIA HADDEN,maria@mariafor49.org,,"6807 N. Ashland Ave., Unit GN",F,2,19-Nov-18,44,116,33955,
+200050,Ward,For Alderman 50th Ward,50th,50,NonPartisan,62,DEBRA L. SILVERSTEIN,reelectsilverstein50@gmail.com,,2916 W. Jarvis Avenue,F,1,19-Nov-18,64,116,33956,Y
+200050,Ward,For Alderman 50th Ward,50th,50,NonPartisan,111,ANDREW D ROWLAS,adr419@yahoo.com,rowlasforward50@gmail.com,2328 West Farwell Avenue Unit 1,F,2,19-Nov-18,68,116,33956,
+200050,Ward,For Alderman 50th Ward,50th,50,NonPartisan,195,ZEHRA QUADRI,,,"2414 W. Devon Avenue, Unit 311",*,3,26-Nov-18,25,667,33956,
+200050,Ward,For Alderman 50th Ward,50th,50,NonPartisan,210,MAJID MUSTAFA,magicsfm@yahoo.com,,"7033 N. Kedzie Ave., #112",*,4,26-Nov-18,30,667,33956,

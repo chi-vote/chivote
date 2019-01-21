@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.offices',
     'apps.newsfeed',
     'apps.races',
+    'apps.questionnaires',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +66,7 @@ ROOT_URLCONF = 'chivote.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
