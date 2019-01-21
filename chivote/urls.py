@@ -28,7 +28,7 @@ urlpatterns = [
 urlpatterns += [
     path('core/', include('apps.core.urls')),
     path('races/', include('apps.races.urls')),
-    # path('questionnaire/', include('apps.questionnaires.urls'))
+    path('questionnaire/', include('apps.questionnaires.urls'))
 ]
 
 # Use static() to add url mapping to serve static files during development (only)
