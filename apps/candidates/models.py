@@ -15,7 +15,11 @@ class Candidate(models.Model):
 
     race = models.ForeignKey(Race, on_delete=models.CASCADE)
     incumbent = models.BooleanField(default=False)
-    ballot_order = models.IntegerField()
+    ballot_order = models.PositiveSmallIntegerField(
+        default=0, blank=False, null=False)
+
+    class Meta(object):
+        ordering = ['ballot_order']
 
 
 class CandidateContact(models.Model):

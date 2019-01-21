@@ -2,12 +2,14 @@ from django.contrib import admin
 from apps.races.models import Race
 from apps.candidates.models import Candidate
 
+from adminsortable2.admin import SortableInlineAdminMixin
+
 from django.forms import inlineformset_factory
 
 # CandidateFormSet = inlineformset_factory(Race, Candidate, fields=('name',))
 
 
-class CandidateInline(admin.TabularInline):
+class CandidateInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Candidate
     extra = 0
     min_num = 1
@@ -29,5 +31,5 @@ class RaceAdmin(admin.ModelAdmin):
     # link_to_race.short_description = 'Race'
     # link_to_race.admin_order_field = 'race'
 
-    list_display = ('__str__', 'num_candidates')
+    list_display = ('__str__', 'num_candidates',)
     ordering = ('id',)

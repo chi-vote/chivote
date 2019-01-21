@@ -6,7 +6,6 @@ from django.urls import reverse
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 
-
 from apps.candidates.models import Candidate, CandidateContact
 from apps.questionnaires.models import Response
 
