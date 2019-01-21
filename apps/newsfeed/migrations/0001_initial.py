@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('hed', models.CharField(max_length=280)),
                 ('link', models.CharField(max_length=1000)),
+                ('source', models.CharField(max_length=200)),
                 ('races', models.ManyToManyField(to='races.Race')),
             ],
         ),
