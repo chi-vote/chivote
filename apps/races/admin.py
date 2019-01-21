@@ -1,26 +1,8 @@
 from django.contrib import admin
-from apps.candidates.models import Candidate, CandidateContact
-from apps.questionnaires.models import Response
+from apps.races.models import Race
 
-class ContactInline(admin.TabularInline):
-    model = CandidateContact
+class RaceAdmin(admin.ModelAdmin):
+    model = Race
 
-class ResponseInline(admin.StackedInline):
-    model = Response
+admin.site.register(Race, RaceAdmin)
 
-class CandidateAdmin(admin.ModelAdmin):
-    model= Candidate
-    inlines = [
-            ContactInline,
-            ResponseInline
-            ]
-
-admin.site.register(Candidate, CandidateAdmin)
-
-
-"""
-from apps.newsfeed.models import FeedItem, RaceTag
-# Register your models here.
-
-admin.site.register(FeedItem)
-"""
