@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load render_bundle from webpack_loader %}
+{% load helper_tags %}
+
+{% block title %}<title>Chi.Vote</title>{% endblock %}
+
+{% block content %}
+<div id="app"></div>
+
+<!-- TODO Replace this list with React code? -->
+{% if race_list %}
+<ul>
+  {% for race in race_list %}
+  <li>
+    <a href="{{ race.get_absolute_url }}">{{ race }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<script>
+  window.component = '{{ component }}';
+  window.props = {{ props | json }};
+  window.reactRoot = document.getElementById('app');
+</script>
+
+{% render_bundle 'main' %}
+
+{% endblock %}

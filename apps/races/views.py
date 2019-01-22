@@ -46,3 +46,9 @@ class RaceDetailView(BuildableDetailView):
         context.update(react_dict)
 
         return context
+
+
+class RaceListView(BuildableListView):
+    model = Race
+    template_name = 'race_list.html'
+    build_path = 'races/index.html'

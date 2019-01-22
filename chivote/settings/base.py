@@ -150,6 +150,7 @@ BUILD_DIR = os.path.join(BASE_DIR, 'build')
 BAKERY_VIEWS = (
     'apps.core.views.HomePageView',
     'apps.races.views.RaceDetailView',
+    'apps.races.views.RaceListView',
 )
 
 # webpack_loader settings
