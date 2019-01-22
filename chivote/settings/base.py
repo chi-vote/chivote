@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'apps.newsfeed',
     'apps.races',
     'apps.questionnaires',
+    'apps.site_content',
 ]
 
 MIDDLEWARE = [
