@@ -148,11 +148,8 @@ AWS_DEFAULT_ACL = None
 INSTALLED_APPS += ('bakery',)
 BUILD_DIR = os.path.join(BASE_DIR, 'build')
 BAKERY_VIEWS = (
-    'apps.catalog.views.HomePageView',
-    'apps.catalog.views.BookListView',
-    'apps.catalog.views.BookDetailView',
-    'apps.catalog.views.AuthorListView',
-    'apps.catalog.views.AuthorDetailView'
+    'apps.core.views.HomePageView',
+    'apps.races.views.RaceDetailView',
 )
 
 # webpack_loader settings
