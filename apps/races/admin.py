@@ -6,6 +6,7 @@ from adminsortable2.admin import SortableInlineAdminMixin
 
 from django.forms import inlineformset_factory
 
+
 # CandidateFormSet = inlineformset_factory(Race, Candidate, fields=('name',))
 
 
@@ -13,6 +14,19 @@ class CandidateInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Candidate
     extra = 0
     min_num = 1
+
+    def link_to_candidate(self, obj):
+        from django.urls import reverse
+        from django.utils.safestring import mark_safe
+
+        link = reverse('admin:candidates_candidate_change', args=[obj.pk])
+        return mark_safe(f'<a href="{link}">Edit</a>') if obj.pk else None
+
+    link_to_candidate.short_description = 'Edit'
+    # link_to_candidate.admin_order_field = 'race'
+
+    # fields = ('__all__', 'link_to_candidate',)
+    readonly_fields = ('link_to_candidate',)
 
 
 @admin.register(Race)
