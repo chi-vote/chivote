@@ -4,7 +4,7 @@ from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
 
 from apps.candidates.models import Candidate, CandidateContact
-from apps.questionnaires.models import Response
+# from apps.questionnaires.models import Response
 
 
 class ContactInline(admin.TabularInline):
@@ -13,9 +13,9 @@ class ContactInline(admin.TabularInline):
     min_num = 1
 
 
-class ResponseInline(admin.StackedInline):
-    model = Response
-    extra = 0
+# class ResponseInline(admin.StackedInline):
+#     model = Response
+#     extra = 0
 
 
 class CandidateForm(ModelForm):
@@ -36,7 +36,7 @@ class CandidateAdmin(admin.ModelAdmin):
     form = CandidateForm
     inlines = [
         ContactInline,
-        ResponseInline
+        # ResponseInline
     ]
     fieldsets = (
         (None, {
