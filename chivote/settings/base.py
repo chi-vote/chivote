@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'apps.races',
     'apps.questionnaires',
     'apps.site_content',
+    'adminsortable2',
 ]
 
 MIDDLEWARE = [

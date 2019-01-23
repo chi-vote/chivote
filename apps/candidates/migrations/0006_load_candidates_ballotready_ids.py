@@ -21,7 +21,7 @@ def load(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('candidates', '0004_load_candidates_and_contacts'),
+        ('candidates', '0005_auto_20190123_1708'),
     ]
 
     operations = [
