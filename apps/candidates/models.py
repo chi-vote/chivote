@@ -8,7 +8,7 @@ class Candidate(models.Model):
     def __str__(self):
         return self.name
 
-    cboe_id = models.IntegerField()  # TODO: this should match fields below
+    cboe_id = models.IntegerField()
     isbe_id = models.IntegerField(null=True, blank=True)
     br_id = models.IntegerField(null=True, blank=True)
     ri_id = models.IntegerField(null=True, blank=True)
