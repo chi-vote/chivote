@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'League Spartan Bold';
+  src: url('../fonts/LeagueSpartan-Bold.otf')
+}
+
+body, #app {
+	height: 100vh;
+	width: 100vw;
+	background-color: #31313B;
+}
+
+body * {
+	font-family: 'League Spartan Bold', sans-serif;
+}
+
+.is-darkblue-text {
+	color: #31313B;
+}
+
+.button {
+	background-color: transparent;
+	border-width: 4px;
+	color: white;
+	border-color: white;
+}
+
+.detail-view {
+	padding: 1rem;
+}
+
+.page {
+	padding: 2rem;
+}
+
+p {
+	color: white;
+	margin-bottom: 1rem;
+}
