@@ -7,11 +7,14 @@ const RaceList = (props) => {
   const races = JSON.parse(props.data.races)
   return (
     <List>
-      {races.map(race => {
-        <li className="list-item">
-          <a href={`races/${race.id}`}>{race.name}</a>
-        </li>
-      })}
+      {
+        races.map(race => {
+          return (
+            <li className="list-item">
+              <a href={`${race.id}`}>{race.name}</a>
+            </li>
+        )})
+      }
     </List>
   )
 }

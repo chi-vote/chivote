@@ -2,9 +2,9 @@ import React from 'react'
 
 const List = (props) => {
     return (
-        <dl className={props.className}>
+        <ul className={props.className}>
             {props.children}
-        </dl>
+        </ul>
     )
 }
 

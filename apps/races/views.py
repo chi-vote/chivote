@@ -49,7 +49,7 @@ dolorem harum, perferendis inventore earum, neque ducimus quod odio omnis. Volup
     return context
 
 
-class RaceListView(BuildableListView):
+class RaceListView(BuildableTemplateView):
   model = Race
   template_name = 'race_list.html'
 
