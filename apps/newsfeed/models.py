@@ -23,6 +23,7 @@ class Issue(models.Model):
 
 class Article(models.Model):
     hed = models.CharField(max_length=280)
+    summary = RichTextField(null=True, blank=True)
     date = models.DateTimeField()
     link = models.URLField()
     source = models.CharField(max_length=200, verbose_name='Publisher')
@@ -38,8 +39,9 @@ class Article(models.Model):
 
 
 class CandidateStance(models.Model):
-    statement_short = models.CharField(max_length=280)
-    statement_long = RichTextField()
+    statement_short = models.CharField(
+        max_length=280, verbose_name='Short stance')
+    statement_long = RichTextField(verbose_name='Long stance')
     date = models.DateField(null=True, blank=True)
     link = models.URLField()
     source = models.CharField(max_length=200, verbose_name='Publisher')
@@ -49,4 +51,6 @@ class CandidateStance(models.Model):
         Issue, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
-        return f'{self.candidate.name} on {self.issue.name}'
+        import textwrap
+        string = f'{self.candidate.name} on {self.issue.name}: {self.statement_short}'
+        return textwrap.shorten(string, width=100)
