@@ -83,6 +83,16 @@ body * {
   padding: 2rem;
 }
 
+.ward-button {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #3F3F4D;
+  font-size: 1.25rem;
+}
+
 p {
 	color: white;
 	margin-bottom: 1rem;

@@ -26,11 +26,21 @@ const CollectivePage = props => {
         The Chicago Reporter, The Daily Line and The Triibe.
       </p>
       <div className="logos">
-        <img src={bccLogo} alt="" className="collective-logo"/>
-        <img src={bgaLogo} alt="" className="collective-logo"/>
-        <img src={reporterLogo} alt="" className="collective-logo"/>
-        <img src={tdlLogo} alt="" className="collective-logo"/>
-        <img src={triibeLogo} alt="" className="collective-logo"/>
+        <a href="https://blockclubchicago.org/">
+          <img src={bccLogo} alt="Link to Block Club Chi" className="collective-logo"/>
+        </a>
+        <a href="https://www.bettergov.org/">
+          <img src={bgaLogo} alt="Link to Better Government Association" className="collective-logo"/>
+        </a>
+        <a href="https://www.chicagoreporter.com/">
+          <img src={reporterLogo} alt="Link to The Chicago Reporter" className="collective-logo"/>
+        </a>
+        <a href="http://thedailyline.net/">
+          <img src={tdlLogo} alt="Link to The Daily Line" className="collective-logo"/>
+        </a>
+        <a href="https://thetriibe.com">
+          <img src={triibeLogo} alt="Link to The TRiiBE" className="collective-logo"/>
+        </a>
       </div>
     </Page>
   );
