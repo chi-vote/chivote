@@ -7,11 +7,18 @@ body, #app {
   height: 100%;
   min-height: 100vh;
 	width: 100vw;
-	background-color: #31313B;
+}
+
+body {
+  /* background-color: #31313B; */
 }
 
 body * {
 	font-family: 'League Spartan Bold', sans-serif;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
 }
 
 .is-darkblue-text {
@@ -31,6 +38,17 @@ body * {
 
 .page {
 	padding: 2rem;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+}
+
+.mobile-menu {
+  z-index: 9999;
 }
 
 p {

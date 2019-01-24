@@ -17,6 +17,7 @@ export default class RaceDetail extends Component {
     return (
       <div className="container">
         <Page
+          className="page page--detail"
           heading={`Race for ${JSON.parse(data.office).office}`}>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae sequi quisquam asperiores, cum at voluptatem rem. Minus repudiandae sunt nemo?</p>
           <section id="the-candidates">

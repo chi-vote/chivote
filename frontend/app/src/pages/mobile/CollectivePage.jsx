@@ -3,7 +3,7 @@ import Page from '../../components/Page'
 
 const CollectivePage = (props) => {
   return (
-    <Page>
+    <Page className="page page--collective">
       <h1 className="title is-1">Chi.Vote Collective</h1>
     </Page>
   )

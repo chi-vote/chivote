@@ -5,19 +5,22 @@ import "../../assets/styles/LandingPage.css";
 
 const LandingPage = (props) => {
   return (
-    <Page>
-      <div className="landing-page">
-        <img src={chivoteLogo} alt="Chi.Vote logo"/>
-        <h1 className="header__tagline">
-          Everything you need to know to vote in Chicago on
-          <em className="is-darkblue-text"> Tuesday, Feb. 26th</em>
-        </h1>
-        <button
-          className="button">Get Started</button>
-        <button
-          className="button"
-          onClick={props.goCollective}>What is this?</button>
-      </div>
+    <Page className="page page--landing has-text-centered">
+      <img src={chivoteLogo} alt="Chi.Vote logo" className="mb-1"/>
+      <h1 className="header__tagline is-size-4 mb-1">
+        Everything you need to know to vote in Chicago on
+        <em className="is-darkblue-text"> Tuesday, Feb. 26th</em>
+      </h1>
+      <button
+        className="button get-started is-large">Get Started</button>
+      <button
+        className="button is-medium is-outlined"
+        onClick={props.goCollective}>
+        <p>What is this?</p>
+        {/* <span className="icon">
+          <i className="fa fa-lg fa-caret-down"></i>
+        </span> */}
+      </button>
     </Page>
   )
 }

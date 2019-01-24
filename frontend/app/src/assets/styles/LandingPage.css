@@ -1,7 +1,18 @@
-.landing-page {
+.page--landing {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #55C1E8;
+  border: 1px solid #55C1E8;
+}
+
+.get-started {
+  height: auto;
+  background-color: #CE112D;
+  border-color: #CE112D;
+  border-radius: 19px;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
 }

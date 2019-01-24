@@ -3,7 +3,7 @@ import '../assets/styles/Page.css'
 
 const Page = (props) => {
   return (
-    <section className="page">
+    <section {...props}>
       {
         props.heading &&
         <h1 className="page-heading title is-3">{props.heading}</h1>

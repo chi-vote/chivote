@@ -9,13 +9,41 @@
     crossorigin="anonymous"> -->
   <!-- Add additional CSS in static file -->
   {% load static %}
+  <link href="https://unpkg.com/js-offcanvas@1.2.8/dist/_css/prefixed/js-offcanvas.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
 <body>
-  {% block content %}{% endblock %}
+  <main class="c-offcanvas-content-wrap">
+    <nav class="navbar navbar--mobile">
+      <div class="navbar-item">
+        <a href="#offcanvas-menu" class="" id="menu-trigger">
+          <span class="icon is-medium">
+            <i class="fas fa-lg fa-bars"></i>
+          </span>
+        </a>
+      </div>
+    </nav>
+    {% block content %}{% endblock %}
+  </main>
+  <aside id="offcanvas-menu" class="mobile-menu">
+    <nav>
+      <li><a href="races">Races</a></li>
+    </nav>
+  </aside>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/js-offcanvas@1.2.8/dist/_js/js-offcanvas.pkgd.min.js"></script>
+  <script>
+    $('#offcanvas-menu').offcanvas({
+        modifiers: 'right, overlay', // default options
+        triggerButton: '#menu-trigger' // btn to open offcanvas
+    });
+  </script>
 </body>
 
 </html>

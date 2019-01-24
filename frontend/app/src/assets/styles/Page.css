@@ -5,3 +5,8 @@
 .page-heading {
   color: #55C1E8;
 }
+
+.page--collective,
+.page--detail {
+  background-color: #31313B;
+}
