@@ -11,20 +11,20 @@ export default class RaceDetail extends Component {
 
   render() {
     const { data, candidates } = this.props
-    const parsedData = JSON.parse(data.modelData)[0]
+    const parsedData = JSON.parse(data.statements)
     console.log(parsedData);
-    
+
     return (
       <div className="container">
         <Page
-          heading={`Race for ${data.office}`}>
+          heading={`Race for ${JSON.parse(data.office).office}`}>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae sequi quisquam asperiores, cum at voluptatem rem. Minus repudiandae sunt nemo?</p>
           <section id="the-candidates">
             <h2 className="page-heading title is-5">The Candidates</h2>
             <List className="candidates-list">
               {
                 JSON.parse(candidates).map(item => (
-                  <CandidateItem 
+                  <CandidateItem
                     key={item.pk}
                     id={item.pk}
                     name={item.fields.name}
