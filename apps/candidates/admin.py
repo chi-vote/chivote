@@ -40,7 +40,7 @@ class CandidateAdmin(admin.ModelAdmin):
     ]
     fieldsets = (
         (None, {
-            'fields': ('name', 'race', 'status', 'incumbent', 'ballot_order')
+            'fields': ('first_name', 'middle_name', 'last_name', 'suffix', 'full_name', 'race', 'status', 'incumbent', 'ballot_order')
         }),
         ('Alternate keys', {
             'classes': ('collapse',),
