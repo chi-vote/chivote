@@ -10,3 +10,20 @@
 .page--detail {
   background-color: #31313B;
 }
+
+.page--collective {
+  padding-top: 5rem;
+  overflow-y: scroll;
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.collective-logo {
+  margin: 1rem auto;
+  max-width: 100%;
+  max-height: 100px;
+}

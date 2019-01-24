@@ -47,8 +47,40 @@ body * {
   background-color: transparent;
 }
 
+.navbar--mobile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar-menu-trigger {
+  color: white;
+  padding: 1rem;
+}
+
 .mobile-menu {
+  background-color: #31313B;
   z-index: 9999;
+}
+
+.menu-item {
+  background-color: #31313B;
+  border-bottom: 1px solid #4e4e5a;
+  list-style-type: none;
+}
+
+.menu-item a {
+  display: block;
+  width: 100%;
+  color: white;
+  padding: 1rem 1.5rem;
+  color: white;
+  font-size: 1.75rem;
+}
+
+.menu__home-link {
+  display: block;
+  padding: 1rem;
 }
 
 p {

@@ -18,19 +18,20 @@
 <body>
   <main class="c-offcanvas-content-wrap">
     <nav class="navbar navbar--mobile">
-      <div class="navbar-item">
-        <a href="#offcanvas-menu" class="" id="menu-trigger">
-          <span class="icon is-medium">
-            <i class="fas fa-lg fa-bars"></i>
-          </span>
-        </a>
-      </div>
+      <a href="#offcanvas-menu" class="navbar-menu-trigger" id="menu-trigger">
+        <span class="icon is-medium">
+          <i class="fas fa-2x fa-bars"></i>
+        </span>
+      </a>
     </nav>
     {% block content %}{% endblock %}
   </main>
   <aside id="offcanvas-menu" class="mobile-menu">
     <nav>
-      <li><a href="races">Races</a></li>
+      <a href="/" class="menu__home-link">
+        <img src="{% static 'images/chivote-logo.png' %}" alt="" class="menu__logo">
+      </a>
+      <li class="menu-item"><a href="{ % BASE_DIR% }/races">Races</a></li>
     </nav>
   </aside>
   <script
