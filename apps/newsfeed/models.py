@@ -22,10 +22,11 @@ class Issue(models.Model):
 
 
 class Article(models.Model):
-    hed = models.CharField(max_length=280)
+    hed = models.CharField(max_length=280, unique=True,
+                           verbose_name='Headline')
     summary = RichTextField(null=True, blank=True)
     date = models.DateTimeField()
-    link = models.URLField()
+    link = models.URLField(unique=True)
     source = models.CharField(max_length=200, verbose_name='Publisher')
     candidate = models.ManyToManyField(
         Candidate, blank=True, verbose_name="Candidate(s)", help_text="Double click, or select and click the arrow, to add or remove a candidate.")
