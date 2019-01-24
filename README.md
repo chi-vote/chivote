@@ -39,6 +39,7 @@ PG_PASSWORD = sample_password" >> .env
 ./manage.py migrate
 ./manage.py createsuperuser
 ./manage.py loaddata newsfeed
+./manage.py collectstatic
 ```
 
 6. Build frontend with `yarn --cwd ./frontend install`
