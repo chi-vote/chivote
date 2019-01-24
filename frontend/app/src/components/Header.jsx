@@ -6,17 +6,17 @@ import { hot } from 'react-hot-loader/root';
 class Header extends Component {
   render() {
     return (
-      <div className="header">
+      <header className="header">
         <div className="level">
           <div className="level-left">
             <div className="level-item">
               <img className="header__logo" src={chivoteLogo} alt="Chi.Vote logo"/>
             </div>
             <div className="level-item">
-              <span className="header__tagline">
+              <h1 className="header__tagline">
                 Everything you need to know to vote in Chicago on
-                <span className="is-darkblue-text"> Tuesday, Feb. 26th</span>
-              </span>
+                <em className="is-darkblue-text"> Tuesday, Feb. 26th</em>
+              </h1>
             </div>
           </div>
           <div className="level-right">
@@ -30,7 +30,7 @@ class Header extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </header>
     )
   }
 }

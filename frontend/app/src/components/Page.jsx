@@ -3,10 +3,10 @@ import '../assets/styles/Page.css'
 
 const Page = (props) => {
   return (
-    <div className="page">
-      <h3 className="page-heading title is-3">{props.heading}</h3>
+    <section className="page">
+      <h1 className="page-heading title is-3">{props.heading}</h1>
       {props.children}
-    </div>
+    </section>
   )
 }
 

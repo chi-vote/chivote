@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import RaceDetail from './pages/RaceDetail'
+import RaceList from './pages/RaceList'
 import CandidateDetail from './pages/CandidateDetail'
 
 /**
@@ -11,7 +12,8 @@ import CandidateDetail from './pages/CandidateDetail'
 
 const pages = {
 	App,
-	RaceDetail,
+  RaceDetail,
+  RaceList,
 	CandidateDetail
 };
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Page from '../components/Page'
+import List from '../components/List'
 import CandidateItem from '../components/CandidateItem'
 
 export default class RaceDetail extends Component {
@@ -18,18 +19,20 @@ export default class RaceDetail extends Component {
         <Page
           heading={`Race for ${data.office}`}>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae sequi quisquam asperiores, cum at voluptatem rem. Minus repudiandae sunt nemo?</p>
-          <div className="candidates-list">
-            <h6 className="page-heading title is-6">The Candidates</h6>
-            {
-              JSON.parse(candidates).map(item => (
-                <CandidateItem 
-                  key={item.pk}
-                  id={item.pk}
-                  name={item.fields.name}
-                />
-              ))
-            }
-          </div>
+          <section id="the-candidates">
+            <h2 className="page-heading title is-5">The Candidates</h2>
+            <List className="candidates-list">
+              {
+                JSON.parse(candidates).map(item => (
+                  <CandidateItem 
+                    key={item.pk}
+                    id={item.pk}
+                    name={item.fields.name}
+                  />
+                ))
+              }
+            </List>
+          </section>
         </Page>
       </div>
     )
