@@ -19,6 +19,7 @@ django-bakery = "*"
 django-livereload-server = "*"
 django-webpack-loader = "*"
 "django-admin-sortable2" = "*"
+django-ckeditor = "*"
 
 [requires]
 python_version = "3.6"

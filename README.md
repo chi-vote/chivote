@@ -38,6 +38,8 @@ PG_PASSWORD = sample_password" >> .env
 ```
 ./manage.py migrate
 ./manage.py createsuperuser
+./manage.py loaddata newsfeed
+./manage.py collectstatic
 ```
 
 6. Build frontend with `yarn --cwd ./frontend install`
@@ -54,6 +56,13 @@ DJANGO_URL_ENDPOINT=
 PG_NAME=
 PG_USER=
 PG_PASSWORD=
+
+## @datadesk/django-bakery settings ##
+AWS_BUCKET_NAME=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_REGION=
+ALLOW_BAKERY_AUTO_PUBLISHING=
 ```
 
 ## Tasks

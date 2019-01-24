@@ -1,20 +1,57 @@
 from django.db import models
-from apps.races.models import Race
-from apps.candidates.models import Candidate
+from django.db.models.functions import Lower
+from ckeditor.fields import RichTextField
 
-# Create your models here.
-class FeedItem(models.Model):
-    hed=models.CharField(max_length=280)
-    link=models.CharField(max_length=1000)
-    source=models.CharField(max_length=200)
-    races=models.ManyToManyField(Race)
+from ..races.models import Race
+from ..candidates.models import Candidate
+
+
+class IssueManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().order_by(Lower('name'))
+
+
+class Issue(models.Model):
+    name = models.CharField(max_length=100)
+    description = RichTextField()
+
+    objects = IssueManager()
+
+    def __str__(self):
+        return self.name
+
+
+class Article(models.Model):
+    hed = models.CharField(max_length=280, unique=True,
+                           verbose_name='Headline')
+    summary = RichTextField(null=True, blank=True)
+    date = models.DateTimeField()
+    link = models.URLField(unique=True)
+    source = models.CharField(max_length=200, verbose_name='Publisher')
+    candidate = models.ManyToManyField(
+        Candidate, blank=True, verbose_name="Candidate(s)", help_text="Double click, or select and click the arrow, to add or remove a candidate.")
+    race = models.ManyToManyField(
+        Race, blank=True, verbose_name="Race(s)", help_text="Double click, or select and click the arrow, to add or remove a race.")
+    issue = models.ManyToManyField(
+        Issue, blank=True, verbose_name="Issue(s)", help_text="Double click, or select and click the arrow, to add or remove an issue.")
+
     def __str__(self):
         return self.hed
 
-class CandidateStatement(models.Model):
-    candidate = models.ForeignKey(Candidate,on_delete=models.CASCADE)
-    statement = models.TextField()
-    issue = models.CharField(max_length=100) # this should be fk once issues are modeled
-    date = models.DateTimeField()
+
+class CandidateStance(models.Model):
+    statement_short = models.CharField(
+        max_length=280, verbose_name='Short stance')
+    statement_long = RichTextField(verbose_name='Long stance')
+    date = models.DateField(null=True, blank=True)
+    link = models.URLField()
+    source = models.CharField(max_length=200, verbose_name='Publisher')
+    candidate = models.ForeignKey(
+        Candidate, on_delete=models.CASCADE)
+    issue = models.ForeignKey(
+        Issue, null=True, blank=True, on_delete=models.SET_NULL)
+
     def __str__(self):
-        return self.candidate.name + ' on ' + self.issue # also need to fix this when issues normalize
+        import textwrap
+        string = f'{self.candidate.name} on {self.issue.name}: {self.statement_short}'
+        return textwrap.shorten(string, width=100)
