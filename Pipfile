@@ -18,6 +18,7 @@ python-decouple = "*"
 django-bakery = "*"
 django-livereload-server = "*"
 django-webpack-loader = "*"
+"django-admin-sortable2" = "*"
 
 [requires]
 python_version = "3.6"

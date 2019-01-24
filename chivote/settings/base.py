@@ -53,8 +53,9 @@ INSTALLED_APPS = [
     'apps.offices',
     'apps.newsfeed',
     'apps.races',
-    'apps.questionnaires',
+    # 'apps.questionnaires',
     'apps.site_content',
+    'adminsortable2',
 ]
 
 MIDDLEWARE = [
