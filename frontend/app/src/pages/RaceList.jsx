@@ -18,11 +18,7 @@ const RaceList = (props) => {
     }
   }
 
-  const flattenRemains = copyRaceData.filter(x => {
-    return x ? true : false
-  })
-
-  console.log(flattenRemains)
+  const flattenRemains = copyRaceData.filter(x => x ? true : false)
 
   const wardButtons = extractWardData.map(data => (
     <li className="column is-4">
@@ -42,7 +38,7 @@ const RaceList = (props) => {
   return (
     <div className="container">
       <Page
-        className="page page--detail"
+        className="page page--detail page--inner"
         heading="Races">
         <p>
           Choose a specific race to get more information and view candidates.
@@ -55,16 +51,8 @@ const RaceList = (props) => {
           Choose the number of your ward
         </p>
         <List className="columns is-mobile is-multiline">
-        {
-          // races.map(race => {
-          //   return (
-          //     <li className="list-item">
-          //       <a href={`${race.id}`}>{race.name}</a>
-          //     </li>
-          // )})
-          wardButtons
-        }
-      </List>
+          {wardButtons}
+        </List>
       </Page>
     </div>
   )
