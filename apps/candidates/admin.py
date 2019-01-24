@@ -47,6 +47,7 @@ class CandidateAdmin(admin.ModelAdmin):
             'fields': ('cboe_id', 'isbe_id', 'br_id', 'ri_id')
         })
     )
+    search_fields = ['name']
 
     def link_to_race(self, obj):
         from django.urls import reverse
