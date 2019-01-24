@@ -1,11 +1,13 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+
 from ..races.models import Race
 from ..candidates.models import Candidate
 
 
 class Issue(models.Model):
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    description = RichTextField()
 
     def __str__(self):
         return self.name

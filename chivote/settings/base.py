@@ -167,3 +167,18 @@ WEBPACK_LOADER = {
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend/app/static'),
 )
+
+# ckeditor settings
+INSTALLED_APPS += ('ckeditor', )
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    },
+}
