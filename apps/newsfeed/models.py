@@ -1,13 +1,21 @@
 from django.db import models
+from django.db.models.functions import Lower
 from ckeditor.fields import RichTextField
 
 from ..races.models import Race
 from ..candidates.models import Candidate
 
 
+class IssueManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().order_by(Lower('name'))
+
+
 class Issue(models.Model):
     name = models.CharField(max_length=100)
     description = RichTextField()
+
+    objects = IssueManager()
 
     def __str__(self):
         return self.name
@@ -29,16 +37,16 @@ class Article(models.Model):
         return self.hed
 
 
-class CandidateStatement(models.Model):
-    statement = models.TextField()
-    date = models.DateTimeField()
+class CandidateStance(models.Model):
+    statement_short = models.CharField(max_length=280)
+    statement_long = RichTextField()
+    date = models.DateField(null=True, blank=True)
     link = models.URLField()
     source = models.CharField(max_length=200, verbose_name='Publisher')
     candidate = models.ForeignKey(
         Candidate, on_delete=models.CASCADE)
-    issue = models.ManyToManyField(
-        Issue, blank=True, verbose_name="Issue(s)", help_text="Double click, or select and click the arrow, to add or remove an issue.")
+    issue = models.ForeignKey(
+        Issue, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
-        # also need to fix this when issues normalize
-        return self.candidate.name + ' on ' + self.issue
+        return f'{self.candidate.name} on {self.issue.name}'
