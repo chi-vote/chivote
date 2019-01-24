@@ -40,7 +40,7 @@ class CandidateAdmin(admin.ModelAdmin):
     ]
     fieldsets = (
         (None, {
-            'fields': ('name', 'race', 'incumbent', 'ballot_order')
+            'fields': ('name', 'race', 'status', 'incumbent', 'ballot_order')
         }),
         ('Alternate keys', {
             'classes': ('collapse',),
@@ -60,6 +60,7 @@ class CandidateAdmin(admin.ModelAdmin):
     link_to_race.admin_order_field = 'race'
 
     # list screen
-    list_display = ('__str__', 'link_to_race', 'incumbent', 'cboe_id', 'br_id')
-    list_filter = ('race',)
+    list_display = ('__str__', 'link_to_race', 'status',
+                    'incumbent', 'cboe_id', 'br_id')
+    list_filter = ('status', 'race',)
     ordering = ('race', 'ballot_order',)
