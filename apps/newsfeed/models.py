@@ -53,5 +53,5 @@ class CandidateStance(models.Model):
 
     def __str__(self):
         import textwrap
-        string = f'{self.candidate.name} on {self.issue.name}: {self.statement_short}'
+        string = f'{self.candidate.__str__()} on {self.issue.__str__()}: {self.statement_short}'
         return textwrap.shorten(string, width=100)
