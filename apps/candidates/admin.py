@@ -40,14 +40,19 @@ class CandidateAdmin(admin.ModelAdmin):
     ]
     fieldsets = (
         (None, {
-            'fields': ('name', 'race', 'incumbent', 'ballot_order')
+            'fields': ('first_name', 'middle_name', 'last_name', 'suffix', 'full_name', 'race', 'status', 'incumbent', 'ballot_order')
         }),
         ('Alternate keys', {
             'classes': ('collapse',),
             'fields': ('cboe_id', 'isbe_id', 'br_id', 'ri_id')
+        }),
+        ('From Ballot Ready', {
+            'fields': ('br_thumb_url', 'br_photo_url', 'br_urls', 'br_endorsements', 'br_experience', 'br_education')
         })
     )
-    search_fields = ['name']
+    search_fields = ['full_name']
+    readonly_fields = ('br_thumb_url', 'br_photo_url', 'br_urls',
+                       'br_endorsements', 'br_experience', 'br_education')
 
     def link_to_race(self, obj):
         from django.urls import reverse
@@ -60,6 +65,7 @@ class CandidateAdmin(admin.ModelAdmin):
     link_to_race.admin_order_field = 'race'
 
     # list screen
-    list_display = ('__str__', 'link_to_race', 'incumbent', 'cboe_id', 'br_id')
-    list_filter = ('race',)
+    list_display = ('__str__', 'link_to_race', 'status',
+                    'incumbent', 'cboe_id', 'br_id')
+    list_filter = ('status', 'race',)
     ordering = ('race', 'ballot_order',)
