@@ -17,6 +17,11 @@ body * {
 	font-family: 'League Spartan Bold', sans-serif;
 }
 
+p {
+	color: white;
+	margin-bottom: 1rem;
+}
+
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -25,11 +30,27 @@ body * {
 	color: #31313B;
 }
 
+.is-lightblue-text {
+  color: #55C1E8;
+}
+
+.is-red-text {
+  color: #CE112D;
+}
+
 .button {
 	background-color: transparent;
 	border-width: 4px;
 	color: white;
 	border-color: white;
+}
+
+.is-expanded .button {
+  width: 100%;
+}
+
+.flex-space-between {
+  justify-content: space-between
 }
 
 .detail-view {
@@ -93,7 +114,16 @@ body * {
   font-size: 1.25rem;
 }
 
-p {
-	color: white;
-	margin-bottom: 1rem;
+div.list-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #3F3F4D;
+  border-radius: 5px;
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+
+.article-item {
+  flex-direction: column;
 }

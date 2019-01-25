@@ -24,6 +24,10 @@ class RaceDetailView(BuildableDetailView):
     )
 
     statements = CandidateStance.objects.all()
+    # articles = Article.objects.filter(
+    #   if self.kwargs['pk'] in race
+    #     return true
+    # )
     articles = Article.objects.all()
 
     raceData = Race.objects.filter(
@@ -31,7 +35,8 @@ class RaceDetailView(BuildableDetailView):
     )
 
     raceObj = {
-      'office': raceData[0].__str__()
+      'id': raceData[0].pk,
+      'office': raceData[0].__str__(),
     }
 
     react_dict = {
