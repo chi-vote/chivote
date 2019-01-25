@@ -45,5 +45,6 @@ class RaceAdmin(admin.ModelAdmin):
     # link_to_race.short_description = 'Race'
     # link_to_race.admin_order_field = 'race'
 
-    list_display = ('__str__', 'num_candidates',)
+    list_display = ('__str__', 'num_candidates', 'slug',)
     ordering = ('id',)
+    readonly_fields = ('slug',)
