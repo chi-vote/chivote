@@ -124,6 +124,10 @@ div.list-item {
   margin-bottom: 1rem;
 }
 
+.list-item:not(:last-child) {
+  border-bottom: none;
+}
+
 .is-candidates-active .is-candidates,
 .is-articles-active .is-articles {
   background-color: #55C1E8;
