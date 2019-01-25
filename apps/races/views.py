@@ -3,6 +3,7 @@ import json
 from django.core import serializers
 from django.core.serializers.json import DjangoJSONEncoder
 from django.views.generic.base import TemplateView
+from django.utils.safestring import mark_safe
 
 from bakery.views import BuildableDetailView, BuildableListView, BuildableTemplateView
 
@@ -18,6 +19,7 @@ class RaceDetailView(BuildableDetailView):
 
         from apps.candidates.models import Candidate
         from apps.newsfeed.models import CandidateStance, Article
+        from django.utils.html import strip_tags
 
         candidates = Candidate.objects.filter(
             race=self.object.pk
@@ -39,6 +41,10 @@ class RaceDetailView(BuildableDetailView):
             'office': raceData[0].__str__(),
         }
 
+        description = strip_tags(mark_safe(self.object.explainer))
+
+        # print(json.dumps(description))
+
         react_dict = {
             'component': 'RaceDetail',
             'props': {
@@ -46,10 +52,7 @@ class RaceDetailView(BuildableDetailView):
                     'statements': serializers.serialize('json', statements),
                     'articles': serializers.serialize('json', articles),
                     'office': json.dumps(raceObj),
-                    'description': '''Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi autem, explicabo ipsam
-deserunt id vel eos pariatur aut consequuntur nesciunt optio atque est praesentium quia saepe dicta
-exercitationem. In temporibus maiores facilis eligendi laudantium! Esse, corporis dolorum a possimus
-dolorem harum, perferendis inventore earum, neque ducimus quod odio omnis. Voluptas!''',
+                    'description': description,
                 },
                 'candidates': serializers.serialize('json', candidates)
             }

@@ -7,7 +7,7 @@ from ..offices.models import Office
 
 class Race(models.Model):
     office = models.ForeignKey(Office, on_delete=models.CASCADE)
-    explainer = RichTextField()
+    explainer = RichTextField(blank=True, null=True)
     slug = models.SlugField(max_length=250)
 
     def save(self, *args, **kwargs):
@@ -19,4 +19,4 @@ class Race(models.Model):
 
     def get_absolute_url(self):
         from django.urls import reverse
-        return reverse('race-detail', args=[str(self.pk)])
+        return reverse('race-detail', args=[self.slug])
