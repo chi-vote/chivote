@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_generic.html" %}
 
 {% load render_bundle from webpack_loader %}
 {% load helper_tags %}
@@ -9,7 +9,7 @@
 <div id="app"></div>
 
 <!-- TODO Replace this list with React code? -->
-{% if race_list %}
+<!-- {% if race_list %}
 <ul>
   {% for race in race_list %}
   <li>
@@ -17,7 +17,7 @@
   </li>
   {% endfor %}
 </ul>
-{% endif %}
+{% endif %} -->
 
 <script>
   window.component = '{{ component }}';

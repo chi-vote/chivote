@@ -1,0 +1,139 @@
+@font-face {
+  font-family: 'League Spartan Bold';
+  src: url('../fonts/LeagueSpartan-Bold.otf')
+}
+
+body, #app {
+  height: 100%;
+  min-height: 100vh;
+	width: 100vw;
+}
+
+body {
+  /* background-color: #31313B; */
+}
+
+body * {
+	font-family: 'League Spartan Bold', sans-serif;
+}
+
+p {
+	color: white;
+	margin-bottom: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.is-darkblue-text {
+	color: #31313B;
+}
+
+.is-lightblue-text {
+  color: #55C1E8;
+}
+
+.is-red-text {
+  color: #CE112D;
+}
+
+.button {
+	background-color: transparent;
+	border-width: 4px;
+	color: white;
+	border-color: white;
+}
+
+.is-expanded .button {
+  width: 100%;
+}
+
+.flex-space-between {
+  justify-content: space-between
+}
+
+.detail-view {
+	padding: 1rem;
+}
+
+.page {
+	padding: 2rem;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+}
+
+.navbar--mobile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar-menu-trigger {
+  color: white;
+  padding: 1rem;
+}
+
+.mobile-menu {
+  background-color: #31313B;
+  z-index: 9999;
+}
+
+.menu-item {
+  background-color: #31313B;
+  border-bottom: 1px solid #4e4e5a;
+  list-style-type: none;
+}
+
+.menu-item a {
+  display: block;
+  width: 100%;
+  color: white;
+  padding: 1rem 1.5rem;
+  color: white;
+  font-size: 1.75rem;
+}
+
+.menu__home-link {
+  display: block;
+  padding: 2rem;
+}
+
+.ward-button {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #3F3F4D;
+  font-size: 1.25rem;
+}
+
+div.list-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #3F3F4D;
+  border-radius: 5px;
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+
+.list-item:not(:last-child) {
+  border-bottom: none;
+}
+
+.is-candidates-active .is-candidates,
+.is-articles-active .is-articles {
+  background-color: #55C1E8;
+  border-color: #55C1E8;
+}
+
+.article-item {
+  flex-direction: column;
+}
