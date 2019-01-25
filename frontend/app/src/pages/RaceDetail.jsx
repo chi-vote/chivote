@@ -13,6 +13,7 @@ export default class RaceDetail extends Component {
     const { data, candidates } = this.props
     const parsedData = JSON.parse(data.statements)
     console.log(parsedData);
+    console.log(JSON.parse(candidates))
 
     return (
       <div className="container">
@@ -28,7 +29,7 @@ export default class RaceDetail extends Component {
                   <CandidateItem
                     key={item.pk}
                     id={item.pk}
-                    name={item.fields.name}
+                    data={item.fields}
                   />
                 ))
               }

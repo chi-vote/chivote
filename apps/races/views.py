@@ -17,14 +17,14 @@ class RaceDetailView(BuildableDetailView):
     context = super().get_context_data(**kwargs)
 
     from apps.candidates.models import Candidate
-    from apps.newsfeed.models import CandidateStatement, FeedItem
+    from apps.newsfeed.models import CandidateStance, Article
 
     candidates = Candidate.objects.filter(
       race=self.kwargs['pk']
     )
 
-    statements = CandidateStatement.objects.all()
-    feed = FeedItem.objects.all()
+    statements = CandidateStance.objects.all()
+    articles = Article.objects.all()
 
     raceData = Race.objects.filter(
       office=self.kwargs['pk']
@@ -39,7 +39,7 @@ class RaceDetailView(BuildableDetailView):
       'props': {
         'data': {
           'statements': serializers.serialize('json', statements),
-          'feed': serializers.serialize('json', feed),
+          'articles': serializers.serialize('json', articles),
           'office': json.dumps(raceObj),
           'description': '''Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi autem, explicabo ipsam
 deserunt id vel eos pariatur aut consequuntur nesciunt optio atque est praesentium quia saepe dicta
