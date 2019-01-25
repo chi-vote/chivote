@@ -38,6 +38,10 @@ p {
   color: #CE112D;
 }
 
+.is-fullwidth {
+  width: 100%
+}
+
 .button {
 	background-color: transparent;
 	border-width: 4px;

@@ -67,7 +67,14 @@ export default class RaceDetail extends Component {
             </section> :
             <section id="the-newsfeed">
               <h2 className="page-heading title is-5 is-hidden">Articles</h2>
-              {articles}
+              {
+                articles.length ? articles :
+                <div className="list-item">
+                  <span className="is-lightblue-text has-text-centered is-block is-fullwidth">
+                    No related articles yet
+                  </span>
+                </div>
+              }
             </section>
           }
         </Page>
