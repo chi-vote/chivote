@@ -45,9 +45,14 @@ class CandidateAdmin(admin.ModelAdmin):
         ('Alternate keys', {
             'classes': ('collapse',),
             'fields': ('cboe_id', 'isbe_id', 'br_id', 'ri_id')
+        }),
+        ('From Ballot Ready', {
+            'fields': ('br_thumb_url', 'br_photo_url', 'br_urls', 'br_endorsements', 'br_experience', 'br_education')
         })
     )
-    search_fields = ['name']
+    search_fields = ['full_name']
+    readonly_fields = ('br_thumb_url', 'br_photo_url', 'br_urls',
+                       'br_endorsements', 'br_experience', 'br_education')
 
     def link_to_race(self, obj):
         from django.urls import reverse

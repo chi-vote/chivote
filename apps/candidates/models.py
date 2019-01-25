@@ -1,5 +1,8 @@
+import logging
 from django.db import models
-from apps.races.models import Race
+from django.contrib.postgres.fields import JSONField
+from ..races.models import Race
+logger = logging.getLogger(__name__)
 
 
 class Candidate(models.Model):
@@ -27,6 +30,37 @@ class Candidate(models.Model):
     isbe_id = models.IntegerField(null=True, blank=True)
     br_id = models.IntegerField(null=True, blank=True)
     ri_id = models.IntegerField(null=True, blank=True)
+
+    # Ballot Ready fields
+    br_thumb_url = models.URLField(
+        null=True, blank=True, verbose_name="Thumbnail URL")
+    br_photo_url = models.URLField(
+        null=True, blank=True, verbose_name="Photo URL")
+    br_urls = JSONField(null=True, blank=True, verbose_name='URLs')
+    br_endorsements = JSONField(
+        null=True, blank=True, verbose_name='Endorsements')
+    br_experience = JSONField(null=True, blank=True, verbose_name="Experience")
+    br_education = JSONField(null=True, blank=True, verbose_name="Education")
+
+    def update_br_data(self):
+        from django.conf import settings
+        import requests
+
+        if not getattr(settings, 'BALLOT_READY_API_KEY'):
+            logger.info("Need to set BALLOT_READY_API_KEY in your settings")
+        else:
+            path = f'https://api.civicengine.com/candidate/{self.br_id}'
+            headers = {'x-api-key': getattr(settings, 'BALLOT_READY_API_KEY')}
+            r = requests.get(path, headers=headers)
+            if r.status_code == 200:
+                r_json = r.json()
+                self.br_thumb_url = r_json['thumb_url']
+                self.br_photo_url = r_json['photo_url']
+                self.br_urls = r_json['urls']
+                self.br_endorsements = r_json['endorsements']
+                self.br_experience = r_json['experience']
+                self.br_education = r_json['education']
+                self.save()
 
     def save(self, *args, **kwargs):
         if not self.full_name:
