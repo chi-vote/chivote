@@ -23,9 +23,9 @@ class CandidateInline(SortableInlineAdminMixin, admin.TabularInline):
         return mark_safe(f'<a href="{link}">Edit</a>') if obj.pk else None
 
     link_to_candidate.short_description = 'Edit'
-    # link_to_candidate.admin_order_field = 'race'
 
-    # fields = ('__all__', 'link_to_candidate',)
+    fields = ('status', 'incumbent', 'cboe_id', 'isbe_id',
+              'br_id', 'ri_id', 'link_to_candidate')
     readonly_fields = ('link_to_candidate',)
 
 
