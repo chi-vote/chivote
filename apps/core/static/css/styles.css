@@ -124,6 +124,12 @@ div.list-item {
   margin-bottom: 1rem;
 }
 
+.is-candidates-active .is-candidates,
+.is-articles-active .is-articles {
+  background-color: #55C1E8;
+  border-color: #55C1E8;
+}
+
 .article-item {
   flex-direction: column;
 }
