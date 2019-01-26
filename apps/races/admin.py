@@ -45,5 +45,13 @@ class RaceAdmin(admin.ModelAdmin):
     # link_to_race.short_description = 'Race'
     # link_to_race.admin_order_field = 'race'
 
-    list_display = ('__str__', 'num_candidates',)
+    def shorter_explainer(self, obj):
+        from django.utils.html import strip_tags
+        import textwrap
+        link_str = textwrap.shorten(strip_tags(obj.explainer), width=60)
+        return link_str
+    shorter_explainer.short_description = 'Explainer'
+
+    list_display = ('__str__', 'num_candidates', 'slug', 'shorter_explainer')
     ordering = ('id',)
+    readonly_fields = ('slug',)
