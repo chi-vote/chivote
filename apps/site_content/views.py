@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from bakery.views import BuildableDetailView
+from .models import ContentItem
 
-# Create your views here.
+
+class ContentItemDetailView(BuildableDetailView):
+    model = ContentItem
+    template_name = 'page_detail.html'
