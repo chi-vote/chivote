@@ -9,17 +9,23 @@ body, #app {
 	width: 100vw;
 }
 
-body {
+body,button,h1,h2,h3,h4,h5,h6 {
   /* background-color: #31313B; */
-}
-
-body * {
 	font-family: 'League Spartan Bold', sans-serif;
 }
 
 p {
+  font-family: 'Futura', sans-serif;
 	color: white;
 	margin-bottom: 1rem;
+}
+
+.is-futura {
+  font-family: 'Futura', sans-serif;
+}
+
+.is-lsb {
+  font-family: 'League Spartan Bold', sans-serif;
 }
 
 .mb-1 {
@@ -36,6 +42,10 @@ p {
 
 .is-red-text {
   color: #CE112D;
+}
+
+.is-fullwidth {
+  width: 100%
 }
 
 .button {
@@ -71,12 +81,17 @@ p {
 .navbar--mobile {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .navbar-menu-trigger {
   color: white;
   padding: 1rem;
+}
+
+.navbar__logo {
+  height: 25px;
+  margin-left: 2rem;
 }
 
 .mobile-menu {
@@ -129,11 +144,38 @@ div.list-item {
 }
 
 .is-candidates-active .is-candidates,
-.is-articles-active .is-articles {
+.is-articles-active .is-articles,
+.is-statements-active .is-statements {
   background-color: #55C1E8;
   border-color: #55C1E8;
 }
 
 .article-item {
   flex-direction: column;
+}
+
+.bm-menu {
+  background-color: #3F3F4D;
+}
+
+.candidate-view {
+  padding: 1rem;
+}
+
+.candidate-view__headshot {
+  height: 250px;
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.incumbent-tag {
+  border: 2px solid white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  margin-left: 0.5rem;
+}
+
+.button .icon {
+  height: 0;
 }

@@ -7,13 +7,22 @@
   margin-bottom: 1rem;
 }
 
+.is-incumbent {
+  align-items: flex-start;
+}
+
 .candidate-item__img {
   height: 65px;
   width: 65px;
   margin-right: 1rem;
   border-radius: 5px;
   object-fit: cover;
+}
 
+.candidate-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .candidate-item__name {
