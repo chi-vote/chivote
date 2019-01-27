@@ -115,6 +115,35 @@ for command in prodCommands:
     ...
 ```
 
+### Rebuild packages and assets: `./manage.py rebuild`
+
+Install packages (Django and Yarn) and rebuild the frontend.
+
+```python
+# this is pseudo python describing the task
+
+commands = [
+    # install python packages
+    'pipenv install',
+
+    # install frontend packages
+    'yarn --cwd ./frontend install',
+
+    # build frontend bundle
+    'yarn --cwd ./frontend build',
+
+    # run migrations
+    'python manage.py migrate',
+
+    # collect frontend bundle to be served in django
+    'python manage.py collectstatic --no-input'
+]
+
+for command in commands:
+    # do command
+    ...
+```
+
 ## Under the hood
 
 ### Baking
