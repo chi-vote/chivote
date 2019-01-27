@@ -181,6 +181,10 @@ CKEDITOR_CONFIGS = {
             ['RemoveFormat', 'Source']
         ]
     },
+    'full': {
+        'toolbar': 'full',
+        'allowedContent': True
+    }
 }
 
 # br settings
