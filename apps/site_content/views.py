@@ -16,6 +16,7 @@ class ContentItemDetailView(BuildableDetailView):
             'component': 'ContentItemDetail',
             'props': {
                 'title': self.object.title,
+                'slug': self.object.slug,
                 'content': self.object.content,
                 'helmet': self.object.helmet
             }
