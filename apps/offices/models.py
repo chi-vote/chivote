@@ -11,10 +11,13 @@ class Office(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ['id']
+
     # TODO sort out incumbency stuff later
-    """ 
+    """
     lame_duck = models.CharField(max_length=50,null=True) # an incumbent who isn't running
-    incumbent_candidate = models.ForeignKey(Candidate,null=True,on_delete=models.CASCADE) 
+    incumbent_candidate = models.ForeignKey(Candidate,null=True,on_delete=models.CASCADE)
     def incumbent(self):
         return self.incumbent if self.incumbent else self.lame_duck
     """
