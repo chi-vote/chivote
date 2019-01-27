@@ -24,6 +24,10 @@ p {
   font-family: 'Futura', sans-serif;
 }
 
+.is-lsb {
+  font-family: 'League Spartan Bold', sans-serif;
+}
+
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -157,4 +161,11 @@ div.list-item {
   width: 100%;
   border-radius: 5px;
   object-fit: cover;
+}
+
+.incumbent-tag {
+  border: 2px solid white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  margin-left: 0.5rem;
 }

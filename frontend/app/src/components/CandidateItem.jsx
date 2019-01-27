@@ -10,9 +10,20 @@ const CandidateItem = (props) => {
       className="candidate-item"
       onClick={() => props.handleClick(props.data)}>
       <img src={data.br_thumb_url} alt="" className="candidate-item__img"/>
-      <span className="is-size-5 candidate-item__name">
-        {`${data.full_name}`}
-      </span>
+      <div className="candidate-item__meta">
+        <span className="is-size-5 candidate-item__name">
+          {`${data.full_name}`}
+        </span>
+        {
+          props.data.incumbent &&
+          <span className="has-text-white is-size-7 incumbent-tag">
+            <span className="icon">
+              <i className="fa fa-crown is-red-text"></i>
+            </span>
+            Incumbent
+          </span>
+        }
+      </div>
     </dd>
   )
 }

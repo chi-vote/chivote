@@ -40,15 +40,15 @@ const RaceList = (props) => {
       <Page
         className="page page--detail page--inner"
         heading="Races">
-        <p>
+        <p className="is-lsb">
           Choose a specific race to get more information and view candidates.
         </p>
         <List className="columns">
           {otherRaces}
         </List>
         <h2 className="page-heading title is-4">Aldermanic</h2>
-        <p>
-          Choose the number of your ward
+        <p className="is-lsb">
+          Choose a specific ward number to get more information and view candidates
         </p>
         <List className="columns is-mobile is-multiline">
           {wardButtons}
