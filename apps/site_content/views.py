@@ -18,7 +18,8 @@ class ContentItemDetailView(BuildableDetailView):
                 'title': self.object.title,
                 'slug': self.object.slug,
                 'content': self.object.content,
-                'helmet': self.object.helmet
+                'helmet': self.object.helmet,
+                'background': self.object.background
             }
         }
 
