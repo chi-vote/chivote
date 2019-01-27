@@ -27,6 +27,13 @@ export default class RaceDetail extends Component {
     })
   }
 
+  unsetCandidateView = (state) => {
+    // console.log(state);
+    this.setState({
+      slideViewActive: state.isOpen
+    })
+  }
+
   render() {
     const { data, candidates } = this.props;
     const parsedData = JSON.parse(data.statements);
@@ -49,6 +56,7 @@ export default class RaceDetail extends Component {
           left
           width={320}
           isOpen={this.state.slideViewActive}
+          onStateChange={this.unsetCandidateView}
           customBurgerIcon={false}
           customCrossIcon={false}>
           {

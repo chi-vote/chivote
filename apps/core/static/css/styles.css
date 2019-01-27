@@ -20,6 +20,10 @@ p {
 	margin-bottom: 1rem;
 }
 
+.is-futura {
+  font-family: 'Futura', sans-serif;
+}
+
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -142,5 +146,15 @@ div.list-item {
 
 .bm-menu {
   background-color: #3F3F4D;
+}
 
+.candidate-view {
+  padding: 1rem;
+}
+
+.candidate-view__headshot {
+  height: 250px;
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
 }
