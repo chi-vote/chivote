@@ -144,7 +144,8 @@ div.list-item {
 }
 
 .is-candidates-active .is-candidates,
-.is-articles-active .is-articles {
+.is-articles-active .is-articles,
+.is-statements-active .is-statements {
   background-color: #55C1E8;
   border-color: #55C1E8;
 }
@@ -173,4 +174,8 @@ div.list-item {
   padding: 0.25rem 0.5rem;
   border-radius: 20px;
   margin-left: 0.5rem;
+}
+
+.button .icon {
+  height: 0;
 }
