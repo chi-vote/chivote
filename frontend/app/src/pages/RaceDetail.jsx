@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Interweave from 'interweave';
+import Parser from 'html-react-parser';
 import Page from '../components/Page';
 import List from '../components/List';
 import { slide as SlideView } from 'react-burger-menu';
@@ -17,50 +17,55 @@ export default class RaceDetail extends Component {
   };
 
   componentDidMount() {
-    const dict = {}
+    const dict = {};
     const candidates = JSON.parse(this.props.candidates);
     for (let i = 0; i < candidates.length; i++) {
       const element = candidates[i];
-      dict[element.pk] = element.fields.full_name
+      dict[element.pk] = element.fields.full_name;
     }
 
-    this.setState({ candidateDict: dict })
-    this.groupStatements()
+    this.setState({ candidateDict: dict });
+    this.groupStatements();
   }
 
-  setCandidateView = (candidateObj) => {
+  setCandidateView = candidateObj => {
     console.log('hit setCandidateView');
 
     this.setState({
       slideViewActive: true,
       currentCandidate: candidateObj
-    })
-  }
+    });
+  };
 
-  unsetCandidateView = (state) => {
+  unsetCandidateView = state => {
     // console.log(state);
     this.setState({
       slideViewActive: state.isOpen
-    })
-  }
+    });
+  };
 
   groupStatements = () => {
-    const groups = JSON.parse(this.props.data.statements).reduce((acc, curr) => {
-      if(!acc.hasOwnProperty(curr.pk)) {
-        acc[curr.pk] = []
-      }
-      acc[curr.pk].push(curr.fields)
+    const groups = JSON.parse(this.props.data.statements).reduce(
+      (acc, curr) => {
+        if (!acc.hasOwnProperty(curr.pk)) {
+          acc[curr.pk] = [];
+        }
+        acc[curr.pk].push(curr.fields);
 
-      return acc
-    }, {})
+        return acc;
+      },
+      {}
+    );
 
-    return groups
-  }
+    return groups;
+  };
 
   renderFeed = () => {
     const articles = JSON.parse(this.props.data.articles)
       .filter(item => {
-        return item.fields.race.indexOf(JSON.parse(this.props.data.office).id) > -1;
+        return (
+          item.fields.race.indexOf(JSON.parse(this.props.data.office).id) > -1
+        );
       })
       .map(item => <ArticleItem data={item} />);
 
@@ -79,45 +84,47 @@ export default class RaceDetail extends Component {
             ))}
           </List>
         </section>
-      )
+      );
     } else if (this.state.feed === 'articles') {
       return (
         <section id="the-newsfeed">
           <h2 className="page-heading title is-4">Articles</h2>
-          {
-            articles.length ? articles :
+          {articles.length ? (
+            articles
+          ) : (
             <div className="list-item">
               <span className="is-lightblue-text has-text-centered is-block is-fullwidth">
                 No related articles yet
               </span>
             </div>
-          }
+          )}
         </section>
-      )
+      );
     } else if (this.state.feed === 'statements') {
-      const feed = []
+      const feed = [];
       for (let issue in this.groupStatements()) {
         feed.push(
           <div>
-            <h3 className="has-text-white title is-5">{`On ${this.props.data.issueDict[issue]}...`}</h3>
-            {
-              this.groupStatements()[issue].map(item => (
-                <StatementItem
-                  data={item}
-                  speaker={this.state.candidateDict[item.candidate]}/>
-              ))
-            }
+            <h3 className="has-text-white title is-5">{`On ${
+              this.props.data.issueDict[issue]
+            }...`}</h3>
+            {this.groupStatements()[issue].map(item => (
+              <StatementItem
+                data={item}
+                speaker={this.state.candidateDict[item.candidate]}
+              />
+            ))}
           </div>
-        )
+        );
       }
       return (
         <section id="the-statements">
           <h2 className="page-heading title is-4">Statements</h2>
           {feed}
         </section>
-      )
+      );
     }
-  }
+  };
 
   render() {
     const { data, candidates } = this.props;
@@ -132,20 +139,18 @@ export default class RaceDetail extends Component {
           isOpen={this.state.slideViewActive}
           onStateChange={this.unsetCandidateView}
           customBurgerIcon={false}
-          customCrossIcon={false}>
-          {
-            this.state.currentCandidate &&
-            <CandidateView
-              data={this.state.currentCandidate}/>
-          }
+          customCrossIcon={false}
+        >
+          {this.state.currentCandidate && (
+            <CandidateView data={this.state.currentCandidate} />
+          )}
         </SlideView>
         <Page
           className="page page--detail page--inner"
           heading={`Race for ${JSON.parse(data.office).office}`}
         >
-          <p>
-            <Interweave content={data.description} />
-          </p>
+          {Parser(Parser(data.description))}
+          {/* TODO: why do I need to nest these? */}
           <div className={`field is-grouped is-${this.state.feed}-active mb-1`}>
             <div className="control is-expanded">
               <button
@@ -154,7 +159,7 @@ export default class RaceDetail extends Component {
               >
                 {/* Candidates */}
                 <span className="icon">
-                  <i className="fa fa-lg fa-user-tie"></i>
+                  <i className="fa fa-lg fa-user-tie" />
                 </span>
               </button>
             </div>
@@ -165,7 +170,7 @@ export default class RaceDetail extends Component {
               >
                 {/* Articles */}
                 <span className="icon">
-                  <i className="fa fa-lg fa-newspaper"></i>
+                  <i className="fa fa-lg fa-newspaper" />
                 </span>
               </button>
             </div>
@@ -176,14 +181,12 @@ export default class RaceDetail extends Component {
               >
                 {/* Statements */}
                 <span className="icon">
-                  <i className="fa fa-lg fa-comment-dots"></i>
+                  <i className="fa fa-lg fa-comment-dots" />
                 </span>
               </button>
             </div>
           </div>
-          {
-            this.renderFeed()
-          }
+          {this.renderFeed()}
           {/* {this.state.feed === 'candidates' ? (
             <section id="the-candidates">
               <h2 className="page-heading title is-5">Candidates</h2>

@@ -44,7 +44,7 @@ class RaceDetailView(BuildableDetailView):
             'office': raceData[0].__str__(),
         }
 
-        description = strip_tags(mark_safe(self.object.explainer))
+        description = mark_safe(self.object.explainer)
 
         # print(json.dumps(description))
 
