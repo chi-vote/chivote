@@ -9,15 +9,13 @@ body, #app {
 	width: 100vw;
 }
 
-body {
+body,button,h1,h2,h3,h4,h5,h6 {
   /* background-color: #31313B; */
-}
-
-body * {
 	font-family: 'League Spartan Bold', sans-serif;
 }
 
 p {
+  font-family: 'Futura', sans-serif;
 	color: white;
 	margin-bottom: 1rem;
 }
@@ -140,4 +138,9 @@ div.list-item {
 
 .article-item {
   flex-direction: column;
+}
+
+.bm-menu {
+  background-color: #3F3F4D;
+
 }

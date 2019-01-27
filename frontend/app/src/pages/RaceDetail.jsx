@@ -2,16 +2,29 @@ import React, { Component } from 'react';
 import Interweave from 'interweave';
 import Page from '../components/Page';
 import List from '../components/List';
+import { slide as SlideView } from 'react-burger-menu';
+import CandidateView from '../components/CandidateView';
 import CandidateItem from '../components/CandidateItem';
 import ArticleItem from '../components/ArticleItem';
 
 export default class RaceDetail extends Component {
   state = {
-    feed: 'candidates'
+    feed: 'candidates',
+    currentCandidate: null,
+    slideViewActive: false
   };
 
   componentDidMount() {
     console.log(JSON.parse(this.props.candidates));
+  }
+
+  setCandidateView = (candidateObj) => {
+    console.log('hit setCandidateView');
+
+    this.setState({
+      slideViewActive: true,
+      currentCandidate: candidateObj
+    })
   }
 
   render() {
@@ -32,6 +45,18 @@ export default class RaceDetail extends Component {
 
     return (
       <div className="container">
+        <SlideView
+          left
+          width={320}
+          isOpen={this.state.slideViewActive}
+          customBurgerIcon={false}
+          customCrossIcon={false}>
+          {
+            this.state.currentCandidate &&
+            <CandidateView
+              data={this.state.currentCandidate}/>
+          }
+        </SlideView>
         <Page
           className="page page--detail page--inner"
           heading={`Race for ${JSON.parse(data.office).office}`}
@@ -65,6 +90,7 @@ export default class RaceDetail extends Component {
                   <CandidateItem
                     key={item.pk}
                     id={item.pk}
+                    handleClick={this.setCandidateView}
                     data={item.fields}
                   />
                 ))}
