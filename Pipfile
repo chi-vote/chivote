@@ -22,6 +22,7 @@ django-webpack-loader = "*"
 django-ckeditor = "*"
 requests = "*"
 tqdm = "*"
+django-colorfield = "*"
 
 [requires]
 python_version = "3.6"

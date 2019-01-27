@@ -189,3 +189,6 @@ CKEDITOR_CONFIGS = {
 
 # br settings
 BALLOT_READY_API_KEY = config('BALLOT_READY_API_KEY')
+
+# colorfield settings
+INSTALLED_APPS += ('colorfield', )
