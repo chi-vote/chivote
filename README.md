@@ -38,7 +38,6 @@ PG_PASSWORD = sample_password" >> .env
 ```
 ./manage.py migrate
 ./manage.py createsuperuser
-./manage.py loaddata newsfeed
 ./manage.py collectstatic
 ```
 
