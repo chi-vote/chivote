@@ -94,4 +94,4 @@ class CandidateContact(models.Model):
     contact_type = models.CharField(
         max_length=25, choices=CONTACT_TYPE_CHOICES, default='email')
     contact_value = models.CharField(max_length=50)
-    notes = models.TextField()
+    notes = models.TextField(null=True, blank=True)
