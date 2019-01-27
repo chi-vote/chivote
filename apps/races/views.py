@@ -21,7 +21,8 @@ class RaceDetailView(BuildableDetailView):
         from ..newsfeed.models import Article, CandidateStance, Issue
         from django.utils.html import strip_tags
 
-        candidates = Candidate.objects.filter(race=self.object)
+        candidates = Candidate.objects.filter(
+            race=self.object).exclude(status='inactive')
 
         statements = CandidateStance.objects.filter(
             candidate__race=self.object)
