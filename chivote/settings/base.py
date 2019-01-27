@@ -166,6 +166,7 @@ WEBPACK_LOADER = {
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend/app/static'),
+    os.path.join(BASE_DIR, 'precinct_lookup')
 )
 
 # ckeditor settings
