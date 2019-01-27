@@ -8,7 +8,6 @@ from django.utils.safestring import mark_safe
 from bakery.views import BuildableDetailView, BuildableListView, BuildableTemplateView
 
 from .models import Race
-from apps.newsfeed.models import IssueManager, Issue
 
 
 class RaceDetailView(BuildableDetailView):
@@ -18,28 +17,23 @@ class RaceDetailView(BuildableDetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        from apps.candidates.models import Candidate
-        from apps.newsfeed.models import CandidateStance, Article
+        from ..candidates.models import Candidate
+        from ..newsfeed.models import Article, CandidateStance, Issue
         from django.utils.html import strip_tags
 
-        candidates = Candidate.objects.filter(
-            race=self.object.pk
-        )
+        candidates = Candidate.objects.filter(race=self.object)
 
-        statements = CandidateStance.objects.all()
-        # articles = Article.objects.filter(
-        #   if self.kwargs['pk'] in race
-        #     return true
-        # )
+        statements = CandidateStance.objects.filter(
+            candidate__race=self.object)
+
+        articles = Article.objects.filter(race=self.object)
 
         issue_dict = {}
 
         for issue in Issue.objects.all():
-          issue_dict[issue.pk] = issue.name
+            issue_dict[issue.pk] = issue.name
 
-        print(issue_dict)
-
-        articles = Article.objects.all()
+        # print(issue_dict)
 
         raceData = Race.objects.filter(
             office=self.object.pk
