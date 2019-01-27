@@ -16,6 +16,8 @@ export default class RaceDetail extends Component {
 
   componentDidMount() {
     console.log(JSON.parse(this.props.candidates));
+    // console.log('statements', JSON.parse(this.props.data.statements));
+    this.groupStatements()
   }
 
   setCandidateView = (candidateObj) => {
@@ -34,21 +36,28 @@ export default class RaceDetail extends Component {
     })
   }
 
+  groupStatements = () => {
+    const groups = JSON.parse(this.props.data.statements).reduce((acc, curr) => {
+      if(!acc.hasOwnProperty(curr.pk)) {
+        acc[curr.pk] = []
+      }
+      acc[curr.pk].push(curr.fields)
+
+      return acc
+    }, {})
+
+    return groups
+  }
+
   render() {
     const { data, candidates } = this.props;
     const parsedData = JSON.parse(data.statements);
-    console.log(data);
-    console.log(parsedData);
-    console.log(JSON.parse(candidates));
-    // console.log('articles', JSON.parse(data.articles))
 
     const articles = JSON.parse(data.articles)
       .filter(item => {
         return item.fields.race.indexOf(JSON.parse(data.office).id) > -1;
       })
       .map(item => <ArticleItem data={item} />);
-
-    // console.log(articles);
 
     return (
       <div className="container">

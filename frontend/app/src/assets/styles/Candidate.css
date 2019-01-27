@@ -1,10 +1,14 @@
 .candidate-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   padding: 1rem;
   background-color: #3F3F4D;
   border-radius: 5px;
   margin-bottom: 1rem;
+}
+
+.is-incumbent {
+  align-items: flex-start;
 }
 
 .candidate-item__img {

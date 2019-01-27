@@ -18,6 +18,9 @@
 <body>
   <main class="c-offcanvas-content-wrap">
     <nav class="navbar navbar--mobile">
+      <a href="{% url 'index' %}">
+        <img src="{% static 'images/chivote-logo.png' %}" alt="" class="navbar__logo">
+      </a>
       <a href="#offcanvas-menu" class="navbar-menu-trigger" id="menu-trigger">
         <span class="icon is-medium">
           <i class="fas fa-2x fa-bars"></i>
@@ -28,9 +31,9 @@
   </main>
   <aside id="offcanvas-menu" class="mobile-menu">
     <nav>
-      <a href="{% url 'index' %}" class="menu__home-link">
+      <!-- <a href="{% url 'index' %}" class="menu__home-link">
         <img src="{% static 'images/chivote-logo.png' %}" alt="" class="menu__logo">
-      </a>
+      </a> -->
       <li class="menu-item"><a href="{% url 'race-list' %}">Races</a></li>
     </nav>
   </aside>

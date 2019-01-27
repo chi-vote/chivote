@@ -81,12 +81,17 @@ p {
 .navbar--mobile {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .navbar-menu-trigger {
   color: white;
   padding: 1rem;
+}
+
+.navbar__logo {
+  height: 25px;
+  margin-left: 2rem;
 }
 
 .mobile-menu {

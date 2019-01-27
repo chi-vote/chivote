@@ -8,6 +8,7 @@ from django.utils.safestring import mark_safe
 from bakery.views import BuildableDetailView, BuildableListView, BuildableTemplateView
 
 from .models import Race
+from apps.newsfeed.models import IssueManager, Issue
 
 
 class RaceDetailView(BuildableDetailView):
@@ -30,6 +31,14 @@ class RaceDetailView(BuildableDetailView):
         #   if self.kwargs['pk'] in race
         #     return true
         # )
+
+        issue_dict = {}
+
+        for issue in Issue.objects.all():
+          issue_dict[issue.pk] = issue.name
+
+        print(issue_dict)
+
         articles = Article.objects.all()
 
         raceData = Race.objects.filter(
@@ -49,6 +58,7 @@ class RaceDetailView(BuildableDetailView):
             'component': 'RaceDetail',
             'props': {
                 'data': {
+                    'issueDict': issue_dict,
                     'statements': serializers.serialize('json', statements),
                     'articles': serializers.serialize('json', articles),
                     'office': json.dumps(raceObj),
