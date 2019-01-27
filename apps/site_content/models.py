@@ -6,6 +6,7 @@ class ContentItem(models.Model):
     slug = models.CharField(max_length=30)
     title = models.CharField(max_length=200)
     content = RichTextField(config_name='full')
+    helmet = models.TextField(null=True, blank=True)
 
     def get_absolute_url(self):
         from django.urls import reverse
