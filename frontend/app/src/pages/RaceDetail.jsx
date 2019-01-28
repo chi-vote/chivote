@@ -121,9 +121,11 @@ export default class RaceDetail extends Component {
             }...`}</h3>
 
             <ReadMoreReact
-              text={decode(issueObject.fields.description).replace(
-                /<(?:.|\n)*?>/gm,
-                ''
+              text={Parser(
+                decode(issueObject.fields.description).replace(
+                  /<(?:.|\n)*?>/gm,
+                  ''
+                )
               )}
               min={100}
               ideal={150}
