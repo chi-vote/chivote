@@ -7,12 +7,6 @@
   max-width: calc(100vw - 4rem);
 }
 
-@media (min-width: 1088px) {
-  .issues-menu {
-    width: calc(100vw - 450px); /* TODO no more of this */
-  }
-}
-
 .issues-menu .button,
 .issues-menu .help-text {
   margin-right: 1rem;
@@ -42,4 +36,10 @@
 
 .read-more-button:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 0;
+  }
 }

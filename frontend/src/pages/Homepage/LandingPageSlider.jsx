@@ -5,7 +5,7 @@ import './LandingPageSlider.scss';
 // import "Assets/styles/slick-theme.css";
 
 import LandingPage from './LandingPageMobile';
-import CollectivePage from './CollectivePage';
+// import CollectivePage from './CollectivePage';
 
 class LandingPageSlider extends Component {
   slideToCollective = () => this.slider.slickNext();
@@ -27,9 +27,9 @@ class LandingPageSlider extends Component {
         <div className="slide">
           <LandingPage goCollective={this.slideToCollective} />
         </div>
-        <div className="slide">
-          <CollectivePage goHome={this.slideToHome} />
-        </div>
+        {/* <div className="slide"> */}
+        {/* <CollectivePage goHome={this.slideToHome} /> */}
+        {/* </div> */}
       </Slider>
     );
   }

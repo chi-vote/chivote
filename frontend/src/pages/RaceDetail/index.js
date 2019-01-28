@@ -73,7 +73,7 @@ export default class RaceDetail extends Component {
           </SlideView>
         </Responsive>
         <Page
-          className="page page--detail page--inner"
+          className="container page page--detail page--inner"
           heading={`Race for ${JSON.parse(data.office).office}`}
         >
           <ReadMoreReact

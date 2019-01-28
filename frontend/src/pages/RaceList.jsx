@@ -43,7 +43,10 @@ class RaceList extends Component {
     const races = JSON.parse(this.props.data.races);
     return (
       <div>
-        <Page className="page page--detail page--inner" heading="Races">
+        <Page
+          className="page page--detail page--inner container"
+          heading="Races"
+        >
           <p className="is-lsb">
             Choose a specific race to get more information and view candidates.
           </p>

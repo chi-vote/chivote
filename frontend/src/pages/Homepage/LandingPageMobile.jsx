@@ -118,7 +118,7 @@ class VotingStageSlider extends Component {
     return (
       <Slider {...settings} ref="stageSlider">
         <div>
-          <Page className="page page--landing has-text-centered">
+          <section className="page page--landing has-text-centered">
             <img src={chivoteLogo} alt="Chi.Vote logo" className="mb-1" />
             <h1 className="header__tagline is-size-4 mb-1">
               Everything you need to know to vote in Chicago on
@@ -136,7 +136,7 @@ class VotingStageSlider extends Component {
                 <i className="fa fa-lg fa-caret-down"></i>
               </span> */}
             </button>
-          </Page>
+          </section>
         </div>
         <div className="columns is-gapless voting-choices">
           <div className="column">
