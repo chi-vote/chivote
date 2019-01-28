@@ -42,7 +42,7 @@ const StanceItem = props => {
             </a>
           </cite>
 
-          <div class="accordion__arrow" role="presentation" />
+          <div className="accordion__arrow" role="presentation" />
         </AccordionItemTitle>
         <AccordionItemBody className="accordion__body row row--secondary">
           <blockquote className="has-text-white is-futura mb-1">
