@@ -25,7 +25,7 @@ const ArticleItem = props => {
       >
         {fields.hed}
       </a>
-      <p class="has-text-grey-lighter">
+      <p className="has-text-grey-lighter">
         {Parser(decode(fields.summary).replace(/<(?:.|\n)*?>/gm, ''))}
       </p>
     </div>

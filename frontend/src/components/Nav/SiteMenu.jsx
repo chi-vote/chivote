@@ -5,23 +5,23 @@ import './SiteMenu.scss';
 export const SiteMenu = props => (
   <Menu {...props}>
     <a className="menu-item" href="/">
-      <i class="fas fa-home" />
+      <i className="fas fa-home" />
       Home
     </a>
     <a className="menu-item" href="/races/">
-      <i class="fas fa-vote-yea" />
+      <i className="fas fa-vote-yea" />
       Races
     </a>
     <a className="menu-item" href="/faq/">
-      <i class="far fa-question-circle" />
+      <i className="far fa-question-circle" />
       FAQ
     </a>
     <a className="menu-item" href="/ask/">
-      <i class="far fa-comment-alt" />
+      <i className="far fa-comment-alt" />
       Ask
     </a>
     <a className="menu-item" href="/quiz">
-      <i class="fas fa-gamepad" />
+      <i className="fas fa-gamepad" />
       Quiz
     </a>
   </Menu>

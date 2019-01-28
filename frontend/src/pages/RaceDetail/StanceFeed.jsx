@@ -41,17 +41,21 @@ const StanceFeed = props => {
           className="issue__description"
         />
 
-        {stances.map(item => (
-          <StanceItem
-            data={item.fields}
-            key={item.pk}
-            candidate={
-              _.find(candidates, c => {
-                return c.pk == item.fields.candidate;
-              }).fields
-            }
-          />
-        ))}
+        <div className="columns">
+          {stances.map(item => (
+            <div className="column is-4">
+              <StanceItem
+                data={item.fields}
+                key={item.pk}
+                candidate={
+                  _.find(candidates, c => {
+                    return c.pk == item.fields.candidate;
+                  }).fields
+                }
+              />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

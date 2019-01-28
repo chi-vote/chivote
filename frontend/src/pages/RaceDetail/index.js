@@ -93,7 +93,9 @@ export default class RaceDetail extends Component {
                 <span className="icon">
                   <i className="fa fa-lg fa-user-tie" />
                 </span>
-                <span className="label is-hidden-mobile">Candidates</span>
+                <span className="button__label is-hidden-mobile">
+                  Candidates
+                </span>
               </button>
             </div>
             <div className="control is-expanded">
@@ -105,7 +107,7 @@ export default class RaceDetail extends Component {
                 <span className="icon">
                   <i className="fa fa-lg fa-newspaper" />
                 </span>
-                <span className="label is-hidden-mobile">Articles</span>
+                <span className="button__label is-hidden-mobile">Articles</span>
               </button>
             </div>
             <div className="control is-expanded">
@@ -117,7 +119,7 @@ export default class RaceDetail extends Component {
                 <span className="icon">
                   <i className="fa fa-lg fa-comment-dots" />{' '}
                 </span>
-                <span className="label is-hidden-mobile">Stances</span>
+                <span className="button__label is-hidden-mobile">Stances</span>
               </button>
             </div>
           </div>

@@ -1,16 +1,16 @@
 .navbar + .section {
-  padding-top: 4rem;
+  padding-top: 5rem;
 }
 
 .navbar {
   display: flex;
   // position: relative;
-  position: absolute;
+  position: absolute !important;
   top: 0;
   width: 100%;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem !important;
 
   background: rgba(49, 49, 59, 1);
 }
