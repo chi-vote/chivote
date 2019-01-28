@@ -58,20 +58,20 @@ export default class RaceDetail extends Component {
 
     return (
       <div>
-        <Responsive maxWidth={767}>
-          <SlideView
-            left
-            width={320}
-            isOpen={this.state.slideViewActive}
-            onStateChange={this.unsetCandidateView}
-            customBurgerIcon={false}
-            customCrossIcon={false}
-          >
-            {this.state.currentCandidate && (
-              <CandidateView data={this.state.currentCandidate} />
-            )}
-          </SlideView>
-        </Responsive>
+        {/* <Responsive maxWidth={767}> */}
+        <SlideView
+          left
+          width={320}
+          isOpen={this.state.slideViewActive}
+          onStateChange={this.unsetCandidateView}
+          customBurgerIcon={false}
+          customCrossIcon={false}
+        >
+          {this.state.currentCandidate && (
+            <CandidateView data={this.state.currentCandidate} />
+          )}
+        </SlideView>
+        {/* </Responsive> */}
         <Page
           className="container page page--detail page--inner"
           heading={`Race for ${JSON.parse(data.office).office}`}
