@@ -3,6 +3,7 @@
   background: #31313b;
   padding: 10px 0;
   top: 0;
+  z-index: 3;
 }
 
 .issues-menu .button,

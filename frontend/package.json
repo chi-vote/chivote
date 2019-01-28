@@ -30,6 +30,7 @@
 		"html-react-parser": "^0.6.1",
 		"lodash": "^4.17.11",
 		"moment-mini": "^2.22.1",
+		"react-accessible-accordion": "^2.4.5",
 		"react-burger-menu": "^2.6.1",
 		"react-helmet": "^5.2.0",
 		"react-horizontal-scrolling-menu": "^0.4.5",
