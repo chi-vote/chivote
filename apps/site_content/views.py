@@ -7,7 +7,7 @@ from .models import ContentItem
 
 class ContentItemDetailView(BuildableDetailView):
     model = ContentItem
-    template_name = 'page_detail.html'
+    template_name = 'base_react.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
