@@ -1,3 +1,15 @@
 .navbar + .section {
-  padding-top: 4.25rem;
+  padding-top: 4rem;
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.navbar__logo {
+  height: 30px;
 }

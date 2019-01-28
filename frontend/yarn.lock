@@ -5229,10 +5229,10 @@ react-accessible-accordion@^2.4.5:
     consecutive "^5.0.4"
     recompose "^0.30.0"
 
-react-burger-menu@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-2.6.1.tgz#bd23aa62baa084feb0506e7fda8397d62ae2268f"
-  integrity sha512-BPwCExEzTz5pvMaptfrVrQcOGyPc0EYklPTwkDNig0uh70nQAGvWy+eYcV3Fa7B2HfUUbxvYXBzeGGf9tqNL+w==
+react-burger-menu@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-2.6.2.tgz#205cbb8383482981c0c2d4ebce4f7bf7ca08964a"
+  integrity sha512-wJ5gYX2woSFc9l4AKlvF5KUFQlKyZHzD08fUCOevFcZclAq8zZxWgLDh3ugFJ7RTkwr5Z4clSm89LMtCk++SRw==
   dependencies:
     browserify-optional "^1.0.0"
     classnames "^2.2.6"
