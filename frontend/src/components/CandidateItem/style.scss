@@ -1,0 +1,32 @@
+.candidate-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #3f3f4d;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.is-incumbent {
+  align-items: flex-start;
+}
+
+.candidate-item__img {
+  height: 65px;
+  width: 65px;
+  margin-right: 1rem;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.candidate-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.candidate-item__name {
+  margin: 0;
+  color: #55c1e8;
+  text-transform: capitalize;
+}

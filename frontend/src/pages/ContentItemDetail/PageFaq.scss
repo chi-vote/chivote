@@ -1,0 +1,91 @@
+* {
+  font-family: 'League Spartan Bold', sans-serif;
+}
+
+p,
+li {
+  font-family: 'futura', sans-serif;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 1em;
+}
+
+ul > li > ul {
+  list-style: circle;
+}
+
+@-webkit-keyframes highlight {
+  from {
+    background: lightsteelblue;
+  }
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes highlight {
+  from {
+    background: lightsteelblue;
+  }
+  to {
+    background: transparent;
+  }
+}
+
+#toc {
+  display: none;
+}
+
+.nav-link {
+  // color: darken(white, 0.5);
+  font-family: 'futura', sans-serif;
+  // font-size: 1.2em;
+}
+
+@media screen and (max-width: 768px) {
+  .page-faq p,
+  .page-faq li {
+    font-size: 0.9rem;
+  }
+  .page-faq h1 {
+    font-size: 1.6rem;
+  }
+  .page-faq h3 {
+    font-size: 1.2rem;
+  }
+}
+
+.page-faq h3 {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  color: #555;
+}
+
+.page-faq h3:target {
+  -webkit-animation: highlight 1s ease;
+  animation: highlight 1s ease;
+}
+
+nav[data-toggle='toc'] .nav > li > a:focus,
+nav[data-toggle='toc'] .nav > li > a:hover {
+  border-left-color: lightsteelblue !important;
+}
+
+@media screen and (min-width: 768px) {
+  .page-faq #toc {
+    display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 2rem;
+    max-height: calc(100vh - 2rem);
+    // overflow-y: scroll;
+  }
+}
+
+p > a[href] {
+  color: #55c1e8 !important;
+  font-family: 'futura', sans-serif;
+  // font-weight: bold;
+}

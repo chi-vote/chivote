@@ -12,7 +12,7 @@ from .models import Race
 
 class RaceDetailView(BuildableDetailView):
     model = Race
-    template_name = 'race_detail.html'
+    template_name = 'base_react.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -73,7 +73,7 @@ class RaceDetailView(BuildableDetailView):
 
 class RaceListView(BuildableTemplateView):
     model = Race
-    template_name = 'race_list.html'
+    template_name = 'base_react.html'
     build_path = 'races/index.html'
 
     def get_context_data(self, **kwargs):

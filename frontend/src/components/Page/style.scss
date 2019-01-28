@@ -1,0 +1,35 @@
+.page {
+  height: 100%;
+  min-height: 100vh;
+}
+
+.page-heading {
+  color: #55c1e8;
+}
+
+.page--collective,
+.page--detail {
+  background-color: #31313b;
+}
+
+.page--collective {
+  padding-top: 5rem;
+  overflow-y: scroll;
+}
+
+.page--inner {
+  padding-top: 5rem;
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.collective-logo {
+  margin: 1rem auto;
+  max-width: 100%;
+  max-height: 100px;
+}
