@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
+import Responsive from 'react-responsive';
 import Page from '../components/Page';
 import List from '../components/List';
 import { slide as SlideView } from 'react-burger-menu';
@@ -61,22 +62,28 @@ export default class RaceDetail extends Component {
 
   renderFeed = () => {
     const articles = JSON.parse(this.props.data.articles).map(item => (
-      <ArticleItem data={item} />
+      <div className="column is-4">
+        <ArticleItem data={item} />
+      </div>
     ));
 
     if (this.state.feed === 'candidates') {
       return (
         <section id="the-candidates">
           <h2 className="page-heading title is-4">Candidates</h2>
-          <List className="candidates-list">
-            {JSON.parse(this.props.candidates).map(item => (
-              <CandidateItem
-                key={item.pk}
-                id={item.pk}
-                handleClick={this.setCandidateView}
-                data={item.fields}
-              />
-            ))}
+          <List className="candidates-list columns is-multiline is-0-mobile">
+            {
+              JSON.parse(this.props.candidates).map(item => (
+                <div className="column is-4">
+                  <CandidateItem
+                    key={item.pk}
+                    id={item.pk}
+                    handleClick={this.setCandidateView}
+                    data={item.fields}
+                  />
+                </div>
+              ))
+            }
           </List>
         </section>
       );
@@ -84,15 +91,19 @@ export default class RaceDetail extends Component {
       return (
         <section id="the-newsfeed">
           <h2 className="page-heading title is-4">Articles</h2>
-          {articles.length ? (
-            articles
-          ) : (
-            <div className="list-item">
-              <span className="is-lightblue-text has-text-centered is-block is-fullwidth">
-                No related articles yet
-              </span>
-            </div>
-          )}
+          <div className="columns is-multiline">
+            {
+              articles.length ? (
+                articles
+              ) : (
+                <div className="list-item">
+                  <span className="is-lightblue-text has-text-centered is-block is-fullwidth">
+                    No related articles yet
+                  </span>
+                </div>
+              )
+            }
+          </div>
         </section>
       );
     } else if (this.state.feed === 'stances') {
@@ -184,19 +195,21 @@ export default class RaceDetail extends Component {
     // console.log(parsedData);
 
     return (
-      <div className="container">
-        <SlideView
-          left
-          width={320}
-          isOpen={this.state.slideViewActive}
-          onStateChange={this.unsetCandidateView}
-          customBurgerIcon={false}
-          customCrossIcon={false}
-        >
-          {this.state.currentCandidate && (
-            <CandidateView data={this.state.currentCandidate} />
-          )}
-        </SlideView>
+      <div>
+        <Responsive maxWidth={767}>
+          <SlideView
+            left
+            width={320}
+            isOpen={this.state.slideViewActive}
+            onStateChange={this.unsetCandidateView}
+            customBurgerIcon={false}
+            customCrossIcon={false}
+          >
+            {this.state.currentCandidate && (
+              <CandidateView data={this.state.currentCandidate} />
+            )}
+          </SlideView>
+        </Responsive>
         <Page
           className="page page--detail page--inner"
           heading={`Race for ${JSON.parse(data.office).office}`}

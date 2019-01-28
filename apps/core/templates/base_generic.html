@@ -25,18 +25,119 @@
 </head>
 
 <body>
+  <header class="header is-hidden-touch">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <a href="{% url 'index' %}">
+              <img class="header__logo" src="{% static 'images/chivote-logo.png' %}" alt="Chi.Vote logo"/>
+          </a>
+        </div>
+        <div class="level-item">
+          <h1 class="header__tagline">
+            Everything you need to know to vote in Chicago on
+            <em class="is-darkblue-text"> Tuesday, Feb. 26th, 2019</em>
+          </h1>
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <button class="button is-rounded is-medium">What is this?</button>
+        </div>
+        <!-- <div class="level-item">
+          <span class="icon is-large has-text-white">
+            <i class="fa fa-bars fa-3x"></i>
+          </span> -->
+        </div>
+      </div>
+    </div>
+  </header>
   <main class="c-offcanvas-content-wrap">
-    <nav class="navbar navbar--mobile">
+    <nav class="navbar navbar--mobile is-hidden-desktop">
       <a href="{% url 'index' %}">
         <img src="{% static 'images/chivote-logo.png' %}" alt="" class="navbar__logo">
       </a>
+      <span class="is-size-7 has-text-white">` Everything you need for Feb 26th</span>
       <a href="#offcanvas-menu" class="navbar-menu-trigger" id="menu-trigger">
         <span class="icon is-medium">
           <i class="fas fa-2x fa-bars"></i>
         </span>
       </a>
     </nav>
-    {% block content %}{% endblock %}
+    <div class="page-content">
+      <div class="columns is-gapless">
+        <div class="column is-narrow">
+          {% block sidebar %}
+          <!-- <aside class="sidebar desktop-menu">
+            <li class="menu-item"><a href="{% url 'race-list' %}">Races</a></li>
+          </aside> -->
+          {% endblock %}
+        </div>
+        <div class="column">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+      {% block footer %}
+      <section class="chivote-coll text-center is-hidden-touch">
+        <div class="container-fluid">
+          <div class="row text-center mb-5">
+            <img
+              class="logo logo--chivote-coll"
+              src="{% static 'images/chivote-collective-logo-white.png' %}"
+              alt="Chi.Vote Collective"
+            />
+            <p class="has-text-white is-lsb">
+              The Chi.vote website is the core product of the Chi.vote Collective,
+              a new group of nonpartisan media and civic organizations that
+              believe in fostering a safer, more prosperous and more equitable and
+              connected Chicago by creating content and tools of the highest
+              quality and accessibility around city elections. The founding
+              partners of the Collective are the Better Government Association,
+              Block Club Chicago, The Chicago Reporter, The Daily Line and The
+              Triibe.
+            </p>
+          </div>
+          <div class="row collective-logos">
+            <a href="https://bettergov.org">
+              <img
+                src="{% static 'images/BGA-logo-white.png' %}"
+                alt="Better Government Association"
+                class="collective-logo"
+              />
+            </a>
+            <a href="https://blockclubchicago.org/">
+              <img
+                src="{% static 'images/BCC-logo-white.png' %}"
+                alt="Block Club Chicago"
+                class="collective-logo"
+              />
+            </a>
+            <a href="https://www.chicagoreporter.com/">
+              <img
+                src="{% static 'images/chicago_reporter.png' %}"
+                alt="The Chicago Reporter"
+                class="collective-logo"
+              />
+            </a>
+            <a href="http://thedailyline.net/">
+              <img
+                src="{% static 'images/TDL-logo-white.png' %}"
+                alt="The Daily Line"
+                class="collective-logo"
+              />
+            </a>
+            <a href="https://thetriibe.com/">
+              <img
+                src="{% static 'images/Triibe - transparent white logo.png' %}"
+                alt="The TRiiBE"
+                class="collective-logo"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+      {% endblock %}
+    </div>
   </main>
   <aside id="offcanvas-menu" class="mobile-menu">
     <nav>
