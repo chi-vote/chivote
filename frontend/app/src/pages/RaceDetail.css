@@ -20,3 +20,14 @@
 .issue--heading {
   padding-top: 3.5rem;
 }
+
+.read-more-button {
+  color: lightsteelblue;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.read-more-button:hover {
+  text-decoration: underline;
+}

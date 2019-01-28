@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import Page from '../components/Page';
 import List from '../components/List';
@@ -10,6 +11,7 @@ import StanceItem from '../components/StanceItem';
 import _ from 'lodash';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './RaceDetail.css';
+import ReadMoreReact from '../components/ReadMoreReact';
 
 function slugify(text) {
   return text
@@ -194,7 +196,14 @@ export default class RaceDetail extends Component {
           className="page page--detail page--inner"
           heading={`Race for ${JSON.parse(data.office).office}`}
         >
-          {Parser(Parser(data.description))}
+          <p className="race__description">
+            <ReadMoreReact
+              text={Parser(decode(data.description))}
+              min={150}
+              ideal={200}
+              max={300}
+            />
+          </p>
           {/* TODO: why do I need to nest these? */}
           <div className={`field is-grouped is-${this.state.feed}-active mb-1`}>
             <div className="control is-expanded">

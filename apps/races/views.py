@@ -45,7 +45,7 @@ class RaceDetailView(BuildableDetailView):
             'office': raceData[0].__str__(),
         }
 
-        description = mark_safe(self.object.explainer)
+        description = strip_tags(mark_safe(self.object.explainer))
 
         # print(json.dumps(description))
 
@@ -72,7 +72,6 @@ class RaceListView(BuildableTemplateView):
     model = Race
     template_name = 'race_list.html'
     build_path = 'races/index.html'
-
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
