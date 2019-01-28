@@ -26,7 +26,7 @@ class Candidate(models.Model):
     ballot_order = models.PositiveSmallIntegerField(
         default=0, blank=False, null=False)
 
-    cboe_id = models.IntegerField()
+    cboe_id = models.IntegerField(null=True, blank=True)
     isbe_id = models.IntegerField(null=True, blank=True)
     br_id = models.IntegerField(null=True, blank=True)
     ri_id = models.IntegerField(null=True, blank=True)

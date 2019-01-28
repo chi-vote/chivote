@@ -1,0 +1,170 @@
+.u-position-relative {
+  position: relative;
+}
+
+div.stance__item {
+  padding: 0;
+}
+
+.accordion__title {
+  cursor: pointer;
+  margin-bottom: 0;
+  border-radius: 4px;
+}
+
+.accordion__title:hover {
+  background: #4a4a5c;
+}
+
+.stance__item .row {
+  width: 100%;
+  padding: 1rem;
+}
+
+.row--main {
+  display: flex;
+  /* align-items: flex-start; */
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .row--main {
+    flex-wrap: nowrap;
+  }
+}
+
+.stance__item .candidate-item__img {
+  float: left;
+}
+
+.row--main .candidate-item__text-main {
+  flex-basis: 100%;
+}
+
+.row--main .candidate-item__text-secondary {
+  margin-left: auto;
+  width: 220px;
+  padding-right: 24px;
+}
+
+.stance__item cite > a {
+  color: lightsteelblue;
+  display: block;
+}
+
+.stance__item cite > a:hover {
+  text-decoration: underline;
+  color: lightsteelblue;
+}
+
+/* Accordion styles
+ * https://springload.github.io/react-accessible-accordion/
+ */
+.accordion__arrow {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  margin-top: -6px;
+  color: white;
+}
+
+.accordion__arrow::after,
+.accordion__arrow::before {
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  background-color: currentColor;
+  content: '';
+}
+
+.accordion__arrow::before {
+  left: 4px;
+  transform: rotate(45deg);
+}
+
+[aria-expanded='true'] .accordion__arrow::before,
+[aria-selected='true'] .accordion__arrow::before {
+  transform: rotate(-45deg);
+}
+
+.accordion__arrow::after {
+  right: 4px;
+  transform: rotate(-45deg);
+}
+
+[aria-expanded='true'] .accordion__arrow::after,
+[aria-selected='true'] .accordion__arrow::after {
+  transform: rotate(45deg);
+}
+
+.accordion__arrow::before,
+.accordion__arrow::after {
+  transition: transform 0.25s ease, -webkit-transform 0.25s ease;
+}
+
+/* -------------------------------------------------- */
+/* ---------------- Animation part ------------------ */
+/* -------------------------------------------------- */
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes move-down {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(5px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes move-up {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-5px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.accordion__title--animated:hover .accordion__arrow {
+  animation-name: move-down;
+  animation-duration: 1.5s;
+}
+
+.accordion__title--animated[aria-expanded='true']:hover .accordion__arrow {
+  animation-name: move-up;
+  animation-duration: 1.5s;
+}

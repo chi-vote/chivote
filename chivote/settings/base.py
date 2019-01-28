@@ -152,6 +152,7 @@ BAKERY_VIEWS = (
     'apps.core.views.HomePageView',
     'apps.races.views.RaceDetailView',
     'apps.races.views.RaceListView',
+    'apps.site_content.views.ContentItemDetailView',
 )
 
 # webpack_loader settings
@@ -166,6 +167,7 @@ WEBPACK_LOADER = {
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend/app/static'),
+    os.path.join(BASE_DIR, 'precinct_lookup')
 )
 
 # ckeditor settings
@@ -189,3 +191,6 @@ CKEDITOR_CONFIGS = {
 
 # br settings
 BALLOT_READY_API_KEY = config('BALLOT_READY_API_KEY')
+
+# colorfield settings
+INSTALLED_APPS += ('colorfield', )

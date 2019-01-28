@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import Responsive from 'react-responsive';
 import Page from '../components/Page';
@@ -7,7 +8,22 @@ import { slide as SlideView } from 'react-burger-menu';
 import CandidateView from '../components/CandidateView';
 import CandidateItem from '../components/CandidateItem';
 import ArticleItem from '../components/ArticleItem';
-import StatementItem from '../components/StatementItem';
+import StanceItem from '../components/StanceItem';
+import _ from 'lodash';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
+import './RaceDetail.css';
+import ReadMoreReact from '../components/ReadMoreReact';
+
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .replace(/^-+/, '') // Trim - from start of text
+    .replace(/-+$/, ''); // Trim - from end of text
+}
 
 export default class RaceDetail extends Component {
   state = {
@@ -26,11 +42,10 @@ export default class RaceDetail extends Component {
     }
 
     this.setState({ candidateDict: dict });
-    this.groupStatements();
   }
 
   setCandidateView = candidateObj => {
-    console.log('hit setCandidateView');
+    // console.log('hit setCandidateView');
 
     this.setState({
       slideViewActive: true,
@@ -45,30 +60,10 @@ export default class RaceDetail extends Component {
     });
   };
 
-  groupStatements = () => {
-    const groups = JSON.parse(this.props.data.statements).reduce(
-      (acc, curr) => {
-        if (!acc.hasOwnProperty(curr.pk)) {
-          acc[curr.pk] = [];
-        }
-        acc[curr.pk].push(curr.fields);
-
-        return acc;
-      },
-      {}
-    );
-
-    return groups;
-  };
-
   renderFeed = () => {
-    const articles = JSON.parse(this.props.data.articles)
-      .filter(item => {
-        return (
-          item.fields.race.indexOf(JSON.parse(this.props.data.office).id) > -1
-        );
-      })
-      .map(item => <ArticleItem data={item} />);
+    const articles = JSON.parse(this.props.data.articles).map(item => (
+      <ArticleItem data={item} />
+    ));
 
     if (this.state.feed === 'candidates') {
       return (
@@ -101,26 +96,78 @@ export default class RaceDetail extends Component {
           )}
         </section>
       );
-    } else if (this.state.feed === 'statements') {
+    } else if (this.state.feed === 'stances') {
       const feed = [];
-      for (let issue in this.groupStatements()) {
+      const { stances } = this.props.data;
+
+      const groupedStances = _(JSON.parse(stances))
+        .groupBy(x => x.fields.issue)
+        .map((value, key) => ({ issue: key, stances: value }))
+        .value();
+
+      for (const issueObj of Object.values(groupedStances)) {
+        const { issue, stances } = issueObj;
+        const issueLabel = this.props.data.issueDict[issue];
+
         feed.push(
-          <div>
-            <h3 className="has-text-white title is-5">{`On ${
-              this.props.data.issueDict[issue]
-            }...`}</h3>
-            {this.groupStatements()[issue].map(item => (
-              <StatementItem
-                data={item}
-                speaker={this.state.candidateDict[item.candidate]}
+          <div
+            className="issue issue--group"
+            id={`issue--${slugify(issueLabel)}`}
+          >
+            <h3 className="has-text-white title is-5 issue--heading">{`On ${issueLabel}...`}</h3>
+            {stances.map(item => (
+              <StanceItem
+                data={item.fields}
+                candidate={
+                  _.find(JSON.parse(this.props.candidates), c => {
+                    return c.pk == item.fields.candidate;
+                  }).fields
+                }
               />
             ))}
           </div>
         );
       }
+
+      // const issue_labels = (
+      //   <div className="issue-labels">
+      //     <span className="has-text-white help-text">Jump to:</span>
+      //     {Object.values(groupedStances).map(x => {
+      //       const issueLabel = this.props.data.issueDict[x.issue];
+
+      //       return (
+      //         <a className="button" href={`#issue--${slugify(issueLabel)}`}>
+      //           {issueLabel}
+      //         </a>
+      //       );
+      //     })}
+      //   </div>
+      // );
+
+      const menu = Object.values(groupedStances).map(x => {
+        const issueLabel = this.props.data.issueDict[x.issue];
+
+        return (
+          <a className="button" href={`#issue--${slugify(issueLabel)}`}>
+            {issueLabel}
+          </a>
+        );
+      });
+
+      const issue_labels = (
+        <div className="issues-menu">
+          <ScrollMenu
+            data={menu}
+            arrowLeft={<span className="menu-arrow">←</span>}
+            arrowRight={<span className="menu-arrow">→</span>}
+          />
+        </div>
+      );
+
       return (
-        <section id="the-statements">
-          <h2 className="page-heading title is-4">Statements</h2>
+        <section id="the-stances">
+          <h2 className="page-heading title is-4">Stances</h2>
+          {issue_labels}
           {feed}
         </section>
       );
@@ -129,8 +176,8 @@ export default class RaceDetail extends Component {
 
   render() {
     const { data, candidates } = this.props;
-    const parsedData = JSON.parse(data.statements);
-    console.log(parsedData);
+    // const parsedData = JSON.parse(data.stances);
+    // console.log(parsedData);
 
     return (
       <div>
@@ -152,7 +199,14 @@ export default class RaceDetail extends Component {
           className="page page--detail page--inner"
           heading={`Race for ${JSON.parse(data.office).office}`}
         >
-          {Parser(Parser(data.description))}
+          <p className="race__description">
+            <ReadMoreReact
+              text={Parser(decode(data.description))}
+              min={150}
+              ideal={200}
+              max={300}
+            />
+          </p>
           {/* TODO: why do I need to nest these? */}
           <div className={`field is-grouped is-${this.state.feed}-active mb-1`}>
             <div className="control is-expanded">
@@ -179,10 +233,10 @@ export default class RaceDetail extends Component {
             </div>
             <div className="control is-expanded">
               <button
-                className="button is-rounded is-large is-statements"
-                onClick={() => this.setState({ feed: 'statements' })}
+                className="button is-rounded is-large is-stances"
+                onClick={() => this.setState({ feed: 'stances' })}
               >
-                {/* Statements */}
+                {/* Stances */}
                 <span className="icon">
                   <i className="fa fa-lg fa-comment-dots" />
                 </span>

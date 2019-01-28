@@ -10,7 +10,7 @@ from apps.candidates.models import Candidate, CandidateContact
 class ContactInline(admin.TabularInline):
     model = CandidateContact
     extra = 0
-    min_num = 1
+    min_num = 0
 
 
 # class ResponseInline(admin.StackedInline):

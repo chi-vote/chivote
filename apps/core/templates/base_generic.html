@@ -74,7 +74,11 @@
       <!-- <a href="{% url 'index' %}" class="menu__home-link">
         <img src="{% static 'images/chivote-logo.png' %}" alt="" class="menu__logo">
       </a> -->
+      <li class="menu-item"><a href="{% url 'index' %}">Home</a></li>
       <li class="menu-item"><a href="{% url 'race-list' %}">Races</a></li>
+      <li class="menu-item"><a href="{% url 'page-detail' 'faq' %}">FAQ</a></li>
+      <li class="menu-item"><a href="{% url 'page-detail' 'ask' %}">Ask</a></li>
+      <li class="menu-item"><a href="{% url 'page-detail' 'quiz' %}">Quiz</a></li>
     </nav>
   </aside>
   <script

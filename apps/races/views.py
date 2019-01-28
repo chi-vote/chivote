@@ -24,8 +24,8 @@ class RaceDetailView(BuildableDetailView):
         candidates = Candidate.objects.filter(
             race=self.object).exclude(status='inactive')
 
-        statements = CandidateStance.objects.filter(
-            candidate__race=self.object)
+        stances = CandidateStance.objects.filter(
+            candidate__race=self.object).order_by('-date')
 
         articles = Article.objects.filter(race=self.object)
 
@@ -45,7 +45,7 @@ class RaceDetailView(BuildableDetailView):
             'office': raceData[0].__str__(),
         }
 
-        description = mark_safe(self.object.explainer)
+        description = strip_tags(mark_safe(self.object.explainer))
 
         # print(json.dumps(description))
 
@@ -54,7 +54,7 @@ class RaceDetailView(BuildableDetailView):
             'props': {
                 'data': {
                     'issueDict': issue_dict,
-                    'statements': serializers.serialize('json', statements),
+                    'stances': serializers.serialize('json', stances),
                     'articles': serializers.serialize('json', articles),
                     'office': json.dumps(raceObj),
                     'description': description,
@@ -71,6 +71,7 @@ class RaceDetailView(BuildableDetailView):
 class RaceListView(BuildableTemplateView):
     model = Race
     template_name = 'race_list.html'
+    build_path = 'races/index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -97,4 +98,3 @@ class RaceListView(BuildableTemplateView):
         context.update(react_dict)
 
         return context
-        # build_path = 'races/index.html'
