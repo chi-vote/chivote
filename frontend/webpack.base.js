@@ -2,7 +2,7 @@ const path = require('path');
 const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
-  context: path.resolve(__dirname, 'app'),
+  // context: path.resolve(__dirname, 'app'),
   entry: ['./src/index'],
   output: {
     filename: '[name]-[hash].js'
@@ -38,9 +38,9 @@ module.exports = {
     modules: ['node_modules'],
     extensions: ['.js', '.jsx'],
     alias: {
-      Assets: path.resolve(__dirname, 'app/src/assets/'),
-      Components: path.resolve(__dirname, 'app/src/components/'),
-      Pages: path.resolve(__dirname, 'app/src/pages/')
+      Assets: path.resolve(__dirname, 'src/assets/'),
+      Components: path.resolve(__dirname, 'src/components/'),
+      Pages: path.resolve(__dirname, 'src/pages/')
     }
   }
 };
