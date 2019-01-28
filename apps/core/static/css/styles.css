@@ -7,11 +7,7 @@ body,
 #app {
   height: 100%;
   min-height: 100vh;
-<<<<<<< HEAD
 	width: 100%;
-=======
-  width: 100vw;
->>>>>>> master
 }
 
 body,
@@ -211,6 +207,21 @@ div.list-item {
   padding: 0.25rem 0.5rem;
   border-radius: 20px;
   margin-left: 0.5rem;
+}
+
+.select select,
+.input {
+  background-color: #31313b;
+  border: none;
+  color: white;
+}
+
+.ward-lookup .input {
+  width: 120px;
+}
+
+.ward-num {
+  margin-left: 3px;
 }
 
 .button .icon {
