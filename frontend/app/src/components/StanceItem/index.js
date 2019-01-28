@@ -11,7 +11,7 @@ import {
 } from 'react-accessible-accordion';
 
 import 'react-accessible-accordion/dist/minimal-example.css';
-import './StanceItem.css';
+import './style.scss';
 
 const StanceItem = props => {
   const { candidate } = props;
