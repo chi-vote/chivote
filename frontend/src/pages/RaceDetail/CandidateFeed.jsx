@@ -8,7 +8,7 @@ const CandidateFeed = props => {
 
   return (
     <section id="the-candidates">
-      <h2 className="page-heading title is-4">Candidates</h2>
+      <h2 className="is-hidden-tablet page-heading title is-4">Candidates</h2>
       <List className="candidates-list columns is-multiline is-0-mobile">
         {candidates.map(item => (
           <div className="column is-4">

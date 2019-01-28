@@ -43,3 +43,21 @@
     padding: 0;
   }
 }
+
+.button > .label {
+  color: white;
+  margin-left: 0.5em;
+  padding-top: 4px;
+  // text-transform: uppercase;
+}
+
+#the-candidates,
+#the-newsfeed,
+#the-stances {
+  padding-top: 1rem;
+}
+
+.field.is-grouped > .control.is-expanded {
+  flex-basis: 30%;
+  width: 30%;
+}

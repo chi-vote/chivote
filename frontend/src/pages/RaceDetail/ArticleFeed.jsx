@@ -12,7 +12,7 @@ const ArticleFeed = props => {
 
   return (
     <section id="the-newsfeed">
-      <h2 className="page-heading title is-4">Articles</h2>
+      <h2 className="is-hidden-tablet page-heading title is-4">Articles</h2>
       <div className="columns is-multiline">
         {articleItems.length ? (
           articleItems
