@@ -7,7 +7,7 @@ body,
 #app {
   height: 100%;
   min-height: 100vh;
-	width: 100%;
+  width: 100%;
 }
 
 body,
@@ -59,7 +59,7 @@ p {
 @media only screen and (max-width: 768px) {
   .candidates-list .column,
   #the-newsfeed .column {
-    padding: 0
+    padding: 0;
   }
 }
 
@@ -81,7 +81,7 @@ p {
 .header {
   padding: 2rem;
   width: 100%;
-  background-color: #55C1E8;
+  background-color: #55c1e8;
 }
 
 .header img {
@@ -108,7 +108,7 @@ p {
 .sidebar {
   height: 100%;
   width: 375px;
-  background-color: #3F3F4D;
+  background-color: #3f3f4d;
 }
 
 .navbar {
@@ -280,7 +280,7 @@ footer.footer {
 }
 
 .chivote-coll {
-  background-color: #31313B;
+  background-color: #31313b;
   color: #fff;
   padding: 4rem;
 }

@@ -5,6 +5,7 @@ import RaceDetail from './pages/RaceDetail';
 import RaceList from './pages/RaceList';
 import CandidateDetail from './pages/CandidateDetail';
 import ContentItemDetail from './pages/ContentItemDetail';
+import 'Assets/styles/theme.scss';
 
 /**
  * Maintain a simple map of React components to make it easier for
