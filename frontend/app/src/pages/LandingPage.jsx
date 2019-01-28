@@ -20,7 +20,7 @@ const LandingPage = (props) => {
       <div className="column is-4">
         <div className="voter-stage stage-research has-text-centered">
           <img src={researchIcon} alt="" className="voter-stage__image"/>
-          <p className="voter-stage__cta is-lsb is-size-3">I'm ready to research candidates and issues.</p>
+          <p className="voter-stage__cta is-lightblue-text is-lsb is-size-3">I'm ready to research candidates and issues.</p>
           <div className="voter-stage__links">
             <ul>
               <li><a href="races" className="button is-large is-rounded">Explore the races</a></li>

@@ -11,7 +11,7 @@ const CollectivePage = props => {
   return (
     <Page className="page page--collective">
       <button
-        className="button is-outlined"
+        className="button is-outlined is-rounded mb-1"
         onClick={props.goHome}>
         Go back
       </button>

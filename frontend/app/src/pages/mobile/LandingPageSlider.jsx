@@ -16,8 +16,10 @@ class LandingPageSlider extends Component {
     const settings = {
       vertical: true,
       slidesToScroll: 1,
+      draggable: false,
       dots: false,
       infinite: false,
+      swipe: false,
       swipeToSlide: false
     }
     return (
