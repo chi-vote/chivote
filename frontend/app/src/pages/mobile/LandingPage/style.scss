@@ -24,7 +24,7 @@
 
 .voter-stage.is-mobile {
   justify-content: center;
-  padding: 1rem
+  padding: 1rem;
 }
 
 .voter-stage__image {
@@ -44,7 +44,7 @@
   min-width: 300px;
 }
 
-.voter-stage__links li+li {
+.voter-stage__links li + li {
   margin-top: 1rem;
 }
 
@@ -64,25 +64,25 @@
 
 .stage-questions .button {
   background-color: white;
-  border-color: #CE112D;
-  color: #CE112D;
+  border-color: #ce112d;
+  color: #ce112d;
 }
 
 .stage-research {
-  background-color: #31313B;
+  background-color: #31313b;
 }
 
 .stage-research .button {
-  border-color: #55C1E8;
-  color: #55C1E8;
+  border-color: #55c1e8;
+  color: #55c1e8;
 }
 
 .stage-ready {
-  background-color: #CE112D;
+  background-color: #ce112d;
 }
 
 .stage-ready .button {
-  background-color: #CE112D;
+  background-color: #ce112d;
   color: white;
 }
 
@@ -92,14 +92,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #55C1E8;
-  border: 1px solid #55C1E8;
+  background-color: #55c1e8;
+  border: 1px solid #55c1e8;
 }
 
 .get-started {
   height: auto;
-  background-color: #CE112D;
-  border-color: #CE112D;
+  background-color: #ce112d;
+  border-color: #ce112d;
   border-radius: 19px;
   margin-bottom: 1rem;
   padding: 1.5rem;
