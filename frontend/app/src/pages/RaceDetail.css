@@ -1,0 +1,15 @@
+.issue-labels {
+  position: sticky;
+  background: #31313b;
+  padding: 10px 0;
+  top: 0;
+}
+
+.issue-labels > .button,
+.issue-labels > .help-text {
+  margin-right: 1rem;
+}
+
+.issue--heading {
+  padding-top: 3.5rem;
+}

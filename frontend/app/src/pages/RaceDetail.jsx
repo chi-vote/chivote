@@ -8,6 +8,18 @@ import CandidateItem from '../components/CandidateItem';
 import ArticleItem from '../components/ArticleItem';
 import StanceItem from '../components/StanceItem';
 import _ from 'lodash';
+import './RaceDetail.css';
+
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .replace(/^-+/, '') // Trim - from start of text
+    .replace(/-+$/, ''); // Trim - from end of text
+}
 
 export default class RaceDetail extends Component {
   state = {
@@ -91,12 +103,14 @@ export default class RaceDetail extends Component {
 
       for (const issueObj of Object.values(groupedStances)) {
         const { issue, stances } = issueObj;
+        const issueLabel = this.props.data.issueDict[issue];
 
         feed.push(
-          <div>
-            <h3 className="has-text-white title is-5">{`On ${
-              this.props.data.issueDict[issue]
-            }...`}</h3>
+          <div
+            className="issue issue--group"
+            id={`issue--${slugify(issueLabel)}`}
+          >
+            <h3 className="has-text-white title is-5 issue--heading">{`On ${issueLabel}...`}</h3>
             {stances.map(item => (
               <StanceItem
                 data={item.fields}
@@ -110,9 +124,26 @@ export default class RaceDetail extends Component {
           </div>
         );
       }
+
+      const issue_labels = (
+        <div className="issue-labels">
+          <span className="has-text-white help-text">Jump to:</span>
+          {Object.values(groupedStances).map(x => {
+            const issueLabel = this.props.data.issueDict[x.issue];
+
+            return (
+              <a className="button" href={`#issue--${slugify(issueLabel)}`}>
+                {issueLabel}
+              </a>
+            );
+          })}
+        </div>
+      );
+
       return (
         <section id="the-stances">
           <h2 className="page-heading title is-4">Stances</h2>
+          {issue_labels}
           {feed}
         </section>
       );
