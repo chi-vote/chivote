@@ -5,7 +5,7 @@ import chivoteLogo from 'Assets/images/chivote-logo-7x.png';
 import questionsIcon from 'Assets/images/chivote-questions-icon.png';
 import researchIcon from 'Assets/images/chivote-research-icon.png';
 import readyIcon from 'Assets/images/chivote-ready-icon.png';
-import 'Assets/styles/LandingPage.css';
+import './style.scss';
 
 const LandingPage = props => {
   return (

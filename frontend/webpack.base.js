@@ -32,6 +32,11 @@ module.exports = {
   },
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      Assets: path.resolve(__dirname, 'app/src/assets/'),
+      Components: path.resolve(__dirname, 'app/src/components/'),
+      Pages: path.resolve(__dirname, 'app/src/pages/')
+    }
   }
 };

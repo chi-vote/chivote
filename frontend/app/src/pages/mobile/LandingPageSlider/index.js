@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import 'Assets/styles/slick.css';
-import 'Assets/styles/LandingPageSlider.css';
+import './style.scss';
 // import "Assets/styles/slick-theme.css";
 
 import LandingPage from 'Pages/mobile/LandingPage';

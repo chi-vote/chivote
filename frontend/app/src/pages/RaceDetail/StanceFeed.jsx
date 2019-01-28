@@ -1,8 +1,8 @@
 import React from 'react';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
-import ReadMoreReact from '../../components/ReadMoreReact';
-import StanceItem from '../../components/StanceItem';
+import ReadMoreReact from 'Components/ReadMoreReact';
+import StanceItem from 'Components/StanceItem';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import { slugify } from './utils';
 

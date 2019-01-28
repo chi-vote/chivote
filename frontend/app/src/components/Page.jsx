@@ -1,16 +1,15 @@
-import React from 'react'
-import '../assets/styles/Page.css'
+import React from 'react';
+import 'Assets/styles/Page.css';
 
-const Page = (props) => {
+const Page = props => {
   return (
     <section {...props}>
-      {
-        props.heading &&
+      {props.heading && (
         <h1 className="page-heading title is-3">{props.heading}</h1>
-      }
+      )}
       {props.children}
     </section>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

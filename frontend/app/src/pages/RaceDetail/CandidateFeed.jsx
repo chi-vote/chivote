@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
-import List from '../../components/List';
-import CandidateItem from '../../components/CandidateItem';
+import List from 'Components/List';
+import CandidateItem from 'Components/CandidateItem';
 
 const CandidateFeed = props => {
   const { candidates, handleClick } = props;

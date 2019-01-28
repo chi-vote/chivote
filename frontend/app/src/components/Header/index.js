@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../assets/styles/Header.css';
-import chivoteLogo from '../assets/images/chivote-logo-7x.png'
+import './style.scss';
+import chivoteLogo from 'Assets/images/chivote-logo-7x.png';
 import { hot } from 'react-hot-loader/root';
 
 class Header extends Component {
@@ -10,7 +10,11 @@ class Header extends Component {
         <div className="level">
           <div className="level-left">
             <div className="level-item">
-              <img className="header__logo" src={chivoteLogo} alt="Chi.Vote logo"/>
+              <img
+                className="header__logo"
+                src={chivoteLogo}
+                alt="Chi.Vote logo"
+              />
             </div>
             <div className="level-item">
               <h1 className="header__tagline">
@@ -21,18 +25,20 @@ class Header extends Component {
           </div>
           <div className="level-right">
             <div className="level-item">
-              <button className="button is-rounded is-medium">What is this?</button>
+              <button className="button is-rounded is-medium">
+                What is this?
+              </button>
             </div>
             <div className="level-item">
               <span className="icon is-large has-text-white">
-                <i className="fa fa-bars fa-3x"></i>
+                <i className="fa fa-bars fa-3x" />
               </span>
             </div>
           </div>
         </div>
       </header>
-    )
+    );
   }
 }
 
-export default hot(Header)
+export default hot(Header);

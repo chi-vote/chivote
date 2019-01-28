@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Page from '../components/Page';
+import Page from 'Components/Page';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import { Helmet } from 'react-helmet';
@@ -19,7 +19,7 @@ export default class ContentItemDetail extends Component {
     }
 
     if (slug == 'faq') {
-      require('../assets/styles/PageFaq.css');
+      require('Assets/styles/PageFaq.css');
     }
 
     return (
