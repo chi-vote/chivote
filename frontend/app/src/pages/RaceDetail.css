@@ -1,13 +1,19 @@
-.issue-labels {
+.issues-menu {
   position: sticky;
   background: #31313b;
   padding: 10px 0;
   top: 0;
 }
 
-.issue-labels > .button,
-.issue-labels > .help-text {
+.issues-menu .button,
+.issues-menu .help-text {
   margin-right: 1rem;
+}
+
+.issues-menu .menu-arrow {
+  cursor: pointer;
+  color: white;
+  padding: 5px;
 }
 
 .issue--heading {

@@ -4716,6 +4716,11 @@ react-helmet@^5.2.0:
     prop-types "^15.5.4"
     react-side-effect "^1.1.0"
 
+react-horizontal-scrolling-menu@^0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/react-horizontal-scrolling-menu/-/react-horizontal-scrolling-menu-0.4.5.tgz#7c3325409839f59de15dd781255441f4a14091a9"
+  integrity sha512-jCltr+IxF4uXNoHuM22hSOPFf7J2LNptXSgvJLWs0CgN4qguGHPDnmwezT/S+vj77MkL1DH2FprfJ56qwMpjrg==
+
 react-hot-loader@^4.6.3:
   version "4.6.3"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.6.3.tgz#d9c8923c45b35fd51538ba4297081a00be6bccb1"

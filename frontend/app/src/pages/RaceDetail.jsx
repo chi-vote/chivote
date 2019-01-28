@@ -8,6 +8,7 @@ import CandidateItem from '../components/CandidateItem';
 import ArticleItem from '../components/ArticleItem';
 import StanceItem from '../components/StanceItem';
 import _ from 'lodash';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './RaceDetail.css';
 
 function slugify(text) {
@@ -125,18 +126,38 @@ export default class RaceDetail extends Component {
         );
       }
 
-      const issue_labels = (
-        <div className="issue-labels">
-          <span className="has-text-white help-text">Jump to:</span>
-          {Object.values(groupedStances).map(x => {
-            const issueLabel = this.props.data.issueDict[x.issue];
+      // const issue_labels = (
+      //   <div className="issue-labels">
+      //     <span className="has-text-white help-text">Jump to:</span>
+      //     {Object.values(groupedStances).map(x => {
+      //       const issueLabel = this.props.data.issueDict[x.issue];
 
-            return (
-              <a className="button" href={`#issue--${slugify(issueLabel)}`}>
-                {issueLabel}
-              </a>
-            );
-          })}
+      //       return (
+      //         <a className="button" href={`#issue--${slugify(issueLabel)}`}>
+      //           {issueLabel}
+      //         </a>
+      //       );
+      //     })}
+      //   </div>
+      // );
+
+      const menu = Object.values(groupedStances).map(x => {
+        const issueLabel = this.props.data.issueDict[x.issue];
+
+        return (
+          <a className="button" href={`#issue--${slugify(issueLabel)}`}>
+            {issueLabel}
+          </a>
+        );
+      });
+
+      const issue_labels = (
+        <div className="issues-menu">
+          <ScrollMenu
+            data={menu}
+            arrowLeft={<span className="menu-arrow">←</span>}
+            arrowRight={<span className="menu-arrow">→</span>}
+          />
         </div>
       );
 
