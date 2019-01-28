@@ -100,7 +100,11 @@ export default class RaceDetail extends Component {
             {stances.map(item => (
               <StanceItem
                 data={item.fields}
-                speaker={this.state.candidateDict[item.fields.candidate]}
+                candidate={
+                  _.find(JSON.parse(this.props.candidates), c => {
+                    return c.pk == item.fields.candidate;
+                  }).fields
+                }
               />
             ))}
           </div>
