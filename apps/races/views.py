@@ -34,6 +34,8 @@ class RaceDetailView(BuildableDetailView):
         for issue in Issue.objects.all():
             issue_dict[issue.pk] = issue.name
 
+        issues = Issue.objects.all()
+
         # print(issue_dict)
 
         raceData = Race.objects.filter(
@@ -54,6 +56,7 @@ class RaceDetailView(BuildableDetailView):
             'props': {
                 'data': {
                     'issueDict': issue_dict,
+                    'issues': serializers.serialize('json', issues),
                     'stances': serializers.serialize('json', stances),
                     'articles': serializers.serialize('json', articles),
                     'office': json.dumps(raceObj),

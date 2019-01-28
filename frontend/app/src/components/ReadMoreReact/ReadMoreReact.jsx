@@ -34,28 +34,30 @@ export default class ReadMoreReact extends React.Component {
 
   render() {
     let displayText;
+    const extraClasses = this.props.className;
+
     if (!this.state.secondaryText) {
       displayText = (
-        <div className="display-text-group">
+        <p className={`${extraClasses} display-text-group`}>
           <span className="displayed-text">
             {`${this.state.primaryText} ${this.state.secondaryText}`}
           </span>
-        </div>
+        </p>
       );
     } else if (this.state.displaySecondary) {
       displayText = (
-        <div className="display-text-group">
+        <p className={`${extraClasses} display-text-group`}>
           {/* <span className="displayed-text" onClick={this.setStatus.bind(this)}> */}
           {`${this.state.primaryText} ${this.state.secondaryText}`}
           {/* </span> */}
           <div className="read-more-button" onClick={this.setStatus.bind(this)}>
             read less
           </div>
-        </div>
+        </p>
       );
     } else {
       displayText = (
-        <div className="display-text-group">
+        <p className={`${extraClasses} display-text-group`}>
           <span className="displayed-text">
             {`${this.state.primaryText}`}
             {` ... `}
@@ -66,7 +68,7 @@ export default class ReadMoreReact extends React.Component {
               read more
             </span>
           </span>
-        </div>
+        </p>
       );
     }
 

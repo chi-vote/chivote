@@ -97,26 +97,44 @@ export default class RaceDetail extends Component {
       );
     } else if (this.state.feed === 'stances') {
       const feed = [];
-      const { stances } = this.props.data;
+      const stances = JSON.parse(this.props.data.stances);
+      const issues = JSON.parse(this.props.data.issues);
 
-      const groupedStances = _(JSON.parse(stances))
+      const groupedStances = _(stances)
         .groupBy(x => x.fields.issue)
         .map((value, key) => ({ issue: key, stances: value }))
         .value();
 
-      for (const issueObj of Object.values(groupedStances)) {
-        const { issue, stances } = issueObj;
-        const issueLabel = this.props.data.issueDict[issue];
+      for (const group of Object.values(groupedStances)) {
+        const { issue, stances } = group;
+        const issueObject = _.find(issues, i => {
+          return i.pk == issue;
+        });
 
         feed.push(
           <div
-            className="issue issue--group"
-            id={`issue--${slugify(issueLabel)}`}
+            className="issue issue__group"
+            id={`issue--${slugify(issueObject.fields.name)}`}
           >
-            <h3 className="has-text-white title is-5 issue--heading">{`On ${issueLabel}...`}</h3>
+            <h3 className="has-text-white title is-5 issue__heading">{`On ${
+              issueObject.fields.name
+            }...`}</h3>
+
+            <ReadMoreReact
+              text={decode(issueObject.fields.description).replace(
+                /<(?:.|\n)*?>/gm,
+                ''
+              )}
+              min={100}
+              ideal={150}
+              max={200}
+              className="issue__description"
+            />
+
             {stances.map(item => (
               <StanceItem
                 data={item.fields}
+                key={item.pk}
                 candidate={
                   _.find(JSON.parse(this.props.candidates), c => {
                     return c.pk == item.fields.candidate;
@@ -127,21 +145,6 @@ export default class RaceDetail extends Component {
           </div>
         );
       }
-
-      // const issue_labels = (
-      //   <div className="issue-labels">
-      //     <span className="has-text-white help-text">Jump to:</span>
-      //     {Object.values(groupedStances).map(x => {
-      //       const issueLabel = this.props.data.issueDict[x.issue];
-
-      //       return (
-      //         <a className="button" href={`#issue--${slugify(issueLabel)}`}>
-      //           {issueLabel}
-      //         </a>
-      //       );
-      //     })}
-      //   </div>
-      // );
 
       const menu = Object.values(groupedStances).map(x => {
         const issueLabel = this.props.data.issueDict[x.issue];
@@ -196,14 +199,13 @@ export default class RaceDetail extends Component {
           className="page page--detail page--inner"
           heading={`Race for ${JSON.parse(data.office).office}`}
         >
-          <p className="race__description">
-            <ReadMoreReact
-              text={Parser(decode(data.description))}
-              min={150}
-              ideal={200}
-              max={300}
-            />
-          </p>
+          <ReadMoreReact
+            text={Parser(decode(data.description))}
+            min={150}
+            ideal={200}
+            max={300}
+            className="race__description"
+          />
           {/* TODO: why do I need to nest these? */}
           <div className={`field is-grouped is-${this.state.feed}-active mb-1`}>
             <div className="control is-expanded">
