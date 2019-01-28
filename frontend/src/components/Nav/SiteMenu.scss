@@ -13,10 +13,12 @@
 }
 
 .bm-menu a {
+  font-family: 'League Spartan Bold', sans-serif;
   color: #b8b7ad;
 
   &:hover {
     color: #55c1e8;
+    text-decoration: none;
   }
 }
 
@@ -38,12 +40,12 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #dbdbdb;
+  background: #fff;
 }
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #55c1e8;
+  background: #dbdbdb;
 }
 
 /* Position and sizing of clickable cross button */

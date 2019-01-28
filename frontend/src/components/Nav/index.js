@@ -11,7 +11,7 @@ class Nav extends Component {
         <a href="/">
           <img src={chivoteLogo} alt="" className="navbar__logo" />
         </a>
-        <span className="is-size-7 has-text-white has-text-centered">
+        <span className="navbar__tagline is-size-7 has-text-white has-text-centered">
           Everything you need <br /> to vote on Feb 26th
         </span>
         <SiteMenu right className="site-menu" />

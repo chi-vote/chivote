@@ -4,12 +4,21 @@
 
 .navbar {
   display: flex;
-  position: relative;
+  // position: relative;
+  position: absolute;
+  top: 0;
+  width: 100%;
   align-items: flex-start;
   justify-content: space-between;
   padding: 1rem;
+
+  background: rgba(49, 49, 59, 1);
 }
 
 .navbar__logo {
   height: 30px;
+}
+
+.navbar__tagline {
+  font-family: 'League Spartan Bold', sans-serif;
 }
