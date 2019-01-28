@@ -19,7 +19,7 @@ export default class ContentItemDetail extends Component {
     }
 
     if (slug == 'faq') {
-      require('Assets/styles/PageFaq.css');
+      require('./PageFaq.scss');
     }
 
     return (
