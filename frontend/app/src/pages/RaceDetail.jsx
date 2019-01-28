@@ -72,18 +72,16 @@ export default class RaceDetail extends Component {
         <section id="the-candidates">
           <h2 className="page-heading title is-4">Candidates</h2>
           <List className="candidates-list columns is-multiline is-0-mobile">
-            {
-              JSON.parse(this.props.candidates).map(item => (
-                <div className="column is-4">
-                  <CandidateItem
-                    key={item.pk}
-                    id={item.pk}
-                    handleClick={this.setCandidateView}
-                    data={item.fields}
-                  />
-                </div>
-              ))
-            }
+            {JSON.parse(this.props.candidates).map(item => (
+              <div className="column is-4">
+                <CandidateItem
+                  key={item.pk}
+                  id={item.pk}
+                  handleClick={this.setCandidateView}
+                  data={item.fields}
+                />
+              </div>
+            ))}
           </List>
         </section>
       );
@@ -92,17 +90,15 @@ export default class RaceDetail extends Component {
         <section id="the-newsfeed">
           <h2 className="page-heading title is-4">Articles</h2>
           <div className="columns is-multiline">
-            {
-              articles.length ? (
-                articles
-              ) : (
-                <div className="list-item">
-                  <span className="is-lightblue-text has-text-centered is-block is-fullwidth">
-                    No related articles yet
-                  </span>
-                </div>
-              )
-            }
+            {articles.length ? (
+              articles
+            ) : (
+              <div className="list-item">
+                <span className="is-lightblue-text has-text-centered is-block is-fullwidth">
+                  No related articles yet
+                </span>
+              </div>
+            )}
           </div>
         </section>
       );
