@@ -17,13 +17,18 @@ export default class ContentItemDetail extends Component {
         </div>
       );
     }
+
+    if (slug == 'faq') {
+      require('../assets/styles/PageFaq.css');
+    }
+
     return (
-      <Page>
+      <Page className={`page-${slug}`}>
         <div className="container">
           <div className="col-12">
             <div className="row">
               <Helmet>
-                <style>{`body { background: ${background} !important; } * { color: white !important; }`}</style>
+                <style>{`body { background: ${background} !important; } * { color: white !important; font-family: 'League Spartan Bold', sans-serif; }`}</style>
                 {Parser(decode(helmet))}
               </Helmet>
               {/* <h1 className="page-heading title">{title}</h1> */}
