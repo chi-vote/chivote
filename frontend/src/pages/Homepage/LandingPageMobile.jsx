@@ -59,7 +59,10 @@ class VotingStageSlider extends Component {
             />
             <div className="voter-stage__links">
               <a href="faq" className="button is-large is-rounded">
-                Look through our FAQs
+                Read through the FAQ
+              </a>
+              <a href="quiz" className="button is-large is-rounded">
+                Take the quiz
               </a>
             </div>
           </div>
@@ -76,13 +79,13 @@ class VotingStageSlider extends Component {
             <div className="voter-stage__links">
               <ul>
                 <li>
-                  <a href="races" className="button is-large is-rounded">
-                    Explore the races
+                  <a href="faq" className="button is-large is-rounded">
+                    Read through the FAQ
                   </a>
                 </li>
                 <li>
-                  <a href="ask" className="button is-large is-rounded">
-                    Ask us anything
+                  <a href="quiz" className="button is-large is-rounded">
+                    Take the quiz
                   </a>
                 </li>
               </ul>
@@ -94,9 +97,24 @@ class VotingStageSlider extends Component {
           <div className="voter-stage is-mobile stage-ready has-text-centered">
             <img src={readyIcon} alt="" className="voter-stage__image mb-1" />
             <div className="voter-stage__links">
-              <a href="quiz" className="button is-large is-rounded">
-                Take the quiz!
-              </a>
+              <ul>
+                <li>
+                  <a
+                    href="https://chicagoelections.com/en/register-to-vote-change-of-address.html"
+                    className="button is-large is-rounded"
+                  >
+                    Make sure you're registered
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://chicagoelections.com/en/your-voter-information.html"
+                    className="button is-large is-rounded"
+                  >
+                    Find your polling place
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         );
@@ -146,7 +164,7 @@ class VotingStageSlider extends Component {
             >
               {/* <img src={questionsIcon} alt="" className="voter-stage__image"/> */}
               <p className="voter-stage__cta is-lsb is-size-3 is-red-text">
-                I don't know where to start...
+                Where do I start?
               </p>
             </div>
           </div>
@@ -157,7 +175,7 @@ class VotingStageSlider extends Component {
             >
               {/* <img src={researchIcon} alt="" className="voter-stage__image"/> */}
               <p className="voter-stage__cta is-lightblue-text is-lsb is-size-3">
-                I'm ready to research candidates and issues.
+                I'm ready to learn.
               </p>
             </div>
           </div>

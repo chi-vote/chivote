@@ -10,12 +10,21 @@ const LandingPage = props => {
         <div className="voter-stage stage-questions has-text-centered">
           <img src={questionsIcon} alt="" className="voter-stage__image" />
           <p className="voter-stage__cta is-lsb is-size-3 is-red-text">
-            I don't know where to start...
+            Where do I start?
           </p>
           <div className="voter-stage__links">
-            <a href="faq" className="button is-large is-rounded">
-              Look through our FAQs
-            </a>
+            <ul>
+              <li>
+                <a href="faq" className="button is-large is-rounded">
+                  Read through the FAQ
+                </a>
+              </li>
+              <li>
+                <a href="quiz" className="button is-large is-rounded">
+                  Take the quiz
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -23,7 +32,7 @@ const LandingPage = props => {
         <div className="voter-stage stage-research has-text-centered">
           <img src={researchIcon} alt="" className="voter-stage__image" />
           <p className="voter-stage__cta is-lightblue-text is-lsb is-size-3">
-            I'm ready to research candidates and issues.
+            I'm ready to learn.
           </p>
           <div className="voter-stage__links">
             <ul>
@@ -48,9 +57,24 @@ const LandingPage = props => {
             I'm ready to vote!
           </p>
           <div className="voter-stage__links">
-            <a href="quiz" className="button is-large is-rounded">
-              Take the quiz!
-            </a>
+            <ul>
+              <li>
+                <a
+                  href="https://chicagoelections.com/en/register-to-vote-change-of-address.html"
+                  className="button is-large is-rounded"
+                >
+                  Make sure you're registered
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://chicagoelections.com/en/your-voter-information.html"
+                  className="button is-large is-rounded"
+                >
+                  Find your polling place
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
