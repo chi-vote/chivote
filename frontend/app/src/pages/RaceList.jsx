@@ -36,7 +36,7 @@ const RaceList = (props) => {
 
   const races = JSON.parse(props.data.races)
   return (
-    <div className="container">
+    <div>
       <Page
         className="page page--detail page--inner"
         heading="Races">

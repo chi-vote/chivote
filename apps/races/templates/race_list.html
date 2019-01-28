@@ -5,6 +5,12 @@
 
 {% block title %}<title>Chi.Vote</title>{% endblock %}
 
+{% block sidebar %}
+  <aside class="sidebar desktop-menu is-hidden-touch">
+    <li class="menu-item"><a href="{% url 'race-list' %}">Races</a></li>
+  </aside>
+{% endblock %}
+
 {% block content %}
 <div id="app"></div>
 

@@ -1,3 +1,64 @@
+.landing-page {
+  height: 800px;
+}
+
+.landing-page .columns {
+  height: 100%;
+}
+
+.voter-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 5rem 3rem;
+}
+
+.voter-stage__image {
+  height: 150px;
+}
+
+.voter-stage__cta {
+  margin: 2rem 0;
+  min-height: 100px;
+}
+
+.voter-stage__links .button {
+  min-width: 300px;
+}
+
+.voter-stage__links li+li {
+  margin-top: 1rem;
+}
+
+.stage-questions {
+  background-color: white;
+}
+
+.stage-questions .button {
+  background-color: white;
+  border-color: #CE112D;
+  color: #CE112D;
+}
+
+.stage-research {
+  background-color: #31313B;
+}
+
+.stage-research .button {
+  border-color: #55C1E8;
+  color: #55C1E8;
+}
+
+.stage-ready {
+  background-color: #CE112D;
+}
+
+.stage-ready .button {
+  background-color: #CE112D;
+  color: white;
+}
+
 .page--landing {
   height: 100%;
   display: flex;

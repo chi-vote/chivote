@@ -16,8 +16,35 @@
 </head>
 
 <body>
+  <header class="header is-hidden-touch">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <a href="{% url 'index' %}">
+              <img class="header__logo" src="{% static 'images/chivote-logo.png' %}" alt="Chi.Vote logo"/>
+          </a>
+        </div>
+        <div class="level-item">
+          <h1 class="header__tagline">
+            Everything you need to know to vote in Chicago on
+            <em class="is-darkblue-text"> Tuesday, Feb. 26th, 2019</em>
+          </h1>
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <button class="button is-rounded is-medium">What is this?</button>
+        </div>
+        <!-- <div class="level-item">
+          <span class="icon is-large has-text-white">
+            <i class="fa fa-bars fa-3x"></i>
+          </span> -->
+        </div>
+      </div>
+    </div>
+  </header>
   <main class="c-offcanvas-content-wrap">
-    <nav class="navbar navbar--mobile">
+    <nav class="navbar navbar--mobile is-hidden-desktop">
       <a href="{% url 'index' %}">
         <img src="{% static 'images/chivote-logo.png' %}" alt="" class="navbar__logo">
       </a>
@@ -27,7 +54,20 @@
         </span>
       </a>
     </nav>
-    {% block content %}{% endblock %}
+    <div class="page-content">
+      <div class="columns is-gapless">
+        <div class="column is-narrow">
+          {% block sidebar %}
+          <!-- <aside class="sidebar desktop-menu">
+            <li class="menu-item"><a href="{% url 'race-list' %}">Races</a></li>
+          </aside> -->
+          {% endblock %}
+        </div>
+        <div class="column">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
   </main>
   <aside id="offcanvas-menu" class="mobile-menu">
     <nav>
