@@ -6,7 +6,8 @@ import { slide as SlideView } from 'react-burger-menu';
 import CandidateView from '../components/CandidateView';
 import CandidateItem from '../components/CandidateItem';
 import ArticleItem from '../components/ArticleItem';
-import StatementItem from '../components/StatementItem';
+import StanceItem from '../components/StanceItem';
+import _ from 'lodash';
 
 export default class RaceDetail extends Component {
   state = {
@@ -25,11 +26,10 @@ export default class RaceDetail extends Component {
     }
 
     this.setState({ candidateDict: dict });
-    this.groupStatements();
   }
 
   setCandidateView = candidateObj => {
-    console.log('hit setCandidateView');
+    // console.log('hit setCandidateView');
 
     this.setState({
       slideViewActive: true,
@@ -44,30 +44,10 @@ export default class RaceDetail extends Component {
     });
   };
 
-  groupStatements = () => {
-    const groups = JSON.parse(this.props.data.statements).reduce(
-      (acc, curr) => {
-        if (!acc.hasOwnProperty(curr.pk)) {
-          acc[curr.pk] = [];
-        }
-        acc[curr.pk].push(curr.fields);
-
-        return acc;
-      },
-      {}
-    );
-
-    return groups;
-  };
-
   renderFeed = () => {
-    const articles = JSON.parse(this.props.data.articles)
-      .filter(item => {
-        return (
-          item.fields.race.indexOf(JSON.parse(this.props.data.office).id) > -1
-        );
-      })
-      .map(item => <ArticleItem data={item} />);
+    const articles = JSON.parse(this.props.data.articles).map(item => (
+      <ArticleItem data={item} />
+    ));
 
     if (this.state.feed === 'candidates') {
       return (
@@ -100,26 +80,35 @@ export default class RaceDetail extends Component {
           )}
         </section>
       );
-    } else if (this.state.feed === 'statements') {
+    } else if (this.state.feed === 'stances') {
       const feed = [];
-      for (let issue in this.groupStatements()) {
+      const { stances } = this.props.data;
+
+      const groupedStances = _(JSON.parse(stances))
+        .groupBy(x => x.fields.issue)
+        .map((value, key) => ({ issue: key, stances: value }))
+        .value();
+
+      for (const issueObj of Object.values(groupedStances)) {
+        const { issue, stances } = issueObj;
+
         feed.push(
           <div>
             <h3 className="has-text-white title is-5">{`On ${
               this.props.data.issueDict[issue]
             }...`}</h3>
-            {this.groupStatements()[issue].map(item => (
-              <StatementItem
-                data={item}
-                speaker={this.state.candidateDict[item.candidate]}
+            {stances.map(item => (
+              <StanceItem
+                data={item.fields}
+                speaker={this.state.candidateDict[item.fields.candidate]}
               />
             ))}
           </div>
         );
       }
       return (
-        <section id="the-statements">
-          <h2 className="page-heading title is-4">Statements</h2>
+        <section id="the-stances">
+          <h2 className="page-heading title is-4">Stances</h2>
           {feed}
         </section>
       );
@@ -128,8 +117,8 @@ export default class RaceDetail extends Component {
 
   render() {
     const { data, candidates } = this.props;
-    const parsedData = JSON.parse(data.statements);
-    console.log(parsedData);
+    // const parsedData = JSON.parse(data.stances);
+    // console.log(parsedData);
 
     return (
       <div className="container">
@@ -176,10 +165,10 @@ export default class RaceDetail extends Component {
             </div>
             <div className="control is-expanded">
               <button
-                className="button is-rounded is-large is-statements"
-                onClick={() => this.setState({ feed: 'statements' })}
+                className="button is-rounded is-large is-stances"
+                onClick={() => this.setState({ feed: 'stances' })}
               >
-                {/* Statements */}
+                {/* Stances */}
                 <span className="icon">
                   <i className="fa fa-lg fa-comment-dots" />
                 </span>

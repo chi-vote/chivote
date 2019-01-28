@@ -24,7 +24,7 @@ class RaceDetailView(BuildableDetailView):
         candidates = Candidate.objects.filter(
             race=self.object).exclude(status='inactive')
 
-        statements = CandidateStance.objects.filter(
+        stances = CandidateStance.objects.filter(
             candidate__race=self.object)
 
         articles = Article.objects.filter(race=self.object)
@@ -54,7 +54,7 @@ class RaceDetailView(BuildableDetailView):
             'props': {
                 'data': {
                     'issueDict': issue_dict,
-                    'statements': serializers.serialize('json', statements),
+                    'stances': serializers.serialize('json', stances),
                     'articles': serializers.serialize('json', articles),
                     'office': json.dumps(raceObj),
                     'description': description,
