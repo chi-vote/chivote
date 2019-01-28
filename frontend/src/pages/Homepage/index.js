@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import LandingPage from 'Pages/LandingPage';
-import LandingPageSlider from 'Pages/mobile/LandingPageSlider';
+import LandingPage from './LandingPage';
+import LandingPageSlider from './LandingPageSlider';
 import Responsive from 'react-responsive';
 
 export default class Homepage extends Component {

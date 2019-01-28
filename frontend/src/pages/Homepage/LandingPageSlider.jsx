@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import 'Assets/styles/slick.css';
-import './style.scss';
+import './LandingPageSlider.scss';
 // import "Assets/styles/slick-theme.css";
 
-import LandingPage from 'Pages/mobile/LandingPage';
-import CollectivePage from 'Pages/mobile/CollectivePage';
+import LandingPage from './LandingPageMobile';
+import CollectivePage from './CollectivePage';
 
 class LandingPageSlider extends Component {
   slideToCollective = () => this.slider.slickNext();
