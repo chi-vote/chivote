@@ -27,10 +27,7 @@ class HomePageView(BuildableTemplateView):
         context = super().get_context_data(**kwargs)
 
         react_dict = {
-            'component': 'App',
-            'props': {
-                'env': 'Django'
-            },
+            'component': 'Homepage',
         }
 
         # context.update(context_dict)
