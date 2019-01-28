@@ -152,6 +152,7 @@ BAKERY_VIEWS = (
     'apps.core.views.HomePageView',
     'apps.races.views.RaceDetailView',
     'apps.races.views.RaceListView',
+    'apps.site_content.views.ContentItemDetailView',
 )
 
 # webpack_loader settings

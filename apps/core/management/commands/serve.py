@@ -25,8 +25,9 @@ class Command(BaseCommand):
 
     prodCommands = [
         'yarn --cwd ./frontend build',
+        'python manage.py collectstatic --no-input --settings=chivote.settings.production',
         'python manage.py build --settings=chivote.settings.production',
-        'python manage.py buildserver --settings=chivote.settings.production'
+        'python manage.py buildserver --settings=chivote.settings.production',
     ]
 
     def add_arguments(self, parser):
