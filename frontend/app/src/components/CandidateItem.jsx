@@ -19,9 +19,6 @@ const CandidateItem = (props) => {
         {
           props.data.incumbent &&
           <span className="has-text-white is-size-7 incumbent-tag">
-            <span className="icon">
-              <i className="fa fa-crown is-red-text"></i>
-            </span>
             Incumbent
           </span>
         }

@@ -56,7 +56,7 @@ export default class WardLookup extends Component {
       <div className="ward-lookup is-fullwidth">
         <label htmlFor="" className="label is-size-7 is-lightblue-text mb-1">Enter street number and direction</label>
         <div className="field is-grouped is-grouped-multiline">
-          <div className="control">
+          <div className="control is-expanded">
             <input
               type="number"
               className="input is-rounded is-lsb has-text-centered"

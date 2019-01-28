@@ -54,7 +54,7 @@ class RaceList extends Component {
           </List>
           <h2 className="page-heading title is-4">Aldermanic</h2>
           <p className="is-lsb">
-            Choose a specific ward number to get more information and view candidates
+            Choose a specific ward number to get more information and view candidates.
           </p>
           {
             !this.state.showLookup &&
