@@ -16,15 +16,12 @@ const LandingPage = props => {
         <em className="is-darkblue-text"> Tuesday, Feb. 26th</em>
       </h1>
       <button className="button get-started is-large">Get Started</button>
-      <button
+      {/* <button
         className="button is-medium is-outlined"
         onClick={props.goCollective}
       >
         <span>What is this?</span>
-        {/* <span className="icon">
-          <i className="fa fa-lg fa-caret-down"></i>
-        </span> */}
-      </button>
+      </button> */}
     </Page>
   );
 };

@@ -14,7 +14,7 @@ const ArticleItem = props => {
           <span className="has-text-grey-lighter">
             {moment(fields.date).format('MMM D, YYYY')}
           </span>
-          <time className="is-hidden">{fields.date}</time>
+          <time datetime={fields.date} className="is-hidden">{fields.date}</time>
         </div>
         <cite className="article-item__source is-lightblue-text has-text-right">
           {fields.source}

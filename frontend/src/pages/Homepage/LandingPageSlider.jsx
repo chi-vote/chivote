@@ -23,14 +23,9 @@ class LandingPageSlider extends Component {
       swipeToSlide: false
     };
     return (
-      <Slider {...settings} ref={slider => (this.slider = slider)}>
-        <div className="slide">
-          <LandingPage goCollective={this.slideToCollective} />
-        </div>
-        {/* <div className="slide"> */}
-        {/* <CollectivePage goHome={this.slideToHome} /> */}
-        {/* </div> */}
-      </Slider>
+      // <Slider {...settings} ref={slider => (this.slider = slider)}>
+        // <div className="slide">
+          <LandingPage/>
     );
   }
 }
