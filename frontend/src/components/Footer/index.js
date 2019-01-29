@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader/root';
+import './mailchimp.scss';
 import './style.scss';
 
 import LogoCollective from 'Assets/images/chivote-collective-logo-white.png';
@@ -15,7 +16,6 @@ import LogoSSW from 'Assets/images/SSW-logo-white.png';
 
 const mailchimpEmbed = `
 <!-- Begin Mailchimp Signup Form -->
-<link href="https://cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
 <style type="text/css">
    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
    /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
