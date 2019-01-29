@@ -19,7 +19,8 @@ export default class WardLookup extends Component {
     streetNo: '',
     streetAddr: '',
     addresses: [],
-    wardFound: null,
+    ward: null,
+    precinct: null,
     fuse: new Fuse([], fuseOptions)
   };
 
@@ -67,99 +68,94 @@ export default class WardLookup extends Component {
   render() {
     return (
       <div className="ward-lookup is-fullwidth">
-        <span className="is-lightblue-text is-size-5 mb-1">
+        <span className="ward-lookup__heading is-size-5 mb-1">
           Don't know your ward? Enter your address to find your information.
         </span>
-        <div className="columns">
-          <div className="column is-half">
-            <div className="field">
-              <div className="control is-expanded">
-                <Autocomplete
-                  getItemValue={item => item.address}
-                  items={this.getItems()}
-                  renderItem={(item, isHighlighted) => (
-                    <div
-                      style={{
-                        background: isHighlighted ? 'lightgray' : 'white',
-                        cursor: isHighlighted ? 'pointer' : 'default'
+        <div className="field">
+          <div className="control is-expanded">
+            <Autocomplete
+              getItemValue={item => item.address}
+              items={this.getItems()}
+              renderItem={(item, isHighlighted) => (
+                <div
+                  style={{
+                    background: isHighlighted ? 'lightgray' : 'white',
+                    cursor: isHighlighted ? 'pointer' : 'default'
+                  }}
+                  className="item"
+                >
+                  {item.address}
+                </div>
+              )}
+              renderMenu={(items, value) => (
+                <div className="menu">
+                  {value === '' ? (
+                    <div className="item">
+                      Start typing your address, beginning with your street
+                      number
+                    </div>
+                  ) : this.state.loading ? (
+                    <div className="item">Loading...</div>
+                  ) : items.length === 0 ? (
+                    <div className="item">No matches for {value}</div>
+                  ) : (
+                    items
+                  )}
+                </div>
+              )}
+              // renderItem={item => (
+              //   <li className="list-item address-choice is-lsb is-lightblue-text">
+              //     {item.address}
+              //   </li>
+              // )}
+              renderInput={props => (
+                <span class="text-input-wrapper">
+                  <input
+                    className="input is-lsb is-fullwidth"
+                    {...props}
+                    placeholder="121 N LaSalle St"
+                    tabIndex="2"
+                  />
+                  {this.state.streetAddr.length > 0 ? (
+                    <span
+                      title="Clear"
+                      onClick={() => {
+                        this.setState({ streetAddr: '' });
                       }}
-                      className="item"
                     >
-                      {item.address}
-                    </div>
-                  )}
-                  renderMenu={(items, value) => (
-                    <div className="menu">
-                      {value === '' ? (
-                        <div className="item">
-                          Start typing your address, beginning with your street
-                          number
-                        </div>
-                      ) : this.state.loading ? (
-                        <div className="item">Loading...</div>
-                      ) : items.length === 0 ? (
-                        <div className="item">No matches for {value}</div>
-                      ) : (
-                        items
-                      )}
-                    </div>
-                  )}
-                  // renderItem={item => (
-                  //   <li className="list-item address-choice is-lsb is-lightblue-text">
-                  //     {item.address}
-                  //   </li>
-                  // )}
-                  renderInput={props => (
-                    <span class="text-input-wrapper">
-                      <input
-                        className="input is-lsb is-fullwidth"
-                        {...props}
-                        placeholder="121 N LaSalle St"
-                        tabIndex="2"
-                      />
-                      {this.state.streetAddr.length > 0 ? (
-                        <span
-                          title="Clear"
-                          onClick={() => {
-                            this.setState({ streetAddr: '' });
-                          }}
-                        >
-                          &times;
-                        </span>
-                      ) : (
-                        ''
-                      )}
+                      &times;
                     </span>
+                  ) : (
+                    ''
                   )}
-                  onSelect={val =>
-                    this.setState({
-                      streetAddr: val,
-                      wardFound: _.find(
-                        this.state.addresses,
-                        x => x.address === val
-                      ).ward
-                    })
-                  }
-                  wrapperStyle={{ display: 'block' }}
-                  value={this.state.streetAddr}
-                  onChange={this.handleACInput}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="column is-half">
-            {this.state.wardFound && (
-              <div className="list-item is-fullwidth">
-                <span className="has-text-white is-size-5">
-                  {`This address belongs to Ward`}
-                  <span className="is-lightblue-text ward-num">{`${
-                    this.state.wardFound
-                  }`}</span>
                 </span>
-              </div>
-            )}
+              )}
+              onSelect={val => {
+                var addressObj = _.find(
+                  this.state.addresses,
+                  x => x.address === val
+                );
+
+                this.setState({
+                  streetAddr: val,
+                  ward: addressObj.ward,
+                  precinct: addressObj.precinct
+                });
+              }}
+              wrapperStyle={{ display: 'block' }}
+              value={this.state.streetAddr}
+              onChange={this.handleACInput}
+            />
           </div>
         </div>
+        {_.find(
+          this.state.addresses,
+          x => x.address == this.state.streetAddr
+        ) && (
+          <p className="ward-lookup__message">{`This address is located in: Ward ${
+            this.state.ward
+          } • Precinct ${this.state.precinct}`}</p>
+        )}
       </div>
     );
   }

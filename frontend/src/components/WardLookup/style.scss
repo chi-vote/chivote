@@ -4,8 +4,7 @@
 //   font-weight: 200;
 // }
 
-.example {
-  padding: 0 25px;
+.ward-lookup {
 }
 
 label {
@@ -24,6 +23,8 @@ label {
   margin: 0.125rem 0 0;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
+  max-height: 13rem;
+  overflow-y: scroll;
 }
 
 .item {
@@ -75,4 +76,15 @@ label {
   top: calc(50% - 0.6em);
   right: 0.5rem;
   // visibility: hidden;
+}
+
+.ward-lookup__heading {
+  color: white;
+  text-align: center;
+}
+
+.ward-lookup__message {
+  font-size: 1.25rem;
+  margin: 1rem 0;
+  text-align: center;
 }
