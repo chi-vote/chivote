@@ -29,6 +29,8 @@ SECRET_KEY = config('DJANGO_SECRET_KEY', default=SECRET_KEY_DEV_ONLY)
 DEBUG = bool(config('DJANGO_DEBUG', default=True))
 
 ALLOWED_HOSTS = []
+ALLOWED_HOSTS += ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS += ['testserver']
 ALLOWED_HOSTS += [config('DJANGO_URL_ENDPOINT', default=''), ]
 
 # Static files (CSS, JavaScript, Images)
