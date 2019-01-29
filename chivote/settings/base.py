@@ -161,7 +161,8 @@ BAKERY_VIEWS = (
 AWS_BUCKET_NAME = config('AWS_BUCKET_NAME')
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-BAKERY_GZIP = config('BAKERY_GZIP', default=False)
+AWS_REGION = config('AWS_REGION')
+BAKERY_GZIP = bool(config('BAKERY_GZIP', default=False))
 
 # webpack_loader settings
 INSTALLED_APPS += ('webpack_loader', )
