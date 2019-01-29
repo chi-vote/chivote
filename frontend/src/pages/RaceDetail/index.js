@@ -134,9 +134,9 @@ export default class RaceDetail extends Component {
               <button
                 className="button is-rounded is-large is-stances"
                 onClick={() => this.setState({ feed: 'stances' })}
-                disabled={
-                  JSON.parse(data.office).office.toLowerCase() != 'mayor'
-                }
+                disabled={JSON.parse(data.office)
+                  .office.toLowerCase()
+                  .includes('mayor')}
               >
                 {/* Stances */}
                 <span className="icon">
