@@ -11,7 +11,8 @@ class Race(models.Model):
     slug = models.SlugField(max_length=250)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.office.name, allow_unicode=True)
+        if not self.slug:
+            self.slug = slugify(self.office.name, allow_unicode=True)
         return super(Race, self).save(*args, **kwargs)
 
     def __str__(self):
