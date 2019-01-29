@@ -1,0 +1,21 @@
+.page-quiz {
+  .page-heading {
+    display: none;
+  }
+
+  .breadcrumb a {
+    color: white;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .breadcrumb li + li::before {
+    color: white;
+  }
+
+  .breadcrumb li.is-active a {
+    color: #555;
+  }
+}

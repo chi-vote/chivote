@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Page from 'Components/Page';
 import List from 'Components/List';
 import WardLookup from 'Components/WardLookup';
+import './style.scss';
 
 class RaceList extends Component {
   state = {
@@ -41,14 +42,32 @@ class RaceList extends Component {
     ));
 
     const races = JSON.parse(this.props.data.races);
+
+    const breadcrumb = (
+      <nav className="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li className="is-active">
+            <a href="/races" aria-current="page">
+              All races
+            </a>
+          </li>
+        </ul>
+      </nav>
+    );
+
     return (
       <div>
-        <Page className="page page--detail container" heading="Races">
+        <Page className="page--detail container">
+          {breadcrumb}
+          <h1 className="page-heading title is-3">{'Races'}</h1>
           <p className="is-lsb">
             Choose a specific race to get more information and view candidates.
           </p>
           <List className="columns">{otherRaces}</List>
-          <h2 className="page-heading title is-4">Aldermanic</h2>
+          <h2 className="page-heading title is-4 mt-1">Aldermanic</h2>
           <p className="is-lsb">
             Choose a specific ward number to get more information and view
             candidates.

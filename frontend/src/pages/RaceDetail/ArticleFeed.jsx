@@ -17,10 +17,12 @@ const ArticleFeed = props => {
         {articleItems.length ? (
           articleItems
         ) : (
-          <div className="list-item">
-            <span className="is-lightblue-text has-text-centered is-block is-fullwidth">
-              No related articles yet
-            </span>
+          <div className="column is-full">
+            <div className="list-item">
+              <span className="is-lightblue-text has-text-centered is-block is-fullwidth">
+                No related articles yet
+              </span>
+            </div>
           </div>
         )}
       </div>

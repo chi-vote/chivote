@@ -38,23 +38,28 @@
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-  .section {
-    padding: 0;
+.toggle-feed {
+  .button:hover {
+    background: #4ea4c5;
+    border-color: #4ea4c5;
+    color: white;
   }
-}
 
-.button:hover {
-  background: #3b3b48;
-  border-color: #b5b5b5;
-  color: #b5b5b5;
-}
+  .button[disabled] {
+    background: #3b3b48;
+    border-color: lightsteelblue;
+    color: lightsteelblue;
+  }
 
-.button__label {
-  // color: white;
-  margin-left: 0.5em;
-  padding-top: 4px;
-  // text-transform: uppercase;
+  .button > .icon {
+    margin-left: calc(-0.375em - 1px) !important;
+    margin-right: calc(-0.375em - 1px) !important;
+  }
+
+  .button__label {
+    margin-left: 1.2rem;
+    padding-top: 4px;
+  }
 }
 
 #the-candidates,

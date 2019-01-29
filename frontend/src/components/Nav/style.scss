@@ -13,6 +13,8 @@
   padding: 1rem !important;
 
   background: rgba(49, 49, 59, 1);
+
+  @import './SiteMenu.scss';
 }
 
 .navbar__logo {

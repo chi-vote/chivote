@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
-import Responsive from 'react-responsive';
 import Page from 'Components/Page';
 import { slide as SlideView } from 'react-burger-menu';
 import CandidateView from 'Components/CandidateView';
@@ -55,27 +54,45 @@ export default class RaceDetail extends Component {
 
   render() {
     const { data } = this.props;
+    const officeName = JSON.parse(data.office).office;
+
+    const breadcrumb = (
+      <nav className="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/races">All races</a>
+          </li>
+          <li className="is-active">
+            <a href="#" aria-current="page">
+              {officeName}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    );
 
     return (
       <div>
-        {/* <Responsive maxWidth={767}> */}
         <SlideView
           left
           width={320}
           isOpen={this.state.slideViewActive}
           onStateChange={this.unsetCandidateView}
           customBurgerIcon={false}
-          customCrossIcon={false}
+          // customCrossIcon={false}
         >
           {this.state.currentCandidate && (
             <CandidateView data={this.state.currentCandidate} />
           )}
         </SlideView>
-        {/* </Responsive> */}
-        <Page
-          className="container page page--detail page--inner"
-          heading={`Race for ${JSON.parse(data.office).office}`}
-        >
+        <Page className="container page--detail">
+          {breadcrumb}
+          <h1 className="page-heading title is-3">
+            {`Race for ${officeName}`}
+          </h1>
           <ReadMoreReact
             text={Parser(decode(data.description))}
             min={150}
@@ -83,7 +100,11 @@ export default class RaceDetail extends Component {
             max={300}
             className="race__description"
           />
-          <div className={`field is-grouped is-${this.state.feed}-active mb-1`}>
+          <div
+            className={`field is-grouped is-${
+              this.state.feed
+            }-active toggle-feed mb-1`}
+          >
             <div className="control is-expanded">
               <button
                 className="button is-rounded is-large is-candidates"
@@ -114,6 +135,7 @@ export default class RaceDetail extends Component {
               <button
                 className="button is-rounded is-large is-stances"
                 onClick={() => this.setState({ feed: 'stances' })}
+                disabled={!officeName.includes('Mayor')}
               >
                 {/* Stances */}
                 <span className="icon">
