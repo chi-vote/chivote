@@ -155,12 +155,13 @@ BAKERY_VIEWS = (
     'apps.races.views.RaceDetailView',
     'apps.races.views.RaceListView',
     'apps.site_content.views.ContentItemDetailView',
+    'apps.core.views.ErrorView',
 )
 
 AWS_BUCKET_NAME = config('AWS_BUCKET_NAME')
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-BAKERY_GZIP = True
+BAKERY_GZIP = config('BAKERY_GZIP', default=False)
 
 # webpack_loader settings
 INSTALLED_APPS += ('webpack_loader', )

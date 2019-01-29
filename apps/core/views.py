@@ -40,6 +40,11 @@ class HomePageView(BuildableTemplateView):
         return context
 
 
+class ErrorView(BuildableTemplateView):
+    template_name = 'error.html'
+    build_path = 'error.html'
+
+
 class RaceDetailView(BuildableTemplateView):
     template_name = 'race-view.html'
 
