@@ -55,6 +55,10 @@ class RaceDetailView(BuildableDetailView):
                     'description': description,
                 },
                 'candidates': serializers.serialize('json', candidates)
+            },
+            'meta': {
+                'title': f'Race for {raceObj["office"]}, 2019',
+                'description': 'Candidate bios, related articles and more.'
             }
         }
 
@@ -87,6 +91,10 @@ class RaceListView(BuildableTemplateView):
                 'data': {
                     'races': json.dumps(list(races), cls=DjangoJSONEncoder),
                 },
+            },
+            'meta': {
+                'title': 'All 2019 Chicago races',
+                'description': 'Full list of Chicago races and candidates.'
             }
         }
 

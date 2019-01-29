@@ -20,6 +20,10 @@ class ContentItemDetailView(BuildableDetailView):
                 'content': self.object.content,
                 'helmet': self.object.helmet,
                 'background': self.object.background
+            },
+            'meta': {
+                'title': f'{self.object.title}',
+                'description': f'{self.object.description}',
             }
         }
 

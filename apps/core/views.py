@@ -19,8 +19,7 @@ from bakery.views import BuildableDetailView, BuildableListView, BuildableTempla
 
 class HomePageView(BuildableTemplateView):
     """View function for home page of site."""
-    template_name = 'index.html'
-    # template_name = 'react-demo.html'
+    template_name = 'base_react.html'
     build_path = 'index.html'
 
     def get_context_data(self, **kwargs):
@@ -28,6 +27,11 @@ class HomePageView(BuildableTemplateView):
 
         react_dict = {
             'component': 'Homepage',
+            'meta': {
+                'title': 'Everything you need to know to vote in Chicago on Feb. 26th',
+                'description': 'No matter if you’re a rookie voter or a veteran, we have everything you need.',
+                'img': 'images/chivote-social-card.jpg',
+            }
         }
 
         # context.update(context_dict)

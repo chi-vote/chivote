@@ -3,6 +3,62 @@
 {% load render_bundle from webpack_loader %}
 {% load helper_tags %}
 
+{% block title %}
+<title>{{meta.title}} | Chi.vote</title>
+{% endblock %}
+
+{% block extra_meta %}
+<meta name="author" content="Chi.vote" />
+<meta property="og:type" content="website" />
+<meta property="twitter:card" content="summary_large_image" />
+<!-- Site URL -->
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<link rel="canonical" href="{{ request.build_absolute_uri }}" />
+<!-- Site title -->
+<meta property="twitter:title" content="{{ meta.title }}" />
+<meta property="og:title" content="{{ meta.title }}" />
+<!-- Site description -->
+<meta
+  property="twitter:description"
+  content="{{ meta.description }}"
+/>
+<meta
+  property="og:description"
+  content="{{ meta.description }}"
+/>
+<meta
+  name="description"
+  content="{{ meta.description }}"
+/>
+<!-- Share image -->
+{% load static %}
+<meta
+  property="twitter:image"
+  content="{% static 'images/chivote-social-card.jpg' %}"
+/>
+<meta property="twitter:image:alt" content="Chi.vote logo" />
+<meta
+  property="og:image"
+  content="{% static 'images/chivote-social-card.jpg' %}"
+/>
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1800" />
+<meta property="og:image:height" content="900" />
+<!-- Favicons -->
+<link
+  rel="icon"
+  type="image/png"
+  href="{% static 'images/favicon-32x32.png' %}"
+  sizes="32x32"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  href="{% static 'images/favicon-16x16.png' %}"
+  sizes="16x16"
+/>
+{% endblock %}
+
 {% block content %}
 <div id="app"></div>
 

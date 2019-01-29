@@ -6,6 +6,7 @@ from colorfield.fields import ColorField
 class ContentItem(models.Model):
     slug = models.CharField(max_length=30)
     title = models.CharField(max_length=200)
+    description = models.CharField(max_length=280, null=True, blank=True)
     content = RichTextField(config_name='full')
     helmet = models.TextField(null=True, blank=True)
     background = ColorField(default='#31313B')
