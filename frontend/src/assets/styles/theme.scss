@@ -224,14 +224,6 @@ div.list-item {
   color: white;
 }
 
-.ward-lookup .input {
-  padding: 1.75rem;
-}
-
-.ward-lookup .input::placeholder {
-  color: white;
-}
-
 .ward-num {
   margin-left: 3px;
 }
@@ -254,71 +246,6 @@ footer.footer {
 
 .logo--masthead {
   height: 150px;
-}
-
-.logo--chivote-coll {
-  height: 50px;
-  margin-bottom: 2rem;
-}
-
-.chivote-coll {
-  background-color: #31313b;
-  color: #fff;
-  padding: 4rem;
-}
-
-.chivote-coll .collective-logos {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.chivote-coll .collective-logos .collective-logo {
-  height: 5rem;
-  margin-bottom: 1rem;
-  opacity: 0.75;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-}
-
-.chivote-coll .collective-logos .collective-logo:hover {
-  opacity: 1;
-}
-
-@media (min-width: 768px) {
-  .chivote-coll .collective-logos {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-  .chivote-coll .collective-logos .collective-logo {
-    margin-bottom: 0;
-    padding: 0.5rem 1rem;
-  }
-}
-
-.chivote-coll .chivote-coll-item {
-  max-width: 20rem;
-}
-
-.chivote-coll .chivote-coll-item .chivote-coll-icon {
-  height: 7rem;
-}
-
-.chivote-coll .chivote-coll-item .chivote-coll-icon i {
-  font-size: 4.5rem;
-}
-
-.chivote-coll .chivote-coll-item:hover .chivote-coll-icon i {
-  font-size: 5rem;
 }
 
 .columns {

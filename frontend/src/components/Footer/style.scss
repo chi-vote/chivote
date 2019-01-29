@@ -7,9 +7,17 @@ $white: white;
   // padding: 4rem;
 
   .collective-logos {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    a {
+      display: inline-block;
+      flex: 0 0 auto;
+      padding: 0.5rem 1rem;
+    }
 
     .collective-logo {
       height: 4.5rem;
@@ -22,12 +30,12 @@ $white: white;
       }
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 500px) {
       flex-direction: row;
 
       .collective-logo {
         margin-bottom: 0;
-        padding: 0.5rem 1rem;
+        padding: 0;
       }
     }
   }
@@ -55,8 +63,9 @@ $white: white;
 
 #mc_embed_signup {
   background: #3f3f4d !important;
-  color: white !important;
+  color: white;
   padding: 3rem 1rem;
+  font-family: 'League Spartan Bold', sans-serif !important;
 
   // .intro-blurb {
   //   // margin-bottom: 1rem;
@@ -65,6 +74,27 @@ $white: white;
   //   max-width: 100%;
   //   margin: 1rem auto;
   // }
+
+  #mce-EMAIL,
+  #mc-embedded-subscribe {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    padding-bottom: calc(0.375em - 1px);
+    padding-left: calc(0.625em - 1px);
+    padding-right: calc(0.625em - 1px);
+    padding-top: calc(0.375em - 1px);
+    height: 42px;
+  }
+
+  #mce-EMAIL {
+    @media (min-width: 768px) {
+      width: 450px;
+    }
+  }
+
+  #mc-embedded-subscribe {
+    // background-color: #ce112d;
+  }
 }
 
 #mc_embed_signup {
@@ -73,4 +103,9 @@ $white: white;
   input {
     color: #343434;
   }
+}
+
+.logo--chivote-coll {
+  height: 50px;
+  margin-bottom: 2rem;
 }
