@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
-import Responsive from 'react-responsive';
 import Page from 'Components/Page';
 import { slide as SlideView } from 'react-burger-menu';
 import CandidateView from 'Components/CandidateView';
@@ -58,22 +57,20 @@ export default class RaceDetail extends Component {
 
     return (
       <div>
-        {/* <Responsive maxWidth={767}> */}
         <SlideView
           left
           width={320}
           isOpen={this.state.slideViewActive}
           onStateChange={this.unsetCandidateView}
           customBurgerIcon={false}
-          customCrossIcon={false}
+          // customCrossIcon={false}
         >
           {this.state.currentCandidate && (
             <CandidateView data={this.state.currentCandidate} />
           )}
         </SlideView>
-        {/* </Responsive> */}
         <Page
-          className="container page page--detail page--inner"
+          className="container page page--detail"
           heading={`Race for ${JSON.parse(data.office).office}`}
         >
           <ReadMoreReact
