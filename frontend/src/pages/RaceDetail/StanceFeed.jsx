@@ -10,10 +10,18 @@ const StanceFeed = props => {
   const feed = [];
   const { stances, issues, candidates } = props;
 
-  const groupedStances = _(stances)
+  let groupedStances = _(stances)
     .groupBy(x => x.fields.issue)
     .map((value, key) => ({ issue: key, stances: value }))
     .value();
+
+  groupedStances = _.orderBy(groupedStances, x => {
+    var issueObj = _.find(issues, i => i.pk == x.issue);
+    console.log(issueObj);
+    return issueObj.fields.issue_order;
+  });
+
+  console.log(groupedStances);
 
   for (const group of Object.values(groupedStances)) {
     const { issue, stances } = group;

@@ -29,14 +29,7 @@ class RaceDetailView(BuildableDetailView):
 
         articles = Article.objects.filter(race=self.object).order_by('-date')
 
-        issue_dict = {}
-
-        for issue in Issue.objects.all():
-            issue_dict[issue.pk] = issue.name
-
-        issues = Issue.objects.all()
-
-        # print(issue_dict)
+        issues = Issue.objects.all().order_by('issue_order')
 
         raceData = Race.objects.filter(
             office=self.object.pk
@@ -55,7 +48,6 @@ class RaceDetailView(BuildableDetailView):
             'component': 'RaceDetail',
             'props': {
                 'data': {
-                    'issueDict': issue_dict,
                     'issues': serializers.serialize('json', issues),
                     'stances': serializers.serialize('json', stances),
                     'articles': serializers.serialize('json', articles),

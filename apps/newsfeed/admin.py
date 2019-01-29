@@ -1,11 +1,14 @@
 from django.contrib import admin
 from .models import Article, CandidateStance, Issue
+from adminsortable2.admin import SortableAdminMixin
 
 
 @admin.register(Issue)
-class IssueAdmin(admin.ModelAdmin):
+class IssueAdmin(SortableAdminMixin, admin.ModelAdmin):
     model = Issue
+    # list_display = ('name', 'issue_order')
     search_fields = ('name', )
+    ordering = ('issue_order',)
 
 
 @admin.register(Article)

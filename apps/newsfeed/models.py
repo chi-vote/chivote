@@ -16,8 +16,13 @@ class IssueManager(models.Manager):
 class Issue(models.Model):
     name = models.CharField(max_length=100)
     description = RichTextField()
+    issue_order = models.PositiveSmallIntegerField(
+        default=0, blank=False, null=False)
 
     objects = IssueManager()
+
+    class Meta(object):
+        ordering = ['issue_order']
 
     def __str__(self):
         return self.name
