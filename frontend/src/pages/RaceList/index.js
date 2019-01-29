@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Page from 'Components/Page';
 import List from 'Components/List';
 import WardLookup from 'Components/WardLookup';
+import './style.scss';
 
 class RaceList extends Component {
   state = {

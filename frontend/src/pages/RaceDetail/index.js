@@ -99,7 +99,11 @@ export default class RaceDetail extends Component {
             max={300}
             className="race__description"
           />
-          <div className={`field is-grouped is-${this.state.feed}-active mb-1`}>
+          <div
+            className={`field is-grouped is-${
+              this.state.feed
+            }-active toggle-feed mb-1`}
+          >
             <div className="control is-expanded">
               <button
                 className="button is-rounded is-large is-candidates"
@@ -130,6 +134,9 @@ export default class RaceDetail extends Component {
               <button
                 className="button is-rounded is-large is-stances"
                 onClick={() => this.setState({ feed: 'stances' })}
+                disabled={
+                  JSON.parse(data.office).office.toLowerCase() != 'mayor'
+                }
               >
                 {/* Stances */}
                 <span className="icon">

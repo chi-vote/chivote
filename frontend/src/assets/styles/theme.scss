@@ -72,6 +72,18 @@ p {
   border-width: 4px;
   color: white;
   border-color: white;
+
+  &.is-hovered,
+  &:hover {
+    border-color: #b5b5b5;
+    color: #b5b5b5;
+  }
+
+  &.is-focused,
+  &:focus {
+    border-color: #3273dc;
+    color: #3273dc;
+  }
 }
 
 .is-expanded .button {
@@ -156,16 +168,6 @@ p {
 .menu__home-link {
   display: block;
   padding: 2rem;
-}
-
-.ward-button {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  background-color: #3f3f4d;
-  font-size: 1.25rem;
 }
 
 div.list-item {
