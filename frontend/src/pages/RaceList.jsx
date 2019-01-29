@@ -41,14 +41,32 @@ class RaceList extends Component {
     ));
 
     const races = JSON.parse(this.props.data.races);
+
+    const breadcrumb = (
+      <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li class="is-active">
+            <a href="/races" aria-current="page">
+              All races
+            </a>
+          </li>
+        </ul>
+      </nav>
+    );
+
     return (
       <div>
-        <Page className="page page--detail container" heading="Races">
+        <Page className="page--detail container">
+          {breadcrumb}
+          <h1 className="page-heading title is-3">{'Races'}</h1>
           <p className="is-lsb">
             Choose a specific race to get more information and view candidates.
           </p>
           <List className="columns">{otherRaces}</List>
-          <h2 className="page-heading title is-4">Aldermanic</h2>
+          <h2 className="page-heading title is-4 mt-1">Aldermanic</h2>
           <p className="is-lsb">
             Choose a specific ward number to get more information and view
             candidates.

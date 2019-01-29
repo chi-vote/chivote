@@ -40,13 +40,27 @@ ul > li > ul {
 
 #toc {
   display: none;
-}
 
-#toc .nav-link {
-  color: #dbdbdb;
-  font-family: 'futura', sans-serif;
-  // font-size: 1.2em;
-  border-left-color: #dbdbdb;
+  .nav {
+    list-style: none;
+  }
+
+  .nav-link {
+    color: #dbdbdb;
+    font-family: 'futura', sans-serif;
+    // font-size: 1.2em;
+
+    display: block;
+    padding: 4px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    // color: #767676;
+    // border-left: 1px solid #dbdbdb;
+    &:hover {
+      border-left: 1px solid #dbdbdb;
+      padding-left: 19px;
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -66,11 +80,18 @@ ul > li > ul {
   padding-top: 1rem;
   margin-top: 1rem;
   color: #555;
-}
 
-.page-faq h3:target {
-  -webkit-animation: highlight 1s ease;
-  animation: highlight 1s ease;
+  &:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  &:target {
+    -webkit-animation: highlight 1s ease;
+    animation: highlight 1s ease;
+  }
+
+  font-size: 1.5rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -78,7 +99,7 @@ ul > li > ul {
     display: block;
     position: -webkit-sticky;
     position: sticky;
-    top: 2rem;
+    top: 0;
     max-height: calc(100vh - 2rem);
     // overflow-y: scroll;
   }

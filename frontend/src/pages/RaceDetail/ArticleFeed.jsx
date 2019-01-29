@@ -17,7 +17,7 @@ const ArticleFeed = props => {
         {articleItems.length ? (
           articleItems
         ) : (
-          <div className="list-item">
+          <div className="list-item is-fullwidth">
             <span className="is-lightblue-text has-text-centered is-block is-fullwidth">
               No related articles yet
             </span>

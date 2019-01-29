@@ -339,3 +339,37 @@ body {
   background: #31313b;
   // border: solid 5px #3f3f4d;
 }
+
+nav.breadcrumb {
+  background: transparent;
+
+  // ul { padding: 0; }
+  &.column {
+    padding-bottom: 0;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  a {
+    color: lightsteelblue;
+
+    &:hover {
+      color: #55c1e8;
+    }
+  }
+
+  li + li::before {
+    color: lightsteelblue;
+  }
+
+  li.is-active a {
+    color: gray;
+  }
+}
+
+.page-heading.column {
+  padding-top: 0;
+  padding-bottom: 0;
+}

@@ -55,6 +55,24 @@ export default class RaceDetail extends Component {
   render() {
     const { data } = this.props;
 
+    const breadcrumb = (
+      <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/races">All races</a>
+          </li>
+          <li class="is-active">
+            <a href="#" aria-current="page">
+              {JSON.parse(data.office).office}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    );
+
     return (
       <div>
         <SlideView
@@ -69,10 +87,11 @@ export default class RaceDetail extends Component {
             <CandidateView data={this.state.currentCandidate} />
           )}
         </SlideView>
-        <Page
-          className="container page page--detail"
-          heading={`Race for ${JSON.parse(data.office).office}`}
-        >
+        <Page className="container page--detail">
+          {breadcrumb}
+          <h1 className="page-heading title is-3">
+            {`Race for ${JSON.parse(data.office).office}`}
+          </h1>
           <ReadMoreReact
             text={Parser(decode(data.description))}
             min={150}
