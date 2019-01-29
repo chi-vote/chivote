@@ -19,11 +19,12 @@ class Command(BaseCommand):
     help = 'Run all commands'
 
     commands = [
-        'pipenv install',
+        # 'pipenv install',
         'yarn --cwd ./frontend install',
         'yarn --cwd ./frontend build',
         'python manage.py migrate',
         'python manage.py collectstatic --no-input',
+        'python manage.py build',
     ]
 
     def handle(self, *args, **kwargs):
