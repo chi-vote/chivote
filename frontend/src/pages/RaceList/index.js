@@ -44,12 +44,12 @@ class RaceList extends Component {
     const races = JSON.parse(this.props.data.races);
 
     const breadcrumb = (
-      <nav class="breadcrumb" aria-label="breadcrumbs">
+      <nav className="breadcrumb" aria-label="breadcrumbs">
         <ul>
           <li>
             <a href="/">Home</a>
           </li>
-          <li class="is-active">
+          <li className="is-active">
             <a href="/races" aria-current="page">
               All races
             </a>

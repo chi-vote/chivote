@@ -19,10 +19,10 @@ const CandidateView = props => {
       <Experience {...props} />
       <Endorsements {...props} />
       <hr />
-      <p class="has-text-grey-light is-size-6">
+      <p className="has-text-grey-light is-size-6">
         * Candidate data is compiled by{' '}
         <a
-          class="has-text-grey-light has-text-weight-bold"
+          className="has-text-grey-light has-text-weight-bold"
           href="https://ballotready.org/"
         >
           BallotReady

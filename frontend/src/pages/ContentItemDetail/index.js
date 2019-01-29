@@ -38,12 +38,12 @@ export default class ContentItemDetail extends Component {
     };
 
     const breadcrumb = (
-      <nav class="column breadcrumb is-full" aria-label="breadcrumbs">
+      <nav className="column breadcrumb is-full" aria-label="breadcrumbs">
         <ul>
           <li>
             <a href="/">Home</a>
           </li>
-          <li class="is-active">
+          <li className="is-active">
             <a href="/races" aria-current="page">
               {titles[slug] || slug.capitalize()}
             </a>

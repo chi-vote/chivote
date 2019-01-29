@@ -54,9 +54,10 @@ export default class RaceDetail extends Component {
 
   render() {
     const { data } = this.props;
+    const officeName = JSON.parse(data.office).office;
 
     const breadcrumb = (
-      <nav class="breadcrumb" aria-label="breadcrumbs">
+      <nav className="breadcrumb" aria-label="breadcrumbs">
         <ul>
           <li>
             <a href="/">Home</a>
@@ -64,9 +65,9 @@ export default class RaceDetail extends Component {
           <li>
             <a href="/races">All races</a>
           </li>
-          <li class="is-active">
+          <li className="is-active">
             <a href="#" aria-current="page">
-              {JSON.parse(data.office).office}
+              {officeName}
             </a>
           </li>
         </ul>
@@ -90,7 +91,7 @@ export default class RaceDetail extends Component {
         <Page className="container page--detail">
           {breadcrumb}
           <h1 className="page-heading title is-3">
-            {`Race for ${JSON.parse(data.office).office}`}
+            {`Race for ${officeName}`}
           </h1>
           <ReadMoreReact
             text={Parser(decode(data.description))}
@@ -134,9 +135,7 @@ export default class RaceDetail extends Component {
               <button
                 className="button is-rounded is-large is-stances"
                 onClick={() => this.setState({ feed: 'stances' })}
-                disabled={JSON.parse(data.office)
-                  .office.toLowerCase()
-                  .includes('mayor')}
+                disabled={!officeName.includes('Mayor')}
               >
                 {/* Stances */}
                 <span className="icon">
