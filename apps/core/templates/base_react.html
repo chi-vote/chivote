@@ -12,8 +12,8 @@
 <meta property="og:type" content="website" />
 <meta property="twitter:card" content="summary_large_image" />
 <!-- Site URL -->
-<meta property="og:url" content="{{ request.build_absolute_uri }}" />
-<link rel="canonical" href="{{ request.build_absolute_uri }}" />
+<meta property="og:url" content="https://chi.vote{{ request.path }}" />
+<link rel="canonical" href="https://chi.vote{{ request.path }}" />
 <!-- Site title -->
 <meta property="twitter:title" content="{{ meta.title }}" />
 <meta property="og:title" content="{{ meta.title }}" />
@@ -34,12 +34,12 @@
 {% load static %}
 <meta
   property="twitter:image"
-  content="{% static 'images/chivote-social-card.jpg' %}"
+  content="https://chi.vote{% static 'images/chivote-social-card.jpg' %}"
 />
 <meta property="twitter:image:alt" content="Chi.vote logo" />
 <meta
   property="og:image"
-  content="{% static 'images/chivote-social-card.jpg' %}"
+  content="https://chi.vote{% static 'images/chivote-social-card.jpg' %}"
 />
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="1800" />
