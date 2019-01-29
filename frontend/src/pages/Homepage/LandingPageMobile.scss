@@ -6,6 +6,24 @@
   }
 }
 
+@media (max-width: 992px) {
+  .section.landing-page {
+    padding-top: 0;
+  }
+
+  .navbar {
+    background: transparent;
+  }
+
+  .navbar__logo {
+    visibility: hidden;
+  }
+
+  .navbar__tagline {
+    display: none;
+  }
+}
+
 .landing-page .columns {
   height: 100%;
 }
@@ -107,4 +125,17 @@
   border-radius: 19px;
   margin-bottom: 1rem;
   padding: 1.5rem;
+}
+
+.get-started:hover {
+  color: white;
+  border-color: #ce112d;
+}
+
+.voting-choices .voter-stage:hover {
+  cursor: pointer;
+}
+
+.voter-stage__links > .button {
+  margin: 0.5rem 0;
 }

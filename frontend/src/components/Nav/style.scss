@@ -17,13 +17,12 @@
   @import './SiteMenu.scss';
 }
 
-.navbar__logo {
+.navbar__logo > img {
   height: 30px;
 }
 
 .navbar__tagline {
   font-family: 'League Spartan Bold', sans-serif;
-
 
   @media only screen and (max-width: 991px) {
     width: 150px;

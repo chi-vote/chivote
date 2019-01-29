@@ -15,7 +15,7 @@ const LandingPage = props => {
         Everything you need to know to vote in Chicago on
         <em className="is-darkblue-text"> Tuesday, Feb. 26th</em>
       </h1>
-      <button className="button get-started is-large">Get Started</button>
+      <button className="button get-started is-large">Get started →</button>
       {/* <button
         className="button is-medium is-outlined"
         onClick={props.goCollective}
@@ -136,20 +136,11 @@ class VotingStageSlider extends Component {
           <section className="page page--landing has-text-centered">
             <img src={chivoteLogo} alt="Chi.Vote logo" className="mb-1" />
             <h1 className="header__tagline is-size-4 mb-1">
-              Everything you need to know to vote in Chicago on
-              <em className="is-darkblue-text"> Tuesday, Feb. 26th</em>
+              Everything you need to know to vote in Chicago on Tuesday, Feb.
+              26th
             </h1>
             <button className="button get-started is-large" onClick={this.next}>
-              Get Started
-            </button>
-            <button
-              className="button is-medium is-outlined is-rounded"
-              onClick={this.props.goCollective}
-            >
-              <span>What is this?</span>
-              {/* <span className="icon">
-                <i className="fa fa-lg fa-caret-down"></i>
-              </span> */}
+              Get started →
             </button>
           </section>
         </div>

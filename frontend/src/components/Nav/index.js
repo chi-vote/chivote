@@ -8,8 +8,8 @@ class Nav extends Component {
   render() {
     return (
       <nav className="navbar">
-        <a href="/">
-          <img src={chivoteLogo} alt="" className="navbar__logo" />
+        <a href="/" className="navbar__logo">
+          <img src={chivoteLogo} alt="" />
         </a>
 
         <span className="navbar__tagline is-size-7-touch is-size-4-desktop has-text-white has-text-centered">
