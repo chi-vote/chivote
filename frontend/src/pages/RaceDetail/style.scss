@@ -38,12 +38,6 @@
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-  .section {
-    padding: 0;
-  }
-}
-
 .toggle-feed {
   .button:hover {
     background: #4ea4c5;
@@ -57,11 +51,14 @@
     color: lightsteelblue;
   }
 
+  .button > .icon {
+    margin-left: calc(-0.375em - 1px) !important;
+    margin-right: calc(-0.375em - 1px) !important;
+  }
+
   .button__label {
-    // color: white;
-    margin-left: 0.5em;
+    margin-left: 1.2rem;
     padding-top: 4px;
-    // text-transform: uppercase;
   }
 }
 
