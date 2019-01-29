@@ -8,6 +8,10 @@ import LogoBCC from 'Assets/images/BCC-logo-white.png';
 import LogoTCR from 'Assets/images/chicago_reporter.png';
 import LogoTDL from 'Assets/images/TDL-logo-white.png';
 import LogoTriibe from 'Assets/images/Triibe - transparent white logo.png';
+import LogoRFI from 'Assets/images/RFI-logo-white.png';
+import LogoCityB from 'Assets/images/CB-logo-white.png';
+import LogoChalkB from 'Assets/images/Chalkbeat-logo-white.png';
+import LogoSSW from 'Assets/images/SSW-logo-white.png';
 
 const mailchimpEmbed = `
 <!-- Begin Mailchimp Signup Form -->
@@ -102,6 +106,36 @@ class Footer extends Component {
               Partners: Chalkbeat Chicago, City Bureau, Reform Illinois, South
               Side Weekly, and Univision.
             </p>
+            <div className="row collective-logos">
+              <a href="https://www.citybureau.org/">
+                <img
+                  src={LogoCityB}
+                  alt="City Bureau"
+                  className="collective-logo"
+                />
+              </a>
+              <a href="https://chalkbeat.org/">
+                <img
+                  src={LogoChalkB}
+                  alt="Chalkbeat"
+                  className="collective-logo"
+                />
+              </a>
+              <a href="https://southsideweekly.com/">
+                <img
+                  src={LogoSSW}
+                  alt="South Side Weekly"
+                  className="collective-logo"
+                />
+              </a>
+              <a href="https://www.reformforillinois.org/">
+                <img
+                  src={LogoRFI}
+                  alt="Reform for Illinois"
+                  className="collective-logo"
+                />
+              </a>
+            </div>
           </div>
         </footer>
       </>
