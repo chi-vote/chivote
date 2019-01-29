@@ -23,4 +23,10 @@
 
 .navbar__tagline {
   font-family: 'League Spartan Bold', sans-serif;
+  font-size: 0.75rem;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+    align-self: center;
+  }
 }
