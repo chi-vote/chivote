@@ -3,7 +3,7 @@
 }
 
 article * {
-  color: white;
+  color: #31313b;
 }
 
 p,
@@ -48,7 +48,7 @@ ul ul {
   }
 
   .nav-link {
-    color: #dbdbdb;
+    color: gray;
     font-family: 'futura', sans-serif;
     // font-size: 1.2em;
 
@@ -59,8 +59,9 @@ ul ul {
     // color: #767676;
     // border-left: 1px solid #dbdbdb;
     &:hover {
-      border-left: 1px solid #dbdbdb;
-      padding-left: 19px;
+      border-left: 2px solid #3f3f4d;
+      color: #3f3f4d;
+      padding-left: 18px;
     }
   }
 }
@@ -70,8 +71,8 @@ ul ul {
   .page-faq li {
     font-size: 0.9rem;
   }
-  .page-faq h1 {
-    font-size: 1.6rem;
+  .page-faq h1.page-heading {
+    font-size: 1.7rem;
   }
   .page-faq h3 {
     font-size: 1.2rem;
@@ -105,8 +106,22 @@ ul ul {
   }
 }
 
-p > a[href] {
-  color: #55c1e8 !important;
+article a[href] {
+  color: #3f3f4d !important;
+  font-weight: bold;
   font-family: 'futura', sans-serif;
   // font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.page-heading {
+  line-height: 1.4;
+  color: #3f3f4d;
+}
+
+.page-faq article h3 {
+  color: #3f3f4d;
 }

@@ -6,6 +6,10 @@
   }
 }
 
+.navbar + .section {
+  padding-top: 4.5rem;
+}
+
 .back-button {
   background: transparent;
   border: none;
@@ -140,8 +144,13 @@
 }
 
 .stage-ready .button {
-  background-color: #ce112d;
+  background-color: transparent;
   color: white;
+
+  &:hover,
+  &:focus {
+    border-color: white;
+  }
 }
 
 .page--landing {
@@ -173,5 +182,9 @@
 }
 
 .voter-stage__links > .button {
-  margin: 0.5rem 0;
+  margin: 0.5rem;
+}
+
+.header__wrapper {
+  max-width: 600px;
 }

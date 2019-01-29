@@ -14,8 +14,6 @@ class RaceList extends Component {
     const copyRaceData = [...parsedRaceData];
     const extractWardData = [];
 
-    console.log(parsedRaceData.length);
-
     for (let i = 0; i < parsedRaceData.length; i++) {
       const race = parsedRaceData[i];
 

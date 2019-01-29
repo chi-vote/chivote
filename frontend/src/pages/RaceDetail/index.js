@@ -93,17 +93,18 @@ export default class RaceDetail extends Component {
           <h1 className="page-heading title is-3">
             {`Race for ${officeName}`}
           </h1>
-          <ReadMoreReact
+          {/* <ReadMoreReact
             text={Parser(decode(data.description))}
             min={150}
             ideal={200}
             max={300}
             className="race__description"
-          />
+          /> */}
+          {Parser(decode(data.description))}
           <div
             className={`field is-grouped is-${
               this.state.feed
-            }-active toggle-feed mb-1`}
+            }-active toggle-feed mt-1 mb-1`}
           >
             <div className="control is-expanded">
               <button

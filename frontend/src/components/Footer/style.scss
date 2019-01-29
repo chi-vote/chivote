@@ -109,3 +109,7 @@ $white: white;
   height: 50px;
   margin-bottom: 2rem;
 }
+
+#mce-EMAIL::placeholder {
+  color: black;
+}

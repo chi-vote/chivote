@@ -10,18 +10,20 @@ import './LandingPageMobile.scss';
 const LandingPage = props => {
   return (
     <Page className="page page--landing has-text-centered">
-      <img src={chivoteLogo} alt="Chi.Vote logo" className="mb-1" />
-      <h1 className="header__tagline is-size-4 mb-1">
-        Everything you need to know to vote in Chicago on
-        <em className="is-darkblue-text"> Tuesday, Feb. 26th</em>
-      </h1>
-      <button className="button get-started is-large">Get started →</button>
-      {/* <button
+      <div className="header__wrapper">
+        <img src={chivoteLogo} alt="Chi.Vote logo" className="mb-1" />
+        <h1 className="header__tagline is-size-4 mb-1">
+          Everything you need to know to vote in Chicago on
+          <em className="is-darkblue-text"> Tuesday, Feb. 26th</em>
+        </h1>
+        <button className="button get-started is-large">Get started →</button>
+        {/* <button
         className="button is-medium is-outlined"
         onClick={props.goCollective}
       >
         <span>What is this?</span>
       </button> */}
+      </div>
     </Page>
   );
 };
@@ -56,12 +58,18 @@ class VotingStageSlider extends Component {
               className="voter-stage__image mb-1"
             />
             <div className="voter-stage__links">
-              <a href="faq" className="button is-large is-rounded">
-                Read through the FAQ
-              </a>
-              <a href="quiz" className="button is-large is-rounded">
-                Take the quiz
-              </a>
+              <ul>
+                <li>
+                  <a href="faq" className="button is-large is-rounded">
+                    Read through the FAQ
+                  </a>
+                </li>
+                <li>
+                  <a href="quiz" className="button is-large is-rounded">
+                    Take the quiz
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         );
@@ -77,13 +85,13 @@ class VotingStageSlider extends Component {
             <div className="voter-stage__links">
               <ul>
                 <li>
-                  <a href="faq" className="button is-large is-rounded">
-                    Read through the FAQ
+                  <a href="races" className="button is-large is-rounded">
+                    Explore the races
                   </a>
                 </li>
                 <li>
-                  <a href="quiz" className="button is-large is-rounded">
-                    Take the quiz
+                  <a href="ask" className="button is-large is-rounded">
+                    Ask us anything
                   </a>
                 </li>
               </ul>
@@ -137,17 +145,19 @@ class VotingStageSlider extends Component {
         <Slider {...settings} ref="stageSlider">
           <div>
             <section className="page page--landing has-text-centered">
-              <img src={chivoteLogo} alt="Chi.Vote logo" className="mb-1" />
-              <h1 className="header__tagline is-size-4 mb-1">
-                Everything you need to know to vote in Chicago on Tuesday, Feb.
-                26th
-              </h1>
-              <button
-                className="button get-started is-large"
-                onClick={this.next}
-              >
-                Get started →
-              </button>
+              <div className="header__wrapper">
+                <img src={chivoteLogo} alt="Chi.Vote logo" className="mb-1" />
+                <h1 className="header__tagline is-size-4 mb-1">
+                  Everything you need to know to vote in Chicago on Tuesday,
+                  Feb. 26th
+                </h1>
+                <button
+                  className="button get-started is-large"
+                  onClick={this.next}
+                >
+                  Get started →
+                </button>
+              </div>
             </section>
           </div>
           <div className="columns is-gapless voting-choices">

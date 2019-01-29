@@ -39,7 +39,7 @@ export default class WardLookup extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.streetNo !== prevState.streetNo) {
+    if (this.state.streetNo && this.state.streetNo !== prevState.streetNo) {
       this.getData();
     }
 
