@@ -2,6 +2,7 @@ import React from 'react';
 import Parser from 'html-react-parser';
 import decode from 'decode-html';
 import moment from 'moment-mini';
+import './style.scss';
 
 const ArticleItem = props => {
   const { fields } = props.data;

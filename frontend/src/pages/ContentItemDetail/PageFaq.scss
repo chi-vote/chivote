@@ -14,10 +14,12 @@ li {
 ul {
   list-style: disc;
   padding-left: 1em;
+  margin-bottom: 1rem;
 }
 
-ul > li > ul {
+ul ul {
   list-style: circle;
+  margin-bottom: 0;
 }
 
 @-webkit-keyframes highlight {

@@ -1,0 +1,22 @@
+.article-item {
+  flex-direction: column;
+}
+
+.article-item__meta {
+  font-size: 0.75rem;
+}
+
+.article-item__source {
+  /* opacity: 0.75; */
+  /* text-decoration: underline;
+  text-decoration-color: #b90b32;
+  text-underline-position: under; */
+}
+
+.article-item__headline {
+  /* opacity: 0.75; */
+  text-decoration: underline;
+  text-decoration-color: #b90b32;
+  text-underline-position: under;
+  width: 100%;
+}
