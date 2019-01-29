@@ -9,12 +9,12 @@ import Page from 'Components/Page';
 class Homepage extends Component {
   render() {
     return (
-      <Page>
-        <div className="landing-page">
+      <Page sectionClass="landing-page">
+        <div>
           <Responsive minWidth={992}>
             <LandingPage />
           </Responsive>
-          <Responsive maxWidth={767}>
+          <Responsive maxWidth={991}>
             <LandingPageSlider />
           </Responsive>
         </div>

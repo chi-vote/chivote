@@ -7,7 +7,7 @@ const Page = props => {
   return (
     <>
       <Nav />
-      <section className="section">
+      <section className={`section ${props.sectionClass}`}>
         <div {...props}>
           {props.heading ? (
             <h1 className="page-heading title is-3">{props.heading}</h1>
