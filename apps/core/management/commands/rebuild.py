@@ -24,7 +24,7 @@ class Command(BaseCommand):
         'yarn --cwd ./frontend build',
         'python manage.py migrate',
         'python manage.py collectstatic --no-input',
-        'python manage.py build',
+        'python manage.py build --settings=chivote.settings.production',
     ]
 
     def handle(self, *args, **kwargs):
