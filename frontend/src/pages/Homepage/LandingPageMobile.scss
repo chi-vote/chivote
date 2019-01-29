@@ -1,5 +1,9 @@
 .landing-page {
   height: 800px;
+
+  @media only screen and (max-width: 992px) {
+    height: auto;
+  }
 }
 
 .landing-page .columns {

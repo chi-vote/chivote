@@ -10,14 +10,12 @@ class Homepage extends Component {
   render() {
     return (
       <Page sectionClass="landing-page">
-        <div>
-          <Responsive minWidth={992}>
-            <LandingPage />
-          </Responsive>
-          <Responsive maxWidth={991}>
-            <LandingPageSlider />
-          </Responsive>
-        </div>
+        <Responsive minWidth={992}>
+          <LandingPage />
+        </Responsive>
+        <Responsive maxWidth={991}>
+          <LandingPageSlider />
+        </Responsive>
       </Page>
     );
   }

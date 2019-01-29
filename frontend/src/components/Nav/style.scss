@@ -23,4 +23,8 @@
 
 .navbar__tagline {
   font-family: 'League Spartan Bold', sans-serif;
+
+  @media only screen and (max-width: 991px) {
+    width: 150px;
+  }
 }
