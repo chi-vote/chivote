@@ -12,7 +12,7 @@ class Nav extends Component {
           <img src={chivoteLogo} alt="" className="navbar__logo" />
         </a>
         <span className="navbar__tagline has-text-white has-text-centered">
-          Everything you need <br class="is-hidden-tablet" /> to vote on Feb
+          Everything you need <br className="is-hidden-tablet" /> to vote on Feb
           26th
         </span>
         <SiteMenu right className="site-menu" />

@@ -6,7 +6,7 @@ import './style.scss';
 
 class RaceList extends Component {
   state = {
-    showLookup: false
+    showLookup: true
   };
 
   render() {
