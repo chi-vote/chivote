@@ -41,7 +41,7 @@ const StanceFeed = props => {
           className="issue__description"
         />
 
-        <div className="columns">
+        <div className="columns is-multiline">
           {stances.map(item => (
             <div className="column is-4">
               <StanceItem
