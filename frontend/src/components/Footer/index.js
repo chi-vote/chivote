@@ -96,8 +96,11 @@ class Footer extends Component {
                 />
               </a>
             </div>
-            <p className="has-text-white">
-            The Collective is to proud to welcome and acknowledge a new group of contributors to our effort, Outreach & Information Partners: Chalkbeat Chicago, City Bureau, Reform Illinois, South Side Weekly, and Univision.
+            <p className="has-text-white mt-1">
+              The Collective is to proud to welcome and acknowledge a new group
+              of contributors to our effort as Outreach &amp; Information
+              Partners: Chalkbeat Chicago, City Bureau, Reform Illinois, South
+              Side Weekly, and Univision.
             </p>
           </div>
         </footer>

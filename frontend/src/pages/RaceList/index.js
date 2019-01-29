@@ -60,7 +60,7 @@ class RaceList extends Component {
 
     return (
       <div>
-        <Page className="page--detail container">
+        <Page childClass="page--detail container">
           {breadcrumb}
           <h1 className="page-heading title is-3">{'Races'}</h1>
           <p className="is-lsb">

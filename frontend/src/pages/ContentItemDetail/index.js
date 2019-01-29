@@ -60,7 +60,7 @@ export default class ContentItemDetail extends Component {
           <style>{`body { background: ${background} !important; }`}</style>
           {Parser(decode(helmet))}
         </Helmet>
-        <Page className={classes}>
+        <Page childClass={classes}>
           <div className={'columns is-multiline is-centered'}>
             {breadcrumb}
             <h1 className="column is-full page-heading title">{title}</h1>

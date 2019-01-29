@@ -28,7 +28,8 @@ const LandingPage = props => {
 
 class VotingStageSlider extends Component {
   state = {
-    stage: 'questions'
+    stage: 'questions',
+    slideIndex: 0
   };
 
   prev = () => {
@@ -127,60 +128,76 @@ class VotingStageSlider extends Component {
       infinite: false,
       draggable: false,
       swipe: false,
-      swipeToSlide: false
+      swipeToSlide: false,
+      beforeChange: (curr, next) => this.setState({ slideIndex: next })
     };
 
     return (
-      <Slider {...settings} ref="stageSlider">
-        <div>
-          <section className="page page--landing has-text-centered">
-            <img src={chivoteLogo} alt="Chi.Vote logo" className="mb-1" />
-            <h1 className="header__tagline is-size-4 mb-1">
-              Everything you need to know to vote in Chicago on Tuesday, Feb.
-              26th
-            </h1>
-            <button className="button get-started is-large" onClick={this.next}>
-              Get started →
-            </button>
-          </section>
-        </div>
-        <div className="columns is-gapless voting-choices">
-          <div className="column">
-            <div
-              onClick={() => this.chooseStage('questions')}
-              className="voter-stage is-mobile stage-questions has-text-centered"
-            >
-              {/* <img src={questionsIcon} alt="" className="voter-stage__image"/> */}
-              <p className="voter-stage__cta is-lsb is-size-3 is-red-text">
-                Where do I start?
-              </p>
+      <>
+        <Slider {...settings} ref="stageSlider">
+          <div>
+            <section className="page page--landing has-text-centered">
+              <img src={chivoteLogo} alt="Chi.Vote logo" className="mb-1" />
+              <h1 className="header__tagline is-size-4 mb-1">
+                Everything you need to know to vote in Chicago on Tuesday, Feb.
+                26th
+              </h1>
+              <button
+                className="button get-started is-large"
+                onClick={this.next}
+              >
+                Get started →
+              </button>
+            </section>
+          </div>
+          <div className="columns is-gapless voting-choices">
+            <div className="column">
+              <div
+                onClick={() => this.chooseStage('questions')}
+                className="voter-stage is-mobile stage-questions has-text-centered"
+              >
+                {/* <img src={questionsIcon} alt="" className="voter-stage__image"/> */}
+                <p className="voter-stage__cta is-lsb is-size-3 is-red-text">
+                  Where do I start?
+                </p>
+              </div>
+            </div>
+            <div className="column">
+              <div
+                onClick={() => this.chooseStage('research')}
+                className="voter-stage is-mobile stage-research has-text-centered"
+              >
+                {/* <img src={researchIcon} alt="" className="voter-stage__image"/> */}
+                <p className="voter-stage__cta is-lightblue-text is-lsb is-size-3">
+                  I'm ready to learn.
+                </p>
+              </div>
+            </div>
+            <div className="column">
+              <div
+                onClick={() => this.chooseStage('ready')}
+                className="voter-stage is-mobile stage-ready has-text-centered"
+              >
+                {/* <img src={readyIcon} alt="" className="voter-stage__image"/> */}
+                <p className="voter-stage__cta is-lsb is-size-3">
+                  I'm ready to vote!
+                </p>
+              </div>
             </div>
           </div>
-          <div className="column">
-            <div
-              onClick={() => this.chooseStage('research')}
-              className="voter-stage is-mobile stage-research has-text-centered"
-            >
-              {/* <img src={researchIcon} alt="" className="voter-stage__image"/> */}
-              <p className="voter-stage__cta is-lightblue-text is-lsb is-size-3">
-                I'm ready to learn.
-              </p>
-            </div>
-          </div>
-          <div className="column">
-            <div
-              onClick={() => this.chooseStage('ready')}
-              className="voter-stage is-mobile stage-ready has-text-centered"
-            >
-              {/* <img src={readyIcon} alt="" className="voter-stage__image"/> */}
-              <p className="voter-stage__cta is-lsb is-size-3">
-                I'm ready to vote!
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="last-stage">{this.stageSwitch()}</div>
-      </Slider>
+          <div className="last-stage">{this.stageSwitch()}</div>
+        </Slider>
+        <button
+          className="button is-small back-button"
+          onClick={this.prev}
+          disabled={this.state.slideIndex == 0}
+        >
+          <span className="icon">
+            <i className="fas fa-backward" />
+          </span>
+          <span>Back</span>
+        </button>
+      </>
     );
   }
 }

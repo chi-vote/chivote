@@ -88,7 +88,7 @@ export default class RaceDetail extends Component {
             <CandidateView data={this.state.currentCandidate} />
           )}
         </SlideView>
-        <Page className="container page--detail">
+        <Page childClass="container page--detail">
           {breadcrumb}
           <h1 className="page-heading title is-3">
             {`Race for ${officeName}`}
