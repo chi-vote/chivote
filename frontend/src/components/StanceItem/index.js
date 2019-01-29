@@ -21,6 +21,18 @@ const StanceItem = props => {
     <Accordion>
       <AccordionItem className="accordion__item list-item article-item stance__item">
         <AccordionItemTitle className="accordion__title row row--main u-position-relative">
+          <div className="article-item__meta is-flex flex-space-between mb-1 is-fullwidth">
+            <div>
+              <span className="has-text-grey-lighter">
+                {date && moment(date).format('MMM D, YYYY')}
+              </span>
+              <time className="is-hidden">{date}</time>
+            </div>
+            <cite className="article-item__source is-lightblue-text has-text-right">
+              <a href={link}>{source}</a>
+            </cite>
+          </div>
+
           <div className="candidate-item__text-main">
             <img
               src={candidate.br_thumb_url}
@@ -34,13 +46,6 @@ const StanceItem = props => {
               <strong className="has-text-white">{statement_short}</strong>
             </p>
           </div>
-
-          <cite className="has-text-right candidate-item__text-secondary">
-            <a href={link}>
-              {date && moment(date).format('MMM D, YYYY') + ' • '}
-              {source}
-            </a>
-          </cite>
 
           <div className="accordion__arrow" role="presentation" />
         </AccordionItemTitle>

@@ -37,6 +37,7 @@ p {
 }
 
 .mb-1 {
+  display: block;
   margin-bottom: 1rem;
 }
 
@@ -111,27 +112,22 @@ p {
   background-color: #3f3f4d;
 }
 
-.navbar {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  background-color: transparent;
-}
+// .navbar {
+//   position: absolute;
+//   top: 0;
+//   width: 100%;
+//   background-color: transparent;
+// }
 
-.navbar--mobile {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+// .navbar--mobile {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }
 
 .navbar-menu-trigger {
   color: white;
   padding: 1rem;
-}
-
-.navbar__logo {
-  height: 25px;
-  margin-left: 2rem;
 }
 
 .mobile-menu {
@@ -188,13 +184,6 @@ div.list-item {
   border-bottom: none;
 }
 
-.is-candidates-active .is-candidates,
-.is-articles-active .is-articles,
-.is-stances-active .is-stances {
-  background-color: #55c1e8;
-  border-color: #55c1e8;
-}
-
 .article-item {
   flex-direction: column;
 }
@@ -247,7 +236,11 @@ div.list-item {
 }
 
 .ward-lookup .input {
-  width: 120px;
+  padding: 1.75rem;
+}
+
+.ward-lookup .input::placeholder {
+  color: white;
 }
 
 .ward-num {

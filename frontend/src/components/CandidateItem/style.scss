@@ -5,6 +5,11 @@
   background-color: #3f3f4d;
   border-radius: 5px;
   margin-bottom: 1rem;
+
+  &:hover {
+    background: rgba(63, 63, 77, 0.7);
+    cursor: pointer;
+  }
 }
 
 .is-incumbent {

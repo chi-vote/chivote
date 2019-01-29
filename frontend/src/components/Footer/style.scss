@@ -58,11 +58,19 @@ $white: white;
   color: white !important;
   padding: 3rem 1rem;
 
-  .intro-blurb {
-    // margin-bottom: 1rem;
-    font-size: 1.3rem;
-    width: 800px;
-    max-width: 100%;
-    margin: 1rem auto;
+  // .intro-blurb {
+  //   // margin-bottom: 1rem;
+  //   font-size: 1.3rem;
+  //   width: 800px;
+  //   max-width: 100%;
+  //   margin: 1rem auto;
+  // }
+}
+
+#mc_embed_signup {
+  background: #3f3f4d;
+  color: white;
+  input {
+    color: #343434;
   }
 }

@@ -2,6 +2,10 @@
   font-family: 'League Spartan Bold', sans-serif;
 }
 
+article * {
+  color: white;
+}
+
 p,
 li {
   font-family: 'futura', sans-serif;
@@ -38,10 +42,11 @@ ul > li > ul {
   display: none;
 }
 
-.nav-link {
-  // color: darken(white, 0.5);
+#toc .nav-link {
+  color: #dbdbdb;
   font-family: 'futura', sans-serif;
   // font-size: 1.2em;
+  border-left-color: #dbdbdb;
 }
 
 @media screen and (max-width: 768px) {
@@ -66,11 +71,6 @@ ul > li > ul {
 .page-faq h3:target {
   -webkit-animation: highlight 1s ease;
   animation: highlight 1s ease;
-}
-
-nav[data-toggle='toc'] .nav > li > a:focus,
-nav[data-toggle='toc'] .nav > li > a:hover {
-  border-left-color: lightsteelblue !important;
 }
 
 @media screen and (min-width: 768px) {

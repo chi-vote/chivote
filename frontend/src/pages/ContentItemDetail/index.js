@@ -28,7 +28,7 @@ export default class ContentItemDetail extends Component {
           <div className="col-12">
             <div className="row">
               <Helmet>
-                <style>{`body { background: ${background} !important; } * { color: white !important; font-family: 'League Spartan Bold', sans-serif; }`}</style>
+                <style>{`body { background: ${background} !important; }`}</style>
                 {Parser(decode(helmet))}
               </Helmet>
               {/* <h1 className="page-heading title">{title}</h1> */}

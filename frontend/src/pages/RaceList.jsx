@@ -43,10 +43,7 @@ class RaceList extends Component {
     const races = JSON.parse(this.props.data.races);
     return (
       <div>
-        <Page
-          className="page page--detail page--inner container"
-          heading="Races"
-        >
+        <Page className="page page--detail container" heading="Races">
           <p className="is-lsb">
             Choose a specific race to get more information and view candidates.
           </p>
@@ -56,7 +53,7 @@ class RaceList extends Component {
             Choose a specific ward number to get more information and view
             candidates.
           </p>
-          {/* {!this.state.showLookup && (
+          {!this.state.showLookup && (
             <button
               className="button is-rounded mb-1 is-fullwidth"
               onClick={() => this.setState({ showLookup: true })}
@@ -68,7 +65,7 @@ class RaceList extends Component {
             <div className="list-item">
               <WardLookup />
             </div>
-          )} */}
+          )}
           <List className="columns is-mobile is-multiline">{wardButtons}</List>
         </Page>
       </div>

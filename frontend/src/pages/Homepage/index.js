@@ -6,7 +6,7 @@ import Responsive from 'react-responsive';
 
 import Page from 'Components/Page';
 
-export default class Homepage extends Component {
+class Homepage extends Component {
   render() {
     return (
       <Page>
@@ -22,3 +22,6 @@ export default class Homepage extends Component {
     );
   }
 }
+
+// module.exports = Homepage;
+export default Homepage;

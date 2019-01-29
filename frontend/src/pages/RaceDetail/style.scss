@@ -44,8 +44,14 @@
   }
 }
 
-.button > .label {
-  color: white;
+.button:hover {
+  background: #3b3b48;
+  border-color: #b5b5b5;
+  color: #b5b5b5;
+}
+
+.button__label {
+  // color: white;
   margin-left: 0.5em;
   padding-top: 4px;
   // text-transform: uppercase;
@@ -60,4 +66,14 @@
 .field.is-grouped > .control.is-expanded {
   flex-basis: 30%;
   width: 30%;
+}
+
+.is-candidates-active .is-candidates,
+.is-articles-active .is-articles,
+.is-stances-active .is-stances {
+  background-color: #55c1e8;
+  border-color: #55c1e8;
+  color: white;
+  cursor: default;
+  pointer-events: none;
 }
