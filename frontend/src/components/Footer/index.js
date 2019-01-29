@@ -48,7 +48,7 @@ class Footer extends Component {
                 src={LogoCollective}
                 alt="Chi.Vote Collective"
               />
-              <p className="has-text-white is-lsb">
+              <p className="has-text-white">
                 The Chi.vote website is the core product of the Chi.vote
                 Collective, a new group of nonpartisan media and civic
                 organizations that believe in fostering a safer, more prosperous
@@ -96,6 +96,9 @@ class Footer extends Component {
                 />
               </a>
             </div>
+            <p className="has-text-white">
+            The Collective is to proud to welcome and acknowledge a new group of contributors to our effort, Outreach & Information Partners: Chalkbeat Chicago, City Bureau, Reform Illinois, South Side Weekly, and Univision.
+            </p>
           </div>
         </footer>
       </>

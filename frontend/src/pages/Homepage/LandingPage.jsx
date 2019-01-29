@@ -63,7 +63,7 @@ const LandingPage = props => {
                   href="https://chicagoelections.com/en/register-to-vote-change-of-address.html"
                   className="button is-large is-rounded"
                 >
-                  Make sure you're registered
+                  Get registered
                 </a>
               </li>
               <li>
