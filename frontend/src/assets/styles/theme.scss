@@ -1,6 +1,17 @@
+@import '~Assets/styles/variables';
+@import '~Assets/styles/mixins';
+
 @font-face {
   font-family: 'League Spartan Bold';
   src: url('../fonts/LeagueSpartan-Bold.otf');
+}
+
+html {
+  font-size: $body-size-mobile;
+
+  @media (min-width: $tablet) {
+    font-size: $body-size;
+  }
 }
 
 body,
@@ -270,24 +281,19 @@ nav.breadcrumb {
   }
 
   a {
-    color: lightsteelblue;
-
-    &:hover {
-      color: #55c1e8;
-    }
-  }
-
-  li + li::before {
-    color: lightsteelblue;
-  }
-
-  li.is-active a {
-    color: gray;
+    font-family: $family-secondary;
   }
 }
 
+@include setBreadcrumbColors($primary);
+
 .page-heading {
-  font-size: 2.2rem;
+  font-size: 1.75rem;
+  line-height: 1.3;
+
+  @media (min-width: $tablet) {
+    font-size: 2.2rem;
+  }
 }
 
 .page-heading.column {

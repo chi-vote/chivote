@@ -1,0 +1,24 @@
+@mixin setBreadcrumbColors(
+  $color-link-active,
+  $color-link: lighten($color-link-active, 20%),
+  $color-link-hover: $color-link-active,
+  $color-divider: fade-out($color-link, 0.5)
+) {
+  nav.breadcrumb {
+    a {
+      color: $color-link;
+
+      &:hover {
+        color: $color-link-hover;
+      }
+    }
+
+    li + li:before {
+      color: $color-divider;
+    }
+
+    li.is-active a {
+      color: $color-link-active;
+    }
+  }
+}

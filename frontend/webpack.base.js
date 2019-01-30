@@ -36,7 +36,7 @@ module.exports = {
   },
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.scss'],
     alias: {
       Assets: path.resolve(__dirname, 'src/assets/'),
       Components: path.resolve(__dirname, 'src/components/'),
