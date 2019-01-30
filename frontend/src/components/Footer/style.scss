@@ -1,8 +1,7 @@
-$bg-dark: #31313b;
-$white: white;
+@import '~Assets/styles/variables';
 
 .footer {
-  background-color: $bg-dark;
+  background-color: $dark;
   color: $white;
   // padding: 4rem;
 
@@ -42,4 +41,23 @@ $white: white;
 .logo--chivote-coll {
   height: 50px;
   margin-bottom: 2rem;
+}
+
+.section--bottom {
+  color: $white;
+  padding: 3rem 1.5rem;
+}
+
+.sign-up {
+  background: $dark-accent;
+}
+
+.contact-us {
+  background: mix($dark-accent, $dark);
+}
+
+.section__heading {
+  font-size: $size-3;
+  margin-bottom: 1rem;
+  text-align: center;
 }

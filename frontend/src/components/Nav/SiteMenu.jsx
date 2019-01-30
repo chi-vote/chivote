@@ -23,5 +23,13 @@ export const SiteMenu = props => (
       <i className="fas fa-gamepad" />
       Quiz
     </a>
+    <hr />
+    <div>
+      <p className="has-text-weight-bold">Contact us</p>
+      <p>Got questions? Need help? Did we miss something?</p>
+      <p>
+        Email us at <a href="mailto:info@chi.vote">info@chi.vote</a>.
+      </p>
+    </div>
   </Menu>
 );

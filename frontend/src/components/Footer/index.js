@@ -19,27 +19,36 @@ class Footer extends Component {
   render() {
     return (
       <>
-        <MailchimpEmbed />
-        <footer className="footer">
+        <section
+          className="section section--bottom mc-embed sign-up"
+          id="sign-up"
+        >
+          <h3 className="section__heading">Sign up</h3>
+          <MailchimpEmbed />
+        </section>
+        <section className="section section--bottom contact-us" id="contact-us">
+          <h3 className="section__heading">Contact us</h3>
+          <p className="is-lsb is-size-5 has-text-centered">
+            Got questions? Need help? Did we miss something?
+          </p>
+          <p className="is-lsb is-size-5 has-text-centered">
+            Email us at <a href="mailto:info@chi.vote">info@chi.vote</a>.
+          </p>
+        </section>
+        <footer className="section section--bottom footer">
           <div className="container">
-            <div className="row">
-              <img
-                className="logo logo--chivote-coll"
-                src={LogoCollective}
-                alt="Chi.Vote Collective"
-              />
-              <p className="has-text-white">
-                The Chi.vote website is the core product of the Chi.vote
-                Collective, a new group of nonpartisan media and civic
-                organizations that believe in fostering a safer, more prosperous
-                and more equitable and connected Chicago by creating content and
-                tools of the highest quality and accessibility around city
-                elections. The founding partners of the Collective are the
-                Better Government Association, Block Club Chicago, The Chicago
-                Reporter, The Daily Line and The Triibe.
-              </p>
-            </div>
-            <div className="row collective-logos">
+            <h3 className="section__heading">About Chi.vote</h3>
+            <p>
+              The Chi.vote website is the core product of the Chi.vote
+              Collective, a new group of nonpartisan media and civic
+              organizations that believe in fostering a safer, more prosperous
+              and more equitable and connected Chicago by creating content and
+              tools of the highest quality and accessibility around city
+              elections. The founding partners of the Collective are the Better
+              Government Association, Block Club Chicago, The Chicago Reporter,
+              The Daily Line and The Triibe.
+            </p>
+            <div className="collective-logos">
               <a href="https://bettergov.org">
                 <img
                   src={LogoBGA}
@@ -76,13 +85,13 @@ class Footer extends Component {
                 />
               </a>
             </div>
-            <p className="has-text-white mt-1">
+            <p className="mt-1">
               The Collective is to proud to welcome and acknowledge a new group
               of contributors to our effort as Outreach &amp; Information
               Partners: Chalkbeat Chicago, City Bureau, Reform Illinois, South
               Side Weekly, and Univision.
             </p>
-            <div className="row collective-logos">
+            <div className="collective-logos">
               <a href="https://chalkbeat.org/">
                 <img
                   src={LogoChalkB}
