@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader/root';
-import './mailchimp.scss';
+import MailchimpEmbed from './MailchimpEmbed';
 import './style.scss';
 
 import LogoCollective from 'Assets/images/chivote-collective-logo-white.png';
@@ -13,37 +13,13 @@ import LogoRFI from 'Assets/images/RFI-logo-white.png';
 import LogoCityB from 'Assets/images/CB-logo-white.png';
 import LogoChalkB from 'Assets/images/Chalkbeat-logo-white.png';
 import LogoSSW from 'Assets/images/SSW-logo-white.png';
-
-const mailchimpEmbed = `
-<!-- Begin Mailchimp Signup Form -->
-<style type="text/css">
-   #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
-   /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-      We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-<div id="mc_embed_signup">
-<form action="https://bettergov.us7.list-manage.com/subscribe/post?u=41b3f3673000e91eee2aa89e7&amp;id=c88b648bc5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-  <div id="mc_embed_signup_scroll">
-   <label for="mce-EMAIL" class="mb-1">Get updates when we post new features to Chi.vote.</label>
-   <input type="email" value="" name="EMAIL" class="email input is-large" id="mce-EMAIL" placeholder="Enter your email address..." required>
-  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_41b3f3673000e91eee2aa89e7_c88b648bc5" tabindex="-1" value=""></div>
-  <div class="clear"><input type="submit" value="Sign up" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-  </div>
-</form>
-</div>
-
-<!--End mc_embed_signup-->
-`;
+import LogoUnivision from 'Assets/images/white_univision.png';
 
 class Footer extends Component {
   render() {
     return (
       <>
-        <section
-          className="mc-embed"
-          dangerouslySetInnerHTML={{ __html: mailchimpEmbed }}
-        />
+        <MailchimpEmbed />
         <footer className="footer">
           <div className="container">
             <div className="row">
@@ -107,6 +83,13 @@ class Footer extends Component {
               Side Weekly, and Univision.
             </p>
             <div className="row collective-logos">
+              <a href="https://chalkbeat.org/">
+                <img
+                  src={LogoChalkB}
+                  alt="Chalkbeat"
+                  className="collective-logo"
+                />
+              </a>
               <a href="https://www.citybureau.org/">
                 <img
                   src={LogoCityB}
@@ -114,10 +97,10 @@ class Footer extends Component {
                   className="collective-logo"
                 />
               </a>
-              <a href="https://chalkbeat.org/">
+              <a href="https://www.reformforillinois.org/">
                 <img
-                  src={LogoChalkB}
-                  alt="Chalkbeat"
+                  src={LogoRFI}
+                  alt="Reform for Illinois"
                   className="collective-logo"
                 />
               </a>
@@ -128,10 +111,10 @@ class Footer extends Component {
                   className="collective-logo"
                 />
               </a>
-              <a href="https://www.reformforillinois.org/">
+              <a href="https://www.univision.com/chicago/wgbo">
                 <img
-                  src={LogoRFI}
-                  alt="Reform for Illinois"
+                  src={LogoUnivision}
+                  alt="Univision Chicago"
                   className="collective-logo"
                 />
               </a>

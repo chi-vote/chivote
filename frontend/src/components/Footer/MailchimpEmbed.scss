@@ -103,3 +103,52 @@ Adapted from: http://blog.heyimcat.com/universal-signup-form/ */
     margin: 0;
   }
 }
+
+/* chi.vote styles */
+#mc_embed_signup {
+  background: #3f3f4d !important;
+  color: white;
+  padding: 3rem 1rem;
+  font-family: 'League Spartan Bold', sans-serif !important;
+
+  // .intro-blurb {
+  //   // margin-bottom: 1rem;
+  //   font-size: 1.3rem;
+  //   width: 800px;
+  //   max-width: 100%;
+  //   margin: 1rem auto;
+  // }
+
+  #mce-EMAIL,
+  #mc-embedded-subscribe {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    padding-bottom: calc(0.375em - 1px);
+    padding-left: calc(0.625em - 1px);
+    padding-right: calc(0.625em - 1px);
+    padding-top: calc(0.375em - 1px);
+    height: 42px;
+  }
+
+  #mce-EMAIL {
+    @media (min-width: 768px) {
+      width: 450px;
+    }
+  }
+
+  #mc-embedded-subscribe {
+    // background-color: #ce112d;
+  }
+}
+
+#mc_embed_signup {
+  background: #3f3f4d;
+  color: white;
+  input {
+    color: #343434;
+  }
+}
+
+#mce-EMAIL::placeholder {
+  color: black;
+}

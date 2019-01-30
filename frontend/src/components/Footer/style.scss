@@ -20,10 +20,13 @@ $white: white;
     }
 
     .collective-logo {
-      height: 4.5rem;
-      margin-bottom: 1rem;
+      margin: 1rem auto;
+      width: 100%;
+      max-width: 15rem;
       opacity: 0.75;
       transition: opacity 0.3s;
+      max-height: 4.5rem;
+      height: auto;
 
       &:hover {
         opacity: 1;
@@ -32,84 +35,11 @@ $white: white;
 
     @media (min-width: 500px) {
       flex-direction: row;
-
-      .collective-logo {
-        margin-bottom: 0;
-        padding: 0;
-      }
     }
-  }
-
-  .chivote-coll-item {
-    max-width: 20rem;
-
-    .chivote-coll-icon {
-      height: 7rem;
-
-      i {
-        font-size: 4.5rem;
-      }
-    }
-
-    &:hover {
-      .chivote-coll-icon {
-        i {
-          font-size: 5rem;
-        }
-      }
-    }
-  }
-}
-
-#mc_embed_signup {
-  background: #3f3f4d !important;
-  color: white;
-  padding: 3rem 1rem;
-  font-family: 'League Spartan Bold', sans-serif !important;
-
-  // .intro-blurb {
-  //   // margin-bottom: 1rem;
-  //   font-size: 1.3rem;
-  //   width: 800px;
-  //   max-width: 100%;
-  //   margin: 1rem auto;
-  // }
-
-  #mce-EMAIL,
-  #mc-embedded-subscribe {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    padding-bottom: calc(0.375em - 1px);
-    padding-left: calc(0.625em - 1px);
-    padding-right: calc(0.625em - 1px);
-    padding-top: calc(0.375em - 1px);
-    height: 42px;
-  }
-
-  #mce-EMAIL {
-    @media (min-width: 768px) {
-      width: 450px;
-    }
-  }
-
-  #mc-embedded-subscribe {
-    // background-color: #ce112d;
-  }
-}
-
-#mc_embed_signup {
-  background: #3f3f4d;
-  color: white;
-  input {
-    color: #343434;
   }
 }
 
 .logo--chivote-coll {
   height: 50px;
   margin-bottom: 2rem;
-}
-
-#mce-EMAIL::placeholder {
-  color: black;
 }
