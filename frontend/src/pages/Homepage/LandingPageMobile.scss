@@ -1,3 +1,5 @@
+@import '~Assets/styles/variables';
+
 .landing-page {
   // height: 800px;
 
@@ -124,23 +126,37 @@
   background-color: white;
 }
 
-.stage-questions .button {
-  background-color: white;
-  border-color: #ce112d;
-  color: #ce112d;
+@mixin button($primary, $secondary) {
+  a.button {
+    background-color: $secondary;
+    border-color: $primary;
+    color: $primary;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $primary;
+      border-color: $primary;
+      color: $secondary;
+    }
+  }
+}
+
+.stage-questions {
+  background-color: $white;
+
+  @include button($red, $white);
 }
 
 .stage-research {
-  background-color: #31313b;
-}
+  background-color: $dark;
 
-.stage-research .button {
-  border-color: #55c1e8;
-  color: #55c1e8;
+  @include button($primary, $dark);
 }
 
 .stage-ready {
-  background-color: #ce112d;
+  background-color: $red;
+
+  @include button($white, $red);
 }
 
 .stage-ready .button {

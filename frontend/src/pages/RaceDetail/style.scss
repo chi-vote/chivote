@@ -39,6 +39,10 @@
 }
 
 .toggle-feed {
+  .button {
+    transition: all 0.3s ease;
+  }
+
   .button:hover {
     background: #4ea4c5;
     border-color: #4ea4c5;

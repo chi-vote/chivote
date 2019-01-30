@@ -39,6 +39,15 @@ p {
   margin-bottom: 1rem;
 }
 
+a[href] {
+  color: $link;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $link-hover;
+  }
+}
+
 .is-futura {
   font-family: 'Futura', sans-serif;
 }

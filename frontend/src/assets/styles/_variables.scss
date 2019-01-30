@@ -12,6 +12,9 @@ $white: hsl(0, 0%, 100%); // bulma default
 $primary: #55c1e8;
 $primary-light: lightsteelblue;
 
+$link: $blue;
+$link-hover: darken($blue, 20);
+
 /* FONT SIZES */
 $body-size: 17px; // bulma default
 $body-size-mobile: 15px;

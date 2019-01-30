@@ -21,6 +21,7 @@ $tagline-width: 140px;
     height: $nav-height;
     left: $nav-padding;
     position: absolute;
+    transition: opacity 0.3s ease !important;
     z-index: 2;
 
     &:hover {
