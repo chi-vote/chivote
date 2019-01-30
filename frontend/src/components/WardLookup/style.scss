@@ -1,11 +1,4 @@
-// body {
-//   color: #333;
-//   font-family: "Helvetica Neue", Arial, sans-serif;
-//   font-weight: 200;
-// }
-
-.ward-lookup {
-}
+@import '~Assets/styles/variables';
 
 label {
   display: block;
@@ -47,9 +40,9 @@ label {
   padding: 1.5rem 1.5rem 1.5rem 1rem;
 }
 
-.ward-lookup .input::placeholder {
-  color: white;
-}
+// .ward-lookup .input::placeholder {
+//   color: white;
+// }
 
 .text-input-wrapper {
   // border: 1px solid;
@@ -78,13 +71,39 @@ label {
   // visibility: hidden;
 }
 
+.ward-lookup {
+  margin: 2.5rem auto;
+}
+
 .ward-lookup__heading {
   color: white;
-  text-align: center;
+  font-size: $size-5;
+
+  @media (min-width: $tablet) {
+    text-align: center;
+  }
 }
 
 .ward-lookup__message {
   font-size: 1.25rem;
   margin: 1rem 0;
   text-align: center;
+}
+
+.input {
+  background-color: $white;
+  color: $dark;
+
+  &::placeholder {
+    color: $grey-light;
+    font-weight: normal;
+  }
+}
+
+.ward-lookup__clear {
+  color: $grey;
+
+  &:hover {
+    color: $grey-light;
+  }
 }

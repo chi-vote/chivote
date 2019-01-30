@@ -47,6 +47,10 @@ p {
   font-family: 'League Spartan Bold', sans-serif;
 }
 
+strong {
+  color: currentColor;
+}
+
 .mt-1 {
   margin-top: 1rem;
 }
@@ -187,7 +191,7 @@ p {
   padding: 2rem;
 }
 
-div.list-item {
+.list-item {
   display: flex;
   align-items: center;
   padding: 1rem;

@@ -79,9 +79,9 @@ class RaceList extends Component {
             </button>
           )}
           {this.state.showLookup && (
-            <div className="list-item">
-              <WardLookup />
-            </div>
+            // <div className="list-item">
+            <WardLookup />
+            // </div>
           )}
           <List className="columns is-mobile is-multiline">{wardButtons}</List>
         </Page>
