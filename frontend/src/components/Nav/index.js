@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './style.scss';
 import chivoteLogo from 'Assets/images/chivote-logo-7x.png';
 import { hot } from 'react-hot-loader/root';
 import { SiteMenu } from './SiteMenu';
+import './style.scss';
 
 class Nav extends Component {
   render() {
@@ -12,10 +12,13 @@ class Nav extends Component {
           <img src={chivoteLogo} alt="" />
         </a>
 
-        <span className="navbar__tagline is-size-7-touch is-size-4-desktop has-text-white has-text-centered">
-          Everything you need to vote on Feb 26th
-        </span>
-        <SiteMenu right className="site-menu" />
+        <div className="navbar__tagline">
+          Everything you need to vote on Feb. 26th
+        </div>
+
+        <div className="navbar__menu">
+          <SiteMenu right />
+        </div>
       </nav>
     );
   }

@@ -1,30 +1,66 @@
-.navbar + .section {
-  padding-top: 6rem;
-}
+$size-4: 1.5rem;
+$size-7: 0.75rem;
+
+$nav-height: 30px;
+$nav-padding: 1rem;
+$logo-width: 93px;
+$tagline-width: 140px;
 
 .navbar {
-  display: flex;
-  // position: relative;
-  position: absolute !important;
+  background: rgba(49, 49, 59, 1);
+  padding: $nav-padding;
+  height: calc(#{$nav-height} + 2 * #{$nav-padding});
+  position: absolute;
   top: 0;
   width: 100%;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 1rem !important;
 
-  background: rgba(49, 49, 59, 1);
+  + .section {
+    padding-top: 6rem;
+  }
 
-  @import './SiteMenu.scss';
-}
+  &__logo {
+    height: $nav-height;
+    left: $nav-padding;
+    position: absolute;
+    z-index: 2;
 
-.navbar__logo > img {
-  height: 30px;
-}
+    &:hover {
+      opacity: 0.6;
+    }
 
-.navbar__tagline {
-  font-family: 'League Spartan Bold', sans-serif;
+    > img {
+      height: $nav-height;
+      width: $logo-width;
+    }
+  }
 
-  @media only screen and (max-width: 991px) {
-    width: 150px;
+  &__tagline {
+    color: white;
+    font-family: 'League Spartan Bold', sans-serif;
+    font-size: $size-7;
+    height: $nav-height;
+    left: calc(#{$nav-padding} + #{$logo-width} + 1rem);
+    position: absolute;
+    text-align: left;
+    width: $tagline-width;
+
+    // Desktop sizing
+    @media (min-width: 769px) {
+      font-size: $size-4;
+      left: $nav-padding;
+      right: $nav-padding;
+      margin-left: auto;
+      margin-right: auto;
+      width: auto;
+      text-align: center;
+    }
+  }
+
+  &__menu {
+    height: $nav-height;
+    position: absolute;
+    right: $nav-padding;
+
+    @import './SiteMenu.scss';
   }
 }
