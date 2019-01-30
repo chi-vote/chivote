@@ -13,7 +13,7 @@ String.prototype.capitalize = function() {
 export default class ContentItemDetail extends Component {
   render() {
     const { title, slug, content, helmet, background } = this.props;
-    let pageContent = Parser(decode(content));
+    let pageContent = Parser(decode(content.replace(/"'|'"/g, '"'))); // fixing bad quotes that were breaking links
 
     if (slug == 'quiz') {
       pageContent = (

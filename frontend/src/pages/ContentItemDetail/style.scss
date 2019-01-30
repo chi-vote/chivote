@@ -1,21 +1,22 @@
+@import '~Assets/styles/variables';
+@import '~Assets/styles/mixins';
+
 .page-quiz {
   .page-heading {
     display: none;
   }
 
-  .breadcrumb a {
-    color: white;
+  @include setBreadcrumbColors($dark-accent, $white);
+}
 
-    &:hover {
-      color: white;
-    }
+.page-ask {
+  .page-heading {
+    color: $dark-accent;
   }
 
-  .breadcrumb li + li::before {
-    color: white;
-  }
+  @include setBreadcrumbColors($dark-accent, $grey);
+}
 
-  .breadcrumb li.is-active a {
-    color: #555;
-  }
+.page-faq {
+  @extend .page-ask;
 }

@@ -1,127 +1,86 @@
-* {
-  font-family: 'League Spartan Bold', sans-serif;
-}
-
-article * {
-  color: #31313b;
-}
-
-p,
-li {
-  font-family: 'futura', sans-serif;
-}
-
-ul {
-  list-style: disc;
-  padding-left: 1em;
-  margin-bottom: 1rem;
-}
-
-ul ul {
-  list-style: circle;
-  margin-bottom: 0;
-}
-
-@-webkit-keyframes highlight {
-  from {
-    background: lightsteelblue;
-  }
-  to {
-    background: transparent;
-  }
-}
+@import '~Assets/styles/variables';
+@import '~Assets/styles/mixins';
 
 @keyframes highlight {
   from {
-    background: lightsteelblue;
+    color: $red;
   }
   to {
-    background: transparent;
+    color: currentColor;
+  }
+}
+
+article {
+  * {
+    color: $dark;
+  }
+
+  p,
+  li {
+    font-family: $family-primary;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 1em;
+    margin-bottom: 1rem;
+
+    ul {
+      list-style: circle;
+      margin-bottom: 0;
+    }
+  }
+
+  a[href] {
+    color: $dark-accent;
+    font-family: $family-primary;
+    font-weight: bold;
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  h3 {
+    font-size: $size-4;
+    padding-top: 1rem;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:target {
+      animation: highlight 1s ease;
+    }
   }
 }
 
 #toc {
   display: none;
+  position: sticky;
+  top: 0;
+
+  @media screen and (min-width: $desktop) {
+    display: block;
+  }
 
   .nav {
     list-style: none;
   }
 
   .nav-link {
-    color: gray;
-    font-family: 'futura', sans-serif;
-    // font-size: 1.2em;
+    color: $grey;
+    font-family: $family-primary;
 
     display: block;
     padding: 4px 20px;
-    font-size: 13px;
+    font-size: $size-7;
     font-weight: 500;
-    // color: #767676;
-    // border-left: 1px solid #dbdbdb;
+
     &:hover {
-      border-left: 2px solid #3f3f4d;
-      color: #3f3f4d;
+      border-left: 2px solid $red;
+      color: $red;
       padding-left: 18px;
     }
   }
-}
-
-@media screen and (max-width: 768px) {
-  .page-faq p,
-  .page-faq li {
-    font-size: 0.9rem;
-  }
-  .page-faq h1.page-heading {
-    font-size: 1.7rem;
-  }
-  .page-faq h3 {
-    font-size: 1.2rem;
-  }
-}
-
-.page-faq h3 {
-  padding-top: 1rem;
-  margin-top: 1rem;
-  color: #555;
-
-  &:first-child {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  &:target {
-    -webkit-animation: highlight 1s ease;
-    animation: highlight 1s ease;
-  }
-
-  font-size: 1.5rem;
-}
-
-@media screen and (min-width: 768px) {
-  .page-faq #toc {
-    display: block;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-  }
-}
-
-article a[href] {
-  color: #3f3f4d !important;
-  font-weight: bold;
-  font-family: 'futura', sans-serif;
-  // font-weight: bold;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-.page-heading {
-  line-height: 1.4;
-  color: #3f3f4d;
-}
-
-.page-faq article h3 {
-  color: #3f3f4d;
 }
