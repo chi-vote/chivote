@@ -6,3 +6,14 @@ ul.bio-items {
 li.bio-item {
   margin-bottom: 0.5rem;
 }
+
+.candidate-view {
+  padding: 1rem;
+}
+
+.candidate-view__headshot {
+  // height: 250px;
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
