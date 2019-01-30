@@ -23,11 +23,11 @@ class Footer extends Component {
           className="section section--bottom mc-embed sign-up"
           id="sign-up"
         >
-          <h3 className="section__heading">Sign up</h3>
+          <div className="section__heading">Sign up</div>
           <MailchimpEmbed />
         </section>
         <section className="section section--bottom contact-us" id="contact-us">
-          <h3 className="section__heading">Contact us</h3>
+          <div className="section__heading">Contact us</div>
           <p className="is-lsb is-size-5 has-text-centered">
             Got questions? Need help? Did we miss something?
           </p>
@@ -37,7 +37,7 @@ class Footer extends Component {
         </section>
         <footer className="section section--bottom footer">
           <div className="container">
-            <h3 className="section__heading">About Chi.vote</h3>
+            <div className="section__heading">About Chi.vote</div>
             <p>
               The Chi.vote website is the core product of the Chi.vote
               Collective, a new group of nonpartisan media and civic
