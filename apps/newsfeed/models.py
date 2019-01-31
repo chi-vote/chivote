@@ -38,7 +38,7 @@ class Article(models.Model):
     candidate = models.ManyToManyField(
         Candidate, blank=True, verbose_name="Candidate(s)", help_text="Double click, or select and click the arrow, to add or remove a candidate.")
     race = models.ManyToManyField(
-        Race, blank=True, verbose_name="Race(s)", help_text="Double click, or select and click the arrow, to add or remove a race.")
+        Race, related_name='articles', blank=True, verbose_name="Race(s)", help_text="Double click, or select and click the arrow, to add or remove a race.")
     issue = models.ManyToManyField(
         Issue, blank=True, verbose_name="Issue(s)", help_text="Double click, or select and click the arrow, to add or remove an issue.")
 

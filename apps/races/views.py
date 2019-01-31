@@ -21,28 +21,23 @@ class RaceDetailView(BuildableDetailView):
         from ..newsfeed.models import Article, CandidateStance, Issue
         from django.utils.html import strip_tags
 
-        candidates = Candidate.objects.filter(
-            race=self.object).exclude(status='inactive')
+        candidates = self.object.candidates.all().exclude(status='inactive')
 
         stances = CandidateStance.objects.filter(
             candidate__race=self.object).order_by('-date')
 
-        articles = Article.objects.filter(race=self.object).order_by('-date')
+        articles = self.object.articles.all().order_by('-date')
 
         issues = Issue.objects.all().order_by('issue_order')
 
-        raceData = Race.objects.filter(
-            office=self.object.pk
-        )
+        raceData = self.object
 
         raceObj = {
-            'id': raceData[0].pk,
-            'office': raceData[0].__str__(),
+            'id': raceData.pk,
+            'office': raceData.__str__(),
         }
 
         description = mark_safe(self.object.explainer)
-
-        # print(json.dumps(description))
 
         react_dict = {
             'absolute_url': self.get_object().get_absolute_url(),

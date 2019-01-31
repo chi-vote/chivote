@@ -1,18 +1,22 @@
-import logging
 from django.db import models
 from django.contrib.postgres.fields import JSONField
+from bakery.models import BuildableModel
+
 from ..races.models import Race
+
+import logging
 logger = logging.getLogger(__name__)
 
 
-class Candidate(models.Model):
+class Candidate(BuildableModel):
     last_name = models.CharField(max_length=200)
     first_name = models.CharField(max_length=100, null=True, blank=True)
     middle_name = models.CharField(max_length=100, null=True, blank=True)
     suffix = models.CharField(max_length=10, null=True, blank=True)
     full_name = models.CharField(max_length=500, null=True, blank=True)
 
-    race = models.ForeignKey(Race, on_delete=models.CASCADE)
+    race = models.ForeignKey(
+        Race, related_name='candidates', on_delete=models.CASCADE)
 
     STATUS_CHOICES = (
         ('elected', 'Elected'),
@@ -80,6 +84,9 @@ class Candidate(models.Model):
 
     def __str__(self):
         return self.full_name
+
+    def _build_related(self):
+        self.race.build()
 
 
 class CandidateContact(models.Model):
