@@ -13,6 +13,7 @@ class ContentItemDetailView(BuildableDetailView):
         context = super().get_context_data(**kwargs)
 
         react_dict = {
+            'absolute_url': self.get_object().get_absolute_url(),
             'component': 'ContentItemDetail',
             'props': {
                 'title': self.object.title,

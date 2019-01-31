@@ -26,6 +26,7 @@ class HomePageView(BuildableTemplateView):
         context = super().get_context_data(**kwargs)
 
         react_dict = {
+            'absolute_url': '/',
             'component': 'Homepage',
             'meta': {
                 'title': 'Everything you need to know to vote in Chicago on Feb. 26th',
@@ -43,49 +44,3 @@ class HomePageView(BuildableTemplateView):
 class ErrorView(BuildableTemplateView):
     template_name = 'error.html'
     build_path = 'error.html'
-
-
-class RaceDetailView(BuildableTemplateView):
-    template_name = 'race-view.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        description: ''
-
-        react_dict = {
-            'component': 'RaceDetail',
-            'props': {
-                'data': {
-                    'office': 'mayor',
-                    'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi autem, explicabo ipsam' /
-                    'deserunt id vel eos pariatur aut consequuntur nesciunt optio atque est praesentium quia saepe dicta' /
-                    'exercitationem. In temporibus maiores facilis eligendi laudantium! Esse, corporis dolorum a possimus' /
-                    'dolorem harum, perferendis inventore earum, neque ducimus quod odio omnis. Voluptas!',
-                    'cycle': {
-                        'date': datetime.date(2019, 2, 26)
-                    }
-                },
-                'candidates': [
-                    {
-                        'personId': 1,
-                        'full_name': 'Amara Enyia',
-                        'photo': ''
-                    },
-                    {
-                        'personId': 2,
-                        'full_name': 'Toni Periwinkle',
-                        'photo': ''
-                    },
-                    {
-                        'personId': 3,
-                        'full_name': 'Susana Mendoza',
-                        'photo': ''
-                    },
-                ]
-            }
-        }
-
-        context.update(react_dict)
-
-        return context

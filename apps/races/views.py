@@ -45,6 +45,7 @@ class RaceDetailView(BuildableDetailView):
         # print(json.dumps(description))
 
         react_dict = {
+            'absolute_url': self.get_object().get_absolute_url(),
             'component': 'RaceDetail',
             'props': {
                 'data': {
@@ -86,6 +87,8 @@ class RaceListView(BuildableTemplateView):
             })
 
         react_dict = {
+            # 'absolute_path': self.object.get_absolute_path(),
+            'absolute_url': '/races/',
             'component': 'RaceList',
             'props': {
                 'data': {
