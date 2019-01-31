@@ -3,7 +3,6 @@
 .footer {
   background-color: $dark;
   color: $white;
-  // padding: 4rem;
 
   .collective-logos {
     display: flex;
@@ -20,10 +19,9 @@
 
     .collective-logo {
       margin: 1rem auto;
-      width: 100%;
+      width: auto;
       max-width: 15rem;
       opacity: 0.75;
-      transition: opacity 0.3s;
       max-height: 4.5rem;
       height: auto;
 
