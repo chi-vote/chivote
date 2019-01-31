@@ -48,7 +48,7 @@ class RaceList extends Component {
             <a href="/">Home</a>
           </li>
           <li className="is-active">
-            <a href="/races" aria-current="page">
+            <a href="/races/" aria-current="page">
               All races
             </a>
           </li>

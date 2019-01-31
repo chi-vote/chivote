@@ -49,6 +49,7 @@ class RaceDetailView(BuildableDetailView):
                     'articles': serializers.serialize('json', articles),
                     'office': json.dumps(raceObj),
                     'description': description,
+                    'slug': self.object.slug,
                 },
                 'candidates': serializers.serialize('json', candidates)
             },
