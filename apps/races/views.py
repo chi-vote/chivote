@@ -5,7 +5,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.views.generic.base import TemplateView
 from django.utils.safestring import mark_safe
 
-from bakery.views import BuildableDetailView, BuildableListView, BuildableTemplateView
+from bakery.views import BuildableDetailView, BuildableListView
 
 from .models import Race
 
@@ -64,7 +64,7 @@ class RaceDetailView(BuildableDetailView):
         return context
 
 
-class RaceListView(BuildableTemplateView):
+class RaceListView(BuildableListView):
     model = Race
     template_name = 'base_react.html'
     build_path = 'races/index.html'
@@ -72,7 +72,7 @@ class RaceListView(BuildableTemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        raceData = Race.objects.all().order_by('pk')
+        raceData = self.object_list.order_by('pk')
 
         races = []
 

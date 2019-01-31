@@ -28,3 +28,7 @@ class Race(BuildableModel):
 
     class Meta:
         ordering = ['office']
+
+    def _build_related(self):
+        from .views import RaceListView
+        RaceListView().build_queryset()
