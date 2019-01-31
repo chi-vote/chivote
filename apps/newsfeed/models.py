@@ -55,18 +55,21 @@ class Article(BuildableModel):
 
 
 class CandidateStance(BuildableModel):
-    statement_short = models.CharField(
+    stance_short = models.CharField(
         max_length=280, verbose_name='Short stance')
-    statement_long = RichTextField(verbose_name='Long stance')
+    stance_long = RichTextField(verbose_name='Long stance')
     date = models.DateField(null=True, blank=True)
     link = models.URLField()
     source = models.CharField(max_length=200, verbose_name='Publisher')
     candidate = models.ForeignKey(
-        Candidate, on_delete=models.CASCADE)
+        Candidate, related_name='stances', on_delete=models.CASCADE)
     issue = models.ForeignKey(
-        Issue, null=True, blank=True, on_delete=models.SET_NULL)
+        Issue, related_name='stances', null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         import textwrap
-        string = f'{self.candidate.__str__()} on {self.issue.__str__()}: {self.statement_short}'
+        string = f'{self.candidate.__str__()} on {self.issue.__str__()}: {self.stance_short}'
         return textwrap.shorten(string, width=100)
+
+    def _build_related(self):
+        self.candidate.build()

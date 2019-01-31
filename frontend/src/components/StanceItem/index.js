@@ -15,7 +15,7 @@ import './style.scss';
 
 const StanceItem = props => {
   const { candidate } = props;
-  const { date, link, source, statement_long, statement_short } = props.data;
+  const { date, link, source, stance_long, stance_short } = props.data;
 
   return (
     <Accordion>
@@ -43,7 +43,7 @@ const StanceItem = props => {
               {candidate.full_name}
             </span>
             <p>
-              <strong className="has-text-white">{statement_short}</strong>
+              <strong className="has-text-white">{stance_short}</strong>
             </p>
           </div>
 
@@ -51,7 +51,7 @@ const StanceItem = props => {
         </AccordionItemTitle>
         <AccordionItemBody className="accordion__body row row--secondary">
           <blockquote className="has-text-white is-futura mb-1">
-            {Parser(decode(statement_long))}
+            {Parser(decode(stance_long))}
           </blockquote>
         </AccordionItemBody>
       </AccordionItem>
