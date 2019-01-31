@@ -1,14 +1,18 @@
 from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
+from bakery.models import BuildableModel
 
 from ..offices.models import Office
 
 
-class Race(models.Model):
+class Race(BuildableModel):
     office = models.ForeignKey(Office, on_delete=models.CASCADE)
     explainer = RichTextField(blank=True, null=True)
     slug = models.SlugField(max_length=250)
+
+    # BuildableModel field
+    detail_views = ('apps.races.views.RaceDetailView',)
 
     def save(self, *args, **kwargs):
         if not self.slug:
