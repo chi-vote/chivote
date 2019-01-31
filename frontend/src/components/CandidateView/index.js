@@ -23,7 +23,7 @@ const CandidateView = props => {
         * Candidate data is compiled by{' '}
         <a
           className="has-text-grey-light has-text-weight-bold"
-          href="https://ballotready.org/"
+          href="https://www.ballotready.org/"
         >
           BallotReady
         </a>
