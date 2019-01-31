@@ -14,12 +14,13 @@ const CandidateItem = props => {
       <div className={`candidate-item__meta ${isIncumbent}`}>
         <span className="is-size-5 candidate-item__name">
           {`${data.full_name}`}
+
+          {props.data.incumbent && (
+            <span className="has-text-white is-size-7 incumbent-tag">
+              Incumbent
+            </span>
+          )}
         </span>
-        {props.data.incumbent && (
-          <span className="has-text-white is-size-7 incumbent-tag">
-            Incumbent
-          </span>
-        )}
       </div>
     </dd>
   );

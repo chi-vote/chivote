@@ -30,13 +30,18 @@ const educationKeys = [
   'MBA',
   "Master's",
   'J.D.',
+  'Juris Doctor',
+  'JD',
   'Ph.D.'
 ];
 
 const sortEducation = d => -_.indexOf(educationKeys, d.degree);
 
 const renderEducation = (d, i) => {
-  let itemString = [d.degree, d.school, d.major].filter(Boolean).join(', ');
+  let itemString = [d.degree, d.school, d.major]
+    .filter(Boolean)
+    .map(x => x.trim())
+    .join(', ');
   itemString += d.grad_year ? ` (${d.grad_year})` : '';
   return (
     <li className="bio-item has-text-white is-futura" key={i}>
@@ -49,7 +54,8 @@ const Education = props => (
   <BrDataList
     label={'Education'}
     renderItem={renderEducation}
-    sortItems={sortEducation}
+    sortItems={[d => d.grad_year, sortEducation]}
+    sortOrder={['desc', 'asc']}
     data={props.data.br_education}
   />
 );
