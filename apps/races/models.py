@@ -1,12 +1,12 @@
 from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
-from bakery.models import BuildableModel
+from bakery.models import AutoPublishingBuildableModel
 
 from ..offices.models import Office
 
 
-class Race(BuildableModel):
+class Race(AutoPublishingBuildableModel):
     office = models.ForeignKey(Office, on_delete=models.CASCADE)
     explainer = RichTextField(blank=True, null=True)
     slug = models.SlugField(max_length=250)
@@ -32,3 +32,7 @@ class Race(BuildableModel):
     def _build_related(self):
         from .views import RaceListView
         RaceListView().build_queryset()
+
+    def get_publication_status(self):
+        # we want all races to publish
+        return True

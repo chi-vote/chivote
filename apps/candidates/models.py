@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.postgres.fields import JSONField
-from bakery.models import BuildableModel
+from bakery.models import AutoPublishingBuildableModel
 
 from ..races.models import Race
 
@@ -8,7 +8,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class Candidate(BuildableModel):
+class Candidate(AutoPublishingBuildableModel):
     last_name = models.CharField(max_length=200)
     first_name = models.CharField(max_length=100, null=True, blank=True)
     middle_name = models.CharField(max_length=100, null=True, blank=True)
@@ -69,7 +69,7 @@ class Candidate(BuildableModel):
     def save(self, *args, **kwargs):
         if not self.full_name:
             self.full_name = '{0}{1}{2}{3}'.format(
-                self.first_name,
+                self.first_name if self.first_name else '',
                 '{}'.format(
                     ' ' + self.middle_name + ' ' if self.middle_name else ' ',
                 ),
@@ -87,6 +87,9 @@ class Candidate(BuildableModel):
 
     def _build_related(self):
         self.race.build()
+
+    def get_publication_status(self):
+        return (self.status != 'inactive')
 
 
 class CandidateContact(models.Model):
