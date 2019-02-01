@@ -209,7 +209,7 @@ INSTALLED_APPS += ('colorfield', )
 # Celery application definition
 # http://docs.celeryproject.org/en/v4.0.2/userguide/configuration.html
 
-if config('CELERY_BROKER_URL'):
+if bool(config('CELERY_BROKER_URL', default=False)):
     CELERY_BROKER_URL = config('CELERY_BROKER_URL')
     CELERY_RESULT_BACKEND = CELERY_BROKER_URL
     CELERY_ACCEPT_CONTENT = ['application/json']
