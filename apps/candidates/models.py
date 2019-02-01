@@ -64,7 +64,6 @@ class Candidate(AutoPublishingBuildableModel):
                 self.br_endorsements = r_json['endorsements']
                 self.br_experience = r_json['experience']
                 self.br_education = r_json['education']
-                self.save()
 
     def save(self, *args, **kwargs):
         if not self.full_name:

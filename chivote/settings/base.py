@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 from decouple import config
+from celery.schedules import crontab
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(
@@ -208,10 +209,18 @@ INSTALLED_APPS += ('colorfield', )
 # Celery application definition
 # http://docs.celeryproject.org/en/v4.0.2/userguide/configuration.html
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEZONE = TIME_ZONE
-CELERY_BEAT_SCHEDULE = {}
+if config('CELERY_BROKER_URL'):
+    CELERY_BROKER_URL = config('CELERY_BROKER_URL')
+    CELERY_RESULT_BACKEND = CELERY_BROKER_URL
+    CELERY_ACCEPT_CONTENT = ['application/json']
+    CELERY_RESULT_SERIALIZER = 'json'
+    CELERY_TASK_SERIALIZER = 'json'
+    CELERY_TIMEZONE = TIME_ZONE
+
+    CELERY_BEAT_SCHEDULE = {
+        'update_br_candidates_all': {
+            'task': 'apps.candidates.tasks.update_br_candidates_all',
+            'schedule': crontab(day_of_week='mon-fri', hour='8-18/2')
+            # Monday through Friday, every 2 hours 8am to 6pm
+        }
+    }
