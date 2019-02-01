@@ -3,7 +3,7 @@ import uuid
 from django.db import models
 from django.db.models.functions import Lower
 from ckeditor.fields import RichTextField
-from bakery.models import BuildableModel
+from bakery.models import AutoPublishingBuildableModel
 
 from ..races.models import Race
 from ..candidates.models import Candidate
@@ -29,7 +29,7 @@ class Issue(models.Model):
         return self.name
 
 
-class Article(BuildableModel):
+class Article(AutoPublishingBuildableModel):
     hed = models.CharField(max_length=280, unique=True,
                            verbose_name='Headline')
     summary = RichTextField(null=True, blank=True)
@@ -42,6 +42,7 @@ class Article(BuildableModel):
         Race, related_name='articles', blank=True, verbose_name="Race(s)", help_text="Double click, or select and click the arrow, to add or remove a race.")
     issues = models.ManyToManyField(
         Issue, related_name='articles', blank=True, verbose_name="Issue(s)", help_text="Double click, or select and click the arrow, to add or remove an issue.")
+    is_published = models.BooleanField(default=True)
 
     def __str__(self):
         return self.hed
@@ -54,7 +55,7 @@ class Article(BuildableModel):
             race.build()
 
 
-class CandidateStance(BuildableModel):
+class CandidateStance(AutoPublishingBuildableModel):
     stance_short = models.CharField(
         max_length=280, verbose_name='Short stance')
     stance_long = RichTextField(verbose_name='Long stance')
@@ -65,6 +66,7 @@ class CandidateStance(BuildableModel):
         Candidate, related_name='stances', on_delete=models.CASCADE)
     issue = models.ForeignKey(
         Issue, related_name='stances', null=True, blank=True, on_delete=models.SET_NULL)
+    is_published = models.BooleanField(default=True)
 
     def __str__(self):
         import textwrap

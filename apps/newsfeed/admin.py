@@ -47,7 +47,7 @@ class ArticleAdmin(admin.ModelAdmin):
     rendered_link.short_description = 'Link'
 
     list_display = ('hed', 'date', 'source',
-                    'rendered_link', 'str_races', 'str_candidates', 'str_issues')
+                    'rendered_link', 'str_races', 'str_candidates', 'str_issues', 'is_published', )
     ordering = ('-date',)
 
 
@@ -61,4 +61,4 @@ class StanceAdmin(admin.ModelAdmin):
     getrace.short_description = 'Race'
 
     list_display = ('__str__', 'candidate',
-                    'issue', 'getrace', 'source')
+                    'issue', 'getrace', 'source', 'is_published')
