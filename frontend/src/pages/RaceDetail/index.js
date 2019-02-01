@@ -63,10 +63,10 @@ export default class RaceDetail extends Component {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/races">All races</a>
+            <a href="/races/">All races</a>
           </li>
           <li className="is-active">
-            <a href="#" aria-current="page">
+            <a href={`/races/${data.slug}/`} aria-current="page">
               {officeName}
             </a>
           </li>

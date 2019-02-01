@@ -14,7 +14,9 @@ const ArticleItem = props => {
           <span className="has-text-grey-lighter">
             {moment(fields.date).format('MMM D, YYYY')}
           </span>
-          <time datetime={fields.date} className="is-hidden">{fields.date}</time>
+          <time datetime={fields.date} className="is-hidden">
+            {fields.date}
+          </time>
         </div>
         <cite className="article-item__source is-lightblue-text has-text-right">
           {fields.source}
@@ -27,7 +29,8 @@ const ArticleItem = props => {
         {fields.hed}
       </a>
       <p className="has-text-grey-lighter">
-        {Parser(decode(fields.summary).replace(/<(?:.|\n)*?>/gm, ''))}
+        {fields.summary &&
+          Parser(decode(fields.summary).replace(/<(?:.|\n)*?>/gm, ''))}
       </p>
     </div>
   );

@@ -15,13 +15,13 @@ class IssueAdmin(SortableAdminMixin, admin.ModelAdmin):
 class ArticleAdmin(admin.ModelAdmin):
     model = Article
     # If you don't specify this, you will get a multiple select widget.
-    filter_horizontal = ('candidate', 'race', 'issue',)
+    filter_horizontal = ('candidates', 'races', 'issues',)
 
-    def str_candidate(self, obj):
-        return ', '.join([str(c) for c in obj.candidate.all()])
-    str_candidate.short_description = 'Candidate(s)'
+    def str_candidates(self, obj):
+        return ', '.join([str(c) for c in obj.candidates.all()])
+    str_candidates.short_description = 'Candidate(s)'
 
-    def str_race(self, obj):
+    def str_races(self, obj):
         from django.utils.safestring import mark_safe
 
         def rendered_link(obj):
@@ -32,12 +32,12 @@ class ArticleAdmin(admin.ModelAdmin):
             return f'<a href="{link}">{escape(obj.__str__())}</a>'
 
         # return mark_safe(', '.join([rendered_link(r) for r in obj.race.all()]))
-        return ', '.join(str(r) for r in obj.race.all())
-    str_race.short_description = 'Race(s)'
+        return ', '.join(str(r) for r in obj.races.all())
+    str_races.short_description = 'Race(s)'
 
-    def str_issue(self, obj):
-        return ', '.join([str(i) for i in obj.issue.all()])
-    str_issue.short_description = 'Issue(s)'
+    def str_issues(self, obj):
+        return ', '.join([str(i) for i in obj.issues.all()])
+    str_issues.short_description = 'Issue(s)'
 
     def rendered_link(self, obj):
         from django.utils.safestring import mark_safe
@@ -47,7 +47,7 @@ class ArticleAdmin(admin.ModelAdmin):
     rendered_link.short_description = 'Link'
 
     list_display = ('hed', 'date', 'source',
-                    'rendered_link', 'str_race', 'str_issue')
+                    'rendered_link', 'str_races', 'str_candidates', 'str_issues', 'is_published', )
     ordering = ('-date',)
 
 
@@ -61,4 +61,4 @@ class StanceAdmin(admin.ModelAdmin):
     getrace.short_description = 'Race'
 
     list_display = ('__str__', 'candidate',
-                    'issue', 'getrace', 'source')
+                    'issue', 'getrace', 'source', 'is_published')

@@ -19,7 +19,7 @@ export const SiteMenu = props => (
       <i className="far fa-comment-alt" />
       Ask
     </a>
-    <a className="menu-item" href="/quiz">
+    <a className="menu-item" href="/quiz/">
       <i className="fas fa-gamepad" />
       Quiz
     </a>

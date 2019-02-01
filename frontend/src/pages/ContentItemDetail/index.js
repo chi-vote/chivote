@@ -44,7 +44,7 @@ export default class ContentItemDetail extends Component {
             <a href="/">Home</a>
           </li>
           <li className="is-active">
-            <a href="/races" aria-current="page">
+            <a href={`/${slug}/`} aria-current="page">
               {titles[slug] || slug.capitalize()}
             </a>
           </li>

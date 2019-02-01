@@ -60,12 +60,12 @@ class VotingStageSlider extends Component {
             <div className="voter-stage__links">
               <ul>
                 <li>
-                  <a href="faq" className="button is-large is-rounded">
+                  <a href="/faq/" className="button is-large is-rounded">
                     Read through the FAQ
                   </a>
                 </li>
                 <li>
-                  <a href="quiz" className="button is-large is-rounded">
+                  <a href="/quiz/" className="button is-large is-rounded">
                     Take the quiz
                   </a>
                 </li>
@@ -85,12 +85,12 @@ class VotingStageSlider extends Component {
             <div className="voter-stage__links">
               <ul>
                 <li>
-                  <a href="races" className="button is-large is-rounded">
+                  <a href="/races/" className="button is-large is-rounded">
                     Explore the races
                   </a>
                 </li>
                 <li>
-                  <a href="ask" className="button is-large is-rounded">
+                  <a href="/ask/" className="button is-large is-rounded">
                     Ask us anything
                   </a>
                 </li>

@@ -23,6 +23,8 @@ django-ckeditor = "*"
 requests = "*"
 tqdm = "*"
 django-colorfield = "*"
+celery = "*"
+redis = "*"
 
 [requires]
 python_version = "3.6"

@@ -33,7 +33,7 @@ class RaceList extends Component {
 
     const otherRaces = flattenRemains.map(data => (
       <li className="column">
-        <a key={data.id} href={`${data.id}`} className="ward-button">
+        <a key={data.id} href={`./${data.id}/`} className="ward-button">
           {data.name}
         </a>
       </li>
@@ -48,7 +48,7 @@ class RaceList extends Component {
             <a href="/">Home</a>
           </li>
           <li className="is-active">
-            <a href="/races" aria-current="page">
+            <a href="/races/" aria-current="page">
               All races
             </a>
           </li>
@@ -91,7 +91,7 @@ class RaceList extends Component {
 }
 
 const WardButton = props => (
-  <a href={`${props.data.id}`} className="ward-button">
+  <a href={`./${props.data.id}/`} className="ward-button">
     {props.data.name.match(/\d+/)}
   </a>
 );

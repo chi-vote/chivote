@@ -64,6 +64,8 @@ AWS_REGION=
 ALLOW_BAKERY_AUTO_PUBLISHING=
 
 BALLOT_READY_API_KEY=
+
+# CELERY_BROKER_URL= # uncomment if using celery
 ```
 
 ## Tasks

@@ -186,3 +186,4 @@ dmypy.json
 # End of https://www.gitignore.io/api/django,python
 
 .DS_Store
+*.rdb
