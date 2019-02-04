@@ -18,6 +18,8 @@ class Command(BaseCommand):
     help = 'Run all commands'
 
     devCommands = [
+        'redis-server',
+        'celery -A chivote worker -l info',
         'yarn --cwd ./frontend start',
         'python manage.py livereload --settings=chivote.settings.local',
         'python manage.py runserver --settings=chivote.settings.local',
