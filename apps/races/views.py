@@ -9,6 +9,9 @@ from bakery.views import BuildableDetailView, BuildableListView
 
 from .models import Race
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class RaceDetailView(BuildableDetailView):
     model = Race
@@ -16,8 +19,6 @@ class RaceDetailView(BuildableDetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
-        curr_section = self.kwargs.get('section', None)
 
         from ..candidates.models import Candidate
         from ..newsfeed.models import Article, CandidateStance, Issue
@@ -41,6 +42,8 @@ class RaceDetailView(BuildableDetailView):
         }
 
         description = mark_safe(self.object.explainer)
+
+        curr_section = self.kwargs.get('section', None)
 
         react_dict = {
             'absolute_url': self.get_object().get_absolute_url(),
@@ -67,6 +70,50 @@ class RaceDetailView(BuildableDetailView):
         context.update(react_dict)
 
         return context
+
+    def set_kwargs(self, obj, section=None):
+        slug_field = self.get_slug_field()
+        self.kwargs = {
+            'pk': getattr(obj, 'pk', None),
+            slug_field: getattr(obj, slug_field, None),
+            # Also alias the slug_field to the key `slug`
+            # so it can work for people who just toss that in
+            'slug': getattr(obj, slug_field, None),
+            'section': section,
+        }
+
+    def build_object(self, obj):
+        from os import path
+
+        logger.debug("Building %s" % obj)
+        self.request = self.create_request(self.get_url(obj))
+        self.set_kwargs(obj)
+        target_path = self.get_build_path(obj)
+        self.build_file(target_path, self.get_content())
+
+        sections = [
+            'candidates',
+            'articles',
+            'stances',
+            'events',
+        ]
+
+        for section in sections:
+            logger.debug(f"Building {obj}/{section}")
+
+            url = f'{self.get_url(obj)}{section}/'
+            self.request = self.create_request(url)
+            self.set_kwargs(obj, section)
+
+            target_path = self.get_build_path(obj).replace(
+                'index.html', f'{section}')
+
+            if not self.fs.exists(target_path):
+                logger.debug("Creating {}".format(target_path))
+                self.fs.makedirs(target_path)
+
+            target_path = path.join(target_path, 'index.html')
+            self.build_file(target_path, self.get_content())
 
 
 class RaceListView(BuildableListView):
