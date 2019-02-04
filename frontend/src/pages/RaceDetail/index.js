@@ -8,6 +8,7 @@ import ReadMoreReact from 'Components/ReadMoreReact';
 import ArticleFeed from './ArticleFeed';
 import CandidateFeed from './CandidateFeed';
 import StanceFeed from './StanceFeed';
+import EventFeed from './EventFeed';
 
 import './style.scss';
 
@@ -49,6 +50,8 @@ export default class RaceDetail extends Component {
           candidates={JSON.parse(this.props.candidates)}
         />
       );
+    } else if (this.state.feed === 'events') {
+      return <EventFeed slug={this.props.data.documenters_slug} />;
     }
   };
 
@@ -102,11 +105,11 @@ export default class RaceDetail extends Component {
           /> */}
           {Parser(decode(data.description))}
           <div
-            className={`field is-grouped is-${
+            className={`field is-grouped is-grouped-multiline is-${
               this.state.feed
             }-active toggle-feed mt-1 mb-1`}
           >
-            <div className="control is-expanded">
+            <div className="control">
               <button
                 className="button is-rounded is-large is-candidates"
                 onClick={() => this.setState({ feed: 'candidates' })}
@@ -120,7 +123,7 @@ export default class RaceDetail extends Component {
                 </span>
               </button>
             </div>
-            <div className="control is-expanded">
+            <div className="control">
               <button
                 className="button is-rounded is-large is-articles"
                 onClick={() => this.setState({ feed: 'articles' })}
@@ -132,7 +135,7 @@ export default class RaceDetail extends Component {
                 <span className="button__label is-hidden-mobile">Articles</span>
               </button>
             </div>
-            <div className="control is-expanded">
+            <div className="control">
               <button
                 className="button is-rounded is-large is-stances"
                 onClick={() => this.setState({ feed: 'stances' })}
@@ -143,6 +146,18 @@ export default class RaceDetail extends Component {
                   <i className="fa fa-lg fa-comment-dots" />{' '}
                 </span>
                 <span className="button__label is-hidden-mobile">Stances</span>
+              </button>
+            </div>
+            <div className="control">
+              <button
+                className="button is-rounded is-large is-events"
+                onClick={() => this.setState({ feed: 'events' })}
+              >
+                {/* Events */}
+                <span className="icon">
+                  <i className="fa fa-lg fa-calendar" />{' '}
+                </span>
+                <span className="button__label is-hidden-mobile">Events</span>
               </button>
             </div>
           </div>
