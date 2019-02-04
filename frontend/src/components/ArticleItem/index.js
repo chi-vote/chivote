@@ -14,7 +14,7 @@ const ArticleItem = props => {
           <span className="has-text-grey-lighter">
             {moment(fields.date).format('MMM D, YYYY')}
           </span>
-          <time datetime={fields.date} className="is-hidden">
+          <time dateTime={fields.date} className="is-hidden">
             {fields.date}
           </time>
         </div>

@@ -17,11 +17,11 @@ const StanceFeed = props => {
 
   groupedStances = _.orderBy(groupedStances, x => {
     var issueObj = _.find(issues, i => i.pk == x.issue);
-    console.log(issueObj);
+    // console.log(issueObj);
     return issueObj.fields.issue_order;
   });
 
-  console.log(groupedStances);
+  // console.log(groupedStances);
 
   for (const group of Object.values(groupedStances)) {
     const { issue, stances } = group;

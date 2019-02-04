@@ -13,11 +13,14 @@ import EventFeed from './EventFeed';
 import './style.scss';
 
 export default class RaceDetail extends Component {
-  state = {
-    feed: 'candidates',
-    currentCandidate: null,
-    slideViewActive: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      feed: this.props.feed ? this.props.feed : 'candidates',
+      currentCandidate: null,
+      slideViewActive: false
+    };
+  }
 
   setCandidateView = candidateObj => {
     this.setState({
@@ -31,6 +34,16 @@ export default class RaceDetail extends Component {
       slideViewActive: state.isOpen
     });
   };
+
+  componentDidMount() {
+    var currUrl = `/races/${this.props.data.slug}`;
+    window.history.pushState({}, null, `${currUrl}/${this.state.feed}/`);
+  }
+
+  componentDidUpdate() {
+    var currUrl = `/races/${this.props.data.slug}`;
+    window.history.pushState({}, null, `${currUrl}/${this.state.feed}/`);
+  }
 
   renderFeed = () => {
     if (this.state.feed === 'candidates') {

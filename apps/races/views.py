@@ -17,6 +17,8 @@ class RaceDetailView(BuildableDetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        curr_section = self.kwargs.get('section', None)
+
         from ..candidates.models import Candidate
         from ..newsfeed.models import Article, CandidateStance, Issue
         from django.utils.html import strip_tags
@@ -44,6 +46,7 @@ class RaceDetailView(BuildableDetailView):
             'absolute_url': self.get_object().get_absolute_url(),
             'component': 'RaceDetail',
             'props': {
+                'feed': curr_section,
                 'data': {
                     'issues': serializers.serialize('json', issues),
                     'stances': serializers.serialize('json', stances),

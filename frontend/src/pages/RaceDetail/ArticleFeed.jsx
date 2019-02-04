@@ -4,9 +4,9 @@ import ArticleItem from 'Components/ArticleItem';
 const ArticleFeed = props => {
   const { articles } = props;
 
-  const articleItems = articles.map(item => (
+  const articleItems = articles.map((item, idx) => (
     <div className="column is-4">
-      <ArticleItem data={item} />
+      <ArticleItem data={item} key={idx} />
     </div>
   ));
 
