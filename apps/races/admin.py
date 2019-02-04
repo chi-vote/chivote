@@ -52,6 +52,7 @@ class RaceAdmin(admin.ModelAdmin):
         return link_str
     shorter_explainer.short_description = 'Explainer'
 
-    list_display = ('__str__', 'num_candidates', 'slug', 'shorter_explainer')
+    list_display = ('__str__', 'num_candidates', 'slug',
+                    'documenters_slug', 'shorter_explainer')
     ordering = ('id',)
     readonly_fields = ('slug',)
