@@ -51,7 +51,8 @@ const StanceItem = props => {
         </AccordionItemTitle>
         <AccordionItemBody className="accordion__body row row--secondary">
           <blockquote className="has-text-white is-futura mb-1">
-            {Parser(decode(stance_long))}
+            {Parser(decode(stance_long.replace(/"'|'"/g, '"')))}
+            {/* fixing bad quotes that were breaking links */}
           </blockquote>
         </AccordionItemBody>
       </AccordionItem>
