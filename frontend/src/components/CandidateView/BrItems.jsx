@@ -87,16 +87,26 @@ const Experience = props => (
   />
 );
 
-const renderEndorsements = (d, i) => (
-  <li className="bio-item has-text-white is-futura" key={i}>{`${d.name}`}</li>
-);
+const renderEndorsements = (d, i) => {
+  if (d.name) {
+    return (
+      <li className="bio-item has-text-white is-futura" key={i}>{`${
+        d.name
+      }`}</li>
+    );
+  } else {
+    return null;
+  }
+};
 
-const Endorsements = props => (
-  <BrDataList
-    label={'Endorsements'}
-    renderItem={renderEndorsements}
-    data={props.endorsements}
-  />
-);
+const Endorsements = props => {
+  return (
+    <BrDataList
+      label={'Endorsements'}
+      renderItem={renderEndorsements}
+      data={_.uniqBy(props.endorsements, 'name')}
+    />
+  );
+};
 
 export { Education, Experience, Endorsements };

@@ -88,7 +88,6 @@ class CandidateView extends Component {
           color="lightgray"
           rows={2}
           lineSpacing=".3em"
-          // style={{ width: '100%', height: '3rem' }}
         />
         <TextBlock rows={14} color="lightgray" />
       </div>
