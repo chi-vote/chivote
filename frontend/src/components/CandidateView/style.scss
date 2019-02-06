@@ -13,11 +13,27 @@ li.bio-item {
   padding: 1rem;
 }
 
+.candidate-view__name {
+  color: $white;
+  font-size: $size-3;
+  margin: 1rem 0;
+}
+
 .candidate-view__headshot {
   // height: 250px;
   width: 100%;
   border-radius: 5px;
   object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.candidate-view__section {
+  margin-bottom: 1rem;
+}
+
+.candidate-view__footnote {
+  color: $grey-light;
+  font-size: $size-6;
 }
 
 /* Position and sizing of clickable cross button */

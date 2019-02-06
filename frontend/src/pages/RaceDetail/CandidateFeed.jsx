@@ -14,9 +14,8 @@ const CandidateFeed = props => {
       </p>
       <List className="candidates-list columns is-multiline is-0-mobile">
         {candidates.map(item => (
-          <div className="column is-4">
+          <div className="column is-4" key={item.pk}>
             <CandidateItem
-              key={item.pk}
               id={item.pk}
               handleClick={handleClick}
               data={item.fields}

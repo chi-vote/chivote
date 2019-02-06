@@ -10,12 +10,14 @@ const BrDataList = props => {
   }
 
   return (
-    <div className="candidate-view__section mb-1">
+    <div className="candidate-view__section">
       <label htmlFor="" className="label is-lightblue-text">
         {label}
       </label>
       {items.length > 0 ? (
-        <ul className="bio-items">{items.map(item => renderItem(item))}</ul>
+        <ul className="bio-items">
+          {items.map((item, i) => renderItem(item, i))}
+        </ul>
       ) : (
         <p className="has-text-grey-light">None available*</p>
       )}
@@ -26,9 +28,12 @@ const BrDataList = props => {
 const educationKeys = [
   'High School Diploma',
   "Associate's",
+  'BA',
   "Bachelor's",
   'MBA',
+  'MA',
   "Master's",
+  'JD',
   'J.D.',
   'Juris Doctor',
   'JD',
@@ -56,7 +61,7 @@ const Education = props => (
     renderItem={renderEducation}
     sortItems={[d => d.grad_year, sortEducation]}
     sortOrder={['desc', 'asc']}
-    data={props.data.br_education}
+    data={props.education}
   />
 );
 
@@ -78,7 +83,7 @@ const Experience = props => (
     renderItem={renderExperience}
     sortItems={[d => d.start_year || '', d => d.end_year || '']}
     sortOrder={['desc', 'desc']}
-    data={props.data.br_experience}
+    data={props.experience}
   />
 );
 
@@ -90,7 +95,7 @@ const Endorsements = props => (
   <BrDataList
     label={'Endorsements'}
     renderItem={renderEndorsements}
-    data={props.data.br_endorsements}
+    data={props.endorsements}
   />
 );
 
