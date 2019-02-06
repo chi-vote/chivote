@@ -2,7 +2,7 @@ import React from 'react';
 import ArticleItem from 'Components/ArticleItem';
 
 const ArticleFeed = props => {
-  const { articles } = props;
+  const { articles, feed_url } = props;
 
   const articleItems = articles.map((item, idx) => (
     <div className="column is-4">
@@ -13,6 +13,14 @@ const ArticleFeed = props => {
   return (
     <section id="the-newsfeed">
       <h2 className="is-hidden-tablet page-heading title is-4">Articles</h2>
+      <p className="has-text-right help-text">
+        <a href={feed_url}>
+          <span class="icon">
+            <i className="fa fa-rss-square" />
+          </span>
+          Subscribe to RSS
+        </a>
+      </p>
       <div className="columns is-multiline">
         {articleItems.length ? (
           articleItems
