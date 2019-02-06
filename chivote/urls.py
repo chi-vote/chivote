@@ -20,6 +20,8 @@ from django.conf import settings
 from django.views.generic import RedirectView
 from django.conf.urls import include
 
+from apps.newsfeed.feeds import LatestArticlesFeed
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
@@ -29,7 +31,8 @@ urlpatterns += [
     path('', include('apps.core.urls')),
     path('races/', include('apps.races.urls')),
     path('', include('apps.site_content.urls')),
-    path('candidates/', include('apps.candidates.urls')),
+    # path('candidates/', include('apps.candidates.urls')),
+    path('latest/feed/', LatestArticlesFeed()),
     # path('questionnaire/', include('apps.questionnaires.urls'))
 ]
 
