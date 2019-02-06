@@ -157,6 +157,7 @@ BAKERY_VIEWS = (
     'apps.races.views.RaceListView',
     'apps.site_content.views.ContentItemDetailView',
     'apps.core.views.ErrorView',
+    'apps.races.feeds.RaceFeed',
 )
 
 AWS_BUCKET_NAME = config('AWS_BUCKET_NAME')

@@ -6,7 +6,7 @@ urlpatterns = [
     path('<slug>/', views.RaceDetailView.as_view(), name='race-detail'),
     # re_path(r'<slug>/(?P<section>[\w-]+)',
     # views.RaceDetailView.as_view(), name='race-detail')
-    path('<slug>/feed/', feeds.RaceFeed()),
+    path('<slug>/rss.xml', feeds.RaceFeed()),
     path('<slug>/<section>/', views.RaceDetailView.as_view(), name='race-detail'),
     # path(r'(?P<slug>[-\w]+)/$',
     #  views.RaceDetailView.as_view(), name='race-detail')
