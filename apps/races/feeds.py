@@ -51,7 +51,7 @@ class RaceFeed(BuildableFeed):
         return os.path.join('https://chi.vote/races/', obj.slug, 'rss.xml')
 
     def build_path(self, obj):
-        return self.feed_url(obj)  # Discard initial slash
+        return os.path.join('races/', obj.slug, 'rss.xml')
 
     def build_queryset(self, my_queryset=None):
         if my_queryset == None:
