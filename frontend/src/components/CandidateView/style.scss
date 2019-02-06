@@ -59,3 +59,20 @@ li.bio-item {
     margin-bottom: 1rem;
   }
 }
+
+.image--placeholder {
+  filter: blur(3px);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.candidate-view:not(.is-loading) {
+  animation: fadein 2s;
+}
