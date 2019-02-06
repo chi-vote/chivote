@@ -32,7 +32,7 @@ urlpatterns += [
     path('races/', include('apps.races.urls')),
     path('', include('apps.site_content.urls')),
     # path('candidates/', include('apps.candidates.urls')),
-    path('latest/feed/', LatestArticlesFeed()),
+    path('rss.xml', LatestArticlesFeed()),
     # path('questionnaire/', include('apps.questionnaires.urls'))
 ]
 

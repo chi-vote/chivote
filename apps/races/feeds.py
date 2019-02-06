@@ -41,6 +41,9 @@ class RaceFeed(BuildableFeed):
     def item_link(self, item):
         return item.link
 
+    def item_pubdate(self, item):
+        return item.date
+
     def link(self, obj):
         return os.path.join(obj.get_absolute_url(), 'articles/')
 

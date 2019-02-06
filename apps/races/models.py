@@ -34,9 +34,11 @@ class Race(AutoPublishingBuildableModel):
     def _build_related(self):
         from .feeds import RaceFeed
         from .views import RaceListView
+        from apps.newsfeed.feeds import LatestArticlesFeed
         RaceListView().build_queryset()
         queryset = Race.objects.filter(slug=self.slug)
         RaceFeed().build_queryset(queryset)
+        LatestArticlesFeed().build_queryset()
 
     def get_publication_status(self):
         # we want all races to publish
