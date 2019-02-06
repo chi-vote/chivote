@@ -5,8 +5,8 @@ const ArticleFeed = props => {
   const { articles } = props;
 
   const articleItems = articles.map((item, idx) => (
-    <div className="column is-4">
-      <ArticleItem data={item} key={idx} />
+    <div className="column is-4" key={idx}>
+      <ArticleItem data={item} />
     </div>
   ));
 
