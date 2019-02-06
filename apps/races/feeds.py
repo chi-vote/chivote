@@ -45,13 +45,13 @@ class RaceFeed(BuildableFeed):
         return item.date
 
     def link(self, obj):
-        return os.path.join(obj.get_absolute_url(), 'articles/')
+        return os.path.join('https://chi.vote/races/', obj.slug, 'articles/')
 
     def feed_url(self, obj):
-        return os.path.join(obj.get_absolute_url(), 'rss.xml')
+        return os.path.join('https://chi.vote/races/', obj.slug, 'rss.xml')
 
     def build_path(self, obj):
-        return self.feed_url(obj)[1:]  # Discard initial slash
+        return self.feed_url(obj)  # Discard initial slash
 
     def build_queryset(self, my_queryset=None):
         if my_queryset == None:

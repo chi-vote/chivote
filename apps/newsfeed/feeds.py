@@ -6,8 +6,8 @@ from bakery.feeds import BuildableFeed
 
 class LatestArticlesFeed(BuildableFeed):
     title = 'Chi.vote'
-    link = '/'
-    feed_url = '/rss.xml'
+    link = 'https://chi.vote/'
+    feed_url = 'https://chi.vote/rss.xml'
     build_path = 'rss.xml'
     description = 'Articles from Chicago media organizations about the February 2019 election'
 
