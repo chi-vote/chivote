@@ -19,7 +19,8 @@ class CandidateView extends Component {
         endorsements: [],
         urls: []
       },
-      isLoading: true
+      isLoading: true,
+      error: null
     };
   }
 
@@ -45,7 +46,11 @@ class CandidateView extends Component {
 
     fetch(url, { headers })
       .then(response => {
-        return response.json();
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Something went wrong ...');
+        }
       })
       .then(data => {
         this.setState({ data });
@@ -57,22 +62,17 @@ class CandidateView extends Component {
           }.bind(this),
           750
         );
-      });
+      })
+      .catch(error => this.setState({ error, isLoading: false }));
   }
 
   render() {
     const { full_name } = this.props.data;
-    const {
-      photo_url,
-      education,
-      experience,
-      endorsements,
-      urls
-    } = this.state.data;
-    const { isLoading } = this.state;
+    const { data, isLoading, error } = this.state;
+    const { photo_url, education, experience, endorsements, urls } = data;
 
     const myPlaceholder = (
-      <div className="my-awesome-placeholder">
+      <>
         <RectShape
           color="lightgray"
           className="candidate-view__headshot"
@@ -90,8 +90,12 @@ class CandidateView extends Component {
           lineSpacing=".3em"
         />
         <TextBlock rows={14} color="lightgray" />
-      </div>
+      </>
     );
+
+    if (error) {
+      return <p className="candidate-view has-text-danger">{error.message}</p>;
+    }
 
     return (
       <div className={`candidate-view${isLoading ? ' is-loading' : ''}`}>
