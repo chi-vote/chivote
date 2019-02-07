@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import LandingPage from './LandingPage';
-import LandingPageSlider from './LandingPageSlider';
+const LandingPage = require('./LandingPage').default;
+const LandingPageMobile = require('./LandingPageMobile').default;
 import Responsive from 'react-responsive';
 
 import Page from 'Components/Page';
@@ -14,7 +14,7 @@ class Homepage extends Component {
           <LandingPage />
         </Responsive>
         <Responsive maxWidth={991}>
-          <LandingPageSlider />
+          <LandingPageMobile />
         </Responsive>
       </Page>
     );

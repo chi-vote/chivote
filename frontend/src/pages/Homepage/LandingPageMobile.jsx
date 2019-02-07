@@ -176,7 +176,7 @@ class VotingStageSlider extends Component {
                   />
                 </h1>
                 <button
-                  className='button get-started is-large'
+                  className='button get-started is-large is-rounded'
                   onClick={this.next}
                 >
                   <FormattedMessage
