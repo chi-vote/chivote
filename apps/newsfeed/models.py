@@ -48,8 +48,8 @@ class Article(AutoPublishingBuildableModel):
         return self.hed
 
     def _build_related(self):
-        for candidate in self.candidates.all():
-            candidate.build()
+        # for candidate in self.candidates.all():
+        #     candidate.build()
 
         for race in self.races.all():
             race.build()

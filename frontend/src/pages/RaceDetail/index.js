@@ -54,7 +54,12 @@ export default class RaceDetail extends Component {
         />
       );
     } else if (this.state.feed === 'articles') {
-      return <ArticleFeed articles={JSON.parse(this.props.data.articles)} />;
+      return (
+        <ArticleFeed
+          articles={JSON.parse(this.props.data.articles)}
+          feed_url={`/races/${this.props.data.slug}/rss.xml`}
+        />
+      );
     } else if (this.state.feed === 'stances') {
       return (
         <StanceFeed
