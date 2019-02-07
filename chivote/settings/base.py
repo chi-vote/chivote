@@ -219,9 +219,9 @@ if bool(config('CELERY_BROKER_URL', default=False)):
     CELERY_TIMEZONE = TIME_ZONE
 
     CELERY_BEAT_SCHEDULE = {
-        'update_br_candidates_all': {
-            'task': 'apps.candidates.tasks.update_br_candidates_all',
-            'schedule': crontab(day_of_week='mon-fri', hour='8-18/2')
-            # Monday through Friday, every 2 hours 8am to 6pm
-        }
+        # 'update_br_candidates_all': {
+        #     'task': 'apps.candidates.tasks.update_br_candidates_all',
+        #     'schedule': crontab(day_of_week='mon-fri', hour='8-18/2')
+        #     # Monday through Friday, every 2 hours 8am to 6pm
+        # }
     }
