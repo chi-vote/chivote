@@ -23,6 +23,10 @@ export const SiteMenu = props => (
       <i className="fas fa-gamepad" />
       Quiz
     </a>
+    <a className="menu-item" href="/events/">
+      <i className="fas fa-calendar" />
+      Events
+    </a>
     <hr />
     <div>
       <p className="has-text-weight-bold">Contact us</p>

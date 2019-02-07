@@ -17,6 +17,7 @@
   @include setBreadcrumbColors($dark-accent, $grey);
 }
 
-.page-faq {
+.page-faq,
+.page-events {
   @extend .page-ask;
 }
