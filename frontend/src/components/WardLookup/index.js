@@ -111,7 +111,7 @@ export default class WardLookup extends Component {
                 //   </li>
                 // )}
                 renderInput={props => (
-                  <span class="text-input-wrapper">
+                  <span className="text-input-wrapper">
                     <input
                       className="input is-lsb is-fullwidth"
                       {...props}

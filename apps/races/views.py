@@ -1,5 +1,6 @@
 import json
 
+from django.conf import settings
 from django.core import serializers
 from django.core.serializers.json import DjangoJSONEncoder
 from django.views.generic.base import TemplateView
@@ -49,6 +50,7 @@ class RaceDetailView(BuildableDetailView):
             'absolute_url': self.get_object().get_absolute_url(),
             'component': 'RaceDetail',
             'props': {
+                'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),
                 'feed': curr_section,
                 'data': {
                     'issues': serializers.serialize('json', issues),

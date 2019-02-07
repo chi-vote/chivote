@@ -1,3 +1,5 @@
+@import '~Assets/styles/variables';
+
 .issues-menu {
   position: sticky;
   background: #31313b;
@@ -95,4 +97,13 @@
   color: white;
   cursor: default;
   pointer-events: none;
+}
+
+.the-candidates__help-text {
+  color: $white;
+  margin-bottom: 2rem;
+
+  @media (min-width: $tablet) {
+    margin-bottom: 1rem;
+  }
 }

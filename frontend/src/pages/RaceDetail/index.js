@@ -106,7 +106,10 @@ export default class RaceDetail extends Component {
           // customCrossIcon={false}
         >
           {this.state.currentCandidate && (
-            <CandidateView data={this.state.currentCandidate} />
+            <CandidateView
+              apiUrl={this.props.ballot_ready_api_url}
+              data={this.state.currentCandidate}
+            />
           )}
         </SlideView>
         <Page childClass="container page--detail">

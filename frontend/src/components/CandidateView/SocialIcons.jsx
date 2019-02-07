@@ -36,9 +36,11 @@ const renderSocialIcon = obj => {
 };
 
 const SocialIcons = props => (
-  <div className="field is-grouped is-grouped-multiline">
-    {props.data.br_urls.map(item => (
-      <div className="control">{renderSocialIcon(item)}</div>
+  <div className="candidate-view__links field is-grouped is-grouped-multiline">
+    {props.urls.map((item, i) => (
+      <div className="control" key={i}>
+        {renderSocialIcon(item)}
+      </div>
     ))}
   </div>
 );

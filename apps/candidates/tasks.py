@@ -1,11 +1,11 @@
 import logging
-from celery import task
+from celery import shared_task
 from .models import Candidate
 from ..races.models import Race
 logger = logging.getLogger(__name__)
 
 
-@task()
+@shared_task
 def update_br_candidate(obj_id, publish=True):
     obj = Candidate.objects.get(pk=obj_id)
 
@@ -17,7 +17,7 @@ def update_br_candidate(obj_id, publish=True):
         logger.error("Task error: update_br_candidate", exc_info=True)
 
 
-@task()
+@shared_task
 def update_br_candidates_all():
     candidates = Candidate.objects.all()
     races = Race.objects.all()
