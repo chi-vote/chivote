@@ -50,7 +50,7 @@ class RaceDetailView(BuildableDetailView):
             'absolute_url': self.get_object().get_absolute_url(),
             'component': 'RaceDetail',
             'props': {
-                'ballot_ready_api_key': getattr(settings, 'BALLOT_READY_API_KEY'),
+                'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),
                 'feed': curr_section,
                 'data': {
                     'issues': serializers.serialize('json', issues),

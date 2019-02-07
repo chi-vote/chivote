@@ -102,7 +102,7 @@ export default class RaceDetail extends Component {
         >
           {this.state.currentCandidate && (
             <CandidateView
-              apikey={this.props.ballot_ready_api_key}
+              apiUrl={this.props.ballot_ready_api_url}
               data={this.state.currentCandidate}
             />
           )}

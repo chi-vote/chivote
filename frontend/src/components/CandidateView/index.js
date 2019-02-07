@@ -37,11 +37,10 @@ class CandidateView extends Component {
   }
 
   fetchData(br_id) {
-    var url = `https://api.civicengine.com/candidate/${br_id}`;
+    var url = `${this.props.apiUrl}/candidate/${br_id}`;
 
     const headers = {
-      'Content-Type': 'application/json',
-      'x-api-key': this.props.apikey
+      'Content-Type': 'application/json'
     };
 
     fetch(url, { headers })
