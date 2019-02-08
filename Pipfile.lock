@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ab29ee925869abd63dab97dec15091092b80f220b119913c150eff74d5cd8b4d"
+            "sha256": "dadd23e62de579671267750cf18b40486a30bade14f3d9b2b0c04fcadd7032e6"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -138,6 +138,11 @@
             ],
             "index": "pypi",
             "version": "==0.3.2"
+        },
+        "django-modeltranslation": {
+            "editable": true,
+            "git": "https://github.com/deschler/django-modeltranslation.git",
+            "ref": "c8bda494a8cd36b393811552aeee71faf86d7438"
         },
         "django-webpack-loader": {
             "hashes": [

@@ -43,6 +43,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -136,6 +137,15 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+def gettext(s): return s
+
+
+LANGUAGES = (
+    ('en', gettext('English')),
+    ('es', gettext('Spanish')),
+)
 
 
 # Static files (CSS, JavaScript, Images)
