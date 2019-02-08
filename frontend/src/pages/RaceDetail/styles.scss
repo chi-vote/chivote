@@ -133,3 +133,12 @@
     width: 33%;
   }
 }
+
+.media-item__img {
+  float: left;
+  height: 65px;
+  width: 65px;
+  margin-right: 1rem;
+  border-radius: 5px;
+  object-fit: cover;
+}

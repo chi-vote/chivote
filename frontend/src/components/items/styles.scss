@@ -1,0 +1,56 @@
+@import '~Assets/styles/variables';
+
+.media-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: $dark-accent;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+
+  &__meta {
+    color: $grey-lighter;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  &__source {
+    margin-left: auto;
+  }
+
+  &__title {
+    color: $primary;
+    font-family: $lsb;
+    font-size: $size-5;
+    width: 100%;
+  }
+
+  &__dek {
+    color: $white;
+  }
+
+  &__summary {
+    color: $grey-lighter;
+  }
+
+  &.on-hover:hover {
+    background: fade-out($dark-accent, 0.3);
+    cursor: pointer;
+  }
+}
+
+.article-item {
+  flex-direction: column;
+}
+
+.incumbent-tag {
+  border: 2px solid white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}

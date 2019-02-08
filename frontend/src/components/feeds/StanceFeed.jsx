@@ -3,9 +3,8 @@ import { FormattedMessage } from 'react-intl';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import ReadMoreReact from 'Components/ReadMoreReact';
-import StanceItem from 'Components/StanceItem';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
-import { slugify } from './utils';
+import { parseHtml, slugify } from 'Utils';
 import StanceItems from './StanceItems';
 
 const StanceFeed = props => {

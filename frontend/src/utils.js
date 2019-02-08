@@ -1,4 +1,7 @@
-export function slugify(text) {
+import decode from 'decode-html';
+import Parser from 'html-react-parser';
+
+function slugify(text) {
   return text
     .toString()
     .toLowerCase()
@@ -8,3 +11,9 @@ export function slugify(text) {
     .replace(/^-+/, '') // Trim - from start of text
     .replace(/-+$/, ''); // Trim - from end of text
 }
+
+function parseHtml(html) {
+  return Parser(decode(html.replace(/"'|'"/g, '"')));
+}
+
+export { parseHtml, slugify };

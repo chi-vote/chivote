@@ -1,5 +1,4 @@
 import React from 'react';
-import './style.scss';
 
 const CandidateItem = props => {
   const { data } = props;
@@ -7,12 +6,12 @@ const CandidateItem = props => {
 
   return (
     <dd
-      className="candidate-item"
+      className="media-item candidate-item on-hover"
       onClick={() => props.handleClick(props.data)}
     >
-      <img src={data.br_thumb_url} alt="" className="candidate-item__img" />
+      <img src={data.br_thumb_url} alt="" className="media-item__img" />
       <div className={`candidate-item__meta ${isIncumbent}`}>
-        <span className="is-size-5 candidate-item__name">
+        <span className="is-size-5 media-item__title">
           {`${data.full_name}`}
 
           {props.data.incumbent && (
