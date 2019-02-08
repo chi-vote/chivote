@@ -9,6 +9,7 @@ pylint = "*"
 gunicorn = "*"
 ipython = "*"
 ipdb = "*"
+pylint-django = "*"
 
 [packages]
 bleach = "*"
