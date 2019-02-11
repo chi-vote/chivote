@@ -55,7 +55,7 @@ alias cvdb='pg_dump chivote > /tmp/chivote.bk.psql; dropdb chivote; ssh -i /path
 
 In production, you need a `.env` file in the root directory with the following filled out:
 
-```
+```sh
 DJANGO_SECRET_KEY=
 # DJANGO_DEBUG= # uncomment to enable debug mode
 DJANGO_URL_ENDPOINT=
@@ -75,7 +75,7 @@ ALLOW_BAKERY_AUTO_PUBLISHING=
 BALLOT_READY_API_KEY=
 BALLOT_READY_API_URL=
 
-# CELERY_BROKER_URL= # uncomment if using celery
+# CELERY_BROKER_URL= # uncomment and fill in if using celery
 ```
 
 ## Tasks
