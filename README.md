@@ -43,13 +43,21 @@ PG_PASSWORD = sample_password" >> .env
 
 6. Build frontend with `yarn --cwd ./frontend install`
 
+~ ~ ~
+
+**If you want to match your local db to the production db**, here's an alias command to drop into `~/.bash_profile` or a similar terminal management file.
+
+```bash
+alias cvdb='pg_dump chivote > /tmp/chivote.bk.psql; dropdb chivote; ssh -i /path/to/chivote.pem ubuntu@ec2-54-236-199-60.compute-1.amazonaws.com pg_dump chivote > /tmp/chivote.psql; createdb chivote; psql chivote < /tmp/chivote.psql'
+```
+
 ## Env variables
 
 In production, you need a `.env` file in the root directory with the following filled out:
 
 ```
 DJANGO_SECRET_KEY=
-# DJANGO_DEBUG= # uncomment to disable debug mode
+# DJANGO_DEBUG= # uncomment to enable debug mode
 DJANGO_URL_ENDPOINT=
 
 PG_NAME=
@@ -80,6 +88,12 @@ Launches dev environment at http://localhost:8000/. It simply starts the various
 # this is pseudo python describing the task
 
 devCommands = [
+    # redis server
+    'redis-server',
+    
+    # celery worker
+    'celery -A chivote worker -l info',
+    
     # frontend webpack-dev-server w/ hot module replacement
     'yarn --cwd ./frontend start',
 
@@ -105,6 +119,9 @@ Launches production environment at http://localhost:8000/. It simply runs the ne
 prodCommands = [
     # frontend production build
     'yarn --cwd ./frontend build',
+    
+    # django collectstatic (incl. built frontend)
+    'python manage.py collectstatic --no-input --settings=chivote.settings.production',
 
     # django-bakery build
     'python manage.py build --settings=chivote.settings.production',
@@ -120,15 +137,12 @@ for command in prodCommands:
 
 ### Rebuild packages and assets: `./manage.py rebuild`
 
-Install packages (Django and Yarn) and rebuild the frontend.
+Install packages (Django and Yarn) and rebuild the frontend. If you've updated your pipfile, you'll need to run `pipenv install` first.
 
 ```python
 # this is pseudo python describing the task
 
 commands = [
-    # install python packages
-    'pipenv install',
-
     # install frontend packages
     'yarn --cwd ./frontend install',
 
@@ -139,12 +153,37 @@ commands = [
     'python manage.py migrate',
 
     # collect frontend bundle to be served in django
-    'python manage.py collectstatic --no-input'
+    'python manage.py collectstatic --no-input',
+    
+    # django-bakery build
+    'python manage.py build --settings=chivote.settings.production',
 ]
 
 for command in commands:
     # do command
     ...
+```
+
+## Production use
+### Server
+Our app is deployed on an EC2 instance. I used [these instructions from DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04) for setting it up. For continuing maintenance and troubleshooting, read through those instructions' [troubleshooting section ](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04#troubleshooting-nginx-and-gunicorn).
+
+### Celery
+Instructions for Celery setup and maintenance are documented in [the pull request](https://github.com/thechicagoreporter/chivote/pull/11) that first integrated Celery.
+
+### BallotReady data
+BallotReady data is loaded live from their API via a proxy API we've set up in order to hide our BallotReady API key and monitor API use. Our API is hosted on AWS API Gateway.
+
+### Updating code
+The [public site](https://chi.vote/) is hosted on an S3 bucket. On the server, django-bakery and celery manage automatic data updates of the site. The one caveat here is if a data update happens *while* code is also being updated, there's a good chance that the S3 version will get all kinds of mucked up.
+
+With that in mind, here's the process for updating code. Eventually this should be automated, but for now, you need to run each command in sequence:
+```bash
+sudo supervisorctl stop chivote_worker # stops celery server from uploading to s3
+git pull
+pipenv install
+pipenv run ./manage.py rebuild && pipenv run ./manage.py publish # should only publish after a successful build
+sudo supervisorctl start chivote_worker # resume celery server uploads to s3
 ```
 
 ## Under the hood
@@ -290,5 +329,5 @@ This React-in-Django approach is informed by a few articles:
 
 ## Todos
 
-- Code-splitting
-- .css support
+- Optimize frontend bundle
+- Server side rendering of frontend
