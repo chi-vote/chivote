@@ -4,6 +4,7 @@ import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import { Helmet } from 'react-helmet';
 import { ReactTypeformEmbed } from 'react-typeform-embed';
+import LanguageToggle from 'Components/LanguageToggle';
 import './style.scss';
 
 String.prototype.capitalize = function() {
@@ -53,6 +54,7 @@ export default class ContentItemDetail extends Component {
                 {titles[slug] || slug.capitalize()}
               </a>
             </li>
+            <LanguageToggle />
           </ul>
         </nav>
       );

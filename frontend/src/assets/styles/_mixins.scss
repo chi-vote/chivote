@@ -20,5 +20,15 @@
     li.is-active a {
       color: $color-link-active;
     }
+
+    .button.language-toggle {
+      color: $color-link;
+
+      &:hover {
+        background-color: transparent;
+        border-color: $color-link-hover;
+        color: $color-link-hover;
+      }
+    }
   }
 }

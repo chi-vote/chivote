@@ -9,6 +9,7 @@ import ArticleFeed from './ArticleFeed';
 import CandidateFeed from './CandidateFeed';
 import StanceFeed from './StanceFeed';
 import EventFeed from './EventFeed';
+import LanguageToggle from 'Components/LanguageToggle';
 
 import './style.scss';
 
@@ -103,6 +104,7 @@ export default class RaceDetail extends Component {
                 {officeName}
               </a>
             </li>
+            <LanguageToggle />
           </ul>
         </nav>
       );

@@ -3,6 +3,7 @@ import Page from 'Components/Page';
 import List from 'Components/List';
 import WardLookup from 'Components/WardLookup';
 import './style.scss';
+import LanguageToggle from 'Components/LanguageToggle';
 
 class RaceList extends Component {
   state = {
@@ -57,6 +58,7 @@ class RaceList extends Component {
                 All races
               </a>
             </li>
+            <LanguageToggle />
           </ul>
         </nav>
       );

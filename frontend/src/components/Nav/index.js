@@ -6,17 +6,20 @@ import './style.scss';
 
 class Nav extends Component {
   render() {
+    const currPath = window.location.pathname;
+    const urlRoot = currPath.includes('/es/') ? '/es/' : '/';
+
     return (
-      <nav className="navbar">
-        <a href="/" className="navbar__logo">
-          <img src={chivoteLogo} alt="" />
+      <nav className='navbar'>
+        <a href={urlRoot} className='navbar__logo'>
+          <img src={chivoteLogo} alt='' />
         </a>
 
-        <div className="navbar__tagline">
+        <div className='navbar__tagline'>
           Everything you need to vote on Feb. 26th
         </div>
 
-        <div className="navbar__menu">
+        <div className='navbar__menu'>
           <SiteMenu right />
         </div>
       </nav>
