@@ -1,13 +1,15 @@
-from django.urls import path, re_path
+from django.conf.urls.i18n import i18n_patterns
+from django.urls import include, path
 from . import feeds, views
 
-urlpatterns = [
+races_patterns = ([
     path('', views.RaceListView.as_view(), name='race-list'),
     path('<slug>/', views.RaceDetailView.as_view(), name='race-detail'),
-    # re_path(r'<slug>/(?P<section>[\w-]+)',
-    # views.RaceDetailView.as_view(), name='race-detail')
     path('<slug>/rss.xml', feeds.RaceFeed()),
-    path('<slug>/<section>/', views.RaceDetailView.as_view(), name='race-detail'),
-    # path(r'(?P<slug>[-\w]+)/$',
-    #  views.RaceDetailView.as_view(), name='race-detail')
+    path('<slug>/<section>/', views.RaceDetailView.as_view(),
+         name='race-detail-section'),
+], 'races')
+
+urlpatterns = [
+    path('races/', include(races_patterns, namespace='races')),
 ]

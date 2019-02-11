@@ -1,3 +1,12 @@
+from django.conf.urls.i18n import i18n_patterns
+from django.contrib import admin
+from django.urls import include, path
+from django.conf import settings
+# from django.conf.urls import include
+from django.conf.urls.static import static
+from apps.newsfeed.feeds import LatestArticlesFeed
+from apps.races.urls import races_patterns
+
 """chivote URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,28 +22,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
-from django.conf.urls.static import static
-from django.conf import settings
-from django.views.generic import RedirectView
-from django.conf.urls import include
-
-from apps.newsfeed.feeds import LatestArticlesFeed
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
+urlpatterns += i18n_patterns(
+    path('races/', include(races_patterns, namespace='races')),
+    prefix_default_language=False
+)
+
 # Use include() to add paths from the catalog application
-urlpatterns += [
+content_patterns = [
     path('', include('apps.core.urls')),
-    path('races/', include('apps.races.urls')),
     path('', include('apps.site_content.urls')),
-    # path('candidates/', include('apps.candidates.urls')),
     path('rss.xml', LatestArticlesFeed()),
-    # path('questionnaire/', include('apps.questionnaires.urls'))
 ]
+
+urlpatterns += content_patterns
 
 # Use static() to add url mapping to serve static files during development (only)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
