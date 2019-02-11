@@ -10,6 +10,6 @@ races_patterns = ([
          name='race-detail-section'),
 ], 'races')
 
-urlpatterns = [
-    path('races/', include(races_patterns, namespace='races')),
-]
+# urlpatterns = [
+#     path('races/', include(races_patterns, namespace='races')),
+# ]

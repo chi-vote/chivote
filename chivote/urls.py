@@ -6,6 +6,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from apps.newsfeed.feeds import LatestArticlesFeed
 from apps.races.urls import races_patterns
+from apps.core.urls import core_patterns
+from apps.site_content.urls import site_content_patterns
 
 """chivote URL Configuration
 
@@ -29,13 +31,13 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('races/', include(races_patterns, namespace='races')),
+    path('', include(core_patterns)),
+    path('', include(site_content_patterns)),
     prefix_default_language=False
 )
 
 # Use include() to add paths from the catalog application
 content_patterns = [
-    path('', include('apps.core.urls')),
-    path('', include('apps.site_content.urls')),
     path('rss.xml', LatestArticlesFeed()),
 ]
 
