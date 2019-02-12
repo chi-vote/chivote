@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 import List from 'Components/List';
 import * as pym from 'pym.js';
@@ -19,9 +20,19 @@ class EventFeed extends Component {
   render() {
     return (
       <>
-        <section id="the-events">
-          <h2 className="is-hidden-tablet page-heading title is-4">Events</h2>
-          <p id="the-events-embed">No event embed here yet.</p>
+        <section id='the-events'>
+          <h2 className='is-hidden-tablet page-heading title is-4'>
+            <FormattedMessage
+              id='RaceDetail.EventFeed.heading'
+              defaultMessage='Events'
+            />
+          </h2>
+          <p id='the-events-embed'>
+            <FormattedMessage
+              id='RaceDetail.EventFeed.emptyMessage'
+              defaultMessage='No event embed here yet.'
+            />
+          </p>
         </section>
       </>
     );
