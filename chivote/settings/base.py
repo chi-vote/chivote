@@ -139,14 +139,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-def gettext(s): return s
-
-
 LANGUAGES = (
-    ('en', gettext('English')),
-    ('es', gettext('Spanish')),
+    ('en', 'English'),
+    ('es', 'Spanish'),
 )
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'chivote/locale/')
+]
 
 
 # Static files (CSS, JavaScript, Images)

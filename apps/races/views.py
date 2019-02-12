@@ -3,8 +3,8 @@ import json
 from django.conf import settings
 from django.core import serializers
 from django.core.serializers.json import DjangoJSONEncoder
-from django.views.generic.base import TemplateView
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext as _
 
 from bakery.views import BuildableDetailView, BuildableListView
 
@@ -21,8 +21,8 @@ class RaceDetailView(BuildableDetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        from ..candidates.models import Candidate
-        from ..newsfeed.models import Article, CandidateStance, Issue
+        from apps.candidates.models import Candidate
+        from apps.newsfeed.models import Article, CandidateStance, Issue
         from django.utils.html import strip_tags
 
         candidates = self.object.candidates.all().exclude(status='inactive')
@@ -64,8 +64,8 @@ class RaceDetailView(BuildableDetailView):
                 'candidates': serializers.serialize('json', candidates)
             },
             'meta': {
-                'title': f'Race for {raceObj["office"]}, 2019',
-                'description': 'Candidate bios, related articles and more.'
+                'title': _('Race for %(office)s, 2019') % {'office': raceObj['office']},
+                'description': _('Candidate bios, related articles and more.')
             }
         }
 
@@ -157,8 +157,8 @@ class RaceListView(BuildableListView):
                 },
             },
             'meta': {
-                'title': 'All 2019 Chicago races',
-                'description': 'Full list of Chicago races and candidates.'
+                'title': _('All 2019 Chicago races'),
+                'description': _('Full list of Chicago races and candidates.')
             }
         }
 

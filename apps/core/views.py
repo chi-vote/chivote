@@ -1,20 +1,5 @@
-import datetime
-from random import randrange
-
-from django.urls import reverse, reverse_lazy
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
-from django.views import generic
-from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.shortcuts import render
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.contrib.auth.decorators import permission_required
-
-from bakery.views import BuildableDetailView, BuildableListView, BuildableTemplateView
-
-# from .forms import RenewBookForm, RenewBookModelForm
-# from .models import Book, Author, BookInstance, Genre
+from django.utils.translation import gettext as _
+from bakery.views import BuildableTemplateView
 
 
 class HomePageView(BuildableTemplateView):
@@ -29,13 +14,12 @@ class HomePageView(BuildableTemplateView):
             'absolute_url': '/',
             'component': 'Homepage',
             'meta': {
-                'title': 'Everything you need to know to vote in Chicago on Feb. 26th',
-                'description': 'No matter if you’re a rookie voter or a veteran, we have everything you need.',
+                'title': _('Everything you need to know to vote in Chicago on Feb. 26th'),
+                'description': _('No matter if you’re a rookie voter or a veteran, we have everything you need.'),
                 'img': 'images/chivote-social-card.jpg',
             }
         }
 
-        # context.update(context_dict)
         context.update(react_dict)
 
         return context
@@ -57,5 +41,6 @@ class HomePageView(BuildableTemplateView):
 
 
 class ErrorView(BuildableTemplateView):
+    """View function for the S3 error page."""
     template_name = 'error.html'
     build_path = 'error.html'

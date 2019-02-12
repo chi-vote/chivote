@@ -23,10 +23,10 @@ class CandidateForm(ModelForm):
         model = Candidate
         fields = '__all__'
         labels = {
-            'cboe_id': _('Chicago Board of Elections'),
-            'isbe_id': _('Illinois State Board of Elections'),
-            'br_id': _('BallotReady'),
-            'ri_id': _('Reform Illinois'),
+            'cboe_id': 'Chicago Board of Elections',
+            'isbe_id': 'Illinois State Board of Elections',
+            'br_id': 'BallotReady',
+            'ri_id': 'Reform Illinois',
         }
 
 

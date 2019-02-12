@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-12 13:53-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/core/views.py:17
+msgid "Everything you need to know to vote in Chicago on Feb. 26th"
+msgstr ""
+
+#: apps/core/views.py:18
+msgid ""
+"No matter if you’re a rookie voter or a veteran, we have everything you need."
+msgstr ""
+
+#: apps/races/views.py:67
+#, python-format
+msgid "Race for %(office)s, 2019"
+msgstr ""
+
+#: apps/races/views.py:68
+msgid "Candidate bios, related articles and more."
+msgstr ""
+
+#: apps/races/views.py:160
+msgid "All 2019 Chicago races"
+msgstr ""
+
+#: apps/races/views.py:161
+msgid "Full list of Chicago races and candidates."
+msgstr ""

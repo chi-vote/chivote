@@ -1,8 +1,5 @@
-import json
 import logging
-from django.core import serializers
 from bakery.views import BuildableDetailView
-from django.core import serializers
 from .models import ContentItem
 logger = logging.getLogger(__name__)
 
@@ -25,8 +22,8 @@ class ContentItemDetailView(BuildableDetailView):
                 'background': self.object.background
             },
             'meta': {
-                'title': f'{self.object.title}',
-                'description': f'{self.object.description}',
+                'title': self.object.title,
+                'description': self.object.description,
             }
         }
 
