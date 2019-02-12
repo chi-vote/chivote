@@ -1,10 +1,12 @@
+import logging, requests, datetime
+
 from django.db import models
 from django.contrib.postgres.fields import JSONField
 from bakery.models import AutoPublishingBuildableModel
 
 from ..races.models import Race
+from chivote.settings.base import IL_SUNSHINE_API_URL
 
-import logging
 logger = logging.getLogger(__name__)
 
 
@@ -30,10 +32,10 @@ class Candidate(AutoPublishingBuildableModel):
     ballot_order = models.PositiveSmallIntegerField(
         default=0, blank=False, null=False)
 
-    cboe_id = models.IntegerField(null=True, blank=True)
-    isbe_id = models.IntegerField(null=True, blank=True)
-    br_id = models.IntegerField(null=True, blank=True)
-    ri_id = models.IntegerField(null=True, blank=True)
+    cboe_id = models.IntegerField(null=True, blank=True) # chi board elex cand id
+    isbe_id = models.IntegerField(null=True, blank=True) # il state board elex cand committee id
+    br_id = models.IntegerField(null=True, blank=True) 
+    ri_id = models.IntegerField(null=True, blank=True) 
 
     # Ballot Ready fields
     br_thumb_url = models.URLField(
@@ -48,7 +50,6 @@ class Candidate(AutoPublishingBuildableModel):
 
     def update_br_data(self):
         from django.conf import settings
-        import requests
 
         if not getattr(settings, 'BALLOT_READY_API_KEY'):
             logger.info("Need to set BALLOT_READY_API_KEY in your settings")
@@ -64,6 +65,25 @@ class Candidate(AutoPublishingBuildableModel):
                 self.br_endorsements = r_json['endorsements']
                 self.br_experience = r_json['experience']
                 self.br_education = r_json['education']
+    
+    # Reform Illinois/ Illinois Sunshine fields
+    ri_cash_on_hand = models.IntegerField(null=True,blank=True)
+    ri_funds_raised_this_cycle = models.IntegerField(null=True,blank=True)
+    ri_last_updated = models.DateTimeField(null=True,blank=True)
+
+    def update_ri_data(self):
+        """
+        you may want to 
+        tasks.update_ri_candidates_all()
+        instead
+        """
+        try:
+            ri_data = requests.get(IL_SUNSHINE_API_URL+'?committee_id='+self.isbe_id).json['objects']
+            self.ri_cash_on_hand = ri_data['cash_on_hand']
+            self.ri_funds_raised_this_cycle = ri_data['total_funds_raised']
+            self.ri_last_updated = datetime.datetime.now()
+        except Exception as e:
+            logger.info("illinois sunshine lookup error: " + e)
 
     def save(self, *args, **kwargs):
         if not self.full_name:

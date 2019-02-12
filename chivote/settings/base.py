@@ -205,6 +205,9 @@ CKEDITOR_CONFIGS = {
 BALLOT_READY_API_KEY = config('BALLOT_READY_API_KEY')
 BALLOT_READY_API_URL = config('BALLOT_READY_API_URL')
 
+# ri settings
+IL_SUNSHINE_API_URL = config('IL_SUNSHINE_API_URL')
+
 # colorfield settings
 INSTALLED_APPS += ('colorfield', )
 
