@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import Page from 'Components/Page';
 import List from 'Components/List';
 import WardLookup from 'Components/WardLookup';
@@ -6,10 +7,6 @@ import './style.scss';
 import LanguageToggle from 'Components/LanguageToggle';
 
 class RaceList extends Component {
-  state = {
-    showLookup: true
-  };
-
   render() {
     const parsedRaceData = JSON.parse(this.props.data.races);
     const copyRaceData = [...parsedRaceData];
@@ -51,11 +48,16 @@ class RaceList extends Component {
         <nav className='breadcrumb' aria-label='breadcrumbs'>
           <ul>
             <li>
-              <a href={parentUrl(currPath)}>Home</a>
+              <a href={parentUrl(currPath)}>
+                <FormattedMessage id='common.link.home' defaultMessage='Home' />
+              </a>
             </li>
             <li className='is-active'>
               <a href={currPath} aria-current='page'>
-                All races
+                <FormattedMessage
+                  id='common.link.all-races'
+                  defaultMessage='All races'
+                />
               </a>
             </li>
             <LanguageToggle />
@@ -68,29 +70,29 @@ class RaceList extends Component {
       <div>
         <Page childClass='page--detail container'>
           {breadcrumb}
-          <h1 className='page-heading title is-3'>{'Races'}</h1>
+          <h1 className='page-heading title is-3'>
+            <FormattedMessage id='RaceList.heading' defaultMessage='Races' />
+          </h1>
           <p className='is-lsb'>
-            Choose a specific race to get more information and view candidates.
+            <FormattedMessage
+              id='RaceList.text.1'
+              defaultMessage='Choose a specific race to get more information and view candidates.'
+            />
           </p>
           <List className='columns'>{otherRaces}</List>
-          <h2 className='page-heading title is-4 mt-1'>Aldermanic</h2>
+          <h2 className='page-heading title is-4 mt-1'>
+            <FormattedMessage
+              id='RaceList.aldermanic.heading'
+              defaultMessage='Aldermanic'
+            />
+          </h2>
           <p className='is-lsb'>
-            Choose a specific ward number to get more information and view
-            candidates.
+            <FormattedMessage
+              id='RaceList.aldermanic.text.1'
+              defaultMessage='Choose a specific ward number to get more information and view candidates.'
+            />
           </p>
-          {!this.state.showLookup && (
-            <button
-              className='button is-rounded mb-1 is-fullwidth'
-              onClick={() => this.setState({ showLookup: true })}
-            >
-              I don't know my ward
-            </button>
-          )}
-          {this.state.showLookup && (
-            // <div className="list-item">
-            <WardLookup />
-            // </div>
-          )}
+          <WardLookup />
           <List className='columns is-mobile is-multiline'>{wardButtons}</List>
         </Page>
       </div>

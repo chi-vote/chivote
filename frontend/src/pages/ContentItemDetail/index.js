@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import Page from 'Components/Page';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
@@ -10,6 +11,10 @@ import './style.scss';
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
+
+function FormattedMessageFixed(props) {
+  return <FormattedMessage {...props} />;
+}
 
 export default class ContentItemDetail extends Component {
   render() {
@@ -47,11 +52,16 @@ export default class ContentItemDetail extends Component {
         <nav className='column breadcrumb is-full' aria-label='breadcrumbs'>
           <ul>
             <li>
-              <a href={parentUrl(currPath)}>Home</a>
+              <a href={parentUrl(currPath)}>
+                <FormattedMessage id='common.link.home' defaultMessage='Home' />
+              </a>
             </li>
             <li className='is-active'>
               <a href={currPath} aria-current='page'>
-                {titles[slug] || slug.capitalize()}
+                <FormattedMessageFixed
+                  id={`common.link.${slug}`}
+                  defaultMessage={titles[slug] || slug.capitalize()}
+                />
               </a>
             </li>
             <LanguageToggle />

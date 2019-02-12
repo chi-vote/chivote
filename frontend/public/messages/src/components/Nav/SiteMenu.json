@@ -1,26 +1,26 @@
 [
   {
-    "id": "SiteMenu.homeLink",
+    "id": "common.link.home",
     "defaultMessage": "Home"
   },
   {
-    "id": "SiteMenu.racesLink",
+    "id": "common.link.races",
     "defaultMessage": "Races"
   },
   {
-    "id": "SiteMenu.faqLink",
+    "id": "common.link.faq",
     "defaultMessage": "FAQ"
   },
   {
-    "id": "SiteMenu.askLink",
+    "id": "common.link.ask",
     "defaultMessage": "Ask"
   },
   {
-    "id": "SiteMenu.quizLink",
+    "id": "common.link.quiz",
     "defaultMessage": "Quiz"
   },
   {
-    "id": "SiteMenu.eventsLink",
+    "id": "common.link.events",
     "defaultMessage": "Events"
   },
   {

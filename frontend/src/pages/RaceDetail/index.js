@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import Page from 'Components/Page';
@@ -94,10 +95,17 @@ export default class RaceDetail extends Component {
         <nav className='breadcrumb' aria-label='breadcrumbs'>
           <ul>
             <li>
-              <a href={parentUrl(parentUrl(currPage))}>Home</a>
+              <a href={parentUrl(parentUrl(currPage))}>
+                <FormattedMessage id='common.link.home' defaultMessage='Home' />
+              </a>
             </li>
             <li>
-              <a href={parentUrl(currPage)}>All races</a>
+              <a href={parentUrl(currPage)}>
+                <FormattedMessage
+                  id='common.link.all-races'
+                  defaultMessage='All races'
+                />
+              </a>
             </li>
             <li className='is-active'>
               <a href={currPage} aria-current='page'>
@@ -130,15 +138,12 @@ export default class RaceDetail extends Component {
         <Page childClass='container page--detail'>
           {breadcrumb}
           <h1 className='page-heading title is-3'>
-            {`Race for ${officeName}`}
+            <FormattedMessage
+              id='RaceDetail.heading'
+              defaultMessage='Race for {officeName}'
+              values={{ officeName }}
+            />
           </h1>
-          {/* <ReadMoreReact
-            text={Parser(decode(data.description))}
-            min={150}
-            ideal={200}
-            max={300}
-            className="race__description"
-          /> */}
           {Parser(decode(data.description))}
           <div
             className={`field is-grouped is-grouped-multiline is-${
@@ -155,7 +160,10 @@ export default class RaceDetail extends Component {
                   <i className='fa fa-lg fa-user-tie' />
                 </span>
                 <span className='button__label is-hidden-mobile'>
-                  Candidates
+                  <FormattedMessage
+                    id='RaceDetail.button.candidates'
+                    defaultMessage='Candidates'
+                  />
                 </span>
               </button>
             </div>
@@ -168,7 +176,12 @@ export default class RaceDetail extends Component {
                 <span className='icon'>
                   <i className='fa fa-lg fa-newspaper' />
                 </span>
-                <span className='button__label is-hidden-mobile'>Articles</span>
+                <span className='button__label is-hidden-mobile'>
+                  <FormattedMessage
+                    id='RaceDetail.button.articles'
+                    defaultMessage='Articles'
+                  />
+                </span>
               </button>
             </div>
             <div className='control'>
@@ -181,7 +194,12 @@ export default class RaceDetail extends Component {
                 <span className='icon'>
                   <i className='fa fa-lg fa-comment-dots' />{' '}
                 </span>
-                <span className='button__label is-hidden-mobile'>Stances</span>
+                <span className='button__label is-hidden-mobile'>
+                  <FormattedMessage
+                    id='RaceDetail.button.stances'
+                    defaultMessage='Stances'
+                  />
+                </span>
               </button>
             </div>
             <div className='control'>
@@ -193,7 +211,12 @@ export default class RaceDetail extends Component {
                 <span className='icon'>
                   <i className='fa fa-lg fa-calendar' />{' '}
                 </span>
-                <span className='button__label is-hidden-mobile'>Events</span>
+                <span className='button__label is-hidden-mobile'>
+                  <FormattedMessage
+                    id='RaceDetail.button.events'
+                    defaultMessage='Events'
+                  />
+                </span>
               </button>
             </div>
           </div>
