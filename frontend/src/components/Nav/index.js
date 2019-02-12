@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import chivoteLogo from 'Assets/images/chivote-logo-7x.png';
 import { hot } from 'react-hot-loader/root';
 import { SiteMenu } from './SiteMenu';
@@ -16,7 +17,10 @@ class Nav extends Component {
         </a>
 
         <div className='navbar__tagline'>
-          Everything you need to vote on Feb. 26th
+          <FormattedMessage
+            id='Nav.tagline'
+            defaultMessage='Everything you need to vote on Feb. 26th'
+          />
         </div>
 
         <div className='navbar__menu'>

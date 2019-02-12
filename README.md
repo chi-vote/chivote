@@ -147,6 +147,14 @@ for command in commands:
     ...
 ```
 
+## Internationalization
+
+**TODO**: explain django side and frontend side
+
+From inside `frontend`, run `yarn build:langs` to generate `public/locales/data.json`. This compiles `public/locales/messages/*` into a single message file, as well as any locale files that are in `public/locales`.
+
+**TODO**: Automate locale file generation (e.g. `public/locales/es.json`).
+
 ## Under the hood
 
 ### Baking
