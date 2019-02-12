@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import Page from 'Components/Page';
@@ -9,6 +10,7 @@ import ArticleFeed from './ArticleFeed';
 import CandidateFeed from './CandidateFeed';
 import StanceFeed from './StanceFeed';
 import EventFeed from './EventFeed';
+import LanguageToggle from 'Components/LanguageToggle';
 
 import './style.scss';
 
@@ -36,13 +38,18 @@ export default class RaceDetail extends Component {
   };
 
   componentDidMount() {
-    var currUrl = `/races/${this.props.data.slug}`;
-    window.history.pushState({}, null, `${currUrl}/${this.state.feed}/`);
+    const currPath = window.location.pathname;
+    const raceSlug = this.props.data.slug;
+
+    let url = currPath.split(raceSlug)[0];
+    url += raceSlug + '/';
+    url += this.state.feed + '/';
+
+    window.history.pushState({}, null, url);
   }
 
   componentDidUpdate() {
-    var currUrl = `/races/${this.props.data.slug}`;
-    window.history.pushState({}, null, `${currUrl}/${this.state.feed}/`);
+    this.componentDidMount();
   }
 
   renderFeed = () => {
@@ -77,23 +84,39 @@ export default class RaceDetail extends Component {
     const { data } = this.props;
     const officeName = JSON.parse(data.office).office;
 
-    const breadcrumb = (
-      <nav className="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/races/">All races</a>
-          </li>
-          <li className="is-active">
-            <a href={`/races/${data.slug}/`} aria-current="page">
-              {officeName}
-            </a>
-          </li>
-        </ul>
-      </nav>
-    );
+    const breadcrumb = (function(slug) {
+      const currPath = window.location.pathname;
+      const raceSlug = slug;
+      const currPage = currPath.split(raceSlug)[0] + raceSlug + '/';
+      const parentUrl = curr =>
+        curr.substr(0, curr.lastIndexOf('/', curr.length - 2)) + '/';
+
+      return (
+        <nav className='breadcrumb' aria-label='breadcrumbs'>
+          <ul>
+            <li>
+              <a href={parentUrl(parentUrl(currPage))}>
+                <FormattedMessage id='common.link.home' defaultMessage='Home' />
+              </a>
+            </li>
+            <li>
+              <a href={parentUrl(currPage)}>
+                <FormattedMessage
+                  id='common.link.all-races'
+                  defaultMessage='All races'
+                />
+              </a>
+            </li>
+            <li className='is-active'>
+              <a href={currPage} aria-current='page'>
+                {officeName}
+              </a>
+            </li>
+            <LanguageToggle />
+          </ul>
+        </nav>
+      );
+    })(this.props.data.slug);
 
     return (
       <div>
@@ -112,73 +135,88 @@ export default class RaceDetail extends Component {
             />
           )}
         </SlideView>
-        <Page childClass="container page--detail">
+        <Page childClass='container page--detail'>
           {breadcrumb}
-          <h1 className="page-heading title is-3">
-            {`Race for ${officeName}`}
+          <h1 className='page-heading title is-3'>
+            <FormattedMessage
+              id='RaceDetail.heading'
+              defaultMessage='Race for {officeName}'
+              values={{ officeName }}
+            />
           </h1>
-          {/* <ReadMoreReact
-            text={Parser(decode(data.description))}
-            min={150}
-            ideal={200}
-            max={300}
-            className="race__description"
-          /> */}
           {Parser(decode(data.description))}
           <div
             className={`field is-grouped is-grouped-multiline is-${
               this.state.feed
             }-active toggle-feed mt-1 mb-1`}
           >
-            <div className="control">
+            <div className='control'>
               <button
-                className="button is-rounded is-large is-candidates"
+                className='button is-rounded is-large is-candidates'
                 onClick={() => this.setState({ feed: 'candidates' })}
               >
                 {/* Candidates */}
-                <span className="icon">
-                  <i className="fa fa-lg fa-user-tie" />
+                <span className='icon'>
+                  <i className='fa fa-lg fa-user-tie' />
                 </span>
-                <span className="button__label is-hidden-mobile">
-                  Candidates
+                <span className='button__label is-hidden-mobile'>
+                  <FormattedMessage
+                    id='RaceDetail.button.candidates'
+                    defaultMessage='Candidates'
+                  />
                 </span>
               </button>
             </div>
-            <div className="control">
+            <div className='control'>
               <button
-                className="button is-rounded is-large is-articles"
+                className='button is-rounded is-large is-articles'
                 onClick={() => this.setState({ feed: 'articles' })}
               >
                 {/* Articles */}
-                <span className="icon">
-                  <i className="fa fa-lg fa-newspaper" />
+                <span className='icon'>
+                  <i className='fa fa-lg fa-newspaper' />
                 </span>
-                <span className="button__label is-hidden-mobile">Articles</span>
+                <span className='button__label is-hidden-mobile'>
+                  <FormattedMessage
+                    id='RaceDetail.button.articles'
+                    defaultMessage='Articles'
+                  />
+                </span>
               </button>
             </div>
-            <div className="control">
+            <div className='control'>
               <button
-                className="button is-rounded is-large is-stances"
+                className='button is-rounded is-large is-stances'
                 onClick={() => this.setState({ feed: 'stances' })}
                 disabled={!officeName.includes('Mayor')}
               >
                 {/* Stances */}
-                <span className="icon">
-                  <i className="fa fa-lg fa-comment-dots" />{' '}
+                <span className='icon'>
+                  <i className='fa fa-lg fa-comment-dots' />{' '}
                 </span>
-                <span className="button__label is-hidden-mobile">Stances</span>
+                <span className='button__label is-hidden-mobile'>
+                  <FormattedMessage
+                    id='RaceDetail.button.stances'
+                    defaultMessage='Stances'
+                  />
+                </span>
               </button>
             </div>
-            <div className="control">
+            <div className='control'>
               <button
-                className="button is-rounded is-large is-events"
+                className='button is-rounded is-large is-events'
                 onClick={() => this.setState({ feed: 'events' })}
               >
                 {/* Events */}
-                <span className="icon">
-                  <i className="fa fa-lg fa-calendar" />{' '}
+                <span className='icon'>
+                  <i className='fa fa-lg fa-calendar' />{' '}
                 </span>
-                <span className="button__label is-hidden-mobile">Events</span>
+                <span className='button__label is-hidden-mobile'>
+                  <FormattedMessage
+                    id='RaceDetail.button.events'
+                    defaultMessage='Events'
+                  />
+                </span>
               </button>
             </div>
           </div>

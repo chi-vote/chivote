@@ -1,6 +1,7 @@
 from django.contrib import admin
 from apps.races.models import Race
 from apps.candidates.models import Candidate
+from modeltranslation.admin import TranslationAdmin
 
 from adminsortable2.admin import SortableInlineAdminMixin
 

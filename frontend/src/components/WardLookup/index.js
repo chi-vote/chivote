@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import Autocomplete from 'react-autocomplete';
 import Fuse from 'fuse.js';
 import _ from 'lodash';
@@ -67,14 +68,16 @@ export default class WardLookup extends Component {
 
   render() {
     return (
-      <div className="ward-lookup list-item">
-        <div className="is-fullwidth">
-          <span className="ward-lookup__heading is-size-5 mb-1">
-            Don't know your ward? Enter your address below to find your
-            information.
+      <div className='ward-lookup list-item'>
+        <div className='is-fullwidth'>
+          <span className='ward-lookup__heading is-size-5 mb-1'>
+            <FormattedMessage
+              id='WardLookup.heading'
+              defaultMessage="Don't know your ward? Enter your address below to find your information."
+            />
           </span>
-          <div className="field">
-            <div className="control is-expanded">
+          <div className='field'>
+            <div className='control is-expanded'>
               <Autocomplete
                 getItemValue={item => item.address}
                 items={this.getItems()}
@@ -84,22 +87,37 @@ export default class WardLookup extends Component {
                       background: isHighlighted ? 'lightgray' : 'white',
                       cursor: isHighlighted ? 'pointer' : 'default'
                     }}
-                    className="item"
+                    className='item'
                   >
                     {item.address}
                   </div>
                 )}
                 renderMenu={(items, value) => (
-                  <div className="menu">
+                  <div className='menu'>
                     {value === '' ? (
-                      <div className="item">
-                        Start typing your address, beginning with your street
-                        number.
+                      <div className='item'>
+                        <FormattedMessage
+                          id='WardLookup.help-text'
+                          defaultMessage='Start typing your address, beginning with your street number.'
+                        />
                       </div>
                     ) : this.state.loading ? (
-                      <div className="item">Loading...</div>
+                      <div className='item'>
+                        <FormattedMessage
+                          id='WardLookup.loading'
+                          defaultMessage='Loading...'
+                        />
+                      </div>
                     ) : items.length === 0 ? (
-                      <div className="item">No matches for {value}</div>
+                      <div className='item'>
+                        <FormattedMessage
+                          id='WardLookup.no-matches'
+                          defaultMessage='No matches for {inputAddress}'
+                          values={{
+                            inputAddress: value
+                          }}
+                        />
+                      </div>
                     ) : (
                       items
                     )}
@@ -111,20 +129,20 @@ export default class WardLookup extends Component {
                 //   </li>
                 // )}
                 renderInput={props => (
-                  <span className="text-input-wrapper">
+                  <span className='text-input-wrapper'>
                     <input
-                      className="input is-lsb is-fullwidth"
+                      className='input is-lsb is-fullwidth'
                       {...props}
-                      placeholder="121 N LaSalle St"
-                      tabIndex="2"
+                      placeholder='121 N LaSalle St'
+                      tabIndex='2'
                     />
                     {this.state.streetAddr.length > 0 ? (
                       <span
-                        title="Clear"
+                        title='Clear'
                         onClick={() => {
                           this.setState({ streetAddr: '' });
                         }}
-                        className="ward-lookup__clear"
+                        className='ward-lookup__clear'
                       >
                         &times;
                       </span>
@@ -155,9 +173,14 @@ export default class WardLookup extends Component {
             this.state.addresses,
             x => x.address == this.state.streetAddr
           ) && (
-            <p className="ward-lookup__message">
-              This address is located in <strong>Ward {this.state.ward}</strong>
-              .
+            <p className='ward-lookup__message'>
+              <FormattedHTMLMessage
+                id='WardLookup.match'
+                defaultMessage='This address is located in <strong>Ward {wardNumber}</strong>.'
+                values={{
+                  wardNumber: this.state.ward
+                }}
+              />
             </p>
           )}
         </div>

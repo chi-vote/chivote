@@ -3,7 +3,7 @@ from django.utils.text import slugify
 from ckeditor.fields import RichTextField
 from bakery.models import AutoPublishingBuildableModel
 
-from ..offices.models import Office
+from apps.offices.models import Office
 
 
 class Race(AutoPublishingBuildableModel):
@@ -26,7 +26,7 @@ class Race(AutoPublishingBuildableModel):
 
     def get_absolute_url(self):
         from django.urls import reverse
-        return reverse('race-detail', args=[self.slug])
+        return reverse('races:race-detail', args=[self.slug])
 
     class Meta:
         ordering = ['office']

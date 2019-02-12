@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import Page from 'Components/Page';
 import List from 'Components/List';
 import WardLookup from 'Components/WardLookup';
 import './style.scss';
+import LanguageToggle from 'Components/LanguageToggle';
 
 class RaceList extends Component {
-  state = {
-    showLookup: true
-  };
-
   render() {
     const parsedRaceData = JSON.parse(this.props.data.races);
     const copyRaceData = [...parsedRaceData];
@@ -17,7 +15,10 @@ class RaceList extends Component {
     for (let i = 0; i < parsedRaceData.length; i++) {
       const race = parsedRaceData[i];
 
-      if (race.name.toLowerCase().indexOf('ward') > -1) {
+      if (
+        race.name.toLowerCase().indexOf('ward') > -1 ||
+        race.name.toLowerCase().indexOf('distrito') > -1
+      ) {
         extractWardData.push(race);
         copyRaceData[i] = null;
       }
@@ -26,14 +27,14 @@ class RaceList extends Component {
     const flattenRemains = copyRaceData.filter(x => (x ? true : false));
 
     const wardButtons = extractWardData.map(data => (
-      <li className="column is-4" key={data.id}>
+      <li className='column is-4' key={data.id}>
         <WardButton data={data} />
       </li>
     ));
 
     const otherRaces = flattenRemains.map(data => (
-      <li className="column" key={data.id}>
-        <a href={`./${data.id}/`} className="ward-button">
+      <li className='column' key={data.id}>
+        <a href={`./${data.id}/`} className='ward-button'>
           {data.name}
         </a>
       </li>
@@ -41,49 +42,61 @@ class RaceList extends Component {
 
     const races = JSON.parse(this.props.data.races);
 
-    const breadcrumb = (
-      <nav className="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li className="is-active">
-            <a href="/races/" aria-current="page">
-              All races
-            </a>
-          </li>
-        </ul>
-      </nav>
-    );
+    const breadcrumb = (function() {
+      const currPath = window.location.pathname;
+      const parentUrl = curr =>
+        curr.substr(0, curr.lastIndexOf('/', curr.length - 2)) + '/';
+
+      return (
+        <nav className='breadcrumb' aria-label='breadcrumbs'>
+          <ul>
+            <li>
+              <a href={parentUrl(currPath)}>
+                <FormattedMessage id='common.link.home' defaultMessage='Home' />
+              </a>
+            </li>
+            <li className='is-active'>
+              <a href={currPath} aria-current='page'>
+                <FormattedMessage
+                  id='common.link.all-races'
+                  defaultMessage='All races'
+                />
+              </a>
+            </li>
+            <LanguageToggle />
+          </ul>
+        </nav>
+      );
+    })();
 
     return (
       <div>
-        <Page childClass="page--detail container">
+        <Page childClass='page--detail container'>
           {breadcrumb}
-          <h1 className="page-heading title is-3">{'Races'}</h1>
-          <p className="is-lsb">
-            Choose a specific race to get more information and view candidates.
+          <h1 className='page-heading title is-3'>
+            <FormattedMessage id='RaceList.heading' defaultMessage='Races' />
+          </h1>
+          <p className='is-lsb'>
+            <FormattedMessage
+              id='RaceList.text.1'
+              defaultMessage='Choose a specific race to get more information and view candidates.'
+            />
           </p>
-          <List className="columns">{otherRaces}</List>
-          <h2 className="page-heading title is-4 mt-1">Aldermanic</h2>
-          <p className="is-lsb">
-            Choose a specific ward number to get more information and view
-            candidates.
+          <List className='columns'>{otherRaces}</List>
+          <h2 className='page-heading title is-4 mt-1'>
+            <FormattedMessage
+              id='RaceList.aldermanic.heading'
+              defaultMessage='Aldermanic'
+            />
+          </h2>
+          <p className='is-lsb'>
+            <FormattedMessage
+              id='RaceList.aldermanic.text.1'
+              defaultMessage='Choose a specific ward number to get more information and view candidates.'
+            />
           </p>
-          {!this.state.showLookup && (
-            <button
-              className="button is-rounded mb-1 is-fullwidth"
-              onClick={() => this.setState({ showLookup: true })}
-            >
-              I don't know my ward
-            </button>
-          )}
-          {this.state.showLookup && (
-            // <div className="list-item">
-            <WardLookup />
-            // </div>
-          )}
-          <List className="columns is-mobile is-multiline">{wardButtons}</List>
+          <WardLookup />
+          <List className='columns is-mobile is-multiline'>{wardButtons}</List>
         </Page>
       </div>
     );
@@ -91,7 +104,7 @@ class RaceList extends Component {
 }
 
 const WardButton = props => (
-  <a href={`./${props.data.id}/`} className="ward-button">
+  <a href={`./${props.data.id}/`} className='ward-button'>
     {props.data.name.match(/\d+/)}
   </a>
 );

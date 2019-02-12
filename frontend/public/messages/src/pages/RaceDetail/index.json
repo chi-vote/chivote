@@ -1,0 +1,30 @@
+[
+  {
+    "id": "common.link.home",
+    "defaultMessage": "Home"
+  },
+  {
+    "id": "common.link.all-races",
+    "defaultMessage": "All races"
+  },
+  {
+    "id": "RaceDetail.heading",
+    "defaultMessage": "Race for {officeName}"
+  },
+  {
+    "id": "RaceDetail.button.candidates",
+    "defaultMessage": "Candidates"
+  },
+  {
+    "id": "RaceDetail.button.articles",
+    "defaultMessage": "Articles"
+  },
+  {
+    "id": "RaceDetail.button.stances",
+    "defaultMessage": "Stances"
+  },
+  {
+    "id": "RaceDetail.button.events",
+    "defaultMessage": "Events"
+  }
+]

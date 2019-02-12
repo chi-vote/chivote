@@ -1,8 +1,10 @@
 import json
+import logging
 from django.core import serializers
 from bakery.views import BuildableDetailView
 from django.core import serializers
 from .models import ContentItem
+logger = logging.getLogger(__name__)
 
 
 class ContentItemDetailView(BuildableDetailView):
@@ -31,3 +33,29 @@ class ContentItemDetailView(BuildableDetailView):
         context.update(react_dict)
 
         return context
+
+    def build_object(self, obj):
+        from django.conf import settings
+        from django.utils.translation import activate
+
+        logger.debug("Building %s" % obj)
+
+        if settings.USE_I18N:
+            for language_code, language in settings.LANGUAGES:
+                activate(language_code)
+                super(ContentItemDetailView, self).build_object(obj)
+        else:
+            super(ContentItemDetailView, self).build_object(obj)
+
+    def unbuild_object(self, obj):
+        from django.conf import settings
+        from django.utils.translation import activate
+
+        # logger.debug("Building %s" % obj)
+
+        if settings.USE_I18N:
+            for language_code, language in settings.LANGUAGES:
+                activate(language_code)
+                super(ContentItemDetailView, self).unbuild_object(obj)
+        else:
+            super(ContentItemDetailView, self).unbuild_object(obj)

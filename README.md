@@ -1,5 +1,15 @@
 # chivote
 
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Env variables](#env-variables)
+- [Management commands](#management-commands)
+- [Internationalization](#internationalization)
+- [Production use](#production-use)
+- [Under the hood](#under-the-hood)
+- [References](#references)
+- [Todos](#todos)
+
 ## Requirements
 
 | Local dependency | Mac setup                                                                                                                         | Ubuntu setup                                                                                                                              |
@@ -9,6 +19,8 @@
 | pipenv           | [🔗](https://pipenv.readthedocs.io/en/latest/install/#homebrew-installation-of-pipenv)                                            | [🔗](https://pipenv.readthedocs.io/en/latest/install/#pragmatic-installation-of-pipenv)                                                   |
 | node             | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-and-create-a-local-development-environment-on-macos) | [🔗](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04)                                             |
 | yarn             | [🔗](https://yarnpkg.com/lang/en/docs/install/#mac-stable)                                                                        | [🔗](https://yarnpkg.com/lang/en/docs/install/#debian-stable)                                                                             |
+
+[🔝](#chivote)
 
 ## Installation
 
@@ -43,13 +55,23 @@ PG_PASSWORD = sample_password" >> .env
 
 6. Build frontend with `yarn --cwd ./frontend install`
 
+~ ~ ~
+
+**If you want to match your local db to the production db**, here's an alias command to drop into `~/.bash_profile` or a similar terminal management file.
+
+```bash
+alias cvdb='pg_dump chivote > /tmp/chivote.bk.psql; dropdb chivote; ssh -i /path/to/chivote.pem ubuntu@ec2-54-236-199-60.compute-1.amazonaws.com pg_dump chivote > /tmp/chivote.psql; createdb chivote; psql chivote < /tmp/chivote.psql'
+```
+
+[🔝](#chivote)
+
 ## Env variables
 
 In production, you need a `.env` file in the root directory with the following filled out:
 
-```
+```sh
 DJANGO_SECRET_KEY=
-# DJANGO_DEBUG= # uncomment to disable debug mode
+# DJANGO_DEBUG= # uncomment to enable debug mode
 DJANGO_URL_ENDPOINT=
 
 PG_NAME=
@@ -67,10 +89,12 @@ ALLOW_BAKERY_AUTO_PUBLISHING=
 BALLOT_READY_API_KEY=
 BALLOT_READY_API_URL=
 
-# CELERY_BROKER_URL= # uncomment if using celery
+# CELERY_BROKER_URL= # uncomment and fill in if using celery
 ```
 
-## Tasks
+[🔝](#chivote)
+
+## Management commands
 
 ### Launch dev environment: `./manage.py serve`
 
@@ -80,6 +104,12 @@ Launches dev environment at http://localhost:8000/. It simply starts the various
 # this is pseudo python describing the task
 
 devCommands = [
+    # redis server
+    'redis-server',
+
+    # celery worker
+    'celery -A chivote worker -l info',
+
     # frontend webpack-dev-server w/ hot module replacement
     'yarn --cwd ./frontend start',
 
@@ -106,6 +136,9 @@ prodCommands = [
     # frontend production build
     'yarn --cwd ./frontend build',
 
+    # django collectstatic (incl. built frontend)
+    'python manage.py collectstatic --no-input --settings=chivote.settings.production',
+
     # django-bakery build
     'python manage.py build --settings=chivote.settings.production',
 
@@ -120,15 +153,12 @@ for command in prodCommands:
 
 ### Rebuild packages and assets: `./manage.py rebuild`
 
-Install packages (Django and Yarn) and rebuild the frontend.
+Install packages (Django and Yarn) and rebuild the frontend. If you've updated your pipfile, you'll need to run `pipenv install` first.
 
 ```python
 # this is pseudo python describing the task
 
 commands = [
-    # install python packages
-    'pipenv install',
-
     # install frontend packages
     'yarn --cwd ./frontend install',
 
@@ -139,13 +169,60 @@ commands = [
     'python manage.py migrate',
 
     # collect frontend bundle to be served in django
-    'python manage.py collectstatic --no-input'
+    'python manage.py collectstatic --no-input',
+
+    # django-bakery build
+    'python manage.py build --settings=chivote.settings.production',
 ]
 
 for command in commands:
     # do command
     ...
 ```
+
+[🔝](#chivote)
+
+## Internationalization
+
+**TODO**: explain django side and frontend side
+
+From inside `frontend`, run `yarn build:langs` to generate `public/locales/data.json`. This compiles `public/locales/messages/*` into a single message file, as well as any locale files that are in `public/locales`.
+
+**TODO**: Automate locale file generation (e.g. `public/locales/es.json`).
+
+**TODO**: Automate syncing local json to [Google Sheet](https://docs.google.com/spreadsheets/d/1SbRD9bJozEvcZz_6ZIOpT-uVrbZuKQ27j3PdUSMcIGY/edit?usp=sharing).
+
+[🔝](#chivote)
+
+## Production use
+
+### Server
+
+Our app is deployed on an EC2 instance. I used [these instructions from DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04) for setting it up. For continuing maintenance and troubleshooting, read through those instructions' [troubleshooting section ](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04#troubleshooting-nginx-and-gunicorn).
+
+### Celery
+
+Instructions for Celery setup and maintenance are documented in [the pull request](https://github.com/thechicagoreporter/chivote/pull/11) that first integrated Celery.
+
+### BallotReady data
+
+BallotReady data is loaded live from their API via a proxy API we've set up in order to hide our BallotReady API key and monitor API use. Our API is hosted on AWS API Gateway.
+
+### Updating code
+
+The [public site](https://chi.vote/) is hosted on an S3 bucket. On the server, django-bakery and celery manage automatic data updates of the site. The one caveat here is if a data update happens _while_ code is also being updated, there's a good chance that the S3 version will get all kinds of mucked up.
+
+With that in mind, here's the process for updating code. Eventually this should be automated, but for now, you need to run each command in sequence:
+
+```bash
+sudo supervisorctl stop chivote_worker # stops celery server from uploading to s3
+git pull
+pipenv install
+pipenv run ./manage.py rebuild && pipenv run ./manage.py publish # should only publish after a successful build
+sudo supervisorctl start chivote_worker # resume celery server uploads to s3
+```
+
+[🔝](#chivote)
 
 ## Under the hood
 
@@ -279,16 +356,21 @@ class App extends Component {
 export default App;
 ```
 
+[🔝](#chivote)
+
 ## References
 
 This React-in-Django approach is informed by a few articles:
 
 - ["Reconciling Backend Templates with Frontend Components,"](https://hackernoon.com/reconciling-djangos-mvc-templates-with-react-components-3aa986cf510a) Nick Sweeting
-- ["Using Webpack transparently with Django + hot reloading React components as a bonus,"](https://owais.lone.pw/blog/webpack-plus-reactjs-and-django/)
-  Owais Lone
+- ["Using Webpack transparently with Django + hot reloading React components as a bonus,"](https://owais.lone.pw/blog/webpack-plus-reactjs-and-django/) Owais Lone
 - Politico Interactive News on [public-facing apps](https://docs.politicoapps.com/politico-newsroom-developer-guide/infrastructure#public-facing-apps)
+
+[🔝](#chivote)
 
 ## Todos
 
-- Code-splitting
-- .css support
+- Optimize frontend bundle
+- Server side rendering of frontend
+
+[🔝](#chivote)

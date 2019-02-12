@@ -1,0 +1,22 @@
+[
+  {
+    "id": "WardLookup.heading",
+    "defaultMessage": "Don't know your ward? Enter your address below to find your information."
+  },
+  {
+    "id": "WardLookup.help-text",
+    "defaultMessage": "Start typing your address, beginning with your street number."
+  },
+  {
+    "id": "WardLookup.loading",
+    "defaultMessage": "Loading..."
+  },
+  {
+    "id": "WardLookup.no-matches",
+    "defaultMessage": "No matches for {inputAddress}"
+  },
+  {
+    "id": "WardLookup.match",
+    "defaultMessage": "This address is located in <strong>Ward {wardNumber}</strong>."
+  }
+]
