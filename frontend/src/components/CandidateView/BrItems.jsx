@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import decode from 'decode-html';
 
 const BrDataList = props => {
@@ -10,16 +11,21 @@ const BrDataList = props => {
   }
 
   return (
-    <div className="candidate-view__section">
-      <label htmlFor="" className="label is-lightblue-text">
+    <div className='candidate-view__section'>
+      <label htmlFor='' className='label is-lightblue-text'>
         {label}
       </label>
       {items.length > 0 ? (
-        <ul className="bio-items">
+        <ul className='bio-items'>
           {items.map((item, i) => renderItem(item, i))}
         </ul>
       ) : (
-        <p className="has-text-grey-light">None available*</p>
+        <p className='has-text-grey-light'>
+          <FormattedMessage
+            id='CandidateView.no-data'
+            defaultMessage='None available*'
+          />
+        </p>
       )}
     </div>
   );
@@ -49,7 +55,7 @@ const renderEducation = (d, i) => {
     .join(', ');
   itemString += d.grad_year ? ` (${d.grad_year})` : '';
   return (
-    <li className="bio-item has-text-white is-futura" key={i}>
+    <li className='bio-item has-text-white is-futura' key={i}>
       {decode(itemString)}
     </li>
   );
@@ -57,7 +63,12 @@ const renderEducation = (d, i) => {
 
 const Education = props => (
   <BrDataList
-    label={'Education'}
+    label={
+      <FormattedMessage
+        id='CandidateView.education'
+        defaultMessage='Education'
+      />
+    }
     renderItem={renderEducation}
     sortItems={[d => d.grad_year, sortEducation]}
     sortOrder={['desc', 'asc']}
@@ -71,7 +82,7 @@ const renderExperience = (d, i) => {
     ? ` (${d.start_year} – ${d.end_year ? d.end_year : ''})`
     : '';
   return (
-    <li className="bio-item has-text-white is-futura" key={i}>
+    <li className='bio-item has-text-white is-futura' key={i}>
       {decode(itemString)}
     </li>
   );
@@ -79,7 +90,12 @@ const renderExperience = (d, i) => {
 
 const Experience = props => (
   <BrDataList
-    label={'Experience'}
+    label={
+      <FormattedMessage
+        id='CandidateView.experience'
+        defaultMessage='Experience'
+      />
+    }
     renderItem={renderExperience}
     sortItems={[d => d.start_year || '', d => d.end_year || '']}
     sortOrder={['desc', 'desc']}
@@ -90,7 +106,7 @@ const Experience = props => (
 const renderEndorsements = (d, i) => {
   if (d.name) {
     return (
-      <li className="bio-item has-text-white is-futura" key={i}>{`${
+      <li className='bio-item has-text-white is-futura' key={i}>{`${
         d.name
       }`}</li>
     );
@@ -102,7 +118,12 @@ const renderEndorsements = (d, i) => {
 const Endorsements = props => {
   return (
     <BrDataList
-      label={'Endorsements'}
+      label={
+        <FormattedMessage
+          id='CandidateView.endorsements'
+          defaultMessage='Endorsements'
+        />
+      }
       renderItem={renderEndorsements}
       data={_.uniqBy(props.endorsements, 'name')}
     />

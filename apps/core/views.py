@@ -40,6 +40,21 @@ class HomePageView(BuildableTemplateView):
 
         return context
 
+    def build(self):
+        from django.conf import settings
+
+        if settings.USE_I18N:
+            from django.utils.translation import activate
+            from django.urls import reverse
+
+            for language_code, language in settings.LANGUAGES:
+                activate(language_code)
+                self.build_path = reverse(
+                    'index')[1:] + '/index.html'  # strip leading slash
+                super(HomePageView, self).build()
+        else:
+            super(HomePageView, self).build()
+
 
 class ErrorView(BuildableTemplateView):
     template_name = 'error.html'

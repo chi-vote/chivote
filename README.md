@@ -164,6 +164,14 @@ for command in commands:
     ...
 ```
 
+## Internationalization
+
+**TODO**: explain django side and frontend side
+
+From inside `frontend`, run `yarn build:langs` to generate `public/locales/data.json`. This compiles `public/locales/messages/*` into a single message file, as well as any locale files that are in `public/locales`.
+
+**TODO**: Automate locale file generation (e.g. `public/locales/es.json`).
+
 ## Production use
 ### Server
 Our app is deployed on an EC2 instance. I used [these instructions from DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04) for setting it up. For continuing maintenance and troubleshooting, read through those instructions' [troubleshooting section ](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04#troubleshooting-nginx-and-gunicorn).

@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import Page from 'Components/Page';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import { Helmet } from 'react-helmet';
 import { ReactTypeformEmbed } from 'react-typeform-embed';
+import LanguageToggle from 'Components/LanguageToggle';
 import './style.scss';
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
+
+function FormattedMessageFixed(props) {
+  return <FormattedMessage {...props} />;
+}
 
 export default class ContentItemDetail extends Component {
   render() {
@@ -18,11 +24,11 @@ export default class ContentItemDetail extends Component {
     if (slug == 'quiz') {
       pageContent = (
         <div
-          className="column is-full"
+          className='column is-full'
           style={{ height: '500px', position: 'relative' }}
         >
           <ReactTypeformEmbed
-            url="https://starlyn.typeform.com/to/WdZTNE"
+            url='https://starlyn.typeform.com/to/WdZTNE'
             style={{ height: '500px' }}
           />
         </div>
@@ -37,20 +43,32 @@ export default class ContentItemDetail extends Component {
       faq: 'FAQ'
     };
 
-    const breadcrumb = (
-      <nav className="column breadcrumb is-full" aria-label="breadcrumbs">
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li className="is-active">
-            <a href={`/${slug}/`} aria-current="page">
-              {titles[slug] || slug.capitalize()}
-            </a>
-          </li>
-        </ul>
-      </nav>
-    );
+    const breadcrumb = (function() {
+      const currPath = window.location.pathname;
+      const parentUrl = curr =>
+        curr.substr(0, curr.lastIndexOf('/', curr.length - 2)) + '/';
+
+      return (
+        <nav className='column breadcrumb is-full' aria-label='breadcrumbs'>
+          <ul>
+            <li>
+              <a href={parentUrl(currPath)}>
+                <FormattedMessage id='common.link.home' defaultMessage='Home' />
+              </a>
+            </li>
+            <li className='is-active'>
+              <a href={currPath} aria-current='page'>
+                <FormattedMessageFixed
+                  id={`common.link.${slug}`}
+                  defaultMessage={titles[slug] || slug.capitalize()}
+                />
+              </a>
+            </li>
+            <LanguageToggle />
+          </ul>
+        </nav>
+      );
+    })();
 
     var classes = `container page-${slug}`;
 
@@ -63,7 +81,7 @@ export default class ContentItemDetail extends Component {
         <Page childClass={classes}>
           <div className={'columns is-multiline is-centered'}>
             {breadcrumb}
-            <h1 className="column is-full page-heading title">{title}</h1>
+            <h1 className='column is-full page-heading title'>{title}</h1>
             {pageContent}
           </div>
         </Page>

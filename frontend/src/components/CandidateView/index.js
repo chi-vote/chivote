@@ -1,4 +1,5 @@
 import React, { Component, PureComponent } from 'react';
+import { FormattedHTMLMessage } from 'react-intl';
 import './style.scss';
 import { Education, Experience, Endorsements } from './BrItems';
 import { SocialIcons } from './SocialIcons';
@@ -52,15 +53,7 @@ class CandidateView extends Component {
         }
       })
       .then(data => {
-        this.setState({ data });
-      })
-      .then(() => {
-        setTimeout(
-          function() {
-            this.setState({ isLoading: false });
-          }.bind(this),
-          750
-        );
+        this.setState({ data, isLoading: false });
       })
       .catch(error => this.setState({ error, isLoading: false }));
   }
@@ -73,27 +66,27 @@ class CandidateView extends Component {
     const myPlaceholder = (
       <>
         <RectShape
-          color="lightgray"
-          className="candidate-view__headshot"
+          color='lightgray'
+          className='candidate-view__headshot'
           style={{ width: '100%', height: 270 }}
         />
         <RectShape
-          className="control"
-          color="lightgray"
+          className='control'
+          color='lightgray'
           style={{ width: '33%', height: '2rem' }}
         />
         <TextBlock
-          className="candidate-view__name title"
-          color="lightgray"
+          className='candidate-view__name title'
+          color='lightgray'
           rows={2}
-          lineSpacing=".3em"
+          lineSpacing='.3em'
         />
-        <TextBlock rows={14} color="lightgray" />
+        <TextBlock rows={14} color='lightgray' />
       </>
     );
 
     if (error) {
-      return <p className="candidate-view has-text-danger">{error.message}</p>;
+      return <p className='candidate-view has-text-danger'>{error.message}</p>;
     }
 
     return (
@@ -104,25 +97,21 @@ class CandidateView extends Component {
           customPlaceholder={myPlaceholder}
         >
           <img
-            className="candidate-view__headshot"
+            className='candidate-view__headshot'
             src={photo_url}
             alt={`Headshot of ${full_name}`}
           />
           <SocialIcons {...{ urls }} />
-          <h2 className="candidate-view__name title">{full_name}</h2>
+          <h2 className='candidate-view__name title'>{full_name}</h2>
           <Education {...{ education }} />
           <Experience {...{ experience }} />
           <Endorsements {...{ endorsements }} />
           <hr />
-          <p className="candidate-view__footnote">
-            * Candidate data is compiled by{' '}
-            <a
-              className="has-text-grey-light has-text-weight-bold"
-              href="https://www.ballotready.org/"
-            >
-              BallotReady
-            </a>
-            , based on the candidate's website.
+          <p className='candidate-view__footnote'>
+            <FormattedHTMLMessage
+              id='CandidateView.ballotReadyNote'
+              defaultMessage="* Candidate data is compiled by <a class='has-text-grey-light has-text-weight-bold' href='https://www.ballotready.org/'>BallotReady</a>, based on the candidate's website."
+            />
           </p>
         </ReactPlaceholder>
       </div>

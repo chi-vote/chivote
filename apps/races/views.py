@@ -84,10 +84,9 @@ class RaceDetailView(BuildableDetailView):
             'section': section,
         }
 
-    def build_object(self, obj):
+    def build_all_paths(self, obj):
         from os import path
 
-        logger.debug("Building %s" % obj)
         self.request = self.create_request(self.get_url(obj))
         self.set_kwargs(obj)
         target_path = self.get_build_path(obj)
@@ -116,6 +115,18 @@ class RaceDetailView(BuildableDetailView):
 
             target_path = path.join(target_path, 'index.html')
             self.build_file(target_path, self.get_content())
+
+    def build_object(self, obj):
+        from django.conf import settings
+
+        if settings.USE_I18N:
+            from django.utils.translation import activate
+
+            for language_code, language in settings.LANGUAGES:
+                activate(language_code)
+                self.build_all_paths(obj)
+        else:
+            self.build_all_paths(obj)
 
 
 class RaceListView(BuildableListView):
@@ -154,3 +165,18 @@ class RaceListView(BuildableListView):
         context.update(react_dict)
 
         return context
+
+    def build_queryset(self):
+        from django.conf import settings
+
+        if settings.USE_I18N:
+            from django.utils.translation import activate
+            from django.urls import reverse
+
+            for language_code, language in settings.LANGUAGES:
+                activate(language_code)
+                self.build_path = reverse(
+                    'races:race-list')[1:] + '/index.html'  # strip leading slash
+                super(RaceListView, self).build_queryset()
+        else:
+            super(RaceListView, self).build_queryset()

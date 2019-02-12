@@ -295,3 +295,15 @@ nav.breadcrumb {
   padding-top: 0;
   padding-bottom: 0;
 }
+
+.breadcrumb {
+  align-items: center;
+
+  .language-toggle {
+    margin-left: auto;
+  }
+}
+
+.button.language-toggle {
+  transition: border 0.3s, color 0.3s;
+}

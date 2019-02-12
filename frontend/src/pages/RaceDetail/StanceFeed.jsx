@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import ReadMoreReact from 'Components/ReadMoreReact';
@@ -17,11 +18,8 @@ const StanceFeed = props => {
 
   groupedStances = _.orderBy(groupedStances, x => {
     var issueObj = _.find(issues, i => i.pk == x.issue);
-    // console.log(issueObj);
     return issueObj.fields.issue_order;
   });
-
-  // console.log(groupedStances);
 
   for (const group of Object.values(groupedStances)) {
     const { issue, stances } = group;
@@ -31,11 +29,11 @@ const StanceFeed = props => {
 
     feed.push(
       <div
-        className="issue issue__group"
+        className='issue issue__group'
         id={`issue--${slugify(issueObject.fields.name)}`}
         key={slugify(issueObject.fields.name)}
       >
-        <h3 className="has-text-white title is-5 issue__heading">{`On ${
+        <h3 className='has-text-white title is-5 issue__heading'>{`On ${
           issueObject.fields.name
         }...`}</h3>
 
@@ -46,12 +44,12 @@ const StanceFeed = props => {
           min={100}
           ideal={150}
           max={200}
-          className="issue__description"
+          className='issue__description'
         />
 
-        <div className="columns is-multiline">
+        <div className='columns is-multiline'>
           {stances.map(item => (
-            <div className="column is-4">
+            <div className='column is-4'>
               <StanceItem
                 data={item.fields}
                 key={item.pk}
@@ -75,25 +73,30 @@ const StanceFeed = props => {
     const issueLabel = issueObject.fields.name;
 
     return (
-      <a className="button" href={`#issue--${slugify(issueLabel)}`}>
+      <a className='button' href={`#issue--${slugify(issueLabel)}`}>
         {issueLabel}
       </a>
     );
   });
 
   const issue_labels = (
-    <div className="issues-menu">
+    <div className='issues-menu'>
       <ScrollMenu
         data={menu}
-        arrowLeft={<span className="menu-arrow">←</span>}
-        arrowRight={<span className="menu-arrow">→</span>}
+        arrowLeft={<span className='menu-arrow'>←</span>}
+        arrowRight={<span className='menu-arrow'>→</span>}
       />
     </div>
   );
 
   return (
-    <section id="the-stances">
-      <h2 className="is-hidden-tablet page-heading title is-4">Stances</h2>
+    <section id='the-stances'>
+      <h2 className='is-hidden-tablet page-heading title is-4'>
+        <FormattedMessage
+          id='RaceDetail.StancesFeed.heading'
+          defaultMessage='Stances'
+        />
+      </h2>
       {issue_labels}
       {feed}
     </section>
