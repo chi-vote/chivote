@@ -1,5 +1,11 @@
 {
   "en": {
+    "CandidateView.no-data": "None available*",
+    "CandidateView.education": "Education",
+    "CandidateView.experience": "Experience",
+    "CandidateView.endorsements": "Endorsements",
+    "CandidateView.ballotReadyNote": "* Candidate data is compiled by <a class='has-text-grey-light has-text-weight-bold' href='https://www.ballotready.org/'>BallotReady</a>, based on the candidate's website.",
+    "CandidateView.website": "Website",
     "Footer.sign-up.heading": "Sign up",
     "Footer.contact-us.heading": "Contact us",
     "Footer.contact-us.text.1": "Got questions? Need help? Did we miss something?",
@@ -54,6 +60,12 @@
     "RaceList.aldermanic.text.1": "Choose a specific ward number to get more information and view candidates."
   },
   "es": {
+    "CandidateView.no-data": "es-None available*",
+    "CandidateView.education": "es-Education",
+    "CandidateView.experience": "es-Experience",
+    "CandidateView.endorsements": "es-Endorsements",
+    "CandidateView.ballotReadyNote": "es-* Candidate data is compiled by <a class='has-text-grey-light has-text-weight-bold' href='https://www.ballotready.org/'>BallotReady</a>, based on the candidate's website.",
+    "CandidateView.website": "es-Website",
     "Footer.sign-up.heading": "es-Sign up",
     "Footer.contact-us.heading": "es-Contact us",
     "Footer.contact-us.text.1": "es-Got questions? Need help? Did we miss something?",

@@ -1,23 +1,24 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 const WebsiteLink = props => (
-  <a href={props.url} className="button is-rounded">
-    Website
+  <a href={props.url} className='button is-rounded'>
+    <FormattedMessage id='CandidateView.website' defaultMessage='Website' />
   </a>
 );
 
 const TwitterLink = props => (
-  <a href={props.url} className="button is-rounded">
-    <span className="icon">
-      <i className="fab fa-twitter" />
+  <a href={props.url} className='button is-rounded'>
+    <span className='icon'>
+      <i className='fab fa-twitter' />
     </span>
   </a>
 );
 
 const FacebookLink = props => (
-  <a href={props.url} className="button is-rounded">
-    <span className="icon">
-      <i className="fab fa-facebook-f" />
+  <a href={props.url} className='button is-rounded'>
+    <span className='icon'>
+      <i className='fab fa-facebook-f' />
     </span>
   </a>
 );
@@ -36,9 +37,9 @@ const renderSocialIcon = obj => {
 };
 
 const SocialIcons = props => (
-  <div className="candidate-view__links field is-grouped is-grouped-multiline">
+  <div className='candidate-view__links field is-grouped is-grouped-multiline'>
     {props.urls.map((item, i) => (
-      <div className="control" key={i}>
+      <div className='control' key={i}>
         {renderSocialIcon(item)}
       </div>
     ))}
