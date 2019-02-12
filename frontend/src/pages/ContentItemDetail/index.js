@@ -22,13 +22,21 @@ export default class ContentItemDetail extends Component {
     let pageContent = Parser(decode(content.replace(/"'|'"/g, '"'))); // fixing bad quotes that were breaking links
 
     if (slug == 'quiz') {
+      const currPath = window.location.pathname;
+      let language = currPath.includes('/es/') ? 'es' : 'en';
+      console.log(language);
+
       pageContent = (
         <div
           className='column is-full'
           style={{ height: '500px', position: 'relative' }}
         >
           <ReactTypeformEmbed
-            url='https://starlyn.typeform.com/to/WdZTNE'
+            url={
+              language === 'es'
+                ? 'https://starlyn.typeform.com/to/UFJDYa'
+                : 'https://starlyn.typeform.com/to/WdZTNE'
+            }
             style={{ height: '500px' }}
           />
         </div>

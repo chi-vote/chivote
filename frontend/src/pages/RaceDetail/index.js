@@ -188,7 +188,10 @@ export default class RaceDetail extends Component {
               <button
                 className='button is-rounded is-large is-stances'
                 onClick={() => this.setState({ feed: 'stances' })}
-                disabled={!officeName.includes('Mayor')}
+                disabled={
+                  !officeName.includes('Mayor') &&
+                  !officeName.includes('Alcalde')
+                }
               >
                 {/* Stances */}
                 <span className='icon'>
