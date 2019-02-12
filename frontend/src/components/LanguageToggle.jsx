@@ -4,6 +4,8 @@ const LanguageToggle = props => {
   const currPath = window.location.pathname;
   const currLang = currPath.includes('/es/') ? 'Spanish' : 'English';
 
+  return null; // delete this line to activate toggle button
+
   return (
     <button
       className='language-toggle button is-text'
