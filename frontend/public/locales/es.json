@@ -1,5 +1,5 @@
 {
-  "Nav.tagline": "Todo lo que necesitas para votar el 26 de febrero.",
+  "Nav.tagline": "es-Everything you need to vote on Feb. 26th",
   "SiteMenu.homeLink": "es-Home",
   "SiteMenu.racesLink": "es-Races",
   "SiteMenu.faqLink": "es-FAQ",
@@ -8,5 +8,17 @@
   "SiteMenu.eventsLink": "es-Events",
   "SiteMenu.contact.1": "es-Contact us",
   "SiteMenu.contact.2": "es-Got questions? Need help? Did we miss something?",
-  "SiteMenu.contact.3": "es-Email us at <a href=\"mailto:info@chi.vote\">info@chi.vote</a>."
+  "SiteMenu.contact.3": "es-Email us at <a href=\"mailto:info@chi.vote\">info@chi.vote</a>.",
+  "Homepage.LandingPage.heading-1": "es-Where do I start?",
+  "Homepage.LandingPage.button-faq": "es-Read through the FAQ",
+  "Homepage.LandingPage.button-quiz": "es-Take the quiz",
+  "Homepage.LandingPage.heading-2": "es-I'm ready to learn.",
+  "Homepage.LandingPage.button-races": "es-Explore the races",
+  "Homepage.LandingPage.button-ask": "es-Ask us anything",
+  "Homepage.LandingPage.heading-3": "es-I'm ready to vote!",
+  "Homepage.LandingPage.button-register": "es-Get registered",
+  "Homepage.LandingPage.button-polling": "es-Find your polling place",
+  "Homepage.LandingPageMobile.tagline": "es-Everything you need to know to vote in Chicago on Tuesday, Feb. 26th",
+  "Homepage.LandingPageMobile.get-started": "es-Get started →",
+  "Homepage.LandingPageMobile.back-button": "es-Back"
 }

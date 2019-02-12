@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import questionsIcon from 'Assets/images/chivote-questions-icon.png';
 import researchIcon from 'Assets/images/chivote-research-icon.png';
 import readyIcon from 'Assets/images/chivote-ready-icon.png';
@@ -13,7 +14,10 @@ const LandingPage = props => {
         <div className='voter-stage stage-questions has-text-centered'>
           <img src={questionsIcon} alt='' className='voter-stage__image' />
           <p className='voter-stage__cta is-lsb is-size-3 is-red-text'>
-            Where do I start?
+            <FormattedMessage
+              id='Homepage.LandingPage.heading-1'
+              defaultMessage='Where do I start?'
+            />
           </p>
           <div className='voter-stage__links'>
             <ul>
@@ -22,7 +26,10 @@ const LandingPage = props => {
                   href={urlRoot + 'faq/'}
                   className='button is-large is-rounded'
                 >
-                  Read through the FAQ
+                  <FormattedMessage
+                    id='Homepage.LandingPage.button-faq'
+                    defaultMessage='Read through the FAQ'
+                  />
                 </a>
               </li>
               <li>
@@ -30,7 +37,10 @@ const LandingPage = props => {
                   href={urlRoot + 'quiz/'}
                   className='button is-large is-rounded'
                 >
-                  Take the quiz
+                  <FormattedMessage
+                    id='Homepage.LandingPage.button-quiz'
+                    defaultMessage='Take the quiz'
+                  />
                 </a>
               </li>
             </ul>
@@ -41,7 +51,10 @@ const LandingPage = props => {
         <div className='voter-stage stage-research has-text-centered'>
           <img src={researchIcon} alt='' className='voter-stage__image' />
           <p className='voter-stage__cta is-lightblue-text is-lsb is-size-3'>
-            I'm ready to learn.
+            <FormattedMessage
+              id='Homepage.LandingPage.heading-2'
+              defaultMessage="I'm ready to learn."
+            />
           </p>
           <div className='voter-stage__links'>
             <ul>
@@ -50,7 +63,10 @@ const LandingPage = props => {
                   href={urlRoot + 'races/'}
                   className='button is-large is-rounded'
                 >
-                  Explore the races
+                  <FormattedMessage
+                    id='Homepage.LandingPage.button-races'
+                    defaultMessage='Explore the races'
+                  />
                 </a>
               </li>
               <li>
@@ -58,7 +74,10 @@ const LandingPage = props => {
                   href={urlRoot + 'ask/'}
                   className='button is-large is-rounded'
                 >
-                  Ask us anything
+                  <FormattedMessage
+                    id='Homepage.LandingPage.button-ask'
+                    defaultMessage='Ask us anything'
+                  />
                 </a>
               </li>
             </ul>
@@ -69,7 +88,10 @@ const LandingPage = props => {
         <div className='voter-stage stage-ready has-text-centered'>
           <img src={readyIcon} alt='' className='voter-stage__image' />
           <p className='voter-stage__cta is-lsb is-size-3'>
-            I'm ready to vote!
+            <FormattedMessage
+              id='Homepage.LandingPage.heading-3'
+              defaultMessage="I'm ready to vote!"
+            />
           </p>
           <div className='voter-stage__links'>
             <ul>
@@ -82,7 +104,10 @@ const LandingPage = props => {
                   }
                   className='button is-large is-rounded'
                 >
-                  Get registered
+                  <FormattedMessage
+                    id='Homepage.LandingPage.button-register'
+                    defaultMessage='Get registered'
+                  />
                 </a>
               </li>
               <li>
@@ -94,7 +119,10 @@ const LandingPage = props => {
                   }
                   className='button is-large is-rounded'
                 >
-                  Find your polling place
+                  <FormattedMessage
+                    id='Homepage.LandingPage.button-polling'
+                    defaultMessage='Find your polling place'
+                  />
                 </a>
               </li>
             </ul>

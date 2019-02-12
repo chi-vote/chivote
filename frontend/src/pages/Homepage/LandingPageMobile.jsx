@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import Slider from 'react-slick';
 import Page from 'Components/Page';
 import chivoteLogo from 'Assets/images/chivote-logo-7x.png';
@@ -6,27 +7,6 @@ import questionsIcon from 'Assets/images/chivote-questions-icon.png';
 import researchIcon from 'Assets/images/chivote-research-icon.png';
 import readyIcon from 'Assets/images/chivote-ready-icon.png';
 import './LandingPageMobile.scss';
-
-const LandingPage = props => {
-  return (
-    <Page className='page page--landing has-text-centered'>
-      <div className='header__wrapper'>
-        <img src={chivoteLogo} alt='Chi.Vote logo' className='mb-1' />
-        <h1 className='header__tagline is-size-4 mb-1'>
-          Everything you need to know to vote in Chicago on
-          <em className='is-darkblue-text'> Tuesday, Feb. 26th</em>
-        </h1>
-        <button className='button get-started is-large'>Get started →</button>
-        {/* <button
-        className="button is-medium is-outlined"
-        onClick={props.goCollective}
-      >
-        <span>What is this?</span>
-      </button> */}
-      </div>
-    </Page>
-  );
-};
 
 class VotingStageSlider extends Component {
   state = {
@@ -67,7 +47,10 @@ class VotingStageSlider extends Component {
                     href={urlRoot + 'faq/'}
                     className='button is-large is-rounded'
                   >
-                    Read through the FAQ
+                    <FormattedMessage
+                      id='Homepage.LandingPage.button-faq'
+                      defaultMessage='Read through the FAQ'
+                    />
                   </a>
                 </li>
                 <li>
@@ -75,7 +58,10 @@ class VotingStageSlider extends Component {
                     href={urlRoot + 'quiz/'}
                     className='button is-large is-rounded'
                   >
-                    Take the quiz
+                    <FormattedMessage
+                      id='Homepage.LandingPage.button-quiz'
+                      defaultMessage='Take the quiz'
+                    />
                   </a>
                 </li>
               </ul>
@@ -98,7 +84,10 @@ class VotingStageSlider extends Component {
                     href={urlRoot + 'races/'}
                     className='button is-large is-rounded'
                   >
-                    Explore the races
+                    <FormattedMessage
+                      id='Homepage.LandingPage.button-races'
+                      defaultMessage='Explore the races'
+                    />
                   </a>
                 </li>
                 <li>
@@ -106,7 +95,10 @@ class VotingStageSlider extends Component {
                     href={urlRoot + 'ask/'}
                     className='button is-large is-rounded'
                   >
-                    Ask us anything
+                    <FormattedMessage
+                      id='Homepage.LandingPage.button-ask'
+                      defaultMessage='Ask us anything'
+                    />
                   </a>
                 </li>
               </ul>
@@ -128,7 +120,10 @@ class VotingStageSlider extends Component {
                     }
                     className='button is-large is-rounded'
                   >
-                    Get registered
+                    <FormattedMessage
+                      id='Homepage.LandingPage.button-register'
+                      defaultMessage='Get registered'
+                    />
                   </a>
                 </li>
                 <li>
@@ -140,7 +135,10 @@ class VotingStageSlider extends Component {
                     }
                     className='button is-large is-rounded'
                   >
-                    Find your polling place
+                    <FormattedMessage
+                      id='Homepage.LandingPage.button-polling'
+                      defaultMessage='Find your polling place'
+                    />
                   </a>
                 </li>
               </ul>
@@ -171,14 +169,19 @@ class VotingStageSlider extends Component {
               <div className='header__wrapper'>
                 <img src={chivoteLogo} alt='Chi.Vote logo' className='mb-1' />
                 <h1 className='header__tagline is-size-4 mb-1'>
-                  Everything you need to know to vote in Chicago on Tuesday,
-                  Feb. 26th
+                  <FormattedMessage
+                    id='Homepage.LandingPageMobile.tagline'
+                    defaultMessage='Everything you need to know to vote in Chicago on Tuesday, Feb. 26th'
+                  />
                 </h1>
                 <button
                   className='button get-started is-large'
                   onClick={this.next}
                 >
-                  Get started →
+                  <FormattedMessage
+                    id='Homepage.LandingPageMobile.get-started'
+                    defaultMessage='Get started →'
+                  />
                 </button>
               </div>
             </section>
@@ -191,7 +194,10 @@ class VotingStageSlider extends Component {
               >
                 {/* <img src={questionsIcon} alt="" className="voter-stage__image"/> */}
                 <p className='voter-stage__cta is-lsb is-size-3 is-red-text'>
-                  Where do I start?
+                  <FormattedMessage
+                    id='Homepage.LandingPage.heading-1'
+                    defaultMessage='Where do I start?'
+                  />
                 </p>
               </div>
             </div>
@@ -202,7 +208,10 @@ class VotingStageSlider extends Component {
               >
                 {/* <img src={researchIcon} alt="" className="voter-stage__image"/> */}
                 <p className='voter-stage__cta is-lightblue-text is-lsb is-size-3'>
-                  I'm ready to learn.
+                  <FormattedMessage
+                    id='Homepage.LandingPage.heading-2'
+                    defaultMessage="I'm ready to learn."
+                  />
                 </p>
               </div>
             </div>
@@ -213,7 +222,10 @@ class VotingStageSlider extends Component {
               >
                 {/* <img src={readyIcon} alt="" className="voter-stage__image"/> */}
                 <p className='voter-stage__cta is-lsb is-size-3'>
-                  I'm ready to vote!
+                  <FormattedMessage
+                    id='Homepage.LandingPage.heading-3'
+                    defaultMessage="I'm ready to vote!"
+                  />
                 </p>
               </div>
             </div>
@@ -228,7 +240,10 @@ class VotingStageSlider extends Component {
           <span className='icon'>
             <i className='fas fa-backward' />
           </span>
-          <span>Back</span>
+          <FormattedMessage
+            id='Homepage.LandingPageMobile.back-button'
+            defaultMessage='Back'
+          />
         </button>
       </>
     );
