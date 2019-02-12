@@ -1,5 +1,12 @@
 {
   "en": {
+    "Footer.sign-up.heading": "Sign up",
+    "Footer.contact-us.heading": "Contact us",
+    "Footer.contact-us.text.1": "Got questions? Need help? Did we miss something?",
+    "Footer.contact-us.text.2": "Email us at <a href='mailto:info@chi.vote'>info@chi.vote</a>.",
+    "Footer.about-us.heading": "About Chi.vote",
+    "Footer.about-us.text.1": "The Chi.vote website is the core product of the Chi.vote Collective, a new group of nonpartisan media and civic organizations that believe in fostering a safer, more prosperous and more equitable and connected Chicago by creating content and tools of the highest quality and accessibility around city elections. The founding partners of the Collective are the Better Government Association, Block Club Chicago, The Chicago Reporter, The Daily Line and The Triibe.",
+    "Footer.about-us.text.2": "The Collective is to proud to welcome and acknowledge a new group of contributors to our effort as Outreach & Information Partners: Chalkbeat Chicago, City Bureau, Reform Illinois, South Side Weekly, and Univision.",
     "Nav.tagline": "Everything you need to vote on Feb. 26th",
     "SiteMenu.homeLink": "Home",
     "SiteMenu.racesLink": "Races",
@@ -24,6 +31,13 @@
     "Homepage.LandingPageMobile.back-button": "Back"
   },
   "es": {
+    "Footer.sign-up.heading": "es-Sign up",
+    "Footer.contact-us.heading": "es-Contact us",
+    "Footer.contact-us.text.1": "es-Got questions? Need help? Did we miss something?",
+    "Footer.contact-us.text.2": "es-Email us at <a href='mailto:info@chi.vote'>info@chi.vote</a>.",
+    "Footer.about-us.heading": "es-About Chi.vote",
+    "Footer.about-us.text.1": "es-The Chi.vote website is the core product of the Chi.vote Collective, a new group of nonpartisan media and civic organizations that believe in fostering a safer, more prosperous and more equitable and connected Chicago by creating content and tools of the highest quality and accessibility around city elections. The founding partners of the Collective are the Better Government Association, Block Club Chicago, The Chicago Reporter, The Daily Line and The Triibe.",
+    "Footer.about-us.text.2": "es-The Collective is to proud to welcome and acknowledge a new group of contributors to our effort as Outreach & Information Partners: Chalkbeat Chicago, City Bureau, Reform Illinois, South Side Weekly, and Univision.",
     "Nav.tagline": "es-Everything you need to vote on Feb. 26th",
     "SiteMenu.homeLink": "es-Home",
     "SiteMenu.racesLink": "es-Races",
