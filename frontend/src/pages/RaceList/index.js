@@ -15,7 +15,10 @@ class RaceList extends Component {
     for (let i = 0; i < parsedRaceData.length; i++) {
       const race = parsedRaceData[i];
 
-      if (race.name.toLowerCase().indexOf('ward') > -1) {
+      if (
+        race.name.toLowerCase().indexOf('ward') > -1 ||
+        race.name.toLowerCase().indexOf('distrito') > -1
+      ) {
         extractWardData.push(race);
         copyRaceData[i] = null;
       }
