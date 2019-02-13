@@ -192,6 +192,8 @@ From inside `frontend`, run `yarn build:langs` to generate `public/locales/data.
 
 **TODO**: Automate syncing local json to [Google Sheet](https://docs.google.com/spreadsheets/d/1SbRD9bJozEvcZz_6ZIOpT-uVrbZuKQ27j3PdUSMcIGY/edit?usp=sharing).
 
+**TODO**: Add compilemessages, etc. to rebuild.
+
 [🔝](#chivote)
 
 ## Production use
