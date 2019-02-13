@@ -2,6 +2,7 @@
 *.env*
 *.swp
 .vscode
+*pid
 
 # Created by https://www.gitignore.io/api/django,python
 # Edit at https://www.gitignore.io/?templates=django,python
@@ -99,7 +100,7 @@ ipython_config.py
 .python-version
 
 # celery beat schedule file
-celerybeat-schedule
+celerybeat-schedule*
 
 # SageMath parsed files
 *.sage.py

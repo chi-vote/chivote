@@ -1,9 +1,10 @@
-import logging
+import logging, requests
 from celery import shared_task
 from .models import Candidate
 from ..races.models import Race
 logger = logging.getLogger(__name__)
-
+from chivote.settings.base import IL_SUNSHINE_API_URL
+from django.utils import timezone
 
 @shared_task
 def update_br_candidate(obj_id, publish=True):
@@ -33,3 +34,21 @@ def update_br_candidates_all():
             race.save()
     except Exception:
         logger.error("Task error: update_br_candidates_all", exc_info=True)
+
+
+@shared_task
+def update_ri_candidates_all():
+    ri_response = requests.get(IL_SUNSHINE_API_URL).json()
+    if ri_response['meta']['code'] == 200:
+        ri_all_candidates_data = ri_response['objects']
+        for candidate in Candidate.objects.all():
+            ri_committees = [x for x in ri_all_candidates_data if x['committee_id'] == candidate.isbe_id]     
+            if ri_committees and len(ri_committees) == 1:
+                ri_committee = ri_committees[0]
+                candidate.ri_cash_on_hand = ri_committee['cash_on_hand']
+                candidate.ri_funds_raised_this_cycle = ri_committee['total_funds_raised']
+                candidate.ri_last_updated = timezone.now()
+                candidate.save()
+            else:
+                logger.info('ambiguous ri lookup for candidate id ' + str(candidate.id))
+
