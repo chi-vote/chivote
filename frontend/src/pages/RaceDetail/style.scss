@@ -77,7 +77,7 @@
 }
 
 #the-candidates,
-#the-newsfeed,
+#the-articles,
 #the-stances,
 #the-events {
   padding-top: 1rem;
@@ -105,5 +105,17 @@
 
   @media (min-width: $tablet) {
     margin-bottom: 1rem;
+  }
+}
+
+#the-articles {
+  h3 {
+    color: $white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-item {
+    margin-bottom: 0;
   }
 }
