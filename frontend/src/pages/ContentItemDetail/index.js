@@ -32,6 +32,7 @@ export default class ContentItemDetail extends Component {
           style={{ height: '500px', position: 'relative' }}
         >
           <ReactTypeformEmbed
+            buttonText={language === 'es' ? 'Empezar' : 'Start'}
             url={
               language === 'es'
                 ? 'https://starlyn.typeform.com/to/UFJDYa'
