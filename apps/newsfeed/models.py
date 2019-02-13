@@ -39,9 +39,10 @@ class Article(AutoPublishingBuildableModel):
     candidates = models.ManyToManyField(
         Candidate, related_name='articles', blank=True, verbose_name="Candidate(s)", help_text="Double click, or select and click the arrow, to add or remove a candidate.")
     races = models.ManyToManyField(
-        Race, related_name='articles', blank=True, verbose_name="Race(s)", help_text="Double click, or select and click the arrow, to add or remove a race.")
+        Race, related_name='articles', blank=True, verbose_name="Race(s)", help_text="Double click, or select and click the arrow, to add or remove a race.", through='TaggedArticle',)
     issues = models.ManyToManyField(
         Issue, related_name='articles', blank=True, verbose_name="Issue(s)", help_text="Double click, or select and click the arrow, to add or remove an issue.")
+    # is_pinned = models.BooleanField(default=False)
     is_published = models.BooleanField(default=True)
 
     def __str__(self):
@@ -53,6 +54,17 @@ class Article(AutoPublishingBuildableModel):
 
         for race in self.races.all():
             race.build()
+
+
+class TaggedArticle(models.Model):
+    article = models.ForeignKey(
+        Article, related_name='tagged_articles', on_delete=models.CASCADE)
+    race = models.ForeignKey(
+        Race, related_name='tagged_articles', on_delete=models.CASCADE)
+    is_pinned = models.BooleanField(default=False, verbose_name='Pin?')
+
+    class Meta:
+        ordering = ('-is_pinned', '-article__date',)
 
 
 class CandidateStance(AutoPublishingBuildableModel):

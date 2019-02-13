@@ -30,8 +30,8 @@ class RaceDetailView(BuildableDetailView):
         stances = CandidateStance.objects.filter(
             candidate__race=self.object).order_by('-date')
 
-        articles = self.object.articles.all().order_by(
-            '-date').exclude(is_published=False)
+        articles = [a.article for a in self.object.tagged_articles.filter(
+            article__is_published=True)]
 
         issues = Issue.objects.all().order_by('issue_order')
 
