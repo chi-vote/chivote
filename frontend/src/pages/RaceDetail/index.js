@@ -11,7 +11,6 @@ import {
 } from 'Components/feeds';
 import { parseHtml } from 'Utils';
 import LanguageToggle from 'Components/LanguageToggle';
-
 import './styles.scss';
 
 function FormattedMessageFixed(props) {
@@ -60,7 +59,7 @@ export default class RaceDetail extends Component {
     const { data } = this.props;
     const officeName = JSON.parse(data.office).office;
     const currPath = window.location.pathname;
-    const raceSlug = this.props.slug;
+    const raceSlug = this.props.data.slug;
     const currPage = currPath.split(raceSlug)[0] + raceSlug + '/';
     const parentUrl = curr =>
       curr.substr(0, curr.lastIndexOf('/', curr.length - 2)) + '/';
@@ -168,7 +167,7 @@ export default class RaceDetail extends Component {
         slug: 'stances',
         label: 'Stances',
         icon: 'fa-comment-dots',
-        enabled: officeName.includes('Mayor')
+        enabled: officeName.includes('Mayor') || officeName.includes('Alcalde')
       },
       {
         slug: 'events',
@@ -183,8 +182,8 @@ export default class RaceDetail extends Component {
           this.state.feed
         }-active toggle-feed mt-1 mb-1`}
       >
-        {buttons.map(d => {
-          return <FeedButton {...d} />;
+        {buttons.map((d, i) => {
+          return <FeedButton {...d} key={i} />;
         })}
       </div>
     );

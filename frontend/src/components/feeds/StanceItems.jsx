@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Masonry from 'react-masonry-component';
-import StanceItem from 'Components/StanceItem';
+import { StanceItem } from 'Components/items';
 
-class StanceItems extends Component {
+export default class StanceItems extends Component {
   render() {
     return (
       <Masonry
@@ -18,10 +18,9 @@ class StanceItems extends Component {
       >
         <div className='grid-sizer' />
         {this.props.stances.map(item => (
-          <div className='grid-item'>
+          <div className='grid-item' key={item.pk}>
             <StanceItem
               data={item.fields}
-              key={item.pk}
               candidate={
                 _.find(this.props.candidates, c => {
                   return c.pk == item.fields.candidate;
@@ -37,5 +36,3 @@ class StanceItems extends Component {
     );
   }
 }
-
-export default StanceItems;

@@ -20,9 +20,15 @@
   padding: 5px;
 }
 
-.title.issue__heading {
-  padding-top: 3.5rem;
-  margin-bottom: 1rem;
+.issue__group {
+  .title.issue__heading {
+    margin-bottom: 1rem;
+    padding-top: 2.5rem;
+  }
+
+  &:first-of-type .title.issue__heading {
+    padding-top: 1rem;
+  }
 }
 
 .issue__description {
@@ -132,13 +138,4 @@
   @media (min-width: $tablet) {
     width: 33%;
   }
-}
-
-.media-item__img {
-  float: left;
-  height: 65px;
-  width: 65px;
-  margin-right: 1rem;
-  border-radius: 5px;
-  object-fit: cover;
 }

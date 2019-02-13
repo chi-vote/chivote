@@ -1,0 +1,10 @@
+[
+  {
+    "id": "RaceDetail.EventFeed.heading",
+    "defaultMessage": "Events"
+  },
+  {
+    "id": "RaceDetail.EventFeed.emptyMessage",
+    "defaultMessage": "No event embed here yet."
+  }
+]

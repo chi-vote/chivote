@@ -1,0 +1,10 @@
+[
+  {
+    "id": "RaceDetail.CandidateFeed.heading",
+    "defaultMessage": "Candidates"
+  },
+  {
+    "id": "RaceDetail.CandidateFeed.text",
+    "defaultMessage": "Candidates appear in ballot order."
+  }
+]

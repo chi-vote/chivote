@@ -34,6 +34,16 @@
 
   &__summary {
     color: $grey-lighter;
+    font-family: $family-primary;
+  }
+
+  &__img {
+    float: left;
+    height: 64px !important;
+    width: 64px !important;
+    margin-right: 1rem;
+    border-radius: 5px;
+    object-fit: cover;
   }
 
   &.on-hover:hover {

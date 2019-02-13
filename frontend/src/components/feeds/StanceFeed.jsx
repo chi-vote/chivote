@@ -83,7 +83,7 @@ const StanceFeed = props => {
           defaultMessage='Stances'
         />
       </h2>
-      {issue_labels}
+      {/* {issue_labels} */}
       {feed}
     </section>
   );
