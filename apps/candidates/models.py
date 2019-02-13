@@ -1,7 +1,8 @@
-import logging, requests, datetime
+import logging, requests
 
 from django.db import models
 from django.contrib.postgres.fields import JSONField
+from django.utils import timezone
 from bakery.models import AutoPublishingBuildableModel
 
 from ..races.models import Race
@@ -71,6 +72,9 @@ class Candidate(AutoPublishingBuildableModel):
     ri_funds_raised_this_cycle = models.IntegerField(null=True,blank=True)
     ri_last_updated = models.DateTimeField(null=True,blank=True)
 
+    def ri_committee_url(self):
+        return 'https://illinoissunshine.org/committees/' + self.isbe_id
+
     def update_ri_data(self):
         """
         you may want to 
@@ -81,7 +85,7 @@ class Candidate(AutoPublishingBuildableModel):
             ri_data = requests.get(IL_SUNSHINE_API_URL+'?committee_id='+self.isbe_id).json['objects']
             self.ri_cash_on_hand = ri_data['cash_on_hand']
             self.ri_funds_raised_this_cycle = ri_data['total_funds_raised']
-            self.ri_last_updated = datetime.datetime.now()
+            self.ri_last_updated = timezone.now()
         except Exception as e:
             logger.info("illinois sunshine lookup error: " + e)
 
