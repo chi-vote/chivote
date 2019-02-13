@@ -280,7 +280,7 @@ nav.breadcrumb {
   }
 }
 
-@include setBreadcrumbColors($primary);
+@include setBreadcrumbColors($primary, $color-language: $yellow);
 
 .page-heading {
   font-size: 1.75rem;
@@ -296,7 +296,7 @@ nav.breadcrumb {
   padding-bottom: 0;
 }
 
-.breadcrumb {
+.breadcrumb ul {
   align-items: center;
 
   .language-toggle {

@@ -3,7 +3,7 @@
 $nav-height: 30px;
 $nav-padding: 1rem;
 $logo-width: 93px;
-$tagline-width: 140px;
+$tagline-width: 10rem;
 
 .navbar {
   background: rgba(49, 49, 59, 1);
@@ -45,7 +45,7 @@ $tagline-width: 140px;
     width: $tagline-width;
 
     // Desktop sizing
-    @media (min-width: 769px) {
+    @media (min-width: $desktop) {
       font-size: $size-4;
       left: $nav-padding;
       right: $nav-padding;

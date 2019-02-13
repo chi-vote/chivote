@@ -57,8 +57,9 @@ article {
 
 #toc {
   display: none;
+  font-size: 0;
   position: sticky;
-  top: 0;
+  top: 1rem;
 
   @media screen and (min-width: $desktop) {
     display: block;

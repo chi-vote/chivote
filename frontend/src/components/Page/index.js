@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav, { SiteMenu } from 'Components/Nav';
+import Nav from 'Components/Nav';
 import Footer from 'Components/Footer';
 import './style.scss';
 
@@ -10,7 +10,7 @@ const Page = props => {
       <section className={`section ${props.sectionClass}`}>
         <div className={props.childClass}>
           {props.heading ? (
-            <h1 className="page-heading title is-3">{props.heading}</h1>
+            <h1 className='page-heading title is-3'>{props.heading}</h1>
           ) : (
             ''
           )}

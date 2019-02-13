@@ -7,6 +7,7 @@ import questionsIcon from 'Assets/images/chivote-questions-icon.png';
 import researchIcon from 'Assets/images/chivote-research-icon.png';
 import readyIcon from 'Assets/images/chivote-ready-icon.png';
 import './LandingPageMobile.scss';
+import LanguageToggle from 'Components/LanguageToggle';
 
 class VotingStageSlider extends Component {
   state = {
@@ -245,6 +246,7 @@ class VotingStageSlider extends Component {
             defaultMessage='Back'
           />
         </button>
+        <LanguageToggle disabled={this.state.slideIndex != 0} />
       </>
     );
   }

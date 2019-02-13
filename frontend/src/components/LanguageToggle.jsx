@@ -9,6 +9,7 @@ const LanguageToggle = props => {
   return (
     <button
       className='language-toggle button is-text'
+      disabled={props.disabled ? props.disabled : false}
       onClick={() => {
         let newPath = '';
 

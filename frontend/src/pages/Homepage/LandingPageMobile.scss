@@ -65,6 +65,12 @@
   // }
 }
 
+.button.language-toggle {
+  @extend .back-button;
+  // color: $grey-dark;
+  transition: border 0.3s, color 0.3s, opacity 0.3s;
+}
+
 .landing-page .columns {
   height: 100%;
 }
