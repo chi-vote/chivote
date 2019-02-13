@@ -22,10 +22,13 @@
   }
 }
 
-.bm-menu i {
-  text-align: center;
+.bm-menu .bm-item.menu-item {
+  display: flex !important;
+}
+
+.bm-menu .icon {
+  margin-right: 1.5rem;
   width: 1rem;
-  margin-right: 2rem;
 }
 
 // react-burger-menu

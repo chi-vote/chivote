@@ -9,27 +9,39 @@ export const SiteMenu = props => {
   return (
     <Menu {...props}>
       <a className='menu-item' href={urlRoot}>
-        <i className='fas fa-home' />
+        <span className='icon'>
+          <i className='fas fa-home' />
+        </span>
         <FormattedMessage id='common.link.home' defaultMessage='Home' />
       </a>
       <a className='menu-item' href={urlRoot + 'races/'}>
-        <i className='fas fa-vote-yea' />
+        <span className='icon'>
+          <i className='fas fa-vote-yea' />
+        </span>
         <FormattedMessage id='common.link.races' defaultMessage='Races' />
       </a>
       <a className='menu-item' href={urlRoot + 'faq/'}>
-        <i className='far fa-question-circle' />
+        <span className='icon'>
+          <i className='far fa-question-circle' />
+        </span>
         <FormattedMessage id='common.link.faq' defaultMessage='FAQ' />
       </a>
       <a className='menu-item' href={urlRoot + 'ask/'}>
-        <i className='far fa-comment-alt' />
+        <span className='icon'>
+          <i className='far fa-comment-alt' />
+        </span>
         <FormattedMessage id='common.link.ask' defaultMessage='Ask' />
       </a>
       <a className='menu-item' href={urlRoot + 'quiz/'}>
-        <i className='fas fa-gamepad' />
+        <span className='icon'>
+          <i className='fas fa-gamepad' />
+        </span>
         <FormattedMessage id='common.link.quiz' defaultMessage='Quiz' />
       </a>
       <a className='menu-item' href={urlRoot + 'events/'}>
-        <i className='fas fa-calendar' />
+        <span className='icon'>
+          <i className='fas fa-calendar' />
+        </span>
         <FormattedMessage id='common.link.events' defaultMessage='Events' />
       </a>
       <hr />

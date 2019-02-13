@@ -204,3 +204,12 @@
 .header__wrapper {
   max-width: 600px;
 }
+
+.landing-page .button {
+  border-radius: 2.5rem;
+  display: inline-block;
+  font-size: 1.1rem;
+  height: auto;
+  max-width: calc(#{$tablet}/ 3 + 2rem);
+  white-space: normal;
+}

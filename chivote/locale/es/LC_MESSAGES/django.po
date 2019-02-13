@@ -20,26 +20,26 @@ msgstr ""
 
 #: apps/core/views.py:17
 msgid "Everything you need to know to vote in Chicago on Feb. 26th"
-msgstr ""
+msgstr "Todo lo que necesita saber para votar en las elecciones de Chicago el 26 de febrero"
 
 #: apps/core/views.py:18
 msgid ""
 "No matter if you’re a rookie voter or a veteran, we have everything you need."
-msgstr ""
+msgstr "No importa si usted es un votante veterano o principiante, tenemos todo lo que necesita saber."
 
 #: apps/races/views.py:67
 #, python-format
 msgid "Race for %(office)s, 2019"
-msgstr ""
+msgstr "Contiendas para %(office)s, 2019"
 
 #: apps/races/views.py:68
 msgid "Candidate bios, related articles and more."
-msgstr ""
+msgstr "Biografías de candidatos, artículos relacionados y más."
 
 #: apps/races/views.py:160
 msgid "All 2019 Chicago races"
-msgstr ""
+msgstr "Todas las contiendas en Chicago en el 2019"
 
 #: apps/races/views.py:161
 msgid "Full list of Chicago races and candidates."
-msgstr ""
+msgstr "Lista completa de contiendas y candidatos"
