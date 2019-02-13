@@ -77,7 +77,8 @@ class RaceDetailView(BuildableDetailView):
             },
             'meta': {
                 'title': _('Race for %(office)s, 2019') % {'office': race_obj['office']},
-                'description': _('Candidate bios, related articles and more.')
+                'description': _('Candidate bios, related articles and more.'),
+                'img': _('images/C_2x1_Chi-vote_advert.png'),
             }
         }
 
@@ -170,7 +171,8 @@ class RaceListView(BuildableListView):
             },
             'meta': {
                 'title': _('All 2019 Chicago races'),
-                'description': _('Full list of Chicago races and candidates.')
+                'description': _('Full list of Chicago races and candidates.'),
+                'img': _('images/C_2x1_Chi-vote_advert.png'),
             }
         }
 
