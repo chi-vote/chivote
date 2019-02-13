@@ -97,7 +97,7 @@ const Experience = props => (
       />
     }
     renderItem={renderExperience}
-    sortItems={[d => d.start_year || '', d => d.end_year || '']}
+    sortItems={[d => d.end_year || '', d => d.start_year || '']}
     sortOrder={['desc', 'desc']}
     data={props.experience}
   />

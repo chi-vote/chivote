@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import ArticleItem from 'Components/ArticleItem';
+import Masonry from 'react-masonry-component';
 
 const ArticleFeed = props => {
   const { articles, feed_url } = props;
@@ -10,7 +11,7 @@ const ArticleFeed = props => {
   const pinnedArticleItems = articles
     .filter(a => a.is_pinned)
     .map((item, idx) => (
-      <div className='column is-4' key={idx}>
+      <div className='grid-item' key={idx}>
         <ArticleItem data={item} />
       </div>
     ));
@@ -18,7 +19,7 @@ const ArticleFeed = props => {
   const articleItems = articles
     .filter(a => !a.is_pinned)
     .map((item, idx) => (
-      <div className='column is-4' key={idx}>
+      <div className='grid-item' key={idx}>
         <ArticleItem data={item} />
       </div>
     ));
@@ -53,16 +54,38 @@ const ArticleFeed = props => {
       </p>
       {pinnedArticleItems.length > 0 && (
         <>
-          <h3>
+          <h3 className='has-text-yellow'>
             <i class='fas fa-star' /> Featured reading
           </h3>
-          <div className='columns is-multiline'>{pinnedArticleItems}</div>
+          {/* <div className='columns is-multiline'>{pinnedArticleItems}</div> */}
+          <Masonry
+            className='columns is-multiline'
+            options={{
+              columnWidth: '.grid-sizer',
+              itemSelector: '.grid-item',
+              percentPosition: true
+            }}
+          >
+            <div className='grid-sizer' />
+            {pinnedArticleItems}
+          </Masonry>
         </>
       )}
       {articleItems.length > 0 && (
         <>
           {pinnedArticleItems.length > 0 && <h3>More articles</h3>}
-          <div className='columns is-multiline'>{articleItems}</div>
+          {/* <div className='columns is-multiline'>{articleItems}</div> */}
+          <Masonry
+            className='columns is-multiline'
+            options={{
+              columnWidth: '.grid-sizer',
+              itemSelector: '.grid-item',
+              percentPosition: true
+            }}
+          >
+            <div className='grid-sizer' />
+            {articleItems}
+          </Masonry>
         </>
       )}
       {noArticles && (

@@ -119,3 +119,17 @@
     margin-bottom: 0;
   }
 }
+
+.stance__item {
+  margin-bottom: 0;
+}
+
+.grid-sizer,
+.grid-item {
+  padding: 0.75rem;
+  width: 100%;
+
+  @media (min-width: $tablet) {
+    width: 33%;
+  }
+}
