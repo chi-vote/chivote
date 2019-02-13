@@ -1,4 +1,5 @@
 import logging
+from django.utils.translation import gettext as _
 from bakery.views import BuildableDetailView
 from .models import ContentItem
 logger = logging.getLogger(__name__)
@@ -24,6 +25,7 @@ class ContentItemDetailView(BuildableDetailView):
             'meta': {
                 'title': self.object.title,
                 'description': self.object.description,
+                'img': _('images/C_2x1_Chi-vote_advert.png'),
             }
         }
 
