@@ -307,3 +307,7 @@ nav.breadcrumb {
 .button.language-toggle {
   transition: border 0.3s, color 0.3s;
 }
+
+.has-text-yellow {
+  color: $yellow !important;
+}

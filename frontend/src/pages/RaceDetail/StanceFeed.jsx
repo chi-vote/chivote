@@ -6,6 +6,7 @@ import ReadMoreReact from 'Components/ReadMoreReact';
 import StanceItem from 'Components/StanceItem';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import { slugify } from './utils';
+import StanceItems from './StanceItems';
 
 const StanceFeed = props => {
   const feed = [];
@@ -47,21 +48,7 @@ const StanceFeed = props => {
           className='issue__description'
         />
 
-        <div className='columns is-multiline'>
-          {stances.map(item => (
-            <div className='column is-4'>
-              <StanceItem
-                data={item.fields}
-                key={item.pk}
-                candidate={
-                  _.find(candidates, c => {
-                    return c.pk == item.fields.candidate;
-                  }).fields
-                }
-              />
-            </div>
-          ))}
-        </div>
+        <StanceItems stances={stances} candidates={candidates} />
       </div>
     );
   }

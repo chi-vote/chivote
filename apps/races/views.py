@@ -18,28 +18,40 @@ class RaceDetailView(BuildableDetailView):
     model = Race
     template_name = 'base_react.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+    def get_articles(self):
+        articles_queryset = self.object.tagged_articles.filter(
+            article__is_published=True)
 
-        from apps.candidates.models import Candidate
-        from apps.newsfeed.models import Article, CandidateStance, Issue
-        from django.utils.html import strip_tags
+        articles_json = serializers.serialize(
+            'json', [a.article for a in articles_queryset])
+
+        def add_pinned(article):
+            is_pinned = articles_queryset.get(
+                article__pk=article['pk']).is_pinned
+            article['is_pinned'] = is_pinned
+            return article
+
+        articles_dict = [add_pinned(a) for a in json.loads(articles_json)]
+
+        articles = json.dumps(articles_dict)
+
+        return articles
+
+    def get_context_data(self, **kwargs):
+        from apps.newsfeed.models import CandidateStance, Issue
+
+        context = super().get_context_data(**kwargs)
 
         candidates = self.object.candidates.all().exclude(status='inactive')
 
         stances = CandidateStance.objects.filter(
             candidate__race=self.object).order_by('-date')
 
-        articles = self.object.articles.all().order_by(
-            '-date').exclude(is_published=False)
-
         issues = Issue.objects.all().order_by('issue_order')
 
-        raceData = self.object
-
-        raceObj = {
-            'id': raceData.pk,
-            'office': raceData.__str__(),
+        race_obj = {
+            'id': self.object.pk,
+            'office': self.object.__str__(),
         }
 
         description = mark_safe(self.object.explainer)
@@ -55,8 +67,8 @@ class RaceDetailView(BuildableDetailView):
                 'data': {
                     'issues': serializers.serialize('json', issues),
                     'stances': serializers.serialize('json', stances),
-                    'articles': serializers.serialize('json', articles),
-                    'office': json.dumps(raceObj),
+                    'articles': self.get_articles(),
+                    'office': json.dumps(race_obj),
                     'description': description,
                     'slug': self.object.slug,
                     'documenters_slug': self.object.documenters_slug,
@@ -64,7 +76,7 @@ class RaceDetailView(BuildableDetailView):
                 'candidates': serializers.serialize('json', candidates)
             },
             'meta': {
-                'title': _('Race for %(office)s, 2019') % {'office': raceObj['office']},
+                'title': _('Race for %(office)s, 2019') % {'office': race_obj['office']},
                 'description': _('Candidate bios, related articles and more.')
             }
         }

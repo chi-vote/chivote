@@ -45,6 +45,7 @@
     "react-helmet": "^5.2.0",
     "react-horizontal-scrolling-menu": "^0.4.5",
     "react-intl": "^2.8.0",
+    "react-masonry-component": "^6.2.1",
     "react-placeholder": "^3.0.1",
     "react-responsive": "^6.0.1",
     "react-slick": "^0.23.2",
