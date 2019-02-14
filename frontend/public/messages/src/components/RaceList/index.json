@@ -1,0 +1,18 @@
+[
+  {
+    "id": "RaceList.heading",
+    "defaultMessage": "Races"
+  },
+  {
+    "id": "RaceList.text.1",
+    "defaultMessage": "Choose a specific race to get more information and view candidates."
+  },
+  {
+    "id": "RaceList.aldermanic.heading",
+    "defaultMessage": "Aldermanic"
+  },
+  {
+    "id": "RaceList.aldermanic.text.1",
+    "defaultMessage": "Choose a specific ward number to get more information and view candidates."
+  }
+]

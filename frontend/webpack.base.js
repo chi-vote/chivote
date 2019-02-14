@@ -2,10 +2,10 @@ const path = require('path');
 const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
-  // context: path.resolve(__dirname, 'app'),
   entry: ['./src/index'],
   output: {
-    filename: '[name]-[hash].js'
+    filename: '[name]-[hash].bundle.js',
+    chunkFilename: '[name]-[hash].bundle.js'
   },
   plugins: [new BundleTracker({ filename: './webpack-stats.json' })],
   module: {
@@ -24,7 +24,10 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {}
+            options: {
+              name: '[name].[ext]?[hash]',
+              outputPath: 'images'
+            }
           }
         ]
       },
