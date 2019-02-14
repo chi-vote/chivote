@@ -23,8 +23,8 @@ window.reactRoot = window.reactRoot || document.getElementById('root');
 
 const main = () => {
   // Load custom tracking code lazily, so it's non-blocking
-  import(/* webpackChunkName: "analytics" */ './analytics/base.js').then(
-    analytics => analytics.init()
+  import(/* webpackChunkName: "analytics" */ './analytics.js').then(analytics =>
+    analytics.init()
   );
 
   // Initiate all other code paths here...
