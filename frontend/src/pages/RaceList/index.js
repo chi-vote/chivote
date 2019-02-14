@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import Page from 'Components/Page';
-import { Breadcrumb } from 'Components/common';
-import List from 'Components/List';
+import { Breadcrumb, List, Page } from 'Components/common';
 import WardLookup from 'Components/WardLookup';
 import './style.scss';
 

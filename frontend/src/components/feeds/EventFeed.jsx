@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
-import List from 'Components/List';
 import * as pym from 'pym.js';
 // import { Helmet } from 'react-helmet';
 

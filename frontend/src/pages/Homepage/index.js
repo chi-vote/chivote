@@ -4,12 +4,12 @@ const LandingPage = require('./LandingPage').default;
 const LandingPageMobile = require('./LandingPageMobile').default;
 import Responsive from 'react-responsive';
 
-import Page from 'Components/Page';
+import { Page } from 'Components/common';
 
 class Homepage extends Component {
   render() {
     return (
-      <Page sectionClass="landing-page">
+      <Page sectionClass='landing-page'>
         <Responsive minWidth={992}>
           <LandingPage />
         </Responsive>

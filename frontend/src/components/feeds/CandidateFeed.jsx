@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
-import List from 'Components/List';
+import { List } from 'Components/common';
 import { CandidateItem } from 'Components/items';
 
 const CandidateFeed = props => {

@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import Page from 'Components/Page';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import { Helmet } from 'react-helmet';
 import { ReactTypeformEmbed } from 'react-typeform-embed';
-import { Breadcrumb } from 'Components/common';
-// import LanguageToggle from 'Components/LanguageToggle';
+import { Breadcrumb, Page } from 'Components/common';
 import './style.scss';
 
 String.prototype.capitalize = function() {

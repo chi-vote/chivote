@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Page from 'Components/Page';
+import { Page } from 'Components/common';
 
 export default class CandidateDetail extends Component {
   render() {
@@ -10,7 +10,7 @@ export default class CandidateDetail extends Component {
     // console.log(parsedContactData);
     return (
       <Page>
-        <h3 className="page-heading title is-3">
+        <h3 className='page-heading title is-3'>
           {parsedModelData.fields.name}
         </h3>
         <p>{parsedContactData.fields.contact_value}</p>

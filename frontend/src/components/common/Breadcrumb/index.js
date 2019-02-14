@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import LanguageToggle from 'Components/LanguageToggle';
+import { LanguageToggle } from 'Components/common';
 import './styles.scss';
 
 const Link = props => (

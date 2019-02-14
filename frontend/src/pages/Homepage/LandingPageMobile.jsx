@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Slider from 'react-slick';
-import Page from 'Components/Page';
 import chivoteLogo from 'Assets/images/chivote-logo-7x.png';
 import questionsIcon from 'Assets/images/chivote-questions-icon.png';
 import researchIcon from 'Assets/images/chivote-research-icon.png';
 import readyIcon from 'Assets/images/chivote-ready-icon.png';
 import './LandingPageMobile.scss';
-import LanguageToggle from 'Components/LanguageToggle';
+import LanguageToggle from 'Components/common';
 
 class VotingStageSlider extends Component {
   state = {

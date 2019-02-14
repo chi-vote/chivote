@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import Page from 'Components/Page';
 import { slide as SlideView } from 'react-burger-menu';
 import CandidateView from 'Components/CandidateView';
 import {
@@ -10,7 +9,7 @@ import {
   StanceFeed
 } from 'Components/feeds';
 import { parseHtml } from 'Utils';
-import { Breadcrumb } from 'Components/common';
+import { Breadcrumb, Page } from 'Components/common';
 import './styles.scss';
 
 function FormattedMessageFixed(props) {
