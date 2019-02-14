@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { ArticleItem } from 'Components/items';
+import { ArticleItem } from '../items';
 import Masonry from 'react-masonry-component';
 
 const ArticleFeed = props => {

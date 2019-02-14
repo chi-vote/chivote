@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Breadcrumb, List, Page } from 'Components/common';
-import WardLookup from 'Components/WardLookup';
-import './style.scss';
+import WardLookup from './WardLookup';
+import './styles.scss';
+
+const WardButton = props => (
+  <a href={`./${props.data.id}/`} className='ward-button'>
+    {props.data.name.match(/\d+/)}
+  </a>
+);
 
 class RaceList extends Component {
   render() {
@@ -71,11 +77,5 @@ class RaceList extends Component {
     );
   }
 }
-
-const WardButton = props => (
-  <a href={`./${props.data.id}/`} className='ward-button'>
-    {props.data.name.match(/\d+/)}
-  </a>
-);
 
 export default RaceList;

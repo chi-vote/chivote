@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment-mini';
-import { parseHtml } from 'Utils';
+import { parseHtml } from 'Components/utils';
 
 const ArticleItem = props => {
   const { fields } = props.data;

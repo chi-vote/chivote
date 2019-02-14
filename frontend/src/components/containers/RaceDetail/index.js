@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { slide as SlideView } from 'react-burger-menu';
-import CandidateView from 'Components/CandidateView';
-import {
-  ArticleFeed,
-  CandidateFeed,
-  EventFeed,
-  StanceFeed
-} from 'Components/feeds';
-import { parseHtml } from 'Utils';
+import CandidateView from './CandidateView';
+import { ArticleFeed, CandidateFeed, EventFeed, StanceFeed } from './feeds';
+import { parseHtml } from 'Components/utils';
 import { Breadcrumb, Page } from 'Components/common';
 import './styles.scss';
 

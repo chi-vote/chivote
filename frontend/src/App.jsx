@@ -4,20 +4,13 @@ import { Nav, Footer } from 'Components/common';
 import 'Assets/styles/theme.scss';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    // this.page = require(`Pages/${props.component}`).default;
-    // this.page = import(`Pages/${props.component}`);
-  }
-
   render() {
     const PageComponent = React.lazy(() =>
-      import(/* webpackChunkName: "[request]" */ `Pages/${
+      import(/* webpackChunkName: "[request]" */ `./pages/${
         this.props.component
       }`)
     );
 
-    // return React.createElement(this.page, this.props);
     return (
       <>
         <Nav />

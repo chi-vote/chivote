@@ -4,7 +4,7 @@ import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import ReadMoreReact from 'Components/ReadMoreReact';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
-import { parseHtml, slugify } from 'Utils';
+import { parseHtml, slugify } from 'Components/utils';
 import StanceItems from './StanceItems';
 
 const StanceFeed = props => {

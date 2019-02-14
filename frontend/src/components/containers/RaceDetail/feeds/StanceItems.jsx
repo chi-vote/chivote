@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Masonry from 'react-masonry-component';
-import { StanceItem } from 'Components/items';
+import { StanceItem } from '../items';
 
 export default class StanceItems extends Component {
   render() {
