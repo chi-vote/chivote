@@ -1,3 +1,3 @@
-import Homepage from 'Components/containers/Homepage';
+import Homepage from 'Components/homepage';
 
 export default Homepage;

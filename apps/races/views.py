@@ -60,7 +60,7 @@ class RaceDetailView(BuildableDetailView):
 
         react_dict = {
             'absolute_url': self.get_object().get_absolute_url(),
-            'component': 'RaceDetail',
+            'component': 'raceDetail',
             'props': {
                 'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),
                 'feed': curr_section,
@@ -163,7 +163,7 @@ class RaceListView(BuildableListView):
         react_dict = {
             # 'absolute_path': self.object.get_absolute_path(),
             'absolute_url': '/races/',
-            'component': 'RaceList',
+            'component': 'raceList',
             'props': {
                 'data': {
                     'races': json.dumps(list(races), cls=DjangoJSONEncoder),

@@ -1,3 +1,3 @@
-import RaceDetail from 'Components/containers/RaceDetail';
+import RaceDetail from 'Components/raceDetail';
 
 export default RaceDetail;

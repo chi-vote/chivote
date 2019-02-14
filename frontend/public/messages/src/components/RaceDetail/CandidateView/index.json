@@ -1,0 +1,6 @@
+[
+  {
+    "id": "CandidateView.ballotReadyNote",
+    "defaultMessage": "* Candidate data is compiled by <a class='has-text-grey-light has-text-weight-bold' href='https://www.ballotready.org/'>BallotReady</a>, based on the candidate's website."
+  }
+]

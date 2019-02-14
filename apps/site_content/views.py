@@ -14,7 +14,7 @@ class ContentItemDetailView(BuildableDetailView):
 
         react_dict = {
             'absolute_url': self.get_object().get_absolute_url(),
-            'component': 'ContentItemDetail',
+            'component': 'pageDetail',
             'props': {
                 'title': self.object.title,
                 'slug': self.object.slug,

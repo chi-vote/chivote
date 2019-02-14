@@ -1,3 +1,3 @@
-import RaceList from 'Components/containers/RaceList';
+import RaceList from 'Components/raceList';
 
 export default RaceList;
