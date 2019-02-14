@@ -10,7 +10,7 @@ import {
   StanceFeed
 } from 'Components/feeds';
 import { parseHtml } from 'Utils';
-import { Breadcrumb } from 'Components/Breadcrumb';
+import { Breadcrumb } from 'Components/common/Breadcrumb';
 import './styles.scss';
 
 function FormattedMessageFixed(props) {
@@ -54,40 +54,6 @@ export default class RaceDetail extends Component {
   componentDidUpdate() {
     this.componentDidMount();
   }
-
-  renderBreadcrumb = () => {
-    const { data } = this.props;
-    const officeName = JSON.parse(data.office).office;
-    const currPath = window.location.pathname;
-    const raceSlug = this.props.data.slug;
-    const currPage = currPath.split(raceSlug)[0] + raceSlug + '/';
-    const parentUrl = curr =>
-      curr.substr(0, curr.lastIndexOf('/', curr.length - 2)) + '/';
-
-    const breadcrumbLinks = [
-      {
-        url: parentUrl(parentUrl(currPage)),
-        content: (
-          <FormattedMessage id='common.link.home' defaultMessage='Home' />
-        )
-      },
-      {
-        url: parentUrl(currPage),
-        content: (
-          <FormattedMessage
-            id='common.link.all-races'
-            defaultMessage='All races'
-          />
-        )
-      },
-      {
-        url: currPage,
-        content: officeName
-      }
-    ];
-
-    return <Breadcrumb items={breadcrumbLinks} />;
-  };
 
   renderFeed = () => {
     if (this.state.feed === 'candidates') {
@@ -186,8 +152,10 @@ export default class RaceDetail extends Component {
   };
 
   render() {
-    const { description, office } = this.props.data;
+    const { description, office, slug } = this.props.data;
     const officeName = JSON.parse(office).office;
+    const currPath = window.location.pathname;
+    const currPage = currPath.split(slug)[0] + slug + '/';
 
     return (
       <>
@@ -207,7 +175,7 @@ export default class RaceDetail extends Component {
         </SlideView>
 
         <Page childClass='container page--detail'>
-          {this.renderBreadcrumb()}
+          <Breadcrumb activePath={currPage} activeLabel={officeName} />
           <h1 className='page-heading title is-3'>
             <FormattedMessage
               id='RaceDetail.heading'

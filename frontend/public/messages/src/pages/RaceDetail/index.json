@@ -1,13 +1,5 @@
 [
   {
-    "id": "common.link.home",
-    "defaultMessage": "Home"
-  },
-  {
-    "id": "common.link.all-races",
-    "defaultMessage": "All races"
-  },
-  {
     "id": "RaceDetail.heading",
     "defaultMessage": "Race for {officeName}"
   }

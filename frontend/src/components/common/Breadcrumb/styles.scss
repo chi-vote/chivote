@@ -1,0 +1,26 @@
+@import '~Assets/styles/variables';
+@import '~Assets/styles/mixins';
+
+nav.breadcrumb {
+  background: transparent;
+
+  // ul { padding: 0; }
+  &.column {
+    padding-bottom: 0;
+  }
+
+  ul {
+    align-items: center;
+    padding: 0;
+  }
+
+  a {
+    font-family: $family-secondary;
+  }
+
+  .language-toggle {
+    margin-left: auto;
+  }
+}
+
+@include setBreadcrumbColors($primary, $color-language: $yellow);

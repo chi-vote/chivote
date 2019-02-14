@@ -5,8 +5,8 @@ import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import { Helmet } from 'react-helmet';
 import { ReactTypeformEmbed } from 'react-typeform-embed';
-import { Breadcrumb } from 'Components/Breadcrumb';
-import LanguageToggle from 'Components/LanguageToggle';
+import { Breadcrumb } from 'Components/common/Breadcrumb';
+// import LanguageToggle from 'Components/LanguageToggle';
 import './style.scss';
 
 String.prototype.capitalize = function() {
@@ -18,36 +18,6 @@ function FormattedMessageFixed(props) {
 }
 
 export default class ContentItemDetail extends Component {
-  renderBreadcrumb() {
-    const { slug } = this.props;
-    const titles = {
-      faq: 'FAQ'
-    };
-    const currPath = window.location.pathname;
-    const parentUrl = curr =>
-      curr.substr(0, curr.lastIndexOf('/', curr.length - 2)) + '/';
-
-    const breadcrumbLinks = [
-      {
-        url: parentUrl(currPath),
-        content: (
-          <FormattedMessage id='common.link.home' defaultMessage='Home' />
-        )
-      },
-      {
-        url: currPath,
-        content: (
-          <FormattedMessageFixed
-            id={`common.link.${slug}`}
-            defaultMessage={titles[slug] || slug.capitalize()}
-          />
-        )
-      }
-    ];
-
-    return <Breadcrumb items={breadcrumbLinks} className='column is-full' />;
-  }
-
   render() {
     const { title, slug, content, helmet, background } = this.props;
     let pageContent = Parser(decode(content.replace(/"'|'"/g, '"'))); // fixing bad quotes that were breaking links
@@ -81,6 +51,17 @@ export default class ContentItemDetail extends Component {
 
     var classes = `container page-${slug}`;
 
+    const titles = {
+      faq: 'FAQ'
+    };
+
+    const activeLabel = (
+      <FormattedMessageFixed
+        id={`common.link.${slug}`}
+        defaultMessage={titles[slug] || slug.capitalize()}
+      />
+    );
+
     return (
       <>
         <Helmet>
@@ -89,7 +70,7 @@ export default class ContentItemDetail extends Component {
         </Helmet>
         <Page childClass={classes}>
           <div className={'columns is-multiline is-centered'}>
-            {this.renderBreadcrumb()}
+            <Breadcrumb className='column is-full' activeLabel={activeLabel} />
             <h1 className='column is-full page-heading title'>{title}</h1>
             {pageContent}
           </div>

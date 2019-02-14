@@ -267,25 +267,6 @@ body {
   // border: solid 5px #3f3f4d;
 }
 
-nav.breadcrumb {
-  background: transparent;
-
-  // ul { padding: 0; }
-  &.column {
-    padding-bottom: 0;
-  }
-
-  ul {
-    padding: 0;
-  }
-
-  a {
-    font-family: $family-secondary;
-  }
-}
-
-@include setBreadcrumbColors($primary, $color-language: $yellow);
-
 .page-heading {
   font-size: 1.75rem;
   line-height: 1.3;
@@ -298,14 +279,6 @@ nav.breadcrumb {
 .page-heading.column {
   padding-top: 0;
   padding-bottom: 0;
-}
-
-.breadcrumb ul {
-  align-items: center;
-
-  .language-toggle {
-    margin-left: auto;
-  }
 }
 
 .button.language-toggle {
