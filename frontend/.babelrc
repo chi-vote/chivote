@@ -3,6 +3,7 @@
   "plugins": [
     "react-hot-loader/babel",
     "@babel/proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import",
     [
       "react-intl",
       {

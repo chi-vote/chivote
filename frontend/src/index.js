@@ -21,9 +21,17 @@ window.component = window.component || 'Homepage';
 window.props = window.props || {};
 window.reactRoot = window.reactRoot || document.getElementById('root');
 
-ReactDOM.render(
-  <IntlProvider locale={language} messages={localeData[language]}>
-    <App {...window.props} component={window.component} />
-  </IntlProvider>,
-  window.reactRoot
-);
+const main = () => {
+  // Load custom tracking code lazily, so it's non-blocking
+  import('./analytics/base.js').then(analytics => analytics.init());
+
+  // Initiate all other code paths here...
+  ReactDOM.render(
+    <IntlProvider locale={language} messages={localeData[language]}>
+      <App {...window.props} component={window.component} />
+    </IntlProvider>,
+    window.reactRoot
+  );
+};
+
+main();
