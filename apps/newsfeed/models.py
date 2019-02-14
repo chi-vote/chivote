@@ -5,8 +5,8 @@ from django.db.models.functions import Lower
 from ckeditor.fields import RichTextField
 from bakery.models import AutoPublishingBuildableModel
 
-from ..races.models import Race
-from ..candidates.models import Candidate
+from apps.races.models import Race
+from apps.candidates.models import Candidate
 
 
 class IssueManager(models.Manager):
