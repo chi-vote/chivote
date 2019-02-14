@@ -1,12 +1,38 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Page from 'Components/Page';
+import { Breadcrumb } from 'Components/Breadcrumb';
 import List from 'Components/List';
 import WardLookup from 'Components/WardLookup';
 import './style.scss';
-import LanguageToggle from 'Components/LanguageToggle';
 
 class RaceList extends Component {
+  renderBreadcrumb() {
+    const currPath = window.location.pathname;
+    const parentUrl = curr =>
+      curr.substr(0, curr.lastIndexOf('/', curr.length - 2)) + '/';
+
+    const breadcrumbLinks = [
+      {
+        url: parentUrl(currPath),
+        content: (
+          <FormattedMessage id='common.link.home' defaultMessage='Home' />
+        )
+      },
+      {
+        url: currPath,
+        content: (
+          <FormattedMessage
+            id='common.link.all-races'
+            defaultMessage='All races'
+          />
+        )
+      }
+    ];
+
+    return <Breadcrumb items={breadcrumbLinks} />;
+  }
+
   render() {
     const parsedRaceData = JSON.parse(this.props.data.races);
     const copyRaceData = [...parsedRaceData];
@@ -40,39 +66,10 @@ class RaceList extends Component {
       </li>
     ));
 
-    const races = JSON.parse(this.props.data.races);
-
-    const breadcrumb = (function() {
-      const currPath = window.location.pathname;
-      const parentUrl = curr =>
-        curr.substr(0, curr.lastIndexOf('/', curr.length - 2)) + '/';
-
-      return (
-        <nav className='breadcrumb' aria-label='breadcrumbs'>
-          <ul>
-            <li>
-              <a href={parentUrl(currPath)}>
-                <FormattedMessage id='common.link.home' defaultMessage='Home' />
-              </a>
-            </li>
-            <li className='is-active'>
-              <a href={currPath} aria-current='page'>
-                <FormattedMessage
-                  id='common.link.all-races'
-                  defaultMessage='All races'
-                />
-              </a>
-            </li>
-            <LanguageToggle />
-          </ul>
-        </nav>
-      );
-    })();
-
     return (
       <div>
         <Page childClass='page--detail container'>
-          {breadcrumb}
+          {this.renderBreadcrumb()}
           <h1 className='page-heading title is-3'>
             <FormattedMessage id='RaceList.heading' defaultMessage='Races' />
           </h1>

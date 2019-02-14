@@ -10,7 +10,7 @@ import {
   StanceFeed
 } from 'Components/feeds';
 import { parseHtml } from 'Utils';
-import LanguageToggle from 'Components/LanguageToggle';
+import { Breadcrumb } from 'Components/Breadcrumb';
 import './styles.scss';
 
 function FormattedMessageFixed(props) {
@@ -64,33 +64,29 @@ export default class RaceDetail extends Component {
     const parentUrl = curr =>
       curr.substr(0, curr.lastIndexOf('/', curr.length - 2)) + '/';
 
-    const breadcrumb = (
-      <nav className='breadcrumb' aria-label='breadcrumbs'>
-        <ul>
-          <li>
-            <a href={parentUrl(parentUrl(currPage))}>
-              <FormattedMessage id='common.link.home' defaultMessage='Home' />
-            </a>
-          </li>
-          <li>
-            <a href={parentUrl(currPage)}>
-              <FormattedMessage
-                id='common.link.all-races'
-                defaultMessage='All races'
-              />
-            </a>
-          </li>
-          <li className='is-active'>
-            <a href={currPage} aria-current='page'>
-              {officeName}
-            </a>
-          </li>
-          <LanguageToggle />
-        </ul>
-      </nav>
-    );
+    const breadcrumbLinks = [
+      {
+        url: parentUrl(parentUrl(currPage)),
+        content: (
+          <FormattedMessage id='common.link.home' defaultMessage='Home' />
+        )
+      },
+      {
+        url: parentUrl(currPage),
+        content: (
+          <FormattedMessage
+            id='common.link.all-races'
+            defaultMessage='All races'
+          />
+        )
+      },
+      {
+        url: currPage,
+        content: officeName
+      }
+    ];
 
-    return breadcrumb;
+    return <Breadcrumb items={breadcrumbLinks} />;
   };
 
   renderFeed = () => {
