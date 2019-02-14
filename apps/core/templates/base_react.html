@@ -3,6 +3,9 @@
 {% load render_bundle from webpack_loader %}
 {% load helper_tags %}
 
+{% load i18n %}
+{% trans "images/C_2x1_Chi-vote_advert.png" as social_image %}
+
 {% block title %}
 <title>{{meta.title}} | Chi.vote</title>
 {% endblock %}
@@ -34,12 +37,12 @@
 {% load static %}
 <meta
   property="twitter:image"
-  content="https://chi.vote{% static 'images/C_2x1_Chi-vote_advert.png' %}"
+  content="https://chi.vote{% static "" %}{{ meta.img }}"
 />
 <meta property="twitter:image:alt" content="Chi.vote logo" />
 <meta
   property="og:image"
-  content="https://chi.vote{% static 'images/C_2x1_Chi-vote_advert.png' %}"
+  content="https://chi.vote{% static "" %}{{ meta.img }}"
 />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="2000" />

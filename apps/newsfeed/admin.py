@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, CandidateStance, Issue
+from .models import Article, CandidateStance, Issue, TaggedArticle
 from adminsortable2.admin import SortableAdminMixin
 
 
@@ -11,11 +11,21 @@ class IssueAdmin(SortableAdminMixin, admin.ModelAdmin):
     ordering = ('issue_order',)
 
 
+class TaggedArticleInline(admin.TabularInline):
+    model = TaggedArticle
+    extra = 0
+    # filter_horizontal = ("race",)
+    fields = ('race',)
+    verbose_name = 'race'
+    verbose_name_plural = 'race(s)'
+
+
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     model = Article
+    inlines = (TaggedArticleInline,)
     # If you don't specify this, you will get a multiple select widget.
-    filter_horizontal = ('candidates', 'races', 'issues',)
+    filter_horizontal = ('candidates', 'issues',)
 
     def str_candidates(self, obj):
         return ', '.join([str(c) for c in obj.candidates.all()])

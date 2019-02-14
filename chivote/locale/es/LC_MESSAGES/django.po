@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-12 13:53-0600\n"
+"POT-Creation-Date: 2019-02-13 17:30-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,28 +18,36 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: apps/core/templates/base_react.html:7 apps/core/views.py:19
+msgid "images/C_2x1_Chi-vote_advert.png"
+msgstr "images/C_2x1_Chi-vote_socialcard_spanish.png"
+
 #: apps/core/views.py:17
 msgid "Everything you need to know to vote in Chicago on Feb. 26th"
-msgstr "Todo lo que necesita saber para votar en las elecciones de Chicago el 26 de febrero"
+msgstr ""
+"Todo lo que necesita saber para votar en las elecciones de Chicago el 26 de "
+"febrero"
 
 #: apps/core/views.py:18
 msgid ""
 "No matter if you’re a rookie voter or a veteran, we have everything you need."
-msgstr "No importa si usted es un votante veterano o principiante, tenemos todo lo que necesita saber."
+msgstr ""
+"No importa si usted es un votante veterano o principiante, tenemos todo lo "
+"que necesita saber."
 
-#: apps/races/views.py:67
+#: apps/races/views.py:79
 #, python-format
 msgid "Race for %(office)s, 2019"
 msgstr "Contiendas para %(office)s, 2019"
 
-#: apps/races/views.py:68
+#: apps/races/views.py:80
 msgid "Candidate bios, related articles and more."
 msgstr "Biografías de candidatos, artículos relacionados y más."
 
-#: apps/races/views.py:160
+#: apps/races/views.py:172
 msgid "All 2019 Chicago races"
 msgstr "Todas las contiendas en Chicago en el 2019"
 
-#: apps/races/views.py:161
+#: apps/races/views.py:173
 msgid "Full list of Chicago races and candidates."
 msgstr "Lista completa de contiendas y candidatos"

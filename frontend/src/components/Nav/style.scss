@@ -12,6 +12,7 @@ $tagline-width: 10rem;
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: auto;
 
   + .section {
     padding-top: 6rem;
