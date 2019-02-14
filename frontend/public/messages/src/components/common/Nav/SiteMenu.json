@@ -1,0 +1,38 @@
+[
+  {
+    "id": "common.link.home",
+    "defaultMessage": "Home"
+  },
+  {
+    "id": "common.link.races",
+    "defaultMessage": "Races"
+  },
+  {
+    "id": "common.link.faq",
+    "defaultMessage": "FAQ"
+  },
+  {
+    "id": "common.link.ask",
+    "defaultMessage": "Ask"
+  },
+  {
+    "id": "common.link.quiz",
+    "defaultMessage": "Quiz"
+  },
+  {
+    "id": "common.link.events",
+    "defaultMessage": "Events"
+  },
+  {
+    "id": "SiteMenu.contact.1",
+    "defaultMessage": "Contact us"
+  },
+  {
+    "id": "SiteMenu.contact.2",
+    "defaultMessage": "Got questions? Need help? Did we miss something?"
+  },
+  {
+    "id": "SiteMenu.contact.3",
+    "defaultMessage": "Email us at <a href=\"mailto:info@chi.vote\">info@chi.vote</a>."
+  }
+]

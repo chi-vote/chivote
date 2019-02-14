@@ -10,7 +10,7 @@ import {
   StanceFeed
 } from 'Components/feeds';
 import { parseHtml } from 'Utils';
-import { Breadcrumb } from 'Components/common/Breadcrumb';
+import { Breadcrumb } from 'Components/common';
 import './styles.scss';
 
 function FormattedMessageFixed(props) {

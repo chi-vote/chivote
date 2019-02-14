@@ -1,14 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import LanguageToggle from 'Components/LanguageToggle';
 import './styles.scss';
-
-let links = {
-  '/': <FormattedMessage id='common.link.home' defaultMessage='Home' />,
-  '/races/': (
-    <FormattedMessage id='common.link.all-races' defaultMessage='All races' />
-  )
-};
 
 const Link = props => (
   <li>
@@ -37,51 +30,73 @@ function normalizePath(path) {
   return path.replace('/es/', '/');
 }
 
-function parentUrl(curr) {
-  return curr.substr(0, curr.lastIndexOf('/', curr.length - 2)) + '/';
-}
+class Breadcrumb extends Component {
+  constructor(props) {
+    super(props);
 
-function getItems(currPath) {
-  let isHome = false;
-  let path = currPath;
-  let paths = [path];
-  let i = 0;
+    let links = {
+      '/': <FormattedMessage id='common.link.home' defaultMessage='Home' />,
+      '/races/': (
+        <FormattedMessage
+          id='common.link.all-races'
+          defaultMessage='All races'
+        />
+      )
+    };
 
-  while (!isHome && i < 5) {
-    path = parentUrl(path);
-    paths.push(path);
-    isHome = normalizePath(path) == '/';
-    i += 1;
+    if (props.activeLabel) {
+      links[normalizePath(props.activePath)] = props.activeLabel;
+    }
+
+    const activePath = props.activePath
+      ? props.activePath
+      : window.location.pathname;
+
+    this.state = {
+      activePath,
+      links
+    };
   }
 
-  const items = paths
-    .map(path => {
-      return { url: path, content: links[normalizePath(path)] };
-    })
-    .reverse();
+  getItems() {
+    let isHome = false;
+    let path = this.state.activePath;
+    let paths = [path];
 
-  return items;
-}
+    const getLabel = path => this.state.links[normalizePath(path)];
 
-const Breadcrumb = props => {
-  const activePath = props.activePath
-    ? props.activePath
-    : window.location.pathname;
+    const parentUrl = curr =>
+      curr.substr(0, curr.lastIndexOf('/', curr.length - 2)) + '/';
 
-  if (props.activeLabel) {
-    links[normalizePath(activePath)] = props.activeLabel;
+    /* create list of paths (current -> home) */
+    while (!isHome) {
+      path = parentUrl(path);
+      paths.push(path);
+      isHome = normalizePath(path) == '/';
+    }
+
+    /* maps paths to objects and reverse them (home -> current) */
+    const items = paths
+      .map(path => {
+        return { url: path, content: getLabel(path) };
+      })
+      .reverse();
+
+    return items;
   }
 
-  const extraClasses = props.className ? ' ' + props.className : '';
+  render() {
+    const extraClasses = this.props.className ? ' ' + this.props.className : '';
 
-  return (
-    <nav className={`breadcrumb${extraClasses}`} aria-label='breadcrumbs'>
-      <ul>
-        <RenderedLinks items={getItems(activePath)} />
-        <LanguageToggle />
-      </ul>
-    </nav>
-  );
-};
+    return (
+      <nav className={`breadcrumb${extraClasses}`} aria-label='breadcrumbs'>
+        <ul>
+          <RenderedLinks items={this.getItems()} />
+          <LanguageToggle />
+        </ul>
+      </nav>
+    );
+  }
+}
 
-export { Breadcrumb };
+export default Breadcrumb;

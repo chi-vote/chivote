@@ -1,7 +1,6 @@
 import React from 'react';
-import Nav from 'Components/Nav';
-import Footer from 'Components/Footer';
-import './style.scss';
+import { Nav, Footer } from 'Components/common';
+import './styles.scss';
 
 const Page = props => {
   return (

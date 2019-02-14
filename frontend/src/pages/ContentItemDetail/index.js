@@ -5,7 +5,7 @@ import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import { Helmet } from 'react-helmet';
 import { ReactTypeformEmbed } from 'react-typeform-embed';
-import { Breadcrumb } from 'Components/common/Breadcrumb';
+import { Breadcrumb } from 'Components/common';
 // import LanguageToggle from 'Components/LanguageToggle';
 import './style.scss';
 
