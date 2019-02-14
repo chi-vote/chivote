@@ -20,7 +20,8 @@ const ArticleItem = props => {
         {fields.hed}
       </a>
       <p className='media-item__summary'>
-        {fields.summary && parseHtml(fields.summary)}
+        {fields.summary &&
+          parseHtml(fields.summary, [[/"'|'"/g, '"'], [/&lt;\/?p&gt;/gm, '']])}
       </p>
     </div>
   );

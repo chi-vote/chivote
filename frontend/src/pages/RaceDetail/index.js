@@ -182,7 +182,7 @@ export default class RaceDetail extends Component {
               values={{ officeName }}
             />
           </h1>
-          {parseHtml(description)}
+          {parseHtml(description, [[/"'|'"/g, '"']])}
           {this.renderButtons()}
           {this.renderFeed()}
         </Page>

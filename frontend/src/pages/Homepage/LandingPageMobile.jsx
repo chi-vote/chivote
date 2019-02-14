@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Slider from 'react-slick';
-import chivoteLogo from 'Assets/images/chivote-logo-7x.png';
-import questionsIcon from 'Assets/images/chivote-questions-icon.png';
-import researchIcon from 'Assets/images/chivote-research-icon.png';
-import readyIcon from 'Assets/images/chivote-ready-icon.png';
+import { SiteLogo } from 'Theme/images';
+import { questionsIcon, researchIcon, readyIcon } from './icons';
 import './LandingPageMobile.scss';
-import LanguageToggle from 'Components/common';
+import { LanguageToggle } from 'Components/common';
 
 class VotingStageSlider extends Component {
   state = {
@@ -167,7 +165,7 @@ class VotingStageSlider extends Component {
           <div>
             <section className='page page--landing has-text-centered'>
               <div className='header__wrapper'>
-                <img src={chivoteLogo} alt='Chi.Vote logo' className='mb-1' />
+                <img src={SiteLogo} alt='Chi.vote logo' className='mb-1' />
                 <h1 className='header__tagline is-size-4 mb-1'>
                   <FormattedMessage
                     id='Homepage.LandingPageMobile.tagline'

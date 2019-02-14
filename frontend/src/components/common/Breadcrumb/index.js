@@ -44,13 +44,13 @@ class Breadcrumb extends Component {
       )
     };
 
-    if (props.activeLabel) {
-      links[normalizePath(props.activePath)] = props.activeLabel;
-    }
-
     const activePath = props.activePath
       ? props.activePath
       : window.location.pathname;
+
+    if (props.activeLabel) {
+      links[normalizePath(activePath)] = props.activeLabel;
+    }
 
     this.state = {
       activePath,

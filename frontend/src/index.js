@@ -18,7 +18,7 @@ let language = currPath.includes('/es/') ? 'es' : 'en';
  * via the create-react-app liveserver
  */
 window.component = window.component || 'Homepage';
-window.props = window.props || { env: 'create-react-app' };
+window.props = window.props || {};
 window.reactRoot = window.reactRoot || document.getElementById('root');
 
 ReactDOM.render(

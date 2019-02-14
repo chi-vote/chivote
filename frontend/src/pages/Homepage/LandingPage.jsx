@@ -1,9 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import questionsIcon from 'Assets/images/chivote-questions-icon.png';
-import researchIcon from 'Assets/images/chivote-research-icon.png';
-import readyIcon from 'Assets/images/chivote-ready-icon.png';
-import LanguageToggle from 'Components/common';
+import { questionsIcon, researchIcon, readyIcon } from './icons';
+import { LanguageToggle } from 'Components/common';
 import './LandingPage.scss';
 
 const LandingPage = props => {

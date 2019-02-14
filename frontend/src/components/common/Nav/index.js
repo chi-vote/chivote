@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import chivoteLogo from 'Assets/images/chivote-logo-7x.png';
+import { SiteLogo } from 'Theme/images';
 import { hot } from 'react-hot-loader/root';
 import { SiteMenu } from './SiteMenu';
 import './style.scss';
@@ -13,7 +13,7 @@ class Nav extends Component {
     return (
       <nav className='navbar'>
         <a href={urlRoot} className='navbar__logo'>
-          <img src={chivoteLogo} alt='' />
+          <img src={SiteLogo} alt='' />
         </a>
 
         <div className='navbar__tagline'>

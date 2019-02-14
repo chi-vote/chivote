@@ -12,8 +12,15 @@ function slugify(text) {
     .replace(/-+$/, ''); // Trim - from end of text
 }
 
-function parseHtml(html) {
-  return Parser(decode(html.replace(/"'|'"/g, '"')));
+function parseHtml(html, patterns = [[/"'|'"/g, '"']]) {
+  let preppedHtml = html;
+
+  patterns.forEach(pattern => {
+    const [target, replacement] = pattern;
+    preppedHtml = preppedHtml.replace(target, replacement);
+  });
+
+  return Parser(decode(preppedHtml));
 }
 
 export { parseHtml, slugify };
