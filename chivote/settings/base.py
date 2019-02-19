@@ -193,7 +193,7 @@ WEBPACK_LOADER = {
 }
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'frontend/static'),
+    os.path.join(BASE_DIR, 'frontend/bundles/prod'),
     os.path.join(BASE_DIR, 'precinct_lookup')
 )
 
