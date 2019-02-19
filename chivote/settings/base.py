@@ -184,7 +184,11 @@ INSTALLED_APPS += ('webpack_loader', )
 WEBPACK_LOADER = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': 'dist/',
-        'STATS_FILE': os.path.join(BASE_DIR, 'frontend/webpack-stats.json')
+        'STATS_FILE': os.path.join(BASE_DIR, 'frontend/bundles/webpack-stats.json')
+    },
+    'SSR': {
+        'BUNDLE_DIR_NAME': 'server/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'frontend/bundles/webpack-stats-server.json')
     }
 }
 

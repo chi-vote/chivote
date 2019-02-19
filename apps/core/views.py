@@ -4,7 +4,7 @@ from bakery.views import BuildableTemplateView
 
 class HomePageView(BuildableTemplateView):
     """View function for home page of site."""
-    template_name = 'base_react.html'
+    template_name = 'base_rendered.html'
     build_path = 'index.html'
 
     def get_context_data(self, **kwargs):
