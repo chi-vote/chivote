@@ -4,7 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-
     "start": "webpack-dev-server --config webpack/dev.config.js",
     "build:langs": "NODE_ENV='production' babel-node ./scripts/mergeMessages.js",
     "build": "yarn build:langs && webpack --config webpack/prod.config.js"

@@ -15,8 +15,10 @@ const prodConfig = merge(baseConfig, {
     chunkFilename: '[name]-[hash].bundle.js'
   },
   plugins: [
-    new BundleTracker({ filename: '../bundles/webpack-stats.json' }),
-    new CleanWebpackPlugin(path.resolve(__dirname, '../bundles/prod'))
+    new BundleTracker({ filename: './bundles/webpack-stats.json' }),
+    new CleanWebpackPlugin(path.resolve(__dirname, '../bundles/prod'), {
+      root: path.resolve(__dirname, '..')
+    })
   ]
 });
 

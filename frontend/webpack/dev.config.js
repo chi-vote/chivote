@@ -16,8 +16,10 @@ const devConfig = merge(baseConfig, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new BundleTracker({ filename: '../bundles/webpack-stats.json' }),
-    new CleanWebpackPlugin(path.resolve(__dirname, '../bundles/dev'))
+    new BundleTracker({ filename: './bundles/webpack-stats.json' }),
+    new CleanWebpackPlugin(path.resolve(__dirname, '../bundles/dev'), {
+      root: path.resolve(__dirname, '..')
+    })
   ],
   devServer: {
     hot: true,

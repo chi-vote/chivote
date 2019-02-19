@@ -12,9 +12,11 @@ const serverConfig = merge(baseConfig, {
   },
   plugins: [
     new BundleTracker({
-      filename: '../bundles/webpack-stats-server.json'
+      filename: './bundles/webpack-stats-server.json'
     }),
-    new CleanWebpackPlugin(path.resolve(__dirname, '../bundles/server'))
+    new CleanWebpackPlugin(path.resolve(__dirname, '../bundles/server'), {
+      root: path.resolve(__dirname, '..')
+    })
   ]
 });
 
