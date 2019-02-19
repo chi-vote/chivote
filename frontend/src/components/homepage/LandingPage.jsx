@@ -1,12 +1,11 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { questionsIcon, researchIcon, readyIcon } from './icons';
 import { LanguageToggle } from 'Components/common';
 import './LandingPage.scss';
 
-const LandingPage = props => {
-  const currPath = window.location.pathname;
-  const urlRoot = currPath.includes('/es/') ? '/es/' : '/';
+const LandingPage = ({ intl }) => {
+  const urlRoot = intl.locale == 'es' ? '/es/' : '/';
 
   return (
     <>
@@ -100,7 +99,7 @@ const LandingPage = props => {
                 <li>
                   <a
                     href={
-                      currPath.includes('/es/')
+                      intl.locale == 'es'
                         ? 'https://chicagoelections.com/sp/register-to-vote-change-of-address.html'
                         : 'https://chicagoelections.com/en/register-to-vote-change-of-address.html'
                     }
@@ -115,7 +114,7 @@ const LandingPage = props => {
                 <li>
                   <a
                     href={
-                      currPath.includes('/es/')
+                      intl.locale == 'es'
                         ? 'https://chicagoelections.com/sp/your-voter-information.html'
                         : 'https://chicagoelections.com/en/your-voter-information.html'
                     }
@@ -136,4 +135,4 @@ const LandingPage = props => {
   );
 };
 
-export default LandingPage;
+export default injectIntl(LandingPage);

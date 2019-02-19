@@ -1,10 +1,9 @@
 import React from 'react';
-import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
+import { FormattedMessage, FormattedHTMLMessage, injectIntl } from 'react-intl';
 import { slide as Menu } from 'react-burger-menu';
 
-export const SiteMenu = props => {
-  const currPath = window.location.pathname;
-  const urlRoot = currPath.includes('/es/') ? '/es/' : '/';
+const SiteMenu = props => {
+  const urlRoot = props.intl.locale === 'es' ? '/es/' : '/';
 
   return (
     <Menu {...props}>
@@ -68,3 +67,5 @@ export const SiteMenu = props => {
     </Menu>
   );
 };
+
+export default injectIntl(SiteMenu);

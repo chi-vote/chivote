@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import Slider from 'react-slick';
 import { SiteLogo } from 'Theme/images';
 import { questionsIcon, researchIcon, readyIcon } from './icons';
@@ -8,6 +8,7 @@ import { LanguageToggle } from 'Components/common';
 
 class VotingStageSlider extends Component {
   state = {
+    locale: this.props.intl.locale,
     stage: 'questions',
     slideIndex: 0
   };
@@ -26,8 +27,7 @@ class VotingStageSlider extends Component {
   };
 
   stageSwitch = () => {
-    const currPath = window.location.pathname;
-    const urlRoot = currPath.includes('/es/') ? '/es/' : '/';
+    const urlRoot = this.state.locale == 'es' ? '/es/' : '/';
 
     switch (this.state.stage) {
       case 'questions':
@@ -112,7 +112,7 @@ class VotingStageSlider extends Component {
                 <li>
                   <a
                     href={
-                      currPath.includes('/es/')
+                      this.state.locale == 'es'
                         ? 'https://chicagoelections.com/sp/register-to-vote-change-of-address.html'
                         : 'https://chicagoelections.com/en/register-to-vote-change-of-address.html'
                     }
@@ -127,7 +127,7 @@ class VotingStageSlider extends Component {
                 <li>
                   <a
                     href={
-                      currPath.includes('/es/')
+                      this.state.locale == 'es'
                         ? 'https://chicagoelections.com/sp/your-voter-information.html'
                         : 'https://chicagoelections.com/en/your-voter-information.html'
                     }
@@ -249,5 +249,4 @@ class VotingStageSlider extends Component {
   }
 }
 
-export default VotingStageSlider;
-// export default LandingPage;
+export default injectIntl(VotingStageSlider);

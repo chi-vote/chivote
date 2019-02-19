@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { SiteLogo } from 'Theme/images';
 import { hot } from 'react-hot-loader/root';
-import { SiteMenu } from './SiteMenu';
+import SiteMenu from './SiteMenu';
 import './style.scss';
 
 class Nav extends Component {
   render() {
-    const currPath = window.location.pathname;
-    const urlRoot = currPath.includes('/es/') ? '/es/' : '/';
+    const urlRoot = this.props.intl.locale == 'es' ? '/es/' : '/';
 
     return (
       <nav className='navbar'>
@@ -31,4 +30,4 @@ class Nav extends Component {
   }
 }
 
-export default hot(Nav);
+export default hot(injectIntl(Nav));

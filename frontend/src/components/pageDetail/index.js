@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import { Helmet } from 'react-helmet';
@@ -15,25 +15,21 @@ function FormattedMessageFixed(props) {
   return <FormattedMessage {...props} />;
 }
 
-export default class ContentItemDetail extends Component {
+class ContentItemDetail extends Component {
   render() {
     const { title, slug, content, helmet, background } = this.props;
     let pageContent = Parser(decode(content.replace(/"'|'"/g, '"'))); // fixing bad quotes that were breaking links
 
     if (slug == 'quiz') {
-      const currPath = window.location.pathname;
-      let language = currPath.includes('/es/') ? 'es' : 'en';
-      console.log(language);
-
       pageContent = (
         <div
           className='column is-full'
           style={{ height: '500px', position: 'relative' }}
         >
           <ReactTypeformEmbed
-            buttonText={language === 'es' ? 'Empezar' : 'Start'}
+            buttonText={this.props.intl.locale === 'es' ? 'Empezar' : 'Start'}
             url={
-              language === 'es'
+              this.props.intl.locale === 'es'
                 ? 'https://starlyn.typeform.com/to/UFJDYa'
                 : 'https://starlyn.typeform.com/to/WdZTNE'
             }
@@ -77,3 +73,5 @@ export default class ContentItemDetail extends Component {
     );
   }
 }
+
+export default injectIntl(ContentItemDetail);
