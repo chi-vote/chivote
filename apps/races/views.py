@@ -16,9 +16,39 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class RaceDetailView(BuildableDetailView):
+class RaceDetailView(RenderReactMixin, BuildableDetailView):
     model = Race
-    template_name = 'base_react.html'
+    template_name = 'base_rendered.html'
+    react_component = 'raceDetail'
+
+    def get_react_props(self):
+        from apps.newsfeed.models import CandidateStance, Issue
+        
+        curr_section = self.kwargs.get('section', None)
+        issues = Issue.objects.all().order_by('issue_order')
+        stances = CandidateStance.objects.filter(
+            candidate__race=self.object).order_by('-date')
+        race_obj = {
+            'id': self.object.pk,
+            'office': self.object.__str__(),
+        }
+        description = mark_safe(self.object.explainer)
+        candidates = self.object.candidates.all().exclude(status='inactive')
+        
+        return {
+                'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),
+                'feed': curr_section,
+                'data': {
+                    'issues': serializers.serialize('json', issues),
+                    'stances': serializers.serialize('json', stances),
+                    'articles': self.get_articles(),
+                    'office': json.dumps(race_obj),
+                    'description': description,
+                    'slug': self.object.slug,
+                    'documenters_slug': self.object.documenters_slug,
+                },
+                'candidates': serializers.serialize('json', candidates)
+            }
 
     def get_articles(self):
         articles_queryset = self.object.tagged_articles.filter(
@@ -62,7 +92,7 @@ class RaceDetailView(BuildableDetailView):
 
         react_dict = {
             'absolute_url': self.get_object().get_absolute_url(),
-            'component': 'raceDetail',
+            # 'component': 'raceDetail',
             'props': {
                 'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),
                 'feed': curr_section,

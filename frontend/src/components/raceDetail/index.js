@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { slide as SlideView } from 'react-burger-menu';
 import CandidateView from './CandidateView';
 import { ArticleFeed, CandidateFeed, EventFeed, StanceFeed } from './feeds';
@@ -11,7 +11,7 @@ function FormattedMessageFixed(props) {
   return <FormattedMessage {...props} />;
 }
 
-export default class RaceDetail extends Component {
+class RaceDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -148,8 +148,9 @@ export default class RaceDetail extends Component {
   render() {
     const { description, office, slug } = this.props.data;
     const officeName = JSON.parse(office).office;
-    const currPath = window.location.pathname;
-    const currPage = currPath.split(slug)[0] + slug + '/';
+    // const currPath = window.location.pathname;
+    // const currPage = currPath.split(slug)[0] + slug + '/';
+    const currPage = '/';
 
     return (
       <>
@@ -185,3 +186,5 @@ export default class RaceDetail extends Component {
     );
   }
 }
+
+export default injectIntl(RaceDetail);

@@ -30,15 +30,13 @@ var server = http.Server(app);
 
 var render = require('./bundles/server/main.js').default;
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '50mb' }));
 
 app.get('/', function(req, res) {
   res.end('React render server');
 });
 
 app.post('/render', function(req, res) {
-  console.log(req.body);
-
   const page = req.body.page;
   const props = JSON.parse(req.body.serializedProps);
   const html = render(page, props);

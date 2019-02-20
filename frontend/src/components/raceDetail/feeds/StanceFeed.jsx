@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
-import ScrollMenu from 'react-horizontal-scrolling-menu';
+// import ScrollMenu from 'react-horizontal-scrolling-menu';
 import { parseHtml, ReadMoreReact, slugify } from 'Components/utils';
 import StanceItems from './StanceItems';
 
@@ -64,15 +64,15 @@ const StanceFeed = props => {
     );
   });
 
-  const issue_labels = (
-    <div className='issues-menu'>
-      <ScrollMenu
-        data={menu}
-        arrowLeft={<span className='menu-arrow'>←</span>}
-        arrowRight={<span className='menu-arrow'>→</span>}
-      />
-    </div>
-  );
+  // const issue_labels = (
+  //   <div className='issues-menu'>
+  //     <ScrollMenu
+  //       data={menu}
+  //       arrowLeft={<span className='menu-arrow'>←</span>}
+  //       arrowRight={<span className='menu-arrow'>→</span>}
+  //     />
+  //   </div>
+  // );
 
   return (
     <section id='the-stances'>
