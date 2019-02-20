@@ -1,0 +1,230 @@
+ID,CBOE_ID,CndNme,Office,Incumbent_Challenger,Committee_ID,Committee_Name,Committee_Type
+1,36,"PROCO ""JOE"" MORENO",1st,Incumbent,20809,Friends for Proco Joe Moreno,Candidate Committee
+2,36,"PROCO ""JOE"" MORENO",1st,Incumbent,33944,1st Ward First Inc.,PAC
+3,36,"PROCO ""JOE"" MORENO",1st,Incumbent,33914,1st Ward Independent Democratic Party Committee,Ward Committee
+4,64,DANIEL LA SPATA,1st,Challenger,34616,Neighbors for Daniel La Spata,Candidate Committee
+5,85,BRIAN HOPKINS,2nd,Incumbent,25653,Hopkins for Chicago,Candidate Committee
+6,114,"PATRICIA ""PAT"" DOWELL",3rd,Incumbent,16892,Citizens for Pat Dowell,Candidate Committee
+7,119,ALEXANDRIA WILLIS,3rd,Challenger,34745,Friends of Alexandria,Candidate Committee
+8,72,EBONY D. LUCAS,4th,Challenger,32094,Committee to Elect Ebony Lucas,Candidate Committee
+9,98,SOPHIA KING,4th,Incumbent,32052,Friends of Sophia King,Candidate Committee
+10,81,LESLIE A. HAIRSTON,5th,Incumbent,14216,Friends of Leslie A Hairston,Candidate Committee
+11,81,LESLIE A. HAIRSTON,5th,Incumbent,14992,Fifth Ward Regular Democratic Org,Ward Committee
+12,168,WILLIAM CALLOWAY,5th,Challenger,35100,Friends for William Calloway,Candidate Committee
+13,209,GABRIEL PIEMONTE,5th,Challenger,34236,Committee to Elect Gabriel Piemonte,Candidate Committee
+14,93,RODERICK T. SAWYER,6th,Incumbent,22875,Friends of Roderick T Sawyer,Candidate Committee
+15,93,RODERICK T. SAWYER,6th,Incumbent,24149,6th Ward Democratic Org,Ward Committee
+16,152,RICHARD A. WOOTEN,6th,Challenger,23114,Citizens to Elect Richard A. Wooten,Candidate Committee
+17,185,DEBORAH A. FOSTER-BONNER,6th,Challenger,34920,Friends of Deborah Foster-Bonner,Candidate Committee
+18,97,GREGORY I. MITCHELL,7th,Incumbent,22816,Friends of Greg Mitchell,Candidate Committee
+19,97,GREGORY I. MITCHELL,7th,Incumbent,32869,7th Ward New Democratic Organization,Ward Committee
+20,125,CHARLES KYLE,7th,Challenger,34847,Friends for Charles Kyle,Candidate Committee
+21,203,JEDIDIAH L. BROWN,7th,Challenger,34744,People with Jedidiah Brown,Candidate Committee
+22,69,MICHELLE A. HARRIS,8th,Incumbent,20016,Friends of Michelle A Harris,Candidate Committee
+23,69,MICHELLE A. HARRIS,8th,Incumbent,553,8th Ward Regular Democratic Org,Ward Committee
+24,124,JEWEL R. EASTERLING-SMITH,8th,Challenger,35118,Friends of Jewel,Candidate Committee
+25,138,LINDA HUDSON,8th,Challenger,34538,Friends of Linda Hudson,Candidate Committee
+26,141,FAHEEM SHABAZZ,8th,Challenger,NULL,NULL,NULL
+27,22,CLEOPATRA WATSON,9th,Challenger,34842,Community for Cleopatra,Candidate Committee
+28,99,ANTHONY A. BEALE,9th,Incumbent,14556,Citizens to Elect Anthony Beale,Candidate Committee
+29,190,ESSIE HALL,9th,Challenger,35080,Citizens for Essie Hall,Candidate Committee
+30,202,PAUL COLLINS,9th,Challenger,34740,Friends of Paul Collins,Candidate Committee
+31,63,"ROBERT ""BOBBY"" LONCAR",10th,Challenger,34624,Friends of Bobby Loncar,Candidate Committee
+32,77,SUSAN SADLOWSKI GARZA,10th,Incumbent,26168,Friends of Susan Sadlowski Garza,Candidate Committee
+33,77,SUSAN SADLOWSKI GARZA,10th,Incumbent,31825,10th Ward Democratic Organization,Ward Committee
+34,30,PATRICK DALEY THOMPSON,11th,Incumbent,26197,Friends of Patrick D Thompson,Candidate Committee
+35,102,DAVID MIHALYFY,11th,Challenger,34175,Friends of Mihalyfy,Candidate Committee
+36,4,GEORGE CARDENAS,12th,Incumbent,17290,Friends of George A Cardenas,Candidate Committee
+37,217,PETE DEMAY,12th,Challenger,26105,Friends of Pete DeMay,Candidate Committee
+38,222,JOSE RICO,12th,Challenger,34730,Neighbors for Jose Rico,Candidate Committee
+39,229,MARTHA YERANIA RANGEL,12th,Challenger,35040,Friends of Martha Rangel,Candidate Committee
+40,10,MARTY QUINN,13th,Incumbent,23282,Citizens for Marty Quinn,Candidate Committee
+41,121,DAVID J. KRUPA,13th,Challenger,34752,Help Krupa Make A Difference,Candidate Committee
+42,19,EDWARD M. BURKE,14th,Incumbent,4410,Friends of Edward M. Burke,Candidate Committee
+43,19,EDWARD M. BURKE,14th,Incumbent,499,14th Ward Regular Democratic Org,Ward Committee
+44,19,EDWARD M. BURKE,14th,Incumbent,16891,The Burnham Committee,PAC
+45,150,JAIME GUZMAN,14th,Challenger,34815,Friends of Jaime Guzman,Candidate Committee
+46,232,TANYA G. PATINO,14th,Challenger,34969,Friends of Tania Patino,Candidate Committee
+47,12,JOSEPH G. WILLIAMS,15th,Challenger,34864,Joseph G Williams for 15th Ward Alderman,Candidate Committee
+48,20,BERTO AGUAYO,15th,Challenger,34700,Friends of Berto Aguayo,Candidate Committee
+49,45,RAYMOND A. LOPEZ,15th,Incumbent,23079,Friends of Raymond A Lopez,Candidate Committee
+50,45,RAYMOND A. LOPEZ,15th,Incumbent,24324,15th Ward Regular Democratic Org,Ward Committee
+51,65,"RAFAEL ""RAFA"" YANEZ",15th,Challenger,25892,Friends for Rafael Yanez,Candidate Committee
+52,206,"OTIS DAVIS, JR.",15th,Challenger,35029,Friends of Otis Davis Jr for Alderman,Candidate Committee
+53,8,STEPHANIE D. COLEMAN,16th,Challenger,34374,Friends of Stephanie Coleman,Candidate Committee
+54,8,STEPHANIE D. COLEMAN,16th,Challenger,34087,16th Ward Democratic Organization,Ward Committee
+55,16,KENNY C. DOSS II,16th,Challenger,34701,Citizens for Kenny Doss II,Candidate Committee
+56,39,LATASHA M. SANDERS,16th,Challenger,35031,Friends of Latasha Sanders,Candidate Committee
+57,48,TONI L. FOULKES,16th,Incumbent,20107,Friends to Elect Toni L Foulkes,Candidate Committee
+58,48,TONI L. FOULKES,16th,Incumbent,22910,16th Ward Democratic Club of Chicago,Ward Committee
+59,103,JEFFREY L. LEWIS,16th,Challenger,20242,Jeffrey L. Lewis Campaign Committee,Candidate Committee
+60,231,EDDIE JOHNSON III,16th,Challenger,31950,Friends of Eddie Johnson III,Candidate Committee
+61,2,DAVID H. MOORE,17th,Incumbent,23127,Citizens to Elect David Moore,Candidate Committee
+62,2,DAVID H. MOORE,17th,Incumbent,34422,Seventeenth Ward Democratic Organization,Ward Committee
+63,110,RAYNETTA GREENLEAF,17th,Challenger,35006,Citizens for Raynetta Greenleaf,Candidate Committee
+64,92,CHUKS ONYEZIA,18th,Challenger,22702,Committee to Elect Chuks Onyezia,Candidate Committee
+65,112,DERRICK G. CURTIS,18th,Incumbent,26217,Citizens to Elect Derrick G Curtis,Candidate Committee
+66,112,DERRICK G. CURTIS,18th,Incumbent,12078,18th Ward Democratic Org,Ward Committee
+67,51,MATTHEW J. O'SHEA,19th,Incumbent,22919,Friends of Matt O'Shea,Candidate Committee
+68,51,MATTHEW J. O'SHEA,19th,Incumbent,376,19th Ward Democratic Org,Ward Committee
+69,136,DAVID A. DEWAR,19th,Challenger,NULL,NULL,NULL
+70,31,NICOLE J. JOHNSON,20th,Neither,34452,Friends of Nicole J. Johnson,Candidate Committee
+71,79,JEANETTE B TAYLOR,20th,Neither,34336,Friends for Jeanette B Taylor,Candidate Committee
+72,131,MAYA HODARI,20th,Neither,34821,Friends of Maya Hodari for Alderman,Candidate Committee
+73,146,JENNIFER O. MADDOX,20th,Neither,35047,Friends To Elect Jennifer Maddox,Candidate Committee
+74,183,KEVIN M. BAILEY,20th,Neither,26034,Citizens to Elect Kevin Bailey,Candidate Committee
+75,183,KEVIN M. BAILEY,20th,Neither,34349,20th Ward Democratic Organization,Ward Committee
+76,191,"ANTHONY DRIVER, JR.",20th,Neither,34553,"Citizens to Support Anthony Driver, Jr",Candidate Committee
+77,194,DERNARD D. NEWELL,20th,Neither,NULL,NULL,NULL
+78,196,ANDRE SMITH,20th,Neither,34655,The Friends Of Andre Smith,Candidate Committee
+79,211,QUANDRA V. SPEIGHTS,20th,Neither,34795,Citizens to Elect Quandra Speights,Candidate Committee
+80,75,"HOWARD B. BROOKINS, JR.",21st,Incumbent,20626,"Friends of Howard B Brookins, Jr",Candidate Committee
+81,75,"HOWARD B. BROOKINS, JR.",21st,Incumbent,18004,21 Chicago,Ward Committee
+82,75,"HOWARD B. BROOKINS, JR.",21st,Incumbent,17003,"Cmte to Elect Howard B Brookins, Jr",Related Candidate Committee
+83,143,MARVIN MCNEIL,21st,Challenger,34972,Friends for Marvin McNeil,Candidate Committee
+84,188,PATRICIA A. FOSTER,21st,Challenger,23077,Committee to Elect Patricia A. Foster,Candidate Committee
+85,235,"JOSEPH C. ZIEGLER, JR.",21st,Challenger,20053,Friends of Joseph C. Ziegler Jr.,Candidate Committee
+86,60,"LISETTE ""LIZ"" LOPEZ",22nd,Challenger,34715,Friends for Lisette Lopez,Candidate Committee
+87,95,RICHARD JUAREZ,22nd,Neither,34775,Friends of Juarez,Candidate Committee
+88,101,NEFTALIE GONZALEZ,22nd,Neither,NULL,NULL,NULL
+89,109,MICHAEL D. RODRIGUEZ,22nd,Neither,31905,Friends of Michael D Rodriguez,Candidate Committee
+90,109,MICHAEL D. RODRIGUEZ,22nd,Neither,34415,22nd Ward Independent Political Organization,Ward Committee
+91,32,SILVANA TABARES,23rd,Incumbent,23775,Friends of Tabares,Candidate Committee
+92,120,"PAULINO R. VILLARREAL, JR.",23rd,Challenger,34586,Friends For Paul Villarreal,Candidate Committee
+93,5,CREATIVE SCOTT,24th,Challenger,34895,Friends of Creative Scott,Candidate Committee
+94,41,"MICHAEL  SCOTT, JR.",24th,Incumbent,26204,Citizens for Alderman Michael Scott Jr,Candidate Committee
+95,41,"MICHAEL  SCOTT, JR.",24th,Incumbent,32090,24th Ward Democratic Organization,Ward Committee
+96,41,"MICHAEL  SCOTT, JR.",24th,Incumbent,31672,Friends for Committeeman Scott,Related Candidate Committee
+97,147,TORIANO A. SANZONE,24th,Challenger,NULL,NULL,NULL
+98,199,"TRACI ""TREASURE"" JOHNSON",24th,Challenger,NULL,NULL,NULL
+99,59,AIDA FLORES,25th,Neither,34777,Community For Aida Flores,Candidate Committee
+100,68,BYRON SIGCHO-LOPEZ,25th,Neither,25956,Friends of Byron Sigcho-Lopez,Candidate Committee
+101,73,TROY ANTONIO HERNANDEZ,25th,Neither,34765,Troy Hernandez and Friends,Candidate Committee
+102,78,"ALEXANDER ""ALEX"" ACEVEDO",25th,Neither,31676,Citizens for Alex Acevedo,Candidate Committee
+103,80,HILARIO DOMINGUEZ,25th,Neither,34651,Neighbors for Hilario Dominguez,Candidate Committee
+104,80,HILARIO DOMINGUEZ,25th,Neither,34652,Unite 25,PAC
+105,33,ROBERTO MALDONADO,26th,Incumbent,9533,Citizens for Maldonado,Candidate Committee
+106,33,ROBERTO MALDONADO,26th,Incumbent,15492,The 26th Ward Democratic Organization,Ward Committee
+107,107,THERESA SIAW,26th,Challenger,34643,Friends of Theresa Siaw,Candidate Committee
+108,193,DAVID HERRERA,26th,Challenger,34898,Friends for David Herrera,Candidate Committee
+109,28,"WALTER BURNETT, JR.",27th,Incumbent,10591,"Friends of Walter Burnett, Jr",Candidate Committee
+110,28,"WALTER BURNETT, JR.",27th,Incumbent,12214,27th Ward Reg Democratic Org,Ward Committee
+111,186,CYNTHIA D. BEDNARZ,27th,Challenger,34910,Citizens for Cynthia Bednarz,Candidate Committee
+112,46,MIGUEL BAUTISTA,28th,Challenger,34618,Friends for Miguel Bautista,Candidate Committee
+113,70,JASON C. ERVIN,28th,Incumbent,23112,Citizens for Ervin,Candidate Committee
+114,70,JASON C. ERVIN,28th,Incumbent,24663,28th Ward Democratic Organization,Ward Committee
+115,70,JASON C. ERVIN,28th,Incumbent,31983,Ervin for Committeeman,Related Candidate Committee
+116,128,JASMINE JACKSON,28th,Challenger,26160,Friends to Elect Jasmine Jackson,Candidate Committee
+117,204,BEVERLY MILES,28th,Challenger,34939,Beverly Miles for Alderman 28th Ward,Candidate Committee
+118,21,DWAYNE TRUSS,29th,Challenger,34570,Friends of Dwayne Truss,Candidate Committee
+119,71,CHRIS TALIAFERRO,29th,Incumbent,25937,Friends of Chris Taliaferro,Candidate Committee
+120,71,CHRIS TALIAFERRO,29th,Incumbent,32197,29th Ward Democratic Organization,Ward Committee
+121,201,ZERLINA A. SMITH,29th,Challenger,34793,Friends for Zerlina A. Smith,Candidate Committee
+122,9,ARIEL E. REBOYRAS,30th,Incumbent,17163,Citizens for Ariel E Reboyras,Candidate Committee
+123,9,ARIEL E. REBOYRAS,30th,Incumbent,18128,30th Ward Regular Democratic Organization,Ward Committee
+124,42,JESSICA W. GUTIERREZ,30th,Challenger,34572,Gutierrez For The New 30th Ward,Candidate Committee
+125,42,JESSICA W. GUTIERREZ,30th,Challenger,34748,Puerto Rican Political Action Committee,PAC
+126,149,"EDGAR ""EDEK"" ESPARZA",30th,Challenger,34622,"Friends of Edgar ""Edek"" Esparza",Candidate Committee
+127,29,FELIX CARDONA JR.,31st,Challenger,34692,Citizens to Elect Felix Cardona Jr,Candidate Committee
+128,57,"MILAGROS ""MILLY"" SANTIAGO",31st,Incumbent,26162,Friends of Milly Santiago,Candidate Committee
+129,108,COLIN BIRD-MARTINEZ,31st,Challenger,34574,Colin for Chicago,Candidate Committee
+130,122,SCOTT WAGUESPACK,32nd,Incumbent,19898,Citizens for Waguespack,Candidate Committee
+131,122,SCOTT WAGUESPACK,32nd,Incumbent,34362,Friends of 32,Ward Committee
+132,23,ROSSANA RODRIGUEZ SANCHEZ,33rd,Challenger,34611,People for Rossana,Candidate Committee
+133,23,ROSSANA RODRIGUEZ SANCHEZ,33rd,Challenger,32880,Chicago Working Families,PAC
+134,27,DEBORAH L. MELL,33rd,Incumbent,20627,Citizens for Deb Mell,Candidate Committee
+135,94,KATIE SIERACKI,33rd,Challenger,34584,Friends of Katie Sieracki,Candidate Committee
+136,3,CARRIE M. AUSTIN,34th,Incumbent,11884,Citizens for Carrie M Austin-Alderman 34th Ward,Candidate Committee
+137,3,CARRIE M. AUSTIN,34th,Incumbent,197,34th Ward Regular Democratic Org,Ward Committee
+138,148,PRESTON BROWN JR,34th,Challenger,35055,"Friends of Preston Brown, Jr",Candidate Committee
+139,38,AMANDA YU DIETERICH,35th,Challenger,34679,Amanda for 35,Candidate Committee
+140,66,CARLOS  RAMIREZ-ROSA,35th,Incumbent,26021,Carlos for Chicago,Candidate Committee
+141,66,CARLOS  RAMIREZ-ROSA,35th,Incumbent,31636,United Neighbors of the 35th Ward,PAC
+142,61,GILBERT VILLEGAS,36th,Incumbent,26023,Friends of Gilbert Villegas,Candidate Committee
+143,61,GILBERT VILLEGAS,36th,Incumbent,32184,36th Ward Democratic Committeeman,Ward Committee
+144,61,GILBERT VILLEGAS,36th,Incumbent,32062,36th Ward PAC,PAC
+145,6,EMMA M. MITTS,37th,Incumbent,15622,Citizens to Elect Emma Mitts,Candidate Committee
+146,6,EMMA M. MITTS,37th,Incumbent,18118,The New 37th Ward Democratic Org,Ward Committee
+147,184,TARA STAMPS,37th,Challenger,35146,Friends of Tara Stamps,Candidate Committee
+148,207,DEONDRE RUTUES,37th,Challenger,NULL,NULL,NULL
+149,115,NICHOLAS SPOSATO,38th,Incumbent,19830,Friends of Nicholas Sposato,Candidate Committee
+150,90,"SAMANTHA ""SAM"" NUGENT",39th,Challenger,34569,Friends of Samantha Nugent,Candidate Committee
+151,104,ROBERT MURPHY,39th,Neither,26155,Neighbors for Robert Murphy,Candidate Committee
+152,104,ROBERT MURPHY,39th,Neither,32128,39th Ward Democratic Organization,Ward Committee
+153,181,JOE DUPLECHIN,39th,Neither,34866,Friends of Joe Duplechin,Candidate Committee
+154,233,CASEY SMAGALA,39th,Neither,34481,Friends of Casey Smagala,Candidate Committee
+155,43,PATRICK J. O'CONNOR,40th,Incumbent,4353,Citizens for Patrick O'Connor,Candidate Committee
+156,89,DIANNE DALEIDEN,40th,Challenger,25940,Dianne4Ward40,Candidate Committee
+157,96,ANDRE VASQUEZ,40th,Challenger,34524,Neighbors for Andre,Candidate Committee
+158,106,UGO OKERE,40th,Challenger,34335,The People for Ugo Okere,Candidate Committee
+159,130,MAGGIE O'KEEFE,40th,Challenger,34409,Friends of Maggie O'Keefe,Candidate Committee
+160,49,ANTHONY V. NAPOLITANO,41st,Incumbent,26028,Friends of Anthony Napolitano,Candidate Committee
+161,50,TIM HENEGHAN,41st,Challenger,31707,Citizens for Tim Heneghan,Candidate Committee
+162,50,TIM HENEGHAN,41st,Challenger,32098,41st Ward Regular Democratc Organization,Ward Committee
+163,17,BRENDAN REILLY,42nd,Incumbent,19263,Citizens for Alderman Reilly,Candidate Committee
+164,17,BRENDAN REILLY,42nd,Incumbent,25117,42nd Ward Democratic Org,Ward Committee
+165,56,MICHELE SMITH,43rd,Incumbent,19682,Friends of Michele Smith,Candidate Committee
+166,56,MICHELE SMITH,43rd,Incumbent,23895,Michele Smith for Committeeman,Related Candidate Committee
+167,58,DEREK LINDBLOM,43rd,Challenger,34579,Friends of Derek Lindblom,Candidate Committee
+168,87,LESLIE FOX,43rd,Challenger,34729,FoxFor43,Candidate Committee
+169,116,JACOB RINGER,43rd,Challenger,34364,Jacob Ringer for Results,Candidate Committee
+170,173,REBECCA JANOWITZ,43rd,Challenger,34832,Friends of Rebecca Janowitz,Candidate Committee
+171,237,STEVEN MCCLELLAN,43rd,Challenger,27256,Friends of Steven McClellan,Candidate Committee
+172,26,TOM TUNNEY,44th,Incumbent,17150,Citizens for Tunney,Candidate Committee
+173,26,TOM TUNNEY,44th,Incumbent,468,44th Ward Regular Democratic Org,Ward Committee
+174,52,AUSTIN BAIDAS,44th,Challenger,34833,Friends of Austin Baidas,Candidate Committee
+175,176,ELIZABETH SHYDLOWSKI,44th,Challenger,34923,Neighbors for Shydlowski,Candidate Committee
+176,34,"JAMES ""JIM"" GARDINER",45th,Challenger,34894,Friends to Elect Jim Gardiner,Candidate Committee
+177,40,MARILYN MORALES,45th,Challenger,34697,Marilyn for 45th,Candidate Committee
+178,67,JOHN S. ARENA,45th,Incumbent,22749,Citizens to Elect John Arena,Candidate Committee
+179,67,JOHN S. ARENA,45th,Incumbent,24368,Friends of 45,Ward Committee
+180,180,ROBERT A. BANK,45th,Challenger,34736,Bob Bank for Alderman,Candidate Committee
+181,25,MARIANNE LALONDE,46th,Challenger,34575,Friends of Marianne Lalonde,Candidate Committee
+182,47,ERIKA WOZNIAK FRANCIS,46th,Challenger,34563,Friends of Erika Wozniak,Candidate Committee
+183,55,JAMES CAPPLEMAN,46th,Incumbent,19747,Citizens for Cappleman,Candidate Committee
+184,55,JAMES CAPPLEMAN,46th,Incumbent,34688,46th Ward Democrats Committee,Ward Committee
+185,91,JUSTIN KREINDLER,46th,Challenger,34678,Friends of Justin Kreindler,Candidate Committee
+186,198,ANGELA CLAY,46th,Challenger,35096,Neighbors for Angela Clay,Candidate Committee
+187,212,JON-ROBERT MCDOWELL,46th,Challenger,34741,People For Jon-Robert McDowell,Candidate Committee
+188,53,MICHAEL A. NEGRON,47th,Neither,34500,Friends of Michael Negron,Candidate Committee
+189,54,HEATHER WAY KITZES,47th,Neither,34704,Friends of Heather Way Kitzes,Candidate Committee
+190,76,"ANGELA ""ANGIE"" MALONEY",47th,Neither,34707,Friends of Angie Maloney,Candidate Committee
+191,82,MATT MARTIN,47th,Neither,34345,Friends of Matt Martin,Candidate Committee
+192,86,EILEEN DORDEK,47th,Neither,34420,Friends of Eileen Dordek,Candidate Committee
+193,113,GUS KATSAFAROS,47th,Neither,34343,Friends of Gus Katsafaros,Candidate Committee
+194,117,THOMAS M. SCHWARTZERS,47th,Neither,34641,Friends of Thomas M Schwartzers,Candidate Committee
+195,177,JEFF JENKINS,47th,Neither,34603,Friends of Jeff Jenkins,Candidate Committee
+196,200,KIMBALL LADIEN,47th,Neither,NULL,NULL,NULL
+197,100,HARRY OSTERMAN,48th,Incumbent,22976,Neighbors for Harry Osterman,Candidate Committee
+198,182,DAVID EARL WILLIAMS III,48th,Challenger,34742,Dew III For Politics,Candidate Committee
+199,37,MARIA HADDEN,49th,Challenger,34202,Maria for the 49th Ward,Candidate Committee
+200,88,JOE MOORE,49th,Incumbent,6380,Citizens for Joe Moore,Candidate Committee
+201,88,JOE MOORE,49th,Incumbent,10132,Democratic Party of the 49th Ward,Ward Committee
+202,62,DEBRA L. SILVERSTEIN,50th,Incumbent,22982,Friends for Debra Silverstein,Candidate Committee
+203,62,DEBRA L. SILVERSTEIN,50th,Incumbent,21125,50th Ward Regular Democratic Organization,Ward Committee
+204,111,ANDREW D ROWLAS,50th,Challenger,34719,Rowlas For Ward 50,Candidate Committee
+205,195,ZEHRA QUADRI,50th,Challenger,34274,Zehra For 50th Ward,Candidate Committee
+206,11,ANNA M. VALENCIA,Clerk,Incumbent,32443,Friends for Anna Valencia,Candidate Committee
+207,1,WILLIE L. WILSON,Mayor,Neither,34509,Willie Wilson for Mayor,Candidate Committee
+208,7,TONI PRECKWINKLE,Mayor,Neither,34822,Toni for Chicago,Candidate Committee
+209,7,TONI PRECKWINKLE,Mayor,Neither,21644,Preckwinkle for President,Related Candidate Committee
+210,7,TONI PRECKWINKLE,Mayor,Neither,8766,4th Ward Democratic Org,Ward Committee
+211,13,PAUL VALLAS,Mayor,Neither,34518,Paul Vallas for Chicago,Candidate Committee
+212,18,JERRY JOYCE,Mayor,Neither,34762,Friends of Jerry Joyce,Candidate Committee
+213,129,WILLIAM M. DALEY,Mayor,Neither,34808,Bill Daley For Mayor,Candidate Committee
+214,133,GARRY MCCARTHY,Mayor,Neither,34090,GMFM-Garry McCarthy For Mayor,Candidate Committee
+215,134,GERY CHICO,Mayor,Neither,22977,Gery Chico for Mayor,Candidate Committee
+216,158,AMARA ENYIA,Mayor,Neither,25819,Friends of Amara Enyia,Candidate Committee
+217,159,SUSANA A. MENDOZA,Mayor,Neither,34953,Susana Mendoza For Mayor,Candidate Committee
+218,159,SUSANA A. MENDOZA,Mayor,Neither,18308,Friends for Susana Mendoza For Comptroller,Related Candidate Committee
+219,167,LA SHAWN K. FORD,Mayor,Neither,34976,Friends of Ford for Chicago,Candidate Committee
+220,167,LA SHAWN K. FORD,Mayor,Neither,14021,Citizens to Elect LaShawn K Ford State Representative,Related Candidate Committee
+221,170,NEAL SALES-GRIFFIN,Mayor,Neither,34279,Neal Sales Griffin for Chicago,Candidate Committee
+222,175,LORI LIGHTFOOT,Mayor,Neither,34589,Lightfoot for Chicago,Candidate Committee
+223,220,"ROBERT ""BOB"" FIORETTI",Mayor,Neither,21102,Friends of Bob Fioretti,Candidate Committee
+224,224,JOHN KENNETH KOZLAR,Mayor,Neither,34677,Supporters of John K Kozlar for a Better Chicago,Candidate Committee
+225,74,MELISSA CONYEARS-ERVIN,Treasurer,Neither,34975,Melissa for Chicago,Candidate Committee
+226,74,MELISSA CONYEARS-ERVIN,Treasurer,Neither,31984,Citizens for Conyears Ervin,Related Candidate Committee
+227,172,PETER GARIEPY,Treasurer,Neither,32882,Friends of Peter Gariepy,Candidate Committee
+228,179,AMEYA PAWAR,Treasurer,Neither,34945,Pawar for Chicago,Candidate Committee
+229,179,AMEYA PAWAR,Treasurer,Neither,23607,Friends of Ameya Pawar,Related Candidate Committee
