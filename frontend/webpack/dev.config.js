@@ -29,6 +29,14 @@ const devConfig = merge(baseConfig, {
       'Access-Control-Allow-Origin': '*'
     },
     port: 3000
+  },
+  module: {
+    rules: [
+      {
+        test: /\.s?css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+      }
+    ]
   }
 });
 

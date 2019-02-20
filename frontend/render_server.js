@@ -37,9 +37,11 @@ app.get('/', function(req, res) {
 });
 
 app.post('/render', function(req, res) {
+  const html = render();
+
   res.json({
     error: null,
-    markup: render()
+    markup: html
   });
   // reactRender(req.body, function(err, markup) {
   //   if (err) {

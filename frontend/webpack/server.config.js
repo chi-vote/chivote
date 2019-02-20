@@ -7,11 +7,15 @@ const baseConfig = require('./base.config');
 
 const serverConfig = merge(baseConfig, {
   target: 'node',
+  mode: 'development',
   entry: './src/render.js',
   output: {
     path: path.resolve(__dirname, '../bundles/server'),
     library: 'render',
     libraryTarget: 'umd'
+  },
+  externals: {
+    react: 'react'
   },
   plugins: [
     new BundleTracker({
@@ -20,7 +24,10 @@ const serverConfig = merge(baseConfig, {
     new CleanWebpackPlugin(path.resolve(__dirname, '../bundles/server'), {
       root: path.resolve(__dirname, '..')
     })
-  ]
+  ],
+  module: {
+    rules: [{ test: /\.s?css$/, use: 'ignore-loader' }]
+  }
 });
 
 module.exports = serverConfig;

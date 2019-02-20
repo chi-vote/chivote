@@ -19,7 +19,15 @@ const prodConfig = merge(baseConfig, {
     new CleanWebpackPlugin(path.resolve(__dirname, '../bundles/prod'), {
       root: path.resolve(__dirname, '..')
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.s?css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+      }
+    ]
+  }
 });
 
 module.exports = prodConfig;
