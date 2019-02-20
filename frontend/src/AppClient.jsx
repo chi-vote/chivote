@@ -2,6 +2,7 @@ import React, { Component, Suspense } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Nav, Footer } from 'Components/common';
 import 'Theme/styles/theme.scss';
+import 'Theme/styles/theme.module.scss';
 
 class App extends Component {
   render() {

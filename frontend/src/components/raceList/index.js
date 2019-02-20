@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Breadcrumb, List, Page } from 'Components/common';
-// import WardLookup from './WardLookup';
-import './styles.scss';
+import styles from './styles.module.scss';
 
 const WardButton = props => (
-  <a href={`./${props.data.id}/`} className='ward-button'>
+  <a href={`./${props.data.id}/`} className={styles.wardButton}>
     {props.data.name.match(/\d+/)}
   </a>
 );
 
+let WardLookup;
+
 class RaceList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showWardLookup: false
+    };
+  }
+
+  componentDidMount() {
+    // https://github.com/zeit/next.js/issues/219
+    WardLookup = require('./WardLookup').default;
+    this.setState({ showWardLookup: true });
+  }
+
   render() {
     const parsedRaceData = JSON.parse(this.props.data.races);
     const copyRaceData = [...parsedRaceData];
@@ -38,7 +52,7 @@ class RaceList extends Component {
 
     const otherRaces = flattenRemains.map(data => (
       <li className='column' key={data.id}>
-        <a href={`./${data.id}/`} className='ward-button'>
+        <a href={`./${data.id}/`} className={styles.wardButton}>
           {data.name}
         </a>
       </li>
@@ -70,7 +84,7 @@ class RaceList extends Component {
               defaultMessage='Choose a specific ward number to get more information and view candidates.'
             />
           </p>
-          {/* <WardLookup /> */}
+          {this.state.showWardLookup ? <WardLookup /> : null}
           <List className='columns is-mobile is-multiline'>{wardButtons}</List>
         </Page>
       </div>

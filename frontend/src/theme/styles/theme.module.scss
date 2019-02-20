@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+@import '~Theme/styles/variables';
+
+:global .page-heading {
+  color: $primary;
+}

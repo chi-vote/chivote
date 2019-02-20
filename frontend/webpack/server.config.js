@@ -24,10 +24,7 @@ const serverConfig = merge(baseConfig, {
     new BundleTracker({
       filename: './bundles/webpack-stats-server.json'
     }),
-    new CleanWebpackPlugin(path.resolve(__dirname, '../bundles/server'), {
-      root: path.resolve(__dirname, '..')
-    }),
-    new MiniCssExtractPlugin({ filename: 'theme.[hash].css' })
+    new MiniCssExtractPlugin({ filename: 'theme.css' })
   ],
   module: {
     rules: [

@@ -15,7 +15,7 @@ var fuseOptions = {
   keys: ['address']
 };
 
-export default class WardLookup extends Component {
+class WardLookup extends Component {
   state = {
     streetNo: '',
     streetAddr: '',
@@ -188,3 +188,5 @@ export default class WardLookup extends Component {
     );
   }
 }
+
+export default WardLookup;
