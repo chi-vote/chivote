@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { SiteLogo } from 'Theme/images';
-import { hot } from 'react-hot-loader/root';
 import SiteMenu from './SiteMenu';
-import './style.scss';
+import styles from './styles.module.scss';
 
 class Nav extends Component {
   render() {
     const urlRoot = this.props.intl.locale == 'es' ? '/es/' : '/';
 
     return (
-      <nav className='navbar'>
-        <a href={urlRoot} className='navbar__logo'>
+      <nav className={styles.root}>
+        <a href={urlRoot} className={styles.logo}>
           <img src={SiteLogo} alt='' />
         </a>
 
-        <div className='navbar__tagline'>
+        <div className={styles.tagline}>
           <FormattedMessage
             id='Nav.tagline'
             defaultMessage='Everything you need to vote on Feb. 26th'
           />
         </div>
 
-        <div className='navbar__menu'>
+        <div className={styles.menu}>
           <SiteMenu right />
         </div>
       </nav>
@@ -30,4 +29,4 @@ class Nav extends Component {
   }
 }
 
-export default hot(injectIntl(Nav));
+export default injectIntl(Nav);
