@@ -37,7 +37,7 @@ app.get('/', function(req, res) {
 });
 
 app.post('/render', function(req, res) {
-  const html = render();
+  const html = render('homepage', {});
 
   res.json({
     error: null,

@@ -6,10 +6,10 @@ import { Nav, Footer } from './components/common';
 
 import App from './AppServer';
 
-export default function render() {
+export default function renderPage(page, props) {
   const Component = () => (
     <IntlProvider locale='en'>
-      <App component='homepage' />
+      <App component={page} {...props} />
     </IntlProvider>
   );
 
