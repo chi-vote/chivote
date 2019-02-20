@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-13 17:30-0600\n"
+"POT-Creation-Date: 2019-02-20 14:53-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps/core/templates/base_react.html:7 apps/core/views.py:19
-msgid "images/C_2x1_Chi-vote_advert.png"
+msgid "images/C_2x1_Chi-vote_socialcard.png"
 msgstr "images/C_2x1_Chi-vote_socialcard_spanish.png"
 
 #: apps/core/views.py:17
@@ -44,10 +44,16 @@ msgstr "Contiendas para %(office)s, 2019"
 msgid "Candidate bios, related articles and more."
 msgstr "Biografías de candidatos, artículos relacionados y más."
 
-#: apps/races/views.py:172
+#: apps/races/views.py:81 apps/races/views.py:175 apps/site_content/views.py:28
+#, fuzzy
+#| msgid "images/C_2x1_Chi-vote_socialcard.png"
+msgid "images/C_2x1_Chi-vote_advert.png"
+msgstr "images/C_2x1_Chi-vote_socialcard_spanish.png"
+
+#: apps/races/views.py:173
 msgid "All 2019 Chicago races"
 msgstr "Todas las contiendas en Chicago en el 2019"
 
-#: apps/races/views.py:173
+#: apps/races/views.py:174
 msgid "Full list of Chicago races and candidates."
 msgstr "Lista completa de contiendas y candidatos"
