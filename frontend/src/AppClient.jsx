@@ -1,6 +1,5 @@
 import React, { Component, Suspense } from 'react';
 import { hot } from 'react-hot-loader/root';
-import { Nav, Footer } from 'Components/common';
 import 'Theme/styles/theme.scss';
 import 'Theme/styles/theme.module.scss';
 
@@ -13,13 +12,9 @@ class App extends Component {
     );
 
     return (
-      <>
-        <Nav />
-        <Suspense fallback={<div style={{ height: 400 }}>Loading...</div>}>
-          <PageComponent {...this.props} />
-        </Suspense>
-        <Footer />
-      </>
+      <Suspense fallback={<div style={{ height: 400 }}>Loading...</div>}>
+        <PageComponent {...this.props} />
+      </Suspense>
     );
   }
 }

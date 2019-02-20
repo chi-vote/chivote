@@ -14,7 +14,7 @@ $tagline-width: 10rem;
   width: 100%;
   z-index: auto;
 
-  + .section {
+  + :global(.section) {
     padding-top: 6rem;
   }
 }

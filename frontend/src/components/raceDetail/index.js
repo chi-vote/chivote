@@ -148,9 +148,15 @@ class RaceDetail extends Component {
   render() {
     const { description, office, slug } = this.props.data;
     const officeName = JSON.parse(office).office;
-    // const currPath = window.location.pathname;
-    // const currPage = currPath.split(slug)[0] + slug + '/';
-    const currPage = '/';
+
+    let currPage;
+
+    if (typeof window !== `undefined`) {
+      const currPath = window.location.pathname;
+      currPage = currPath.split(slug)[0] + slug + '/';
+    } else {
+      currPage = '/';
+    }
 
     return (
       <>
@@ -169,7 +175,7 @@ class RaceDetail extends Component {
           )}
         </SlideView>
 
-        <Page childClass='container page--detail'>
+        <Page childClass='container page--detail' sectionClass='race-detail'>
           <Breadcrumb activePath={currPage} activeLabel={officeName} />
           <h1 className='page-heading title is-3'>
             <FormattedMessage

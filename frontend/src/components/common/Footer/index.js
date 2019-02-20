@@ -6,7 +6,7 @@ import { manifest } from './org-logos';
 import styles from './styles.module.scss';
 
 const SectionMailchimp = props => (
-  <section className={`section mc-embed ${styles.signUp}`} id='sign-up'>
+  <section className={`mc-embed ${styles.signUp}`} id='sign-up'>
     <div className={styles.heading}>
       <FormattedMessage id='Footer.sign-up.heading' defaultMessage='Sign up' />
     </div>
@@ -15,7 +15,7 @@ const SectionMailchimp = props => (
 );
 
 const SectionEmail = props => (
-  <section className={`section ${styles.contactUs}`} id='contact-us'>
+  <section className={styles.contactUs} id='contact-us'>
     <div className={styles.heading}>
       <FormattedMessage
         id='Footer.contact-us.heading'
@@ -38,10 +38,7 @@ const SectionEmail = props => (
 );
 
 const SectionAbout = props => (
-  <footer
-    className={`section section--bottom footer ${styles.footer}`}
-    id='about-us'
-  >
+  <footer className={`${styles.footer}`} id='about-us'>
     <div className='container'>
       <div className={styles.heading}>
         <FormattedMessage
@@ -85,7 +82,7 @@ class Footer extends Component {
   render() {
     return (
       <>
-        <SectionMailchimp />
+        <SectionMailchimp key='sign-up' />
         <SectionEmail />
         <SectionAbout />
       </>

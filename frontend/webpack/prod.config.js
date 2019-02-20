@@ -26,12 +26,12 @@ const prodConfig = merge(baseConfig, {
     rules: [
       {
         test: /\.s?css$/,
-        exclude: [/theme\.s?css$/, /\.module\.s?css$/],
+        exclude: [/\.module\.s?css$/],
         use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
       },
       {
         test: /\.scss$/,
-        include: [/theme\.s?css$/, /\.module\.s?css$/],
+        include: [/\.module\.s?css$/],
         use: [
           MiniCssExtractPlugin.loader,
           {

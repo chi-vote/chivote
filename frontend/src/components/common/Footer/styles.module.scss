@@ -1,6 +1,12 @@
 @import '~Theme/styles/variables';
 
+.section {
+  color: $white;
+  padding: 3rem 1.5rem;
+}
+
 .footer {
+  composes: section;
   background-color: $dark;
   color: $white;
 
@@ -34,11 +40,6 @@
       opacity: 1;
     }
   }
-}
-
-.section {
-  color: $white;
-  padding: 3rem 1.5rem;
 }
 
 .signUp {
