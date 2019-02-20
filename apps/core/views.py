@@ -31,17 +31,29 @@ class RenderReactMixin(object):
         import json
         import requests
 
-        serialized_props = json.dumps(props)
+        try:
+            serialized_props = json.dumps(props)
 
-        render_dict = {
-            'page': page,
-            'serializedProps': serialized_props
-        }
+            render_dict = {
+                'page': page,
+                'serializedProps': serialized_props
+            }
 
-        res = requests.post('http://127.0.0.1:9009/render',
-                            json=render_dict,
-                            headers={'content_type': 'application/json'})
-        rendered_content = res.json()['markup']
+            res = requests.post('http://127.0.0.1:9009/render',
+                                json=render_dict,
+                                headers={'content_type': 'application/json'})
+            rendered_content = res.json()['markup']
+
+        except Exception as e:
+            import pprint
+
+            render_dict = {
+                'page': page,
+                'props': props
+            }
+
+            rendered_content = f'<p class="has-text-warning">{e}</p>'
+            rendered_content += f'<div class="has-text-white">{pprint.pformat(render_dict)}</div>'
 
         return rendered_content
 
