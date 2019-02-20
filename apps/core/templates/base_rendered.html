@@ -62,9 +62,13 @@
 />
 {% endblock %}
 
+
+{% block extra_styles %}
+{% render_bundle 'main' 'css' %}
+{% endblock %}
+
 {% block content %}
-<div>{{ rendered | safe }}</div>
-{# <div id="app"></div> #}
+<div id="app">{{ rendered | safe }}</div>
 
 <script>
   window.component = '{{ component }}';
@@ -72,6 +76,6 @@
   window.reactRoot = document.getElementById('app');
 </script>
 
-{% render_bundle 'main' %}
+{% render_bundle 'main' 'js' %}
 
 {% endblock %}

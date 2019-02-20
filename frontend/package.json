@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "render:compile": "webpack --watch --config webpack/server.config.js",
-    "render:watch": "nodemon --watch ./bundles/server/main.js ./render_server.js",
+    "render:watch": "nodemon --watch ./bundles/webpack-stats-server.json ./render_server.js",
     "start": "webpack-dev-server --config webpack/dev.config.js",
     "build:langs": "NODE_ENV='production' babel-node ./scripts/mergeMessages.js",
     "build": "yarn build:langs && webpack --config webpack/prod.config.js"
@@ -45,6 +45,7 @@
     "html-react-parser": "^0.6.1",
     "ignore-loader": "^0.1.2",
     "lodash": "^4.17.11",
+    "mini-css-extract-plugin": "^0.5.0",
     "moment-mini": "^2.22.1",
     "pym.js": "^1.3.2",
     "react-accessible-accordion": "^2.4.5",

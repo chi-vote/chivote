@@ -8,7 +8,9 @@ const baseConfig = require('./base.config');
 const serverConfig = merge(baseConfig, {
   target: 'node',
   mode: 'development',
-  entry: './src/render.js',
+  entry: {
+    main: './src/render.js'
+  },
   output: {
     path: path.resolve(__dirname, '../bundles/server'),
     library: 'render',
