@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "render:compile": "webpack --watch --config webpack/server.config.js",
-    "render:watch": "nodemon --watch ./bundles/server ./render_server.js",
+    "render:watch": "nodemon --watch ./bundles/server/main.js ./render_server.js",
     "start": "webpack-dev-server --config webpack/dev.config.js",
     "build:langs": "NODE_ENV='production' babel-node ./scripts/mergeMessages.js",
     "build": "yarn build:langs && webpack --config webpack/prod.config.js"

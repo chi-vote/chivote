@@ -26,7 +26,22 @@ const serverConfig = merge(baseConfig, {
     })
   ],
   module: {
-    rules: [{ test: /\.s?css$/, use: 'ignore-loader' }]
+    rules: [
+      { test: /\.s?css$/, use: 'ignore-loader' },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              emitFile: false,
+              publicPath: '/static/dist/images'
+            }
+          }
+        ]
+      }
+    ]
   }
 });
 
