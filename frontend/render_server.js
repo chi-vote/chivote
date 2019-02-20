@@ -37,7 +37,9 @@ app.get('/', function(req, res) {
 });
 
 app.post('/render', function(req, res) {
-  const html = render('homepage', {});
+  const page = req.body.page;
+  const props = JSON.parse(req.body.serializedProps);
+  const html = render(page, props);
 
   res.json({
     error: null,

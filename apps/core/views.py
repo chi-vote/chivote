@@ -25,7 +25,7 @@ class HomePageView(BuildableTemplateView):
         }
 
         context.update(react_dict)
-        context.update({"rendered": self._react_render()})
+        context.update({"rendered": self._react_render('homepage')})
 
         return context
 
@@ -44,11 +44,19 @@ class HomePageView(BuildableTemplateView):
         else:
             super(HomePageView, self).build()
 
-    def _react_render(self):
+    def _react_render(self, page, props={}):
+        import json
         import requests
 
+        serialized_props = json.dumps(props)
+
+        render_dict = {
+            'page': page,
+            'serializedProps': serialized_props
+        }
+
         res = requests.post('http://127.0.0.1:9009/render',
-                            # json=render_assets,
+                            json=render_dict,
                             headers={'content_type': 'application/json'})
         rendered_content = res.json()['markup']
 

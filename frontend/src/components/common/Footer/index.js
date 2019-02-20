@@ -53,8 +53,8 @@ const SectionAbout = props => (
         />
       </p>
       <div className='collective-logos'>
-        {['BGA', 'BCC', 'TCR', 'TDL', 'Triibe'].map(org => (
-          <a href={manifest[org].url}>
+        {['BGA', 'BCC', 'TCR', 'TDL', 'Triibe'].map((org, idx) => (
+          <a href={manifest[org].url} key={idx}>
             <img {...manifest[org].img} className='collective-logo' />
           </a>
         ))}
@@ -66,11 +66,13 @@ const SectionAbout = props => (
         />
       </p>
       <div className='collective-logos'>
-        {['Chalkbeat', 'CityBureau', 'RFI', 'SSW', 'Univision'].map(org => (
-          <a href={manifest[org].url}>
-            <img {...manifest[org].img} className='collective-logo' />
-          </a>
-        ))}
+        {['Chalkbeat', 'CityBureau', 'RFI', 'SSW', 'Univision'].map(
+          (org, idx) => (
+            <a href={manifest[org].url} key={idx}>
+              <img {...manifest[org].img} className='collective-logo' />
+            </a>
+          )
+        )}
       </div>
     </div>
   </footer>
