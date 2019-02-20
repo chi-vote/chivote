@@ -1,3 +1,3 @@
-import PageDetail from 'Components/pageDetail';
+import pageDetail from 'Components/pageDetail';
 
-export default PageDetail;
+export default pageDetail;
