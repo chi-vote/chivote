@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "render:watch": "babel-watch --watch ./src ./render_server.js",
     "start": "webpack-dev-server --config webpack/dev.config.js",
     "build:langs": "NODE_ENV='production' babel-node ./scripts/mergeMessages.js",
     "build": "yarn build:langs && webpack --config webpack/prod.config.js"
@@ -33,6 +34,7 @@
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "autotrack": "^2.4.1",
     "babel-plugin-react-intl": "^3.0.1",
+    "babel-watch": "^7.0.0",
     "bulma": "^0.7.4",
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.1.0",

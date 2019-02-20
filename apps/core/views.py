@@ -4,10 +4,14 @@ from bakery.views import BuildableTemplateView
 
 class HomePageView(BuildableTemplateView):
     """View function for home page of site."""
-    template_name = 'base_react.html'
+    template_name = 'base_rendered.html'
     build_path = 'index.html'
 
     def get_context_data(self, **kwargs):
+        from react.render import render_component
+
+        # rendered = render_component('path/to/component.jsx', {'foo': 'bar'})
+
         context = super().get_context_data(**kwargs)
 
         react_dict = {
@@ -21,6 +25,7 @@ class HomePageView(BuildableTemplateView):
         }
 
         context.update(react_dict)
+        context.update({"rendered": self._react_render()})
 
         return context
 
@@ -38,6 +43,16 @@ class HomePageView(BuildableTemplateView):
                 super(HomePageView, self).build()
         else:
             super(HomePageView, self).build()
+
+    def _react_render(self):
+        import requests
+
+        res = requests.post('http://127.0.0.1:9009/render',
+                            # json=render_assets,
+                            headers={'content_type': 'application/json'})
+        rendered_content = res.json()['markup']
+
+        return rendered_content
 
 
 class ErrorView(BuildableTemplateView):

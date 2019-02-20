@@ -3,7 +3,7 @@ const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
   context: path.resolve(__dirname, '..'),
-  entry: ['./src/index'],
+  entry: './src/client',
   module: {
     rules: [
       {
