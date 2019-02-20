@@ -13,6 +13,7 @@ import EventFeed from './EventFeed';
 import LanguageToggle from 'Components/LanguageToggle';
 
 import './style.scss';
+import FinanceFeed from './FinanceFeed';
 
 export default class RaceDetail extends Component {
   constructor(props) {
@@ -77,6 +78,12 @@ export default class RaceDetail extends Component {
       );
     } else if (this.state.feed === 'events') {
       return <EventFeed slug={this.props.data.documenters_slug} />;
+    } else if (this.state.feed === 'finances') {
+      return (
+        <FinanceFeed 
+          candidates={JSON.parse(this.props.candidates)}
+        />
+      )
     }
   };
 
@@ -218,6 +225,21 @@ export default class RaceDetail extends Component {
                   <FormattedMessage
                     id='RaceDetail.button.events'
                     defaultMessage='Events'
+                  />
+                </span>
+              </button>
+            </div>
+            <div className="control">
+              <button 
+                className="button is-rounded is-large is-finance"
+                onClick={() => this.setState({ feed: 'finances' })}>
+                <span className="icon">
+                  <i className="fa fa-lg fa-money-check-alt"></i>{' '}
+                </span>
+                <span className="button__label is-hidden-mobile">
+                  <FormattedMessage
+                    id='RaceDetail.button.finances'
+                    defaultMessage='Finances'
                   />
                 </span>
               </button>

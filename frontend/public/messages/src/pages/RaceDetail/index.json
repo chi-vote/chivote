@@ -26,5 +26,9 @@
   {
     "id": "RaceDetail.button.events",
     "defaultMessage": "Events"
+  },
+  {
+    "id": "RaceDetail.button.finances",
+    "defaultMessage": "Finances"
   }
 ]

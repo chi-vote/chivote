@@ -79,7 +79,8 @@
 #the-candidates,
 #the-articles,
 #the-stances,
-#the-events {
+#the-events,
+#the-finances {
   padding-top: 1rem;
 }
 
@@ -91,12 +92,28 @@
 .is-candidates-active .is-candidates,
 .is-articles-active .is-articles,
 .is-stances-active .is-stances,
-.is-events-active .is-events {
+.is-events-active .is-events,
+.is-finances-active .is-finances {
   background-color: #55c1e8;
   border-color: #55c1e8;
   color: white;
   cursor: default;
   pointer-events: none;
+}
+
+.table {
+  background-color: transparent;
+}
+
+.table tr {
+  background-color: #3F3F4D;
+}
+
+.table th,
+.table td {
+  border-color: $dark;
+  text-align: center;
+  padding: 1em;
 }
 
 .the-candidates__help-text {
