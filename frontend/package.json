@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "render:compile": "webpack --watch --config webpack/server.config.js",
     "render:watch": "babel-watch --watch ./src ./render_server.js",
     "start": "webpack-dev-server --config webpack/dev.config.js",
     "build:langs": "NODE_ENV='production' babel-node ./scripts/mergeMessages.js",

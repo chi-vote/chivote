@@ -28,7 +28,7 @@ var PORT = argv.port;
 var app = express();
 var server = http.Server(app);
 
-var render = require('./src/render.js').default;
+var render = require('./bundles/server/main.js').default;
 
 app.use(bodyParser.json());
 

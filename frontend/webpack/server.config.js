@@ -9,7 +9,9 @@ const serverConfig = merge(baseConfig, {
   target: 'node',
   entry: './src/render.js',
   output: {
-    path: path.resolve(__dirname, '../bundles/server')
+    path: path.resolve(__dirname, '../bundles/server'),
+    library: 'render',
+    libraryTarget: 'umd'
   },
   plugins: [
     new BundleTracker({
