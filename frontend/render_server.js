@@ -45,23 +45,6 @@ app.post('/render', function(req, res) {
     error: null,
     markup: html
   });
-  // reactRender(req.body, function(err, markup) {
-  //   if (err) {
-  //     res.json({
-  //       error: {
-  //         type: err.constructor.name,
-  //         message: err.message,
-  //         stack: err.stack
-  //       },
-  //       markup: null
-  //     });
-  //   } else {
-  //     res.json({
-  //       error: null,
-  //       markup: markup
-  //     });
-  //   }
-  // });
 });
 
 server.listen(PORT, ADDRESS, function() {

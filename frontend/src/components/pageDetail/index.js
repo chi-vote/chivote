@@ -3,7 +3,6 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import { Helmet } from 'react-helmet';
-import { ReactTypeformEmbed } from 'react-typeform-embed';
 import { Breadcrumb, Page } from 'Components/common';
 import './style.scss';
 
@@ -20,7 +19,9 @@ class ContentItemDetail extends Component {
     const { title, slug, content, helmet, background } = this.props;
     let pageContent = Parser(decode(content.replace(/"'|'"/g, '"'))); // fixing bad quotes that were breaking links
 
-    if (slug == 'quiz') {
+    if (slug == 'quiz' && typeof window !== `undefined`) {
+      var { ReactTypeformEmbed } = require('react-typeform-embed');
+
       pageContent = (
         <div
           className='column is-full'
