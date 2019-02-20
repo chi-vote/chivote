@@ -1,6 +1,6 @@
 import React from 'react';
 import { injectIntl } from 'react-intl';
-import './MailchimpEmbed.scss';
+// import './MailchimpEmbed.scss';
 
 const mailchimpHtml = locale => {
   if (locale === 'es') {
