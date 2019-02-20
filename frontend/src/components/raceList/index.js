@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Breadcrumb, List, Page } from 'Components/common';
-import WardLookup from './WardLookup';
+// import WardLookup from './WardLookup';
 import './styles.scss';
 
 const WardButton = props => (
@@ -70,7 +70,7 @@ class RaceList extends Component {
               defaultMessage='Choose a specific ward number to get more information and view candidates.'
             />
           </p>
-          <WardLookup />
+          {/* <WardLookup /> */}
           <List className='columns is-mobile is-multiline'>{wardButtons}</List>
         </Page>
       </div>

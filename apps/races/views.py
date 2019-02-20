@@ -8,6 +8,8 @@ from django.utils.translation import gettext as _
 
 from bakery.views import BuildableDetailView, BuildableListView
 
+from apps.core.views import RenderReactMixin
+
 from .models import Race
 
 import logging
@@ -142,33 +144,35 @@ class RaceDetailView(BuildableDetailView):
             self.build_all_paths(obj)
 
 
-class RaceListView(BuildableListView):
+class RaceListView(RenderReactMixin, BuildableListView):
     model = Race
-    template_name = 'base_react.html'
+    template_name = 'base_rendered.html'
     build_path = 'races/index.html'
+    react_component = 'raceList'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        raceData = self.object_list.order_by('pk')
+    def get_react_props(self):
+        race_data = self.object_list.order_by('pk')
 
         races = []
 
-        for race in raceData:
+        for race in race_data:
             races.append({
                 'name': race.__str__(),
                 'id': race.slug
             })
 
+        return {
+            'data': {
+                'races': json.dumps(list(races), cls=DjangoJSONEncoder),
+            },
+        }
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
         react_dict = {
             # 'absolute_path': self.object.get_absolute_path(),
             'absolute_url': '/races/',
-            'component': 'raceList',
-            'props': {
-                'data': {
-                    'races': json.dumps(list(races), cls=DjangoJSONEncoder),
-                },
-            },
             'meta': {
                 'title': _('All 2019 Chicago races'),
                 'description': _('Full list of Chicago races and candidates.'),

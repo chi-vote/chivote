@@ -37,6 +37,8 @@ app.get('/', function(req, res) {
 });
 
 app.post('/render', function(req, res) {
+  console.log(req.body);
+
   const page = req.body.page;
   const props = JSON.parse(req.body.serializedProps);
   const html = render(page, props);
