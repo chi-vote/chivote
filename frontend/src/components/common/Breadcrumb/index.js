@@ -44,11 +44,15 @@ class Breadcrumb extends Component {
       )
     };
 
-    const activePath = props.activePath ? props.activePath : '';
+    var activePath;
 
-    // const activePath = props.activePath
-    //   ? props.activePath
-    //   : window.location.pathname;
+    if (typeof window !== `undefined`) {
+      activePath = props.activePath
+        ? props.activePath
+        : window.location.pathname;
+    } else {
+      activePath = props.activePath ? props.activePath : '';
+    }
 
     if (props.activeLabel) {
       links[normalizePath(activePath)] = props.activeLabel;
