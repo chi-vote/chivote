@@ -46,6 +46,16 @@
     object-fit: cover;
   }
 
+  &__link {
+    color: #dbdbdb;
+    text-decoration: underline;
+    text-decoration-color: $red;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
   &.on-hover:hover {
     background: fade-out($dark-accent, 0.3);
     cursor: pointer;

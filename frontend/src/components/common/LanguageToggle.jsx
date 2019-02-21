@@ -1,12 +1,10 @@
 import React from 'react';
 import { injectIntl } from 'react-intl';
 
-const LanguageToggle = ({ intl }) => {
+const LanguageToggle = props => {
   if (typeof window !== `undefined`) {
     const currPath = window.location.pathname;
-    const currLang = intl.locale == 'es' ? 'Spanish' : 'English';
-
-    // return null; // delete this line to activate toggle button
+    const currLang = props.intl.locale == 'es' ? 'Spanish' : 'English';
 
     return (
       <button

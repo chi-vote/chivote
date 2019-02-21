@@ -29,7 +29,9 @@ const StanceItem = props => {
               <time dateTime={date}>{moment(date).format('MMM D, YYYY')}</time>
             )}
             <cite className='media-item__source'>
-              <a href={link}>{source}</a>
+              <a className='media-item__link' href={link}>
+                {source}
+              </a>
             </cite>
           </div>
           <div className='media'>

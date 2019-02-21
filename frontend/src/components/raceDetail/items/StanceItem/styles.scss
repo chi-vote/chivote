@@ -37,17 +37,6 @@ div.stance__item.list-item {
   padding-right: 24px;
 }
 
-.stance__item cite > a {
-  // color: lightsteelblue;
-  color: #dbdbdb;
-  display: block;
-  text-decoration: underline $red;
-
-  &:hover {
-    color: white;
-  }
-}
-
 .stance__item .article-item__meta {
   margin-bottom: 0.5rem;
 }

@@ -16,7 +16,7 @@ const ArticleItem = props => {
         )}
         <cite className='media-item__source'>{source}</cite>
       </div>
-      <a className='media-item__title mb-1' href={fields.link}>
+      <a className='media-item__title media-item__link mb-1' href={fields.link}>
         {fields.hed}
       </a>
       <p className='media-item__summary'>

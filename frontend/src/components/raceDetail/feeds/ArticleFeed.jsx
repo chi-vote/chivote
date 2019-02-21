@@ -55,7 +55,7 @@ const ArticleFeed = props => {
       {pinnedArticleItems.length > 0 && (
         <>
           <h3 className='has-text-yellow'>
-            <i class='fas fa-star' /> Featured reading
+            <i className='fas fa-star' /> Featured reading
           </h3>
           {/* <div className='columns is-multiline'>{pinnedArticleItems}</div> */}
           <Masonry

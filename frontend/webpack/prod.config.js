@@ -2,7 +2,6 @@ const merge = require('webpack-merge');
 const path = require('path');
 const BundleTracker = require('webpack-bundle-tracker');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const baseConfig = require('./base.config');
 
@@ -19,8 +18,7 @@ const prodConfig = merge(baseConfig, {
     new BundleTracker({ filename: './bundles/webpack-stats.json' }),
     new CleanWebpackPlugin(path.resolve(__dirname, '../bundles/prod'), {
       root: path.resolve(__dirname, '..')
-    }),
-    new MiniCssExtractPlugin({ filename: 'theme.[hash].css' })
+    })
   ],
   module: {
     rules: [
@@ -33,7 +31,7 @@ const prodConfig = merge(baseConfig, {
         test: /\.scss$/,
         include: [/\.module\.s?css$/],
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
