@@ -79,11 +79,7 @@ export default class RaceDetail extends Component {
     } else if (this.state.feed === 'events') {
       return <EventFeed slug={this.props.data.documenters_slug} />;
     } else if (this.state.feed === 'finances') {
-      return (
-        <FinanceFeed 
-          candidates={JSON.parse(this.props.candidates)}
-        />
-      )
+      return <FinanceFeed candidates={JSON.parse(this.props.candidates)} />;
     }
   };
 
@@ -229,14 +225,15 @@ export default class RaceDetail extends Component {
                 </span>
               </button>
             </div>
-            <div className="control">
-              <button 
-                className="button is-rounded is-large is-finance"
-                onClick={() => this.setState({ feed: 'finances' })}>
-                <span className="icon">
-                  <i className="fa fa-lg fa-money-check-alt"></i>{' '}
+            <div className='control'>
+              <button
+                className='button is-rounded is-large is-finances'
+                onClick={() => this.setState({ feed: 'finances' })}
+              >
+                <span className='icon'>
+                  <i className='fa fa-lg fa-money-check-alt' />{' '}
                 </span>
-                <span className="button__label is-hidden-mobile">
+                <span className='button__label is-hidden-mobile'>
                   <FormattedMessage
                     id='RaceDetail.button.finances'
                     defaultMessage='Finances'

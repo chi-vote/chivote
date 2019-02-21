@@ -137,11 +137,12 @@
 }
 
 #the-finances {
-  background-color: $dark-accent;
-  border-radius: 4px;
-
-  padding: 0.5rem 1.5rem 1rem;
-  margin-top: 1rem;
+  .table-container {
+    border-radius: 4px;
+    background: $dark-accent;
+    display: block;
+    padding: 0.5rem 1.5rem 1rem;
+  }
 
   th.amt,
   td.amt {
@@ -226,8 +227,12 @@
   }
 
   @media (max-width: $tablet) {
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-    overflow-x: scroll;
+    .table-container {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      max-width: unset;
+      overflow-x: scroll;
+      width: calc(100% + 3rem);
+    }
   }
 }
