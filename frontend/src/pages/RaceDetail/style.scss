@@ -84,11 +84,6 @@
   padding-top: 1rem;
 }
 
-#the-finances {
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
-}
-
 .field.is-grouped > .control.is-expanded {
   flex-basis: 30%;
   width: 30%;
@@ -104,46 +99,6 @@
   color: white;
   cursor: default;
   pointer-events: none;
-}
-
-.table {
-  background-color: transparent;
-}
-
-.table-row {
-  background-color: #3F3F4D;
-  border-color: $dark;
-  border-bottom: 1px solid;
-  text-align: center;
-  padding: 1em;
-}
-
-.col-sort {
-  height: auto;
-  font-size: 0.85rem;
-  border-color: $grey;
-}
-
-.col-sort.is-selected {
-  border-color: $blue;
-}
-
-.col-sort::after {
-  display: none;
-  font-family: 'FontAwesome';
-  position: absolute;
-  bottom: -22px;
-  color: $red;
-}
-
-.col-sort[data-order="desc"]::after {
-  display: block;
-  content: '\f0d7';
-}
-
-.col-sort[data-order="asc"]::after {
-  display: block;
-  content: '\f0d8';
 }
 
 .the-candidates__help-text {
@@ -178,5 +133,91 @@
 
   @media (min-width: $tablet) {
     width: 33%;
+  }
+}
+
+#the-finances {
+  background-color: $dark-accent;
+  border-radius: 4px;
+
+  padding: 0.5rem 1.5rem 1rem;
+  margin-top: 1rem;
+
+  th.amt,
+  td.amt {
+    text-align: right;
+  }
+
+  td {
+    color: $grey-lighter;
+    transition: color 0.3s ease;
+  }
+
+  .table {
+    background: transparent;
+    color: $white;
+    font-family: $futura;
+  }
+
+  th.amt > .col-sort {
+    text-align: right;
+  }
+
+  .col-sort {
+    border: none;
+    color: $grey-lighter;
+    display: inline-block;
+    font-size: $size-6;
+    height: auto;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: left;
+    transition: color 0.3s ease;
+    width: 100%;
+
+    &:hover {
+      background: none;
+      color: #4ea4c5;
+    }
+  }
+
+  .col-sort.is-selected {
+    color: $blue;
+
+    &::after {
+      color: $blue;
+      display: none;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      position: absolute;
+      // bottom: -22px;
+      right: -1em;
+    }
+
+    &[data-order='asc']::after {
+      display: inline;
+      content: '\f0d7';
+    }
+
+    &[data-order='desc']::after {
+      display: inline;
+      content: '\f0d8';
+    }
+  }
+
+  td[data-name='candidate'] {
+    font-weight: bold;
+  }
+
+  tbody[data-current-sort='candidate'] td[data-name='candidate'],
+  tbody[data-current-sort='on-hand'] td[data-name='on-hand'],
+  tbody[data-current-sort='total'] td[data-name='total'] {
+    color: $white;
+  }
+
+  @media (max-width: $tablet) {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    overflow-x: scroll;
   }
 }
