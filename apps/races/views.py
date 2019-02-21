@@ -110,6 +110,7 @@ class RaceDetailView(BuildableDetailView):
             'articles',
             'stances',
             'events',
+            'finances',
         ]
 
         for section in sections:
