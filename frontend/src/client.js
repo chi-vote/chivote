@@ -28,7 +28,7 @@ const main = () => {
   );
 
   // Initiate all other code paths here...
-  ReactDOM.hydrate(
+  ReactDOM.render(
     <IntlProvider locale={language} messages={localeData[language]}>
       <App {...window.props} component={window.component} />
     </IntlProvider>,

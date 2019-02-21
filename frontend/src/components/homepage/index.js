@@ -4,19 +4,25 @@ const LandingPage = require('./LandingPage').default;
 const LandingPageMobile = require('./LandingPageMobile').default;
 import Responsive from 'react-responsive';
 
-import { Page } from 'Components/common';
+import { Nav, Footer } from 'Components/common';
+
+import styles from './styles.module.scss';
 
 class Homepage extends Component {
   render() {
     return (
-      <Page sectionClass='landing-page'>
-        <Responsive minWidth={992}>
-          <LandingPage />
-        </Responsive>
-        <Responsive maxWidth={991}>
-          <LandingPageMobile />
-        </Responsive>
-      </Page>
+      <>
+        <Nav classes={{ ...styles }} />
+        <section className='section landing-page' id='page'>
+          <Responsive minWidth={992}>
+            <LandingPage />
+          </Responsive>
+          <Responsive maxWidth={991}>
+            <LandingPageMobile />
+          </Responsive>
+        </section>
+        <Footer />
+      </>
     );
   }
 }

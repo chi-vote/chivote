@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { IntlProvider, addLocaleData } from 'react-intl';
 
-import { Nav, Footer } from './components/common';
+const beautify_html = require('js-beautify').html;
 
 import App from './AppServer';
 
@@ -14,5 +14,5 @@ export default function renderPage(page, props) {
   );
 
   const html = ReactDOMServer.renderToString(<Component />);
-  return html;
+  return beautify_html(html);
 }

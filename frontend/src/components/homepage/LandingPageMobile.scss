@@ -24,27 +24,6 @@
     padding-top: 0;
   }
 
-  .navbar {
-    background: transparent;
-    pointer-events: none;
-  }
-
-  .navbar__logo {
-    visibility: hidden;
-  }
-
-  .navbar__tagline {
-    display: none;
-  }
-
-  .navbar > div:last-child {
-    pointer-events: all;
-
-    .bm-burger-bars {
-      background: gray;
-    }
-  }
-
   .back-button {
     display: block;
     position: absolute;
