@@ -4,14 +4,15 @@
 {% load helper_tags %}
 
 {% load i18n %}
-{% trans "images/C_2x1_Chi-vote_advert.png" as social_image %}
 
 {% block title %}
 <title>{{meta.title}} | Chi.vote</title>
 {% endblock %}
 
 {% block extra_meta %}
+<meta name="google-site-verification" content="c5Qwj51CUUW6zLs-Y85VmUuByqsDxr8QHSDBRQ1PgrA" />
 <meta name="author" content="Chi.vote" />
+<meta property="og:site_name" content="Chi.vote" />
 <meta property="og:type" content="website" />
 <meta property="twitter:card" content="summary_large_image" />
 <!-- Site URL -->
@@ -37,12 +38,12 @@
 {% load static %}
 <meta
   property="twitter:image"
-  content="https://chi.vote{% static "" %}{{ meta.img }}"
+  content="https://chi.vote{% static "" %}{% trans 'images/C_2x1_Chi-vote_socialcard.png' %}"
 />
 <meta property="twitter:image:alt" content="Chi.vote logo" />
 <meta
   property="og:image"
-  content="https://chi.vote{% static "" %}{{ meta.img }}"
+  content="https://chi.vote{% static "" %}{% trans 'images/C_2x1_Chi-vote_socialcard.png' %}"
 />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="2000" />
