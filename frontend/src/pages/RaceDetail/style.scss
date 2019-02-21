@@ -207,6 +207,16 @@
 
   td[data-name='candidate'] {
     font-weight: bold;
+
+    a {
+      color: $white;
+      display: block;
+      width: 100%;
+    }
+
+    a:hover {
+      color: $blue;
+    }
   }
 
   tbody[data-current-sort='candidate'] td[data-name='candidate'],

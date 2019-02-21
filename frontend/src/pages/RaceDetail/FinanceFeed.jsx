@@ -96,7 +96,15 @@ class FinanceFeed extends Component {
           <tbody data-current-sort={this.state.currentSort}>
             {sorted.map(data => (
               <tr>
-                <td data-name='candidate'>{data.fields.full_name}</td>
+                <td data-name='candidate'>
+                  <a
+                    href={`https://illinoissunshine.org/committees/${
+                      data.fields.isbe_id
+                    }`}
+                  >
+                    {data.fields.full_name}
+                  </a>
+                </td>
                 <td data-name='on-hand' className='amt'>
                   <span className='is-pulled-left'>{'$'}</span>
                   {formatNumber(data.fields.ri_cash_on_hand)}
