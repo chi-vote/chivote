@@ -53,7 +53,7 @@
     "RaceDetail.FinanceFeed.th.totalRaised": "Total raised",
     "RaceDetail.FinanceFeed.footnote": "<u><strong>Notes:</strong></u> 'Total raised' represents a committee's total available funds to spend\n            this quarter. While committees are able to spend money continuously,\n            they are only required to report spending figures once every three\n            months. As soon as spending figures are available, they are reflected\n            in the 'Cash on hand' amount for each candidate.",
     "RaceDetail.FinanceFeed.updated": "<u><strong>Last updated:</strong></u> {date}",
-    "RaceDetail.FinanceFeed.credit": "Powered by Reform for Illinois",
+    "RaceDetail.FinanceFeed.credit": "Powered by <a href=\"https://www.reformforillinois.org\">Reform for Illinois</a>",
     "common.link.all-races": "All races",
     "RaceDetail.heading": "Race for {officeName}",
     "RaceDetail.button.candidates": "Candidates",
