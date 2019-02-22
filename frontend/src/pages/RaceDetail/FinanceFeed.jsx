@@ -149,11 +149,7 @@ class FinanceFeed extends Component {
         <p className='has-text-grey-light'>
           <FormattedHTMLMessage
             id='RaceDetail.FinanceFeed.footnote'
-            defaultMessage="<u><strong>Notes:</strong></u> 'Total raised' represents a committee's total available funds to spend
-            this quarter. While committees are able to spend money continuously,
-            they are only required to report spending figures once every three
-            months. As soon as spending figures are available, they are reflected
-            in the 'Cash on hand' amount for each candidate."
+            defaultMessage="<u><strong>Notes:</strong></u> 'Cash on hand' represents a committee's total available funds to spend this quarter. 'Total funds raised' represents the amount of funds raised during this election cycle."
           />
         </p>
         <p className='has-text-grey-light'>
