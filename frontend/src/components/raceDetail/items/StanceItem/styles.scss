@@ -1,0 +1,42 @@
+@import '~Theme/styles/variables';
+@import './accordion';
+
+.u-position-relative {
+  position: relative;
+}
+
+div.stance__item.list-item {
+  padding: 0;
+}
+
+.accordion__title {
+  cursor: pointer;
+  margin-bottom: 0;
+  border-radius: 4px;
+}
+
+.accordion__title:hover {
+  background: #4a4a5c;
+}
+
+.stance__item .row {
+  width: 100%;
+  padding: 1rem;
+}
+
+.row--main {
+  // display: flex;
+  /* align-items: flex-start; */
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.row--main .candidate-item__text-secondary {
+  margin-left: auto;
+  width: 220px;
+  padding-right: 24px;
+}
+
+.stance__item .article-item__meta {
+  margin-bottom: 0.5rem;
+}

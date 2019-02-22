@@ -1,0 +1,36 @@
+@import '~Theme/styles/variables';
+
+.nav {
+  + :global(.section) {
+    padding-top: 4rem !important;
+  }
+}
+
+@media (max-width: $desktop) {
+  .nav {
+    background: transparent !important;
+    pointer-events: none;
+
+    + :global(.section) {
+      padding-top: 0 !important;
+    }
+
+    .logo {
+      visibility: hidden;
+    }
+
+    .tagline {
+      display: none;
+    }
+
+    > :global(div:last-child) {
+      pointer-events: all;
+    }
+  }
+
+  :global(.language-toggle) {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+}

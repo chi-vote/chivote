@@ -376,7 +376,6 @@ This React-in-Django approach is informed by a few articles:
 
 ## Todos
 
-- Optimize frontend bundle
-- Server side rendering of frontend
+(clean for now)
 
 [🔝](#chivote)

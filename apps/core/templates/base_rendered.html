@@ -1,0 +1,81 @@
+{% extends "base_generic.html" %}
+
+{% load render_bundle from webpack_loader %}
+{% load helper_tags %}
+
+{% load i18n %}
+{% trans "images/C_2x1_Chi-vote_advert.png" as social_image %}
+
+{% block title %}
+<title>{{meta.title}} | Chi.vote</title>
+{% endblock %}
+
+{% block extra_meta %}
+<meta name="author" content="Chi.vote" />
+<meta property="og:type" content="website" />
+<meta property="twitter:card" content="summary_large_image" />
+<!-- Site URL -->
+<meta property="og:url" content="https://chi.vote{{ absolute_url }}" />
+<link rel="canonical" href="https://chi.vote{{ absolute_url }}" />
+<!-- Site title -->
+<meta property="twitter:title" content="{{ meta.title }}" />
+<meta property="og:title" content="{{ meta.title }}" />
+<!-- Site description -->
+<meta
+  property="twitter:description"
+  content="{{ meta.description }}"
+/>
+<meta
+  property="og:description"
+  content="{{ meta.description }}"
+/>
+<meta
+  name="description"
+  content="{{ meta.description }}"
+/>
+<!-- Share image -->
+{% load static %}
+<meta
+  property="twitter:image"
+  content="https://chi.vote{% static "" %}{{ meta.img }}"
+/>
+<meta property="twitter:image:alt" content="Chi.vote logo" />
+<meta
+  property="og:image"
+  content="https://chi.vote{% static "" %}{{ meta.img }}"
+/>
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="2000" />
+<meta property="og:image:height" content="1000" />
+<!-- Favicons -->
+<link
+  rel="icon"
+  type="image/png"
+  href="{% static 'images/favicon-32x32.png' %}"
+  sizes="32x32"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  href="{% static 'images/favicon-16x16.png' %}"
+  sizes="16x16"
+/>
+{% endblock %}
+
+
+{% block extra_styles %}
+{% render_bundle 'main' 'css' %}
+{% endblock %}
+
+{% block content %}
+<div id="app">{{ rendered | safe }}</div>
+
+<script>
+  window.component = '{{ component }}';
+  window.props = {{ props | json }};
+  window.reactRoot = document.getElementById('app');
+</script>
+
+{% render_bundle 'main' 'js' %}
+
+{% endblock %}

@@ -1,35 +1,37 @@
 import logging
 from django.utils.translation import gettext as _
 from bakery.views import BuildableDetailView
+from apps.core.views import RenderReactMixin
 from .models import ContentItem
+
 logger = logging.getLogger(__name__)
 
 
-class ContentItemDetailView(BuildableDetailView):
+class ContentItemDetailView(RenderReactMixin, BuildableDetailView):
     model = ContentItem
-    template_name = 'base_react.html'
+    template_name = 'base_rendered.html'
+    react_component = 'pageDetail'
+
+    def get_react_props(self):
+        return {
+            'title': self.object.title,
+            'slug': self.object.slug,
+            'content': self.object.content,
+            'helmet': self.object.helmet,
+            'background': self.object.background
+        }
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        react_dict = {
+        context.update({
             'absolute_url': self.get_object().get_absolute_url(),
-            'component': 'ContentItemDetail',
-            'props': {
-                'title': self.object.title,
-                'slug': self.object.slug,
-                'content': self.object.content,
-                'helmet': self.object.helmet,
-                'background': self.object.background
-            },
             'meta': {
                 'title': self.object.title,
                 'description': self.object.description,
                 'img': _('images/C_2x1_Chi-vote_advert.png'),
             }
-        }
-
-        context.update(react_dict)
+        })
 
         return context
 

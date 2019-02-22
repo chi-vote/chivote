@@ -2,6 +2,7 @@
   "presets": ["@babel/preset-env", "@babel/preset-react"],
   "plugins": [
     "react-hot-loader/babel",
+    // "react-css-modules",
     "@babel/proposal-class-properties",
     "@babel/plugin-syntax-dynamic-import",
     [

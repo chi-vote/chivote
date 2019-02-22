@@ -22,6 +22,7 @@ class Command(BaseCommand):
         # 'pipenv install',
         'yarn --cwd ./frontend install',
         'yarn --cwd ./frontend build',
+        'yarn --cwd ./frontend render-server:build',
         'python manage.py migrate',
         'python manage.py collectstatic --no-input',
         'python manage.py build --settings=chivote.settings.production',
