@@ -123,8 +123,8 @@ class FinanceFeed extends Component {
               </tr>
             </thead>
             <tbody>
-              {sorted.map(data => (
-                <tr>
+              {sorted.map((data, idx) => (
+                <tr key={idx}>
                   <td data-name='candidate'>
                     <a
                       href={`https://illinoissunshine.org/committees/${
