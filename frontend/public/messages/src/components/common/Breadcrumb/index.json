@@ -1,0 +1,10 @@
+[
+  {
+    "id": "common.link.home",
+    "defaultMessage": "Home"
+  },
+  {
+    "id": "common.link.all-races",
+    "defaultMessage": "All races"
+  }
+]

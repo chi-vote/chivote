@@ -1,0 +1,23 @@
+@import '~Theme/styles/variables';
+@import '~Theme/styles/mixins';
+
+.page-quiz {
+  .page-heading {
+    display: none;
+  }
+
+  @include setBreadcrumbColors($dark-accent, $white);
+}
+
+.page-ask {
+  .page-heading {
+    color: $dark-accent;
+  }
+
+  @include setBreadcrumbColors($dark-accent, $grey);
+}
+
+.page-faq,
+.page-events {
+  @extend .page-ask;
+}

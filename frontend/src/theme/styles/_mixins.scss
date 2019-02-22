@@ -1,0 +1,36 @@
+@mixin setBreadcrumbColors(
+  $color-link-active,
+  $color-link: lighten($color-link-active, 20%),
+  $color-link-hover: $color-link-active,
+  $color-divider: fade-out($color-link, 0.5),
+  $color-language: $color-link,
+  $color-language-hover: $color-language
+) {
+  .breadcrumb {
+    a {
+      color: $color-link;
+
+      &:hover {
+        color: $color-link-hover;
+      }
+    }
+
+    li + li:before {
+      color: $color-divider;
+    }
+
+    li.is-active a {
+      color: $color-link-active;
+    }
+
+    .button.language-toggle {
+      color: $color-language;
+
+      &:hover {
+        background-color: transparent;
+        border-color: $color-language-hover;
+        color: $color-language-hover;
+      }
+    }
+  }
+}

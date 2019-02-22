@@ -221,9 +221,9 @@ sudo supervisorctl stop chivote_worker # stops celery server from uploading to s
 git pull
 pipenv install
 # this is where any db updates would occur, i.e. migrations, tasks, etc.
+sudo systemctl restart gunicorn
 pipenv run ./manage.py rebuild && pipenv run ./manage.py publish # should only publish after a successful build
 sudo supervisorctl start chivote_worker # resume celery server uploads to s3
-sudo systemctl restart gunicorn
 ```
 
 [🔝](#chivote)
@@ -374,7 +374,6 @@ This React-in-Django approach is informed by a few articles:
 
 ## Todos
 
-- Optimize frontend bundle
-- Server side rendering of frontend
+(clean for now)
 
 [🔝](#chivote)

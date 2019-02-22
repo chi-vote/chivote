@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   {% block extra_meta %}{% endblock %}
 
-  <link
-    href="https://unpkg.com/js-offcanvas@1.2.8/dist/_css/prefixed/js-offcanvas.css"
-    rel="stylesheet"
-  />
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+    crossorigin="anonymous"></script>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"
@@ -24,15 +24,11 @@
 
   <script async src="https://www.google-analytics.com/analytics.js"></script>
   <style>html { background: #3F3F4D; }</style>
+  {% block extra_styles %}{% endblock %}
 </head>
 
 <body>
   {% block content %}{% endblock %}
-  <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"
-  ></script>
 </body>
 
 </html>

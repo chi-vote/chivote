@@ -1,0 +1,63 @@
+@import '~Theme/styles/variables';
+
+.section {
+  color: $white;
+  padding: 3rem 1.5rem;
+}
+
+.footer {
+  composes: section;
+  background-color: $dark;
+  color: $white;
+
+  .logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    a {
+      display: inline-block;
+      flex: 0 0 auto;
+      padding: 0.5rem 1rem;
+    }
+
+    @media (min-width: 500px) {
+      flex-direction: row;
+    }
+  }
+
+  .logo {
+    margin: 1rem auto;
+    width: auto;
+    max-width: 15rem;
+    opacity: 0.75;
+    max-height: 4.5rem;
+    height: auto;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.signUp {
+  composes: section;
+  background: $dark-accent;
+}
+
+.contactUs {
+  composes: section;
+  background: mix($dark-accent, $dark);
+}
+
+.heading {
+  font-size: $size-3;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+:global {
+  @import './MailchimpEmbed.scss';
+}

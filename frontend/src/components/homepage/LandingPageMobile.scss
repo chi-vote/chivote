@@ -1,0 +1,43 @@
+/* slick settings */
+
+@import '~slick-carousel/slick/slick.css';
+
+.slick-slider,
+.slide {
+  height: 100vh;
+}
+
+.slick-arrow {
+  display: none !important;
+}
+
+/* everything else */
+
+@import '~Theme/styles/variables';
+
+@media (max-width: $desktop) {
+  .landing-page {
+    height: auto;
+  }
+
+  .section.landing-page {
+    padding-top: 0;
+  }
+
+  .back-button {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 9;
+  }
+}
+
+.landing-page .button {
+  border-radius: 2.5rem;
+  display: inline-block;
+  font-size: 1.1rem;
+  height: auto;
+  max-width: calc(#{$tablet}/ 3 + 2rem);
+  white-space: normal;
+}
