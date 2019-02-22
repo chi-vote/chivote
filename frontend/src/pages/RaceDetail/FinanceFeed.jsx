@@ -149,7 +149,7 @@ class FinanceFeed extends Component {
         <p className='has-text-grey-light'>
           <FormattedHTMLMessage
             id='RaceDetail.FinanceFeed.footnote'
-            defaultMessage="<u><strong>Notes:</strong></u> 'Cash on hand' represents a committee's total available funds to spend this quarter. 'Total funds raised' represents the amount of funds raised during this election cycle."
+            defaultMessage="<u><strong>Notes:</strong></u> 'Cash on hand' represents a committee's total available funds to spend this quarter. 'Total raised' represents the amount of funds raised during this election cycle."
           />
         </p>
         <p className='has-text-grey-light'>
