@@ -41,8 +41,8 @@ def update_ri_candidates_all():
     ri_response = requests.get(IL_SUNSHINE_API_URL).json()
     if ri_response['meta']['code'] == 200:
         ri_all_candidates_data = ri_response['objects']
-        for candidate in Candidate.objects.all():
-            ri_committees = [x for x in ri_all_candidates_data if x['committee_id'] == candidate.isbe_id]     
+        for candidate in Candidate.objects.filter(isbe_id__isnull=False):
+            ri_committees = [x for x in ri_all_candidates_data if x['committee_id'] == candidate.isbe_id and '2019' in x['race_type']]     
             if ri_committees and len(ri_committees) == 1:
                 ri_committee = ri_committees[0]
                 candidate.ri_cash_on_hand = ri_committee['cash_on_hand']
