@@ -93,7 +93,7 @@ class RaceDetail extends Component {
 
       if (enabled) {
         return (
-          <div className='control'>
+          <div className='control column is-one-third'>
             <button
               className={`button is-rounded is-large is-${props.slug}`}
               onClick={() => this.setState({ feed: props.slug })}
@@ -147,9 +147,9 @@ class RaceDetail extends Component {
 
     return (
       <div
-        className={`field is-grouped is-grouped-multiline is-${
+        className={`is-${
           this.state.feed
-        }-active toggle-feed mt-1 mb-1`}
+        }-active toggle-feed columns is-mobile is-multiline`}
       >
         {buttons.map((d, i) => {
           return <FeedButton {...d} key={i} />;
