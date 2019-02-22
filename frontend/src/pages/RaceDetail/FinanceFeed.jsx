@@ -22,29 +22,30 @@ class FinanceFeed extends Component {
   }
 
   setOrder = e => {
-    document
-      .querySelector('.col-sort.is-selected')
-      .classList.remove('is-selected');
-    e.target.classList.add('is-selected');
+    const target = e.target.closest('button');
+
+    var shouldChangeOrder = this.state.sortBy == target.value;
+
+    if (shouldChangeOrder) {
+      if (target.dataset.order === 'desc') {
+        target.dataset.order = 'asc';
+      } else {
+        target.dataset.order = 'desc';
+      }
+    }
 
     this.setState({
-      sortBy: e.target.value,
-      order: e.target.dataset.order,
-      currentSort: e.target.dataset.name
+      sortBy: target.value,
+      order: target.dataset.order,
+      currentSort: target.dataset.name
     });
-
-    if (e.target.dataset.order === 'desc') {
-      e.target.dataset.order = 'asc';
-    } else {
-      e.target.dataset.order = 'desc';
-    }
   };
 
   componentDidMount() {
     this.setState({
-      sortBy: 'last_name',
-      order: 'asc',
-      currentSort: 'candidate'
+      sortBy: 'ri_funds_raised_this_cycle',
+      order: 'desc',
+      currentSort: 'total'
     });
   }
 
@@ -63,14 +64,23 @@ class FinanceFeed extends Component {
             defaultMessage='Finances'
           />
         </h2>
+        <p className='has-text-grey-light'>
+          <FormattedHTMLMessage
+            id='RaceDetail.FinanceFeed.howto'
+            defaultMessage="Click on a candidate's name to see full candidate committee information, as well as detailed donations and expenditures, at <a href='https://illinoissunshine.org'>illinoissunshine.org</a>."
+          />
+        </p>
         <div className='table-container'>
-          <table className='table is-fullwidth'>
+          <table
+            className='table is-fullwidth'
+            data-current-sort={this.state.currentSort}
+          >
             <thead>
               <tr>
                 <th>
                   <button
-                    className='button is-text col-sort is-selected'
-                    data-order='desc'
+                    className='button is-text col-sort'
+                    data-order='asc'
                     data-name='candidate'
                     value='last_name'
                     onClick={this.setOrder}
@@ -111,7 +121,7 @@ class FinanceFeed extends Component {
                 </th>
               </tr>
             </thead>
-            <tbody data-current-sort={this.state.currentSort}>
+            <tbody>
               {sorted.map(data => (
                 <tr>
                   <td data-name='candidate'>
@@ -158,9 +168,9 @@ class FinanceFeed extends Component {
           />
         </p>
         <p className='has-text-right is-uppercase is-lsb'>
-          <FormattedMessage
+          <FormattedHTMLMessage
             id='RaceDetail.FinanceFeed.credit'
-            defaultMessage='Powered by Reform for Illinois'
+            defaultMessage='Powered by <a href="https://www.reformforillinois.org">Reform for Illinois</a>'
           />
         </p>
       </section>
