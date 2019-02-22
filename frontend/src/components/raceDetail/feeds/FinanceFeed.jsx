@@ -134,11 +134,9 @@ class FinanceFeed extends Component {
                     </a>
                   </td>
                   <td data-name='on-hand' className='amt'>
-                    <span className='is-pulled-left'>{'$'}</span>
                     {formatNumber(data.fields.ri_cash_on_hand)}
                   </td>
                   <td data-name='total' className='amt'>
-                    <span className='is-pulled-left'>{'$'}</span>
                     {formatNumber(data.fields.ri_funds_raised_this_cycle)}
                   </td>
                 </tr>

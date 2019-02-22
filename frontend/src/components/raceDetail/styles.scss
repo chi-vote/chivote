@@ -154,6 +154,13 @@
     text-align: right;
   }
 
+  tbody > tr:first-child > td.amt::before {
+    content: '$';
+    display: inline;
+    // font-weight: bold;
+    margin-right: 0.5rem;
+  }
+
   td {
     color: $grey-light;
     transition: color 0.15s ease;
