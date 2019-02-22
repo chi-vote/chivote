@@ -220,6 +220,9 @@ CKEDITOR_CONFIGS = {
 BALLOT_READY_API_KEY = config('BALLOT_READY_API_KEY')
 BALLOT_READY_API_URL = config('BALLOT_READY_API_URL')
 
+# ri settings
+IL_SUNSHINE_API_URL = config('IL_SUNSHINE_API_URL')
+
 # colorfield settings
 INSTALLED_APPS += ('colorfield', )
 
@@ -241,4 +244,8 @@ if bool(config('CELERY_BROKER_URL', default=False)):
         #     'schedule': crontab(day_of_week='mon-fri', hour='8-18/2')
         #     # Monday through Friday, every 2 hours 8am to 6pm
         # }
+        'update_ri_candidates_all': {
+            'task': 'apps.candidates.tasks.update_ri_candidates_all',
+            'schedule': crontab(day_of_week='mon-fri', hour='7')
+        }
     }

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "RaceDetail.FinanceFeed.heading",
+    "defaultMessage": "Finances"
+  },
+  {
+    "id": "RaceDetail.FinanceFeed.howto",
+    "defaultMessage": "Click on a candidate's name to see full candidate committee information, as well as detailed donations and expenditures, at <a href='https://illinoissunshine.org'>illinoissunshine.org</a>."
+  },
+  {
+    "id": "RaceDetail.FinanceFeed.th.candidate",
+    "defaultMessage": "Candidate"
+  },
+  {
+    "id": "RaceDetail.FinanceFeed.th.cashOnHand",
+    "defaultMessage": "Cash on hand"
+  },
+  {
+    "id": "RaceDetail.FinanceFeed.th.totalRaised",
+    "defaultMessage": "Total raised"
+  },
+  {
+    "id": "RaceDetail.FinanceFeed.footnote",
+    "defaultMessage": "<u><strong>Notes:</strong></u> 'Total raised' represents a committee's total available funds to spend\n            this quarter. While committees are able to spend money continuously,\n            they are only required to report spending figures once every three\n            months. As soon as spending figures are available, they are reflected\n            in the 'Cash on hand' amount for each candidate."
+  },
+  {
+    "id": "RaceDetail.FinanceFeed.updated",
+    "defaultMessage": "<u><strong>Last updated:</strong></u> {date}"
+  },
+  {
+    "id": "RaceDetail.FinanceFeed.credit",
+    "defaultMessage": "Powered by <a href=\"https://www.reformforillinois.org\">Reform for Illinois</a>"
+  }
+]

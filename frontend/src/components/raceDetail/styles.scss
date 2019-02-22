@@ -47,10 +47,10 @@
 }
 
 .toggle-feed {
-  justify-content: space-between !important;
+  // justify-content: space-between !important;
 
   .button {
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
     width: 100%;
   }
 
@@ -78,14 +78,15 @@
 
   .control {
     flex-basis: 30%;
-    margin-right: 0 !important;
+    margin-right: 0.5rem;
   }
 }
 
 #the-candidates,
 #the-articles,
 #the-stances,
-#the-events {
+#the-events,
+#the-finances {
   padding-top: 1rem;
 }
 
@@ -97,7 +98,8 @@
 .is-candidates-active .is-candidates,
 .is-articles-active .is-articles,
 .is-stances-active .is-stances,
-.is-events-active .is-events {
+.is-events-active .is-events,
+.is-finances-active .is-finances {
   background-color: #55c1e8;
   border-color: #55c1e8;
   color: white;
@@ -137,5 +139,125 @@
 
   @media (min-width: $tablet) {
     width: 33%;
+  }
+}
+
+#the-finances {
+  .table-container {
+    border-radius: 4px;
+    background: $dark-accent;
+    display: block;
+    padding: 0.5rem 1.5rem 1rem;
+  }
+
+  th .button {
+    text-decoration: none;
+  }
+
+  th.amt,
+  td.amt {
+    text-align: right;
+  }
+
+  td {
+    color: $grey-light;
+    transition: color 0.15s ease;
+  }
+
+  .table {
+    background: transparent;
+    color: $white;
+    font-family: $futura;
+  }
+
+  th.amt > .col-sort {
+    text-align: right;
+  }
+
+  tr:hover {
+    td {
+      color: $white;
+    }
+  }
+
+  .col-sort {
+    border: none;
+    color: $grey-light;
+    display: inline-block;
+    font-size: $size-6;
+    height: auto;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: left;
+    transition: color 0.15s ease;
+    width: 100%;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: none;
+      color: #4ea4c5;
+    }
+
+    &.is-selected {
+      color: $blue;
+    }
+
+    &::after {
+      color: currentColor;
+      display: none;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      position: absolute;
+      // bottom: -22px;
+      right: -1em;
+    }
+
+    &[data-order='asc']::after {
+      display: inline;
+      content: '\f0d8';
+    }
+
+    &[data-order='desc']::after {
+      display: inline;
+      content: '\f0d7';
+    }
+  }
+
+  td[data-name='candidate'] {
+    font-weight: bold;
+
+    a {
+      color: currentColor;
+      text-decoration: underline;
+      text-decoration-color: $red;
+      width: 100%;
+    }
+
+    a:hover {
+      color: $blue;
+    }
+  }
+
+  table[data-current-sort='candidate'] td[data-name='candidate'],
+  table[data-current-sort='on-hand'] td[data-name='on-hand'],
+  table[data-current-sort='total'] td[data-name='total'] {
+    color: $white;
+  }
+
+  table[data-current-sort='candidate'] .col-sort[data-name='candidate'],
+  table[data-current-sort='on-hand'] .col-sort[data-name='on-hand'],
+  table[data-current-sort='total'] .col-sort[data-name='total'] {
+    color: $blue;
+  }
+
+  @media (max-width: $tablet) {
+    .table-container {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      max-width: unset;
+      overflow-x: scroll;
+      width: calc(100% + 3rem);
+    }
   }
 }

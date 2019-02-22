@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { slide as SlideView } from 'react-burger-menu';
 import CandidateView from './CandidateView';
-import { ArticleFeed, CandidateFeed, EventFeed, StanceFeed } from './feeds';
+import {
+  ArticleFeed,
+  CandidateFeed,
+  EventFeed,
+  FinanceFeed,
+  StanceFeed
+} from './feeds';
 import { parseHtml } from 'Components/utils';
 import { Breadcrumb, Page } from 'Components/common';
 import './styles.scss';
@@ -74,6 +80,8 @@ class RaceDetail extends Component {
       );
     } else if (this.state.feed === 'events') {
       return <EventFeed slug={this.props.data.documenters_slug} />;
+    } else if (this.state.feed === 'finances') {
+      return <FinanceFeed candidates={JSON.parse(this.props.candidates)} />;
     }
   };
 
@@ -129,6 +137,11 @@ class RaceDetail extends Component {
         slug: 'events',
         label: 'Events',
         icon: 'fa-calendar'
+      },
+      {
+        slug: 'finances',
+        label: 'Finances',
+        icon: 'fa-money-check-alt'
       }
     ];
 
