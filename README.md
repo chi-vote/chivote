@@ -224,6 +224,8 @@ pipenv install
 pipenv run ./manage.py rebuild && pipenv run ./manage.py publish # should only publish after a successful build
 sudo supervisorctl start chivote_worker # resume celery server uploads to s3
 sudo systemctl restart gunicorn
+# if you're updating celery
+sudo systemctl restart gunicorn
 ```
 
 [🔝](#chivote)
