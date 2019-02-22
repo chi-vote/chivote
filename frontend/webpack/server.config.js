@@ -30,25 +30,7 @@ const serverConfig = merge(baseConfig, {
     rules: [
       {
         test: /\.s?css$/,
-        exclude: [/\.module\.s?css$/],
         use: 'ignore-loader'
-      },
-      {
-        test: /\.scss$/,
-        include: [/\.module\.s?css$/],
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[folder]__[local]___[hash:base64:5]',
-              importLoaders: 2
-            }
-          },
-          'postcss-loader',
-          'sass-loader'
-        ]
       },
       {
         test: /\.(png|jpg|gif)$/,
