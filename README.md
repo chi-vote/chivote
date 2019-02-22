@@ -221,11 +221,9 @@ sudo supervisorctl stop chivote_worker # stops celery server from uploading to s
 git pull
 pipenv install
 # this is where any db updates would occur, i.e. migrations, tasks, etc.
+sudo systemctl restart gunicorn
 pipenv run ./manage.py rebuild && pipenv run ./manage.py publish # should only publish after a successful build
 sudo supervisorctl start chivote_worker # resume celery server uploads to s3
-sudo systemctl restart gunicorn
-# if you're updating celery
-sudo systemctl restart gunicorn
 ```
 
 [🔝](#chivote)
