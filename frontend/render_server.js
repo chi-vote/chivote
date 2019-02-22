@@ -27,6 +27,9 @@ var PORT = argv.port;
 
 var app = express();
 var server = http.Server(app);
+var bunyan = require('bunyan');
+
+var log = bunyan.createLogger({ name: 'chivote_render' });
 
 var render = require('./bundles/server/main.js').default;
 
@@ -37,6 +40,8 @@ app.get('/', function(req, res) {
 });
 
 app.post('/render', function(req, res) {
+  log.info('rendering', req.body.url);
+
   const page = req.body.page;
   const props = JSON.parse(req.body.serializedProps);
   const html = render(page, props);
@@ -48,7 +53,5 @@ app.post('/render', function(req, res) {
 });
 
 server.listen(PORT, ADDRESS, function() {
-  console.log(
-    'React render server listening at http://' + ADDRESS + ':' + PORT
-  );
+  log.info('React render server listening at http://' + ADDRESS + ':' + PORT);
 });
