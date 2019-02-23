@@ -10,6 +10,9 @@ races_patterns = ([
          name='race-detail-section'),
 ], 'races')
 
+results_patterns = [
+    path('', views.ResultsListView.as_view(), name='results-list')]
+
 # urlpatterns = [
 #     path('races/', include(races_patterns, namespace='races')),
 # ]

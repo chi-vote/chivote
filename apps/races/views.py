@@ -23,7 +23,7 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
 
     def get_react_props(self):
         from apps.newsfeed.models import CandidateStance, Issue
-        
+
         curr_section = self.kwargs.get('section', None)
         issues = Issue.objects.all().order_by('issue_order')
         stances = CandidateStance.objects.filter(
@@ -34,21 +34,21 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
         }
         description = mark_safe(self.object.explainer)
         candidates = self.object.candidates.all().exclude(status='inactive')
-        
+
         return {
-                'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),
-                'feed': curr_section,
-                'data': {
-                    'issues': serializers.serialize('json', issues),
-                    'stances': serializers.serialize('json', stances),
-                    'articles': self.get_articles(),
-                    'office': json.dumps(race_obj),
-                    'description': description,
-                    'slug': self.object.slug,
-                    'documenters_slug': self.object.documenters_slug,
-                },
-                'candidates': serializers.serialize('json', candidates)
-            }
+            'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),
+            'feed': curr_section,
+            'data': {
+                'issues': serializers.serialize('json', issues),
+                'stances': serializers.serialize('json', stances),
+                'articles': self.get_articles(),
+                'office': json.dumps(race_obj),
+                'description': description,
+                'slug': self.object.slug,
+                'documenters_slug': self.object.documenters_slug,
+            },
+            'candidates': serializers.serialize('json', candidates)
+        }
 
     def get_articles(self):
         articles_queryset = self.object.tagged_articles.filter(
@@ -229,3 +229,59 @@ class RaceListView(RenderReactMixin, BuildableListView):
                 super(RaceListView, self).build_queryset()
         else:
             super(RaceListView, self).build_queryset()
+
+
+class ResultsListView(RenderReactMixin, BuildableListView):
+    model = Race
+    template_name = 'base_rendered.html'
+    build_path = 'results/index.html'
+    react_component = 'resultsList'
+
+    def get_react_props(self):
+        race_data = self.object_list.order_by('pk')
+
+        races = []
+
+        for race in race_data:
+            races.append({
+                'name': race.__str__(),
+                'id': race.slug
+            })
+
+        return {
+            'data': {
+                'races': json.dumps(list(races), cls=DjangoJSONEncoder),
+            },
+        }
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        react_dict = {
+            # 'absolute_path': self.object.get_absolute_path(),
+            'absolute_url': '/results/',
+            'meta': {
+                'title': _('All 2019 Chicago races'),
+                'description': _('Full list of Chicago races and candidates.'),
+                'img': _('images/C_2x1_Chi-vote_advert.png'),
+            }
+        }
+
+        context.update(react_dict)
+
+        return context
+
+    def build_queryset(self):
+        from django.conf import settings
+
+        if settings.USE_I18N:
+            from django.utils.translation import activate
+            from django.urls import reverse
+
+            for language_code, language in settings.LANGUAGES:
+                activate(language_code)
+                self.build_path = reverse(
+                    'results-list')[1:] + '/index.html'  # strip leading slash
+                super(ResultsListView, self).build_queryset()
+        else:
+            super(ResultsListView, self).build_queryset()

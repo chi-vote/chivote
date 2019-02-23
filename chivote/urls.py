@@ -5,7 +5,7 @@ from django.conf import settings
 # from django.conf.urls import include
 from django.conf.urls.static import static
 from apps.newsfeed.feeds import LatestArticlesFeed
-from apps.races.urls import races_patterns
+from apps.races.urls import races_patterns, results_patterns
 from apps.core.urls import core_patterns
 from apps.site_content.urls import site_content_patterns
 
@@ -31,6 +31,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('races/', include(races_patterns, namespace='races')),
+    path('results/', include(results_patterns)),
     path('', include(core_patterns)),
     path('', include(site_content_patterns)),
     prefix_default_language=False
