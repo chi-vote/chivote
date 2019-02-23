@@ -58,7 +58,7 @@ class FinanceFeed extends Component {
     );
 
     return (
-      <section id='the-finances'>
+      <>
         <h2 className='is-hidden-tablet page-heading title is-4'>
           <FormattedMessage
             id='RaceDetail.FinanceFeed.heading'
@@ -168,7 +168,7 @@ class FinanceFeed extends Component {
             defaultMessage='Powered by <a href="https://www.reformforillinois.org">Reform for Illinois</a>'
           />
         </p>
-      </section>
+      </>
     );
   }
 }

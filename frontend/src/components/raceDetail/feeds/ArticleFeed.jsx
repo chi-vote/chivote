@@ -25,7 +25,7 @@ const ArticleFeed = props => {
     ));
 
   return (
-    <section id='the-articles'>
+    <>
       <h2 className='is-hidden-tablet page-heading title is-4'>
         <FormattedMessage
           id='RaceDetail.ArticleFeed.heading'
@@ -100,7 +100,7 @@ const ArticleFeed = props => {
           </div>
         </div>
       )}
-    </section>
+    </>
   );
 };
 

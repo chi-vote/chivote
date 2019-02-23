@@ -8,7 +8,7 @@ const CandidateFeed = props => {
   const { candidates, handleClick } = props;
 
   return (
-    <section id='the-candidates'>
+    <>
       <h2 className='is-hidden-tablet page-heading title is-4'>
         <FormattedMessage
           id='RaceDetail.CandidateFeed.heading'
@@ -32,7 +32,7 @@ const CandidateFeed = props => {
           </div>
         ))}
       </List>
-    </section>
+    </>
   );
 };
 
