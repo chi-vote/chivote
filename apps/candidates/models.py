@@ -49,6 +49,10 @@ class Candidate(AutoPublishingBuildableModel):
     br_experience = JSONField(null=True, blank=True, verbose_name="Experience")
     br_education = JSONField(null=True, blank=True, verbose_name="Education")
 
+
+    # CBOE results
+    cboe_results_id = models.CharField(max_length=7,null=True)
+
     def update_br_data(self):
         from django.conf import settings
 

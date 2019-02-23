@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     # 'apps.questionnaires',
     'apps.site_content',
     'adminsortable2',
+    'apps.scrape'
 ]
 
 MIDDLEWARE = [

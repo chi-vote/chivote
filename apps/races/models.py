@@ -14,6 +14,13 @@ class Race(AutoPublishingBuildableModel):
                                         help_text='Embed will populate at https://embed.documenters.org/chivote-forums/[SLUG].html', null=True, blank=True)
     cboe_id = models.TextField(max_length=4, blank=True, null=True)
 
+    # CBOE results
+    cboe_results_id = models.CharField(max_length=4, null=True)
+    
+    @property
+    def results_slug(self):
+        return self.slug.replace('-',' ').title()
+
     # BuildableModel field
     detail_views = ('apps.races.views.RaceDetailView',)
 
