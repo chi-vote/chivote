@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Breadcrumb, List, Page } from 'Components/common';
 import { ResultsTable } from 'Components/raceDetail/items';
+import * as resultsJson from './results.tmp.json';
 import styles from './styles.module.scss';
 
-class RaceList extends Component {
+class ResultsList extends Component {
   render() {
+    const results = resultsJson.default;
+    const dataHeaders = results.cand_headers;
+
     const parsedRaceData = JSON.parse(this.props.data.races);
     const copyRaceData = [...parsedRaceData];
     const extractWardData = [];
@@ -33,7 +37,11 @@ class RaceList extends Component {
             </a>
           </strong>
         </p>
-        <ResultsTable cboeId={race.cboeId} />
+        <ResultsTable
+          cboeId={race.cboeId}
+          data={results.contests[race.cboeId].cands}
+          dataHeaders={dataHeaders}
+        />
       </li>
     ));
 
@@ -46,7 +54,11 @@ class RaceList extends Component {
             </a>
           </strong>
         </p>
-        <ResultsTable cboeId={race.cboeId} />
+        <ResultsTable
+          cboeId={race.cboeId}
+          data={results.contests[race.cboeId].cands}
+          dataHeaders={dataHeaders}
+        />
       </li>
     ));
 
@@ -84,4 +96,4 @@ class RaceList extends Component {
   }
 }
 
-export default RaceList;
+export default ResultsList;
