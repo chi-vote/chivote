@@ -1,0 +1,15 @@
+@import '~Theme/styles/variables';
+
+.table {
+  border-radius: 5px;
+  font-family: $futura;
+  position: relative;
+
+  @media (max-width: $tablet) {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    max-width: unset;
+    overflow-x: scroll;
+    width: calc(100% + 3rem);
+  }
+}
