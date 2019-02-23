@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Breadcrumb, List, Page } from 'Components/common';
-import { ResultsTable } from 'Components/raceDetail/items';
-import * as resultsJson from './results.tmp.json';
+import { ResultsFeed } from 'Components/raceDetail/feeds';
 import styles from './styles.module.scss';
+
+const ResultsItem = race => (
+  <li className='column is-4' key={race.id}>
+    <p>
+      <strong>
+        <a href={`../races/${race.id}/`}>{race.name}</a>
+      </strong>
+    </p>
+    <ResultsFeed cboeId={race.cboeId} />
+  </li>
+);
 
 class ResultsList extends Component {
   render() {
-    const results = resultsJson.default;
-    const dataHeaders = results.cand_headers;
-
     const parsedRaceData = JSON.parse(this.props.data.races);
     const copyRaceData = [...parsedRaceData];
     const extractWardData = [];
@@ -27,40 +34,8 @@ class ResultsList extends Component {
     }
 
     const flattenRemains = copyRaceData.filter(x => (x ? true : false));
-
-    const wardButtons = extractWardData.map(race => (
-      <li className='column is-4' key={race.id}>
-        <p>
-          <strong>
-            <a href={`../races/${race.id}/`}>
-              {race.name} {race.cboeId}
-            </a>
-          </strong>
-        </p>
-        <ResultsTable
-          cboeId={race.cboeId}
-          data={results.contests[race.cboeId].cands}
-          dataHeaders={dataHeaders}
-        />
-      </li>
-    ));
-
-    const otherRaces = flattenRemains.map(race => (
-      <li className='column is-4' key={race.id}>
-        <p>
-          <strong>
-            <a href={`../races/${race.id}/`}>
-              {race.name} {race.cboeId}
-            </a>
-          </strong>
-        </p>
-        <ResultsTable
-          cboeId={race.cboeId}
-          data={results.contests[race.cboeId].cands}
-          dataHeaders={dataHeaders}
-        />
-      </li>
-    ));
+    const wardRaces = extractWardData.map(race => <ResultsItem {...race} />);
+    const otherRaces = flattenRemains.map(race => <ResultsItem {...race} />);
 
     const activeLabel = (
       <FormattedMessage id={`common.link.results`} defaultMessage='Results' />
@@ -83,13 +58,7 @@ class ResultsList extends Component {
               defaultMessage='Aldermanic'
             />
           </h2>
-          <p className='is-lsb'>
-            <FormattedMessage
-              id='RaceList.aldermanic.text.1'
-              defaultMessage='Choose a specific ward number to get more information and view candidates.'
-            />
-          </p>
-          <List className='columns is-multiline'>{wardButtons}</List>
+          <List className='columns is-multiline'>{wardRaces}</List>
         </Page>
       </div>
     );

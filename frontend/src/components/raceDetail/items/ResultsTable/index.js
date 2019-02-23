@@ -15,34 +15,26 @@ class ResultsFeed extends Component {
   render() {
     const dataHeaders = this.props.dataHeaders || _dummyDataHeaders;
     const data = this.props.data || _dummyData;
-    const precinctsReporting = this.props.precinctsReporting || 2557;
-    const precinctsTotal = this.props.precinctsTotal || 2557;
 
     return (
-      <div className='contest'>
-        <p className='small'>
-          {precinctsReporting} of {precinctsTotal} precincts reporting.
-        </p>{' '}
-        <p className='small'>{this.props.cboeId}</p>
-        <table className={cn('table', styles.table)}>
-          <thead>
-            <tr>
-              {dataHeaders.map(d => (
-                <th>{d}</th>
+      <table className={cn('table', styles.table)}>
+        <thead>
+          <tr>
+            {dataHeaders.map((d, i) => (
+              <th key={i}>{d}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((row, idx) => (
+            <tr key={idx}>
+              {row.map((d, i) => (
+                <td key={i}>{d}</td>
               ))}
             </tr>
-          </thead>
-          <tbody>
-            {data.map(row => (
-              <tr>
-                {row.map(d => (
-                  <td>{d}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     );
   }
 }

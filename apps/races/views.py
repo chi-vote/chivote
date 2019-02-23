@@ -37,6 +37,7 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
 
         return {
             'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),
+            'cboeId': self.object.cboe_id,
             'feed': curr_section,
             'data': {
                 'issues': serializers.serialize('json', issues),
@@ -93,20 +94,20 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
         react_dict = {
             'absolute_url': self.get_object().get_absolute_url(),
             # 'component': 'raceDetail',
-            'props': {
-                'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),
-                'feed': curr_section,
-                'data': {
-                    'issues': serializers.serialize('json', issues),
-                    'stances': serializers.serialize('json', stances),
-                    'articles': self.get_articles(),
-                    'office': json.dumps(race_obj),
-                    'description': description,
-                    'slug': self.object.slug,
-                    'documenters_slug': self.object.documenters_slug,
-                },
-                'candidates': serializers.serialize('json', candidates)
-            },
+            # 'props': {
+            #     'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),
+            #     'feed': curr_section,
+            #     'data': {
+            #         'issues': serializers.serialize('json', issues),
+            #         'stances': serializers.serialize('json', stances),
+            #         'articles': self.get_articles(),
+            #         'office': json.dumps(race_obj),
+            #         'description': description,
+            #         'slug': self.object.slug,
+            #         'documenters_slug': self.object.documenters_slug,
+            #     },
+            #     'candidates': serializers.serialize('json', candidates)
+            # },
             'meta': {
                 'title': _('Race for %(office)s, 2019') % {'office': race_obj['office']},
                 'description': _('Candidate bios, related articles and more.'),

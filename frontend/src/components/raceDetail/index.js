@@ -85,12 +85,7 @@ class RaceDetail extends Component {
       case 'finances':
         return <FinanceFeed candidates={JSON.parse(this.props.candidates)} />;
       case 'results':
-        return (
-          <ResultsFeed
-            dataHeaders={['', 'cand', 'percent']}
-            precinctsReporting={100}
-          />
-        );
+        return <ResultsFeed cboeId={this.props.cboeId} />;
     }
   };
 
