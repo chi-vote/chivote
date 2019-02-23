@@ -1,0 +1,18 @@
+[
+  {
+    "id": "common.link.results",
+    "defaultMessage": "Results"
+  },
+  {
+    "id": "ResultsList.heading",
+    "defaultMessage": "Results"
+  },
+  {
+    "id": "RaceList.aldermanic.heading",
+    "defaultMessage": "Aldermanic"
+  },
+  {
+    "id": "RaceList.aldermanic.text.1",
+    "defaultMessage": "Choose a specific ward number to get more information and view candidates."
+  }
+]

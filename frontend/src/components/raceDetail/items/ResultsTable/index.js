@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import styles from './styles.module.scss';
 import cn from 'classnames';
 
-const _dummyDataHeaders = ['', 'Candidate', 'Party', 'Percent'];
+const _dummyDataHeaders = ['', 'Candidate', 'Percent'];
 
 const _dummyData = [
-  [<i className='fa fa-check' />, 'Mark R. Warner', 'Democrat', '49.15%'],
-  ['', 'Ed W. Gillespie', 'Republican', '48.34%'],
-  ['', 'Robert C. Sarvis', 'Libertarian', '2.43%'],
-  ['', 'Write-in', '', '0.08%']
+  [<i className='fa fa-check' />, 'Mark R. Warner', '49.15%'],
+  ['', 'Ed W. Gillespie', '48.34%'],
+  ['', 'Robert C. Sarvis', '2.43%'],
+  ['', 'Write-in', '0.08%']
 ];
 
 class ResultsFeed extends Component {
@@ -23,6 +23,7 @@ class ResultsFeed extends Component {
         <p className='small'>
           {precinctsReporting} of {precinctsTotal} precincts reporting.
         </p>{' '}
+        <p className='small'>{this.props.cboeId}</p>
         <table className={cn('table', styles.table)}>
           <thead>
             <tr>

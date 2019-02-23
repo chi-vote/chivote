@@ -87,7 +87,7 @@ class RaceDetail extends Component {
       case 'results':
         return (
           <ResultsFeed
-            dataHeaders={['', 'cand', 'party', 'percent']}
+            dataHeaders={['', 'cand', 'percent']}
             precinctsReporting={100}
           />
         );

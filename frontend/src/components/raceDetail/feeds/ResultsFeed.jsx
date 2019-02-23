@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ResultsTable from '../items/ResultsTable';
+import { ResultsTable } from '../items';
 
 class ResultsFeed extends Component {
   render() {

@@ -245,7 +245,8 @@ class ResultsListView(RenderReactMixin, BuildableListView):
         for race in race_data:
             races.append({
                 'name': race.__str__(),
-                'id': race.slug
+                'id': race.slug,
+                'cboeId': race.cboe_id,
             })
 
         return {
