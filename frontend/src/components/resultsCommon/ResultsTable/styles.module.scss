@@ -14,8 +14,15 @@
     width: calc(100% + 3rem);
   }
 
-  :global(.amt) {
-    text-align: right;
+  :global {
+    th,
+    td {
+      vertical-align: middle;
+    }
+
+    .amt {
+      text-align: right;
+    }
   }
 }
 

@@ -5,7 +5,7 @@ import { ResultsContainer } from 'Components/resultsCommon';
 import styles from './styles.module.scss';
 
 const ResultsItem = race => (
-  <li className='column is-4' key={race.id}>
+  <li className='column is-4'>
     <p className='has-text-weight-bold'>
       <a href={`../races/${race.id}/`}>{race.name}</a>
     </p>
@@ -32,8 +32,12 @@ class ResultsList extends Component {
     }
 
     const flattenRemains = copyRaceData.filter(x => (x ? true : false));
-    const wardRaces = extractWardData.map(race => <ResultsItem {...race} />);
-    const otherRaces = flattenRemains.map(race => <ResultsItem {...race} />);
+    const wardRaces = extractWardData.map(race => (
+      <ResultsItem {...race} key={race.id} />
+    ));
+    const otherRaces = flattenRemains.map(race => (
+      <ResultsItem {...race} key={race.id} />
+    ));
 
     const activeLabel = (
       <FormattedMessage id={`common.link.results`} defaultMessage='Results' />
