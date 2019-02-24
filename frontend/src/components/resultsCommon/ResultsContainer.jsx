@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import ResultsTable from './ResultsTable';
+import moment from 'moment-mini';
 import * as resultsJson from './results.tmp.json';
 
-const PrecinctsReportingText = ({ precinctsReporting, precinctsTotal }) => (
+const PrecinctsReportingText = ({
+  precinctsReporting,
+  precinctsTotal,
+  lastUpdated
+}) => (
   <p className='small'>
-    {precinctsReporting} of {precinctsTotal} precincts reporting.
+    {precinctsReporting} of {precinctsTotal} precincts reporting. (
+    {moment(lastUpdated).format('lll')})
   </p>
 );
 
@@ -19,6 +25,7 @@ class ResultsFeed extends Component {
       contest.meta[results.contest_headers.indexOf('# Completed precincts')];
     const precinctsTotal =
       contest.meta[results.contest_headers.indexOf('# of Eligible Precincts')];
+    const lastUpdated = results.datetime;
 
     this.state = {
       dataHeaders: results.cand_headers,
@@ -26,6 +33,7 @@ class ResultsFeed extends Component {
       data: contest.cands,
       precinctsReporting,
       precinctsTotal,
+      lastUpdated,
       drawBars: props.drawBars
     };
   }

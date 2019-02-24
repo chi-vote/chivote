@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Breadcrumb, List, Page } from 'Components/common';
-import { ResultsContainer } from 'Components/resultsCommon';
+import {
+  ResultsAboutText,
+  ResultsContainer,
+  ResultsUpdated
+} from 'Components/resultsCommon';
 import styles from './styles.module.scss';
 
 const ResultsItem = race => (
   <li className='column is-4'>
-    <p className='has-text-weight-bold'>
+    <h3 className='is-size-5'>
       <a href={`../races/${race.id}/`}>{race.name}</a>
-    </p>
+    </h3>
     <ResultsContainer cboeId={race.cboeId} />
   </li>
 );
@@ -53,6 +57,7 @@ class ResultsList extends Component {
               defaultMessage='Results'
             />
           </h1>
+          <ResultsAboutText />
           <List className='columns is-multiline'>{otherRaces}</List>
           <h2 className='page-heading title is-4 mt-1'>
             <FormattedMessage

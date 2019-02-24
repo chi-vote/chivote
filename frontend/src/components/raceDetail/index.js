@@ -9,7 +9,7 @@ import {
   FinanceFeed,
   StanceFeed
 } from './feeds';
-import { ResultsContainer } from 'Components/resultsCommon';
+import { ResultsAboutText, ResultsContainer } from 'Components/resultsCommon';
 import { parseHtml } from 'Components/utils';
 import { Breadcrumb, Page } from 'Components/common';
 import './styles.scss';
@@ -85,7 +85,12 @@ class RaceDetail extends Component {
       case 'finances':
         return <FinanceFeed candidates={JSON.parse(this.props.candidates)} />;
       case 'results':
-        return <ResultsContainer cboeId={this.props.cboeId} drawBars={true} />;
+        return (
+          <>
+            <ResultsAboutText />
+            <ResultsContainer cboeId={this.props.cboeId} drawBars={true} />
+          </>
+        );
     }
   };
 

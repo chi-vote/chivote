@@ -7,11 +7,11 @@
   width: 100%;
 
   @media (max-width: $tablet) {
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
+    // margin-left: -1.5rem;
+    // margin-right: -1.5rem;
     max-width: unset;
     overflow-x: scroll;
-    width: calc(100% + 3rem);
+    // width: calc(100% + 3rem);
   }
 
   :global {
