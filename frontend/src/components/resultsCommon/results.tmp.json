@@ -6,9 +6,9 @@
     "Total votes"
   ],
   "cand_headers": ["Candidate Name", "Votes", "% of Votes"],
-  "cand_classes": ["", "amt show-bar", "amt"],
-  "datetime": "2019-02-24T16:28:58-06:00",
-  "timestamp": 1551047338,
+  "cand_classes": ["", "amt append-bar", "amt"],
+  "datetime": "2019-02-24T16:32:11-06:00",
+  "timestamp": 1551047531,
   "contests": {
     "0000": {
       "meta": ["PRECINCTS COUNTED - TOTAL", 0, 2069, 0],

@@ -30,13 +30,21 @@ class ResultsFeed extends Component {
     select(node)
       .select('thead')
       .selectAll('tr')
-      .append('th')
+      // insert(type, before)
+      .insert('th', function() {
+        // insert before the nextSibling of the first 'append-bar' col
+        return this.getElementsByClassName('append-bar')[0].nextSibling;
+      })
       .classed(styles.barContainer, true);
 
     select(node)
       .select('tbody')
       .selectAll('tr')
-      .append('td')
+      // insert(type, before)
+      .insert('td', function() {
+        // insert before the nextSibling of the first 'append-bar' col
+        return this.getElementsByClassName('append-bar')[0].nextSibling;
+      })
       .classed(styles.barContainer, true)
       .html(`<span class="${styles.barValue}"></span>`);
   }
