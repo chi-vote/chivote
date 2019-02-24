@@ -6,8 +6,9 @@
     "Total votes"
   ],
   "cand_headers": ["Candidate Name", "Votes", "% of Votes"],
-  "datetime": "2019-02-23T15:40:52-06:00",
-  "timestamp": 1550958052,
+  "cand_classes": ["", "amt", "amt"],
+  "datetime": "2019-02-24T15:09:30-06:00",
+  "timestamp": 1551042570,
   "contests": {
     "0000": {
       "meta": ["PRECINCTS COUNTED - TOTAL", 0, 2069, 0],
@@ -227,7 +228,7 @@
       "meta": ["Alderman 24th Ward", 0, 41, 0],
       "cands": [
         ["CREATIVE SCOTT", 0, "N/A"],
-        ["MICHAEL SCOTT, JR.", 0, "N/A"],
+        ["MICHAEL  SCOTT, JR.", 0, "N/A"],
         ["TORIANO A. SANZONE", 0, "N/A"],
         ["TRACI JOHNSON", 0, "N/A"]
       ]
@@ -310,7 +311,7 @@
       "meta": ["Alderman 35th Ward", 0, 31, 0],
       "cands": [
         ["AMANDA YU DIETERICH", 0, "N/A"],
-        ["CARLOS RAMIREZ-ROSA", 0, "N/A"]
+        ["CARLOS  RAMIREZ-ROSA", 0, "N/A"]
       ]
     },
     "0048": {

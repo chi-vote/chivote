@@ -22,6 +22,7 @@ class ResultsFeed extends Component {
 
     this.state = {
       dataHeaders: results.cand_headers,
+      dataClasses: results.cand_classes,
       data: contest.cands,
       precinctsReporting,
       precinctsTotal

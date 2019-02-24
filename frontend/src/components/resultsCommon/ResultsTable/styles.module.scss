@@ -13,4 +13,8 @@
     overflow-x: scroll;
     width: calc(100% + 3rem);
   }
+
+  :global(.amt) {
+    text-align: right;
+  }
 }
