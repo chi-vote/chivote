@@ -25,7 +25,8 @@ class ResultsFeed extends Component {
       dataClasses: results.cand_classes,
       data: contest.cands,
       precinctsReporting,
-      precinctsTotal
+      precinctsTotal,
+      drawBars: props.drawBars
     };
   }
 

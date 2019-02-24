@@ -6,9 +6,9 @@
     "Total votes"
   ],
   "cand_headers": ["Candidate Name", "Votes", "% of Votes"],
-  "cand_classes": ["", "amt", "amt"],
-  "datetime": "2019-02-24T15:09:30-06:00",
-  "timestamp": 1551042570,
+  "cand_classes": ["", "amt show-bar", "amt"],
+  "datetime": "2019-02-24T16:28:58-06:00",
+  "timestamp": 1551047338,
   "contests": {
     "0000": {
       "meta": ["PRECINCTS COUNTED - TOTAL", 0, 2069, 0],
@@ -23,12 +23,12 @@
       "cands": [["BALLOTS CAST", 0, "N/A"]]
     },
     "0010": {
-      "meta": ["Mayor", 0, 2069, 15],
+      "meta": ["Mayor", 0, 2069, 30],
       "cands": [
-        ["JERRY JOYCE", 10, "66.7%"],
-        ["PAUL VALLAS", 5, "33.3%"],
+        ["JERRY JOYCE", 10, "33.3%"],
+        ["PAUL VALLAS", 5, "16.7%"],
         ["WILLIE L. WILSON", 0, "0.0%"],
-        ["TONI PRECKWINKLE", 0, "0.0%"],
+        ["TONI PRECKWINKLE", 15, "50.0%"],
         ["WILLIAM M. DALEY", 0, "0.0%"],
         ["GARRY MCCARTHY", 0, "0.0%"],
         ["GERY CHICO", 0, "0.0%"],

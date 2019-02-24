@@ -85,7 +85,7 @@ class RaceDetail extends Component {
       case 'finances':
         return <FinanceFeed candidates={JSON.parse(this.props.candidates)} />;
       case 'results':
-        return <ResultsContainer cboeId={this.props.cboeId} />;
+        return <ResultsContainer cboeId={this.props.cboeId} drawBars={true} />;
     }
   };
 

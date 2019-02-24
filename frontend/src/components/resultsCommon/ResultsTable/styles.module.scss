@@ -18,3 +18,13 @@
     text-align: right;
   }
 }
+
+.barContainer {
+  width: 50%;
+}
+
+.barValue {
+  background: $primary;
+  display: inline-block;
+  width: 0; // default value, overridden inline
+}
