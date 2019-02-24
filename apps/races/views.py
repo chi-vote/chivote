@@ -37,7 +37,7 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
 
         return {
             'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),
-            'cboeId': self.object.cboe_id,
+            'cboeId': self.object.cboe_results_id,
             'feed': curr_section,
             'data': {
                 'issues': serializers.serialize('json', issues),
@@ -247,7 +247,7 @@ class ResultsListView(RenderReactMixin, BuildableListView):
             races.append({
                 'name': race.__str__(),
                 'id': race.slug,
-                'cboeId': race.cboe_id,
+                'cboeId': race.cboe_results_id,
             })
 
         return {

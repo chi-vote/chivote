@@ -82,6 +82,6 @@ class RaceAdmin(admin.ModelAdmin):
     num_pinned_articles.short_description = '# pinned articles'
 
     list_display = ('__str__', 'num_candidates', 'slug',
-                    'documenters_slug', 'cboe_id', 'num_articles', 'num_pinned_articles',)
+                    'documenters_slug', 'cboe_results_id', 'num_articles', 'num_pinned_articles',)
     ordering = ('id',)
     readonly_fields = ('slug',)
