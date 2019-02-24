@@ -4,27 +4,46 @@ import { select } from 'd3-selection';
 import styles from './styles.module.scss';
 
 class ResultsFeed extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.initBars = this.initBars.bind(this);
     this.drawBars = this.drawBars.bind(this);
+
+    const canAppend =
+      props.dataClasses.findIndex(classStr =>
+        classStr.includes(props.appendBarKey)
+      ) > -1;
+
+    this.state = {
+      canDraw: this.props.drawBars && canAppend,
+      canInit: true,
+      isInit: false
+    };
   }
 
   componentDidMount() {
-    if (this.props.drawBars) {
+    const { canDraw, canInit } = this.state;
+
+    if (canDraw && canInit) {
       this.initBars();
-      this.drawBars();
     }
   }
 
   componentDidUpdate() {
-    if (this.props.drawBars) {
+    const { canDraw, canInit } = this.state;
+
+    if (canDraw && canInit) {
+      this.initBars();
+    }
+
+    if (canDraw) {
       this.drawBars();
     }
   }
 
   initBars() {
+    const { appendBarKey } = this.props;
     const node = this.node;
 
     select(node)
@@ -33,7 +52,7 @@ class ResultsFeed extends Component {
       // insert(type, before)
       .insert('th', function() {
         // insert before the nextSibling of the first 'append-bar' col
-        return this.getElementsByClassName('append-bar')[0].nextSibling;
+        return this.getElementsByClassName(appendBarKey)[0].nextSibling;
       })
       .classed(styles.barContainer, true);
 
@@ -43,15 +62,22 @@ class ResultsFeed extends Component {
       // insert(type, before)
       .insert('td', function() {
         // insert before the nextSibling of the first 'append-bar' col
-        return this.getElementsByClassName('append-bar')[0].nextSibling;
+        return this.getElementsByClassName(appendBarKey)[0].nextSibling;
       })
       .classed(styles.barContainer, true)
       .html(`<span class="${styles.barValue}"></span>`);
+
+    this.setState({ canInit: false });
   }
 
   drawBars() {
+    const { appendBarKey } = this.props;
     const node = this.node;
-    const data = this.props.data.map(d => d[1]);
+
+    const dataIdx = this.props.dataClasses.findIndex(classStr =>
+      classStr.includes(appendBarKey)
+    );
+    const data = this.props.data.map(d => parseFloat(d[dataIdx]));
     const dataMax = Math.max(...data);
 
     select(node)

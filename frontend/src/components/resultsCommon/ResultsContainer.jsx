@@ -34,7 +34,7 @@ class ResultsFeed extends Component {
     return (
       <div className='contest'>
         <PrecinctsReportingText {...this.state} />
-        <ResultsTable {...this.state} />
+        <ResultsTable {...this.state} appendBarKey='append-bar' />
       </div>
     );
   }
