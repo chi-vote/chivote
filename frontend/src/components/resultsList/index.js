@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Breadcrumb, List, Page } from 'Components/common';
-import { ResultsFeed } from 'Components/raceDetail/feeds';
+import { ResultsContainer } from 'Components/resultsCommon';
 import styles from './styles.module.scss';
 
 const ResultsItem = race => (
   <li className='column is-4' key={race.id}>
-    <p>
-      <strong>
-        <a href={`../races/${race.id}/`}>{race.name}</a>
-      </strong>
+    <p className='has-text-weight-bold'>
+      <a href={`../races/${race.id}/`}>{race.name}</a>
     </p>
-    <ResultsFeed cboeId={race.cboeId} />
+    <ResultsContainer cboeId={race.cboeId} />
   </li>
 );
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ResultsTable } from '../items';
+import ResultsTable from './ResultsTable';
 import * as resultsJson from './results.tmp.json';
 
 const PrecinctsReportingText = ({ precinctsReporting, precinctsTotal }) => (
