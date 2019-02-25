@@ -4,7 +4,7 @@ import { Breadcrumb, List, Page } from 'Components/common';
 import * as Results from 'Components/results';
 
 const ResultsItem = race => (
-  <li className='column is-4'>
+  <li className='column is-4' id={`race--${race.id}`}>
     <h3 className='is-size-5'>
       <a href={`../races/${race.id}/`}>{race.name}</a>
     </h3>
@@ -16,6 +16,17 @@ const ResultsItem = race => (
 );
 
 class ResultsList extends Component {
+  constructor() {
+    super();
+
+    this._onSelect = this._onSelect.bind(this);
+  }
+
+  _onSelect() {
+    var e = document.getElementById(this.dropdown.value);
+    e.scrollIntoView({ behavior: 'smooth' });
+  }
+
   render() {
     const parsedRaceData = JSON.parse(this.props.data.races);
     const copyRaceData = [...parsedRaceData];
@@ -37,12 +48,31 @@ class ResultsList extends Component {
     const wardRaces = extractWardData.map(race => (
       <ResultsItem {...race} key={race.id} />
     ));
+
+    const wardOptions = extractWardData.map(race => ({
+      value: 'race--' + race.id,
+      label: race.name
+    }));
+
     const otherRaces = flattenRemains.map(race => (
       <ResultsItem {...race} key={race.id} />
     ));
 
+    const citywideOptions = flattenRemains.map(race => ({
+      value: 'race--' + race.id,
+      label: race.name
+    }));
+
     const activeLabel = (
       <FormattedMessage id={`common.link.results`} defaultMessage='Results' />
+    );
+
+    const SelectRace = () => (
+      <select onChange={this._onSelect} ref={node => (this.dropdown = node)}>
+        {citywideOptions.concat(wardOptions).map(({ value, label }) => (
+          <option value={value}>{label}</option>
+        ))}
+      </select>
     );
 
     return (
@@ -55,10 +85,13 @@ class ResultsList extends Component {
               defaultMessage='Results'
             />
           </h1>
+
           <Results.DataProvider>
-            <Results.Updated />
             <Results.About />
+            <Results.Updated />
+            <SelectRace />
           </Results.DataProvider>
+
           <List className='columns is-multiline'>{otherRaces}</List>
           <h2 className='page-heading title is-4 mt-1'>
             <FormattedMessage
