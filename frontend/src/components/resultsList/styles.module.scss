@@ -1,13 +1,26 @@
-.wardButton {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  background-color: #3f3f4d;
-  font-size: 1.25rem;
+@import '~Theme/styles/variables';
 
-  &:hover {
-    background: rgba(63, 63, 77, 0.7);
+.select {
+  margin-left: auto;
+
+  :global(select:required:invalid) {
+    color: gray;
   }
+
+  :global(option) {
+    color: $white;
+  }
+
+  :global(option[value=''][disabled]) {
+    display: none;
+  }
+}
+
+.banner {
+  align-items: center;
+  background: $dark;
+  color: $white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }

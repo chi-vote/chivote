@@ -1,6 +1,22 @@
 import React, { Component } from 'react';
 import * as resultsJson from './results.tmp.json';
 
+function recursiveMap(children, fn) {
+  return React.Children.map(children, child => {
+    if (!React.isValidElement(child)) {
+      return child;
+    }
+
+    if (child.props.children) {
+      child = React.cloneElement(child, {
+        children: recursiveMap(child.props.children, fn)
+      });
+    }
+
+    return fn(child);
+  });
+}
+
 class DataProvider extends Component {
   render() {
     let results = resultsJson.default;
@@ -25,12 +41,16 @@ class DataProvider extends Component {
 
     return (
       <DataContext.Provider value={results}>
-        {React.Children.map(children, child => {
-          return (
-            <DataContext.Consumer>
-              {value => React.cloneElement(child, { ...value })}
-            </DataContext.Consumer>
-          );
+        {recursiveMap(children, child => {
+          if (typeof child.type == `function`) {
+            return (
+              <DataContext.Consumer>
+                {value => React.cloneElement(child, { ...value })}
+              </DataContext.Consumer>
+            );
+          } else {
+            return child;
+          }
         })}
       </DataContext.Provider>
     );

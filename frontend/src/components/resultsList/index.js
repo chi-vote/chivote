@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Breadcrumb, List, Page } from 'Components/common';
 import * as Results from 'Components/results';
+import cn from 'classnames';
+import styles from './styles.module.scss';
 
 const ResultsItem = race => (
   <li className='column is-4' id={`race--${race.id}`}>
@@ -23,8 +25,21 @@ class ResultsList extends Component {
   }
 
   _onSelect() {
-    var e = document.getElementById(this.dropdown.value);
-    e.scrollIntoView({ behavior: 'smooth' });
+    var element = document.getElementById(this.dropdown.value);
+
+    var headerOffset = document
+      .getElementsByClassName(styles.banner)[0]
+      .getBoundingClientRect().height;
+    var elementTop = element.getBoundingClientRect().top;
+    var windowTop = window.pageYOffset || document.documentElement.scrollTop;
+    var offsetTop = windowTop + elementTop - headerOffset;
+
+    window.scrollTo({
+      top: offsetTop,
+      behavior: 'smooth'
+    });
+
+    return;
   }
 
   render() {
@@ -67,10 +82,19 @@ class ResultsList extends Component {
       <FormattedMessage id={`common.link.results`} defaultMessage='Results' />
     );
 
-    const SelectRace = () => (
-      <select onChange={this._onSelect} ref={node => (this.dropdown = node)}>
-        {citywideOptions.concat(wardOptions).map(({ value, label }) => (
-          <option value={value}>{label}</option>
+    const SelectRace = ({ options }) => (
+      <select
+        onChange={this._onSelect}
+        ref={node => (this.dropdown = node)}
+        required
+      >
+        <option value='' disabled selected>
+          Select a race
+        </option>
+        {options.map(({ value, label }) => (
+          <option value={value} key={value}>
+            {label}
+          </option>
         ))}
       </select>
     );
@@ -88,8 +112,13 @@ class ResultsList extends Component {
 
           <Results.DataProvider>
             <Results.About />
-            <Results.Updated />
-            <SelectRace />
+
+            <div className={cn('field is-grouped', styles.banner)}>
+              <Results.Updated />
+              <div className={cn('select', styles.select)}>
+                <SelectRace options={citywideOptions.concat(wardOptions)} />
+              </div>
+            </div>
           </Results.DataProvider>
 
           <List className='columns is-multiline'>{otherRaces}</List>
