@@ -132,4 +132,10 @@ class Table extends Component {
   }
 }
 
+Table.defaultProps = {
+  dataHeaders: [],
+  dataClasses: [],
+  data: []
+};
+
 export default Table;

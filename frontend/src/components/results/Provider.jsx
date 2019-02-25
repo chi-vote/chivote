@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as resultsJson from './results.tmp.json';
+import * as emptyResultsJson from './results.empty.json';
 
 function recursiveMap(children, fn) {
   return React.Children.map(children, child => {
@@ -18,11 +18,48 @@ function recursiveMap(children, fn) {
 }
 
 class DataProvider extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      results: emptyResultsJson
+    };
+
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchData();
+    this.interval = setInterval(() => this.fetchData(), 60 * 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  fetchData() {
+    let url = 'http://chi.vote.app.stage.s3.amazonaws.com/results.json';
+
+    fetch(url)
+      .then(res => res.json())
+      .then(results => {
+        this.setState({ results });
+      })
+      .catch(err => {
+        throw err;
+      });
+  }
+
   render() {
-    let results = resultsJson.default;
+    let { results } = this.state;
 
     const { cboeId } = this.props;
-    const contest = results.contests[cboeId];
+
+    let contest;
+
+    if ('contests' in results) {
+      contest = results.contests[cboeId];
+    }
 
     if (contest) {
       results.precinctsReporting =
