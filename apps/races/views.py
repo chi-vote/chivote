@@ -139,6 +139,7 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
         self.build_file(target_path, self.get_content())
 
         sections = [
+            'results',
             'candidates',
             'articles',
             'stances',
