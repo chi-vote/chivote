@@ -1,405 +1,388 @@
 {
-  "contest_headers": [
-    "Contest name",
-    "# Completed precincts",
-    "# of Eligible Precincts",
-    "Total votes"
-  ],
-  "cand_headers": ["Candidate Name", "Votes"],
-  "cand_classes": ["", "amt append-bar"],
-  "datetime": "2019-02-24T16:47:50-06:00",
-  "timestamp": 1551048470,
+  "contest_headers": ["name", "prs_rpt", "prs_tot"],
+  "cand_headers": ["name", "vote_cnt"],
+  "datetime": "2019-02-25T14:27:42-06:00",
+  "timestamp": 1551126462,
   "contests": {
-    "0000": {
-      "meta": ["PRECINCTS COUNTED - TOTAL", 0, 2069, 0],
-      "cands": [["PRECINCTS COUNTED - TOTAL", 0]]
-    },
-    "0001": {
-      "meta": ["REGISTERED VOTERS - TOTAL", 0, 2069, 1581755],
-      "cands": [["VOTERS", 1581755]]
-    },
-    "0002": {
-      "meta": ["BALLOTS CAST - TOTAL", 0, 2069, 0],
-      "cands": [["BALLOTS CAST", 0]]
-    },
     "0010": {
-      "meta": ["Mayor", 0, 2069, 30],
+      "meta": ["City Mayor", 0, 2069],
       "cands": [
-        ["JERRY JOYCE", 10],
-        ["PAUL VALLAS", 5],
-        ["WILLIE L. WILSON", 0],
-        ["TONI PRECKWINKLE", 15],
-        ["WILLIAM M. DALEY", 0],
-        ["GARRY MCCARTHY", 0],
-        ["GERY CHICO", 0],
-        ["SUSANA A. MENDOZA", 0],
-        ["AMARA ENYIA", 0],
-        ["LA SHAWN K. FORD", 0],
-        ["NEAL SALES-GRIFFIN", 0],
-        ["LORI LIGHTFOOT", 0],
-        ["ROBERT ''BOB'' FIORETTI", 0],
-        ["JOHN KENNETH KOZLAR", 0]
+        ["Jerry Joyce", 0],
+        ["Paul Vallas", 0],
+        ["Willie L. Wilson", 0],
+        ["Toni Preckwinkle", 0],
+        ["William M. Daley", 0],
+        ["Garry McCarthy", 0],
+        ["Gery Chico", 0],
+        ["Susana A. Mendoza", 0],
+        ["Amara Enyia", 0],
+        ["La Shawn K. Ford", 0],
+        ["Neal S\u00e1les-Griffin", 0],
+        ["Lori Lightfoot", 0],
+        ["Robert \"Bob\" Fioretti", 0],
+        ["John Kenneth Kozlar", 0]
       ]
     },
     "0011": {
-      "meta": ["Clerk", 0, 2069, 0],
-      "cands": [["ANNA M. VALENCIA", 0]]
+      "meta": ["City Clerk", 0, 2069],
+      "cands": [["Anna M. Valencia", 0]]
     },
     "0012": {
-      "meta": ["Treasurer", 0, 2069, 0],
+      "meta": ["City Treasurer", 0, 2069],
       "cands": [
-        ["MELISSA CONYEARS-ERVIN", 0],
-        ["AMEYA PAWAR", 0],
-        ["PETER GARIEPY", 0]
+        ["Melissa Conyears-Ervin", 0],
+        ["Ameya Pawar", 0],
+        ["Peter Gariepy", 0]
       ]
     },
     "0013": {
-      "meta": ["Alderman 1st Ward", 0, 44, 0],
-      "cands": [["PROCO ''JOE'' MORENO", 0], ["DANIEL LA SPATA", 0]]
+      "meta": ["1St Ward Alderman", 0, 44],
+      "cands": [["Proco \"Joe\" Moreno", 0], ["Daniel La Spata", 0]]
     },
     "0014": {
-      "meta": ["Alderman 2nd Ward", 0, 46, 0],
-      "cands": [["BRIAN HOPKINS", 0]]
+      "meta": ["2Nd Ward Alderman", 0, 46],
+      "cands": [["Brian Hopkins", 0]]
     },
     "0015": {
-      "meta": ["Alderman 3rd Ward", 0, 41, 0],
-      "cands": [["PATRICIA ''PAT'' DOWELL", 0], ["ALEXANDRIA WILLIS", 0]]
+      "meta": ["3Rd Ward Alderman", 0, 41],
+      "cands": [["Patricia \"Pat\" Dowell", 0], ["Alexandria Willis", 0]]
     },
     "0016": {
-      "meta": ["Alderman 4th Ward", 0, 38, 0],
-      "cands": [["SOPHIA KING", 0], ["EBONY D. LUCAS", 0]]
+      "meta": ["4Th Ward Alderman", 0, 38],
+      "cands": [["Sophia King", 0], ["Ebony D. Lucas", 0]]
     },
     "0017": {
-      "meta": ["Alderman 5th Ward", 0, 41, 0],
+      "meta": ["5Th Ward Alderman", 0, 41],
       "cands": [
-        ["LESLIE A. HAIRSTON", 0],
-        ["WILLIAM CALLOWAY", 0],
-        ["GABRIEL PIEMONTE", 0]
+        ["Leslie A.  Hairston", 0],
+        ["William Calloway", 0],
+        ["Gabriel Piemonte", 0]
       ]
     },
     "0018": {
-      "meta": ["Alderman 6th Ward", 0, 48, 0],
+      "meta": ["6Th Ward Alderman", 0, 48],
       "cands": [
-        ["RODERICK T. SAWYER", 0],
-        ["RICHARD A. WOOTEN", 0],
-        ["DEBORAH A. FOSTER-BONNER", 0]
+        ["Roderick T. Sawyer", 0],
+        ["Richard A. Wooten", 0],
+        ["Deborah A. Foster-Bonner", 0]
       ]
     },
     "0019": {
-      "meta": ["Alderman 7th Ward", 0, 46, 0],
+      "meta": ["7Th Ward Alderman", 0, 46],
       "cands": [
-        ["GREGORY I. MITCHELL", 0],
-        ["CHARLES KYLE", 0],
-        ["JEDIDIAH L. BROWN", 0]
+        ["Gregory I. Mitchell", 0],
+        ["Charles Kyle", 0],
+        ["Jedidiah L. Brown", 0]
       ]
     },
     "0020": {
-      "meta": ["Alderman 8th Ward", 0, 56, 0],
+      "meta": ["8Th Ward Alderman", 0, 56],
       "cands": [
-        ["MICHELLE A. HARRIS", 0],
-        ["JEWEL EASTERLING-SMITH", 0],
-        ["LINDA HUDSON", 0],
-        ["FAHEEM SHABAZZ", 0]
+        ["Michelle A. Harris", 0],
+        ["Jewel R. Easterling-Smith", 0],
+        ["Linda Hudson", 0],
+        ["Faheem Shabazz", 0]
       ]
     },
     "0021": {
-      "meta": ["Alderman 9th Ward", 0, 51, 0],
+      "meta": ["9Th Ward Alderman", 0, 51],
       "cands": [
-        ["ANTHONY A. BEALE", 0],
-        ["CLEOPATRA WATSON", 0],
-        ["PAUL COLLINS", 0],
-        ["ESSIE HALL", 0]
+        ["Anthony A. Beale", 0],
+        ["Cleopatra Watson", 0],
+        ["Paul Collins", 0],
+        ["Essie Hall", 0]
       ]
     },
     "0022": {
-      "meta": ["Alderman 10th Ward", 0, 36, 0],
-      "cands": [["SUSAN SADLOWSKI GARZA", 0], ["ROBERT ''BOBBY'' LONCAR", 0]]
+      "meta": ["10Th Ward Alderman", 0, 36],
+      "cands": [["Susan Sadlowski Garza", 0], ["Robert \"Bobby\" Loncar", 0]]
     },
     "0023": {
-      "meta": ["Alderman 11th Ward", 0, 38, 0],
-      "cands": [["PATRICK DALEY THOMPSON", 0], ["DAVID MIHALYFY", 0]]
+      "meta": ["11Th Ward Alderman", 0, 38],
+      "cands": [["Patrick Daley Thompson", 0], ["David Mihalyfy", 0]]
     },
     "0024": {
-      "meta": ["Alderman 12th Ward", 0, 23, 0],
+      "meta": ["12Th Ward Alderman", 0, 23],
       "cands": [
-        ["GEORGE CARDENAS", 0],
-        ["PETE DEMAY", 0],
-        ["MARTHA YERANIA RANGEL", 0],
-        ["JOSE RICO", 0]
+        ["George Cardenas", 0],
+        ["Pete Demay", 0],
+        ["Martha Yerania Rangel", 0],
+        ["Jose Rico", 0]
       ]
     },
     "0025": {
-      "meta": ["Alderman 13th Ward", 0, 48, 0],
-      "cands": [["MARTY QUINN", 0], ["DAVID J. KRUPA", 0]]
+      "meta": ["13Th Ward Alderman", 0, 48],
+      "cands": [["Marty Quinn", 0], ["David J. Krupa", 0]]
     },
     "0026": {
-      "meta": ["Alderman 14th Ward", 0, 31, 0],
+      "meta": ["14Th Ward Alderman", 0, 31],
       "cands": [
-        ["EDWARD M. BURKE", 0],
-        ["JAIME GUZMAN", 0],
-        ["TANYA G. PATINO", 0]
+        ["Edward M. Burke", 0],
+        ["Jaime Guzman", 0],
+        ["Tanya G. Patino", 0]
       ]
     },
     "0027": {
-      "meta": ["Alderman 15th Ward", 0, 24, 0],
+      "meta": ["15Th Ward Alderman", 0, 24],
       "cands": [
-        ["JOSEPH G. WILLIAMS", 0],
-        ["RAFAEL ''RAFA'' YANEZ", 0],
-        ["RAYMOND A. LOPEZ", 0],
-        ["BERTO AGUAYO", 0],
-        ["OTIS DAVIS, JR.", 0]
+        ["Joseph G. Williams", 0],
+        ["Rafael \"Rafa\" Yanez", 0],
+        ["Raymond A. Lopez", 0],
+        ["Berto Aguayo", 0],
+        ["Otis Davis Jr.", 0]
       ]
     },
     "0028": {
-      "meta": ["Alderman 16th Ward", 0, 36, 0],
+      "meta": ["16Th Ward Alderman", 0, 36],
       "cands": [
-        ["STEPHANIE D. COLEMAN", 0],
-        ["LATASHA M. SANDERS", 0],
-        ["KENNY C. DOSS II", 0],
-        ["TONI L. FOULKES", 0],
-        ["JEFFREY L. LEWIS", 0],
-        ["EDDIE JOHNSON III", 0]
+        ["Stephanie D. Coleman", 0],
+        ["Latasha M. Sanders", 0],
+        ["Kenny C. Doss II", 0],
+        ["Toni L. Foulkes", 0],
+        ["Jeffrey L. Lewis", 0],
+        ["Eddie Johnson III", 0]
       ]
     },
     "0029": {
-      "meta": ["Alderman 17th Ward", 0, 41, 0],
-      "cands": [["DAVID H. MOORE", 0], ["RAYNETTA GREENLEAF", 0]]
+      "meta": ["17Th Ward Alderman", 0, 41],
+      "cands": [["David H. Moore", 0], ["Raynetta Greenleaf", 0]]
     },
     "0030": {
-      "meta": ["Alderman 18th Ward", 0, 50, 0],
-      "cands": [["CHUKS ONYEZIA", 0], ["DERRICK G. CURTIS", 0]]
+      "meta": ["18Th Ward Alderman", 0, 50],
+      "cands": [["Chuks Onyezia", 0], ["Derrick G. Curtis", 0]]
     },
     "0031": {
-      "meta": ["Alderman 19th Ward", 0, 57, 0],
-      "cands": [["MATTHEW J. O'SHEA", 0], ["DAVID A. DEWAR", 0]]
+      "meta": ["19Th Ward Alderman", 0, 57],
+      "cands": [["Matthew J. O'Shea", 0], ["David A. Dewar", 0]]
     },
     "0032": {
-      "meta": ["Alderman 20th Ward", 0, 39, 0],
+      "meta": ["20Th Ward Alderman", 0, 39],
       "cands": [
-        ["JEANETTE B TAYLOR", 0],
-        ["NICOLE J. JOHNSON", 0],
-        ["MAYA HODARI", 0],
-        ["JENNIFER O. MADDOX", 0],
-        ["ANDRE SMITH", 0],
-        ["DERNARD D. NEWELL", 0],
-        ["QUANDRA V. SPEIGHTS", 0],
-        ["KEVIN M. BAILEY", 0],
-        ["ANTHONY DRIVER, JR.", 0]
+        ["Jeanette B Taylor", 0],
+        ["Nicole J. Johnson", 0],
+        ["Maya Hodari", 0],
+        ["Jennifer O. Maddox", 0],
+        ["Andre Smith", 0],
+        ["Dernard D. Newell", 0],
+        ["Quandra V. Speights", 0],
+        ["Kevin M. Bailey", 0],
+        ["Anthony Driver Jr.", 0]
       ]
     },
     "0033": {
-      "meta": ["Alderman 21st Ward", 0, 54, 0],
+      "meta": ["21St Ward Alderman", 0, 54],
       "cands": [
-        ["HOWARD B. BROOKINS, JR.", 0],
-        ["MARVIN MCNEIL", 0],
-        ["PATRICIA A. FOSTER", 0],
-        ["JOSEPH C. ZIEGLER, JR.", 0]
+        ["Howard B. Brookins Jr.", 0],
+        ["Marvin McNeil", 0],
+        ["Patricia A. Foster", 0],
+        ["Joseph C. Ziegler Jr.", 0]
       ]
     },
     "0034": {
-      "meta": ["Alderman 22nd Ward", 0, 25, 0],
+      "meta": ["22Nd Ward Alderman", 0, 25],
       "cands": [
-        ["MICHAEL D. RODRIGUEZ", 0],
-        ["LISETTE ''LIZ'' LOPEZ", 0],
-        ["RICHARD JUAREZ", 0],
-        ["NEFTALIE GONZALEZ", 0]
+        ["Michael D. Rodriguez", 0],
+        ["Lisette \"Liz\" Lopez", 0],
+        ["Richard Juarez", 0],
+        ["Neftalie Gonzalez", 0]
       ]
     },
     "0035": {
-      "meta": ["Alderman 23rd Ward", 0, 39, 0],
-      "cands": [["SILVANA TABARES", 0], ["PAULINO VILLARREAL, JR.", 0]]
+      "meta": ["23Rd Ward Alderman", 0, 39],
+      "cands": [["Silvana Tabares", 0], ["Paulino R. Villarreal Jr.", 0]]
     },
     "0036": {
-      "meta": ["Alderman 24th Ward", 0, 41, 0],
+      "meta": ["24Th Ward Alderman", 0, 41],
       "cands": [
-        ["CREATIVE SCOTT", 0],
-        ["MICHAEL  SCOTT, JR.", 0],
-        ["TORIANO A. SANZONE", 0],
-        ["TRACI JOHNSON", 0]
+        ["Creative Scott", 0],
+        ["Michael Scott Jr.", 0],
+        ["Toriano A. Sanzone", 0],
+        ["Traci \"Treasure\" Johnson", 0]
       ]
     },
     "0037": {
-      "meta": ["Alderman 25th Ward", 0, 32, 0],
+      "meta": ["25Th Ward Alderman", 0, 32],
       "cands": [
-        ["HILARIO DOMINGUEZ", 0],
-        ["ALEXANDER ACEVEDO", 0],
-        ["TROY ANTONIO HERNANDEZ", 0],
-        ["BYRON SIGCHO-LOPEZ", 0],
-        ["AIDA FLORES", 0]
+        ["Hilario Dominguez", 0],
+        ["Alexander \"Alex\" Acevedo", 0],
+        ["Troy Antonio Hernandez", 0],
+        ["Byron Sigcho-Lopez", 0],
+        ["Aida Flores", 0]
       ]
     },
     "0038": {
-      "meta": ["Alderman 26th Ward", 0, 49, 0],
+      "meta": ["26Th Ward Alderman", 0, 49],
       "cands": [
-        ["THERESA SIAW", 0],
-        ["ROBERTO MALDONADO", 0],
-        ["DAVID HERRERA", 0]
+        ["Theresa Siaw", 0],
+        ["Roberto Maldonado", 0],
+        ["David Herrera", 0]
       ]
     },
     "0039": {
-      "meta": ["Alderman 27th Ward", 0, 50, 0],
-      "cands": [["WALTER BURNETT, JR.", 0], ["CYNTHIA D. BEDNARZ", 0]]
+      "meta": ["27Th Ward Alderman", 0, 50],
+      "cands": [["Walter Burnett Jr.", 0], ["Cynthia D. Bednarz", 0]]
     },
     "0040": {
-      "meta": ["Alderman 28th Ward", 0, 46, 0],
+      "meta": ["28Th Ward Alderman", 0, 46],
       "cands": [
-        ["MIGUEL BAUTISTA", 0],
-        ["JASON C. ERVIN", 0],
-        ["JASMINE JACKSON", 0],
-        ["BEVERLY MILES", 0]
+        ["Miguel Bautista", 0],
+        ["Jason C. Ervin", 0],
+        ["Jasmine Jackson", 0],
+        ["Beverly Miles", 0]
       ]
     },
     "0041": {
-      "meta": ["Alderman 29th Ward", 0, 44, 0],
+      "meta": ["29Th Ward Alderman", 0, 44],
       "cands": [
-        ["DWAYNE TRUSS", 0],
-        ["CHRIS TALIAFERRO", 0],
-        ["ZERLINA A. SMITH", 0]
+        ["Dwayne Truss", 0],
+        ["Chris Taliaferro", 0],
+        ["Zerlina A. Smith", 0]
       ]
     },
     "0042": {
-      "meta": ["Alderman 30th Ward", 0, 32, 0],
+      "meta": ["30Th Ward Alderman", 0, 32],
       "cands": [
-        ["JESSICA W. GUTIERREZ", 0],
-        ["ARIEL E. REBOYRAS", 0],
-        ["EDGAR ''EDEK'' ESPARZA", 0]
+        ["Jessica W. Gutierrez", 0],
+        ["Ariel E. Reboyras", 0],
+        ["Edgar \"Edek\" Esparza", 0]
       ]
     },
     "0043": {
-      "meta": ["Alderman 31st Ward", 0, 41, 0],
+      "meta": ["31St Ward Alderman", 0, 41],
       "cands": [
-        ["COLIN BIRD-MARTINEZ", 0],
-        ["MILAGROS SANTIAGO", 0],
-        ["FELIX CARDONA JR.", 0]
+        ["Colin Bird-Martinez", 0],
+        ["Milagros \"Milly\" Santiago", 0],
+        ["Felix Cardona Jr.", 0]
       ]
     },
     "0044": {
-      "meta": ["Alderman 32nd Ward", 0, 43, 0],
-      "cands": [["SCOTT WAGUESPACK", 0]]
+      "meta": ["32Nd Ward Alderman", 0, 43],
+      "cands": [["Scott Waguespack", 0]]
     },
     "0045": {
-      "meta": ["Alderman 33rd Ward", 0, 28, 0],
+      "meta": ["33Rd Ward Alderman", 0, 28],
       "cands": [
-        ["KATIE SIERACKI", 0],
-        ["R. RODRIGUEZ SANCHEZ", 0],
-        ["DEBORAH L. MELL", 0]
+        ["Katie Sieracki", 0],
+        ["Rossana Rodr\u00edguez-S\u00e1nchez", 0],
+        ["Deborah L. Mell", 0]
       ]
     },
     "0046": {
-      "meta": ["Alderman 34th Ward", 0, 53, 0],
-      "cands": [["CARRIE M. AUSTIN", 0], ["PRESTON BROWN JR", 0]]
+      "meta": ["34Th Ward Alderman", 0, 53],
+      "cands": [["Carrie M. Austin", 0], ["Preston Brown Jr.", 0]]
     },
     "0047": {
-      "meta": ["Alderman 35th Ward", 0, 31, 0],
-      "cands": [["AMANDA YU DIETERICH", 0], ["CARLOS  RAMIREZ-ROSA", 0]]
+      "meta": ["35Th Ward Alderman", 0, 31],
+      "cands": [["Amanda Yu Dieterich", 0], ["Carlos Ramirez-Rosa", 0]]
     },
     "0048": {
-      "meta": ["Alderman 36th Ward", 0, 30, 0],
-      "cands": [["GILBERT VILLEGAS", 0]]
+      "meta": ["36Th Ward Alderman", 0, 30],
+      "cands": [["Gilbert Villegas", 0]]
     },
     "0049": {
-      "meta": ["Alderman 37th Ward", 0, 41, 0],
-      "cands": [["EMMA M. MITTS", 0], ["TARA STAMPS", 0], ["DEONDRE RUTUES", 0]]
+      "meta": ["37Th Ward Alderman", 0, 41],
+      "cands": [["Emma M. Mitts", 0], ["Tara Stamps", 0], ["Deondre Rutues", 0]]
     },
     "0050": {
-      "meta": ["Alderman 38th Ward", 0, 41, 0],
-      "cands": [["NICHOLAS SPOSATO", 0]]
+      "meta": ["38Th Ward Alderman", 0, 41],
+      "cands": [["Nicholas Sposato", 0]]
     },
     "0051": {
-      "meta": ["Alderman 39th Ward", 0, 45, 0],
+      "meta": ["39Th Ward Alderman", 0, 45],
       "cands": [
-        ["ROBERT MURPHY", 0],
-        ["SAMANTHA ''SAM'' NUGENT", 0],
-        ["CASEY SMAGALA", 0],
-        ["JOE DUPLECHIN", 0]
+        ["Robert Murphy", 0],
+        ["Samantha \"Sam\" Nugent", 0],
+        ["Casey Smagala", 0],
+        ["Joe Duplechin", 0]
       ]
     },
     "0052": {
-      "meta": ["Alderman 40th Ward", 0, 39, 0],
+      "meta": ["40Th Ward Alderman", 0, 39],
       "cands": [
-        ["UGO OKERE", 0],
-        ["DIANNE DALEIDEN", 0],
-        ["ANDR\u00c3\u2030 VASQUEZ", 0],
-        ["PATRICK J. O'CONNOR", 0],
-        ["MAGGIE O'KEEFE", 0]
+        ["Ugo Okere", 0],
+        ["Dianne Daleiden", 0],
+        ["Andre Vasquez", 0],
+        ["Patrick J. O'Connor", 0],
+        ["Maggie O'Keefe", 0]
       ]
     },
     "0053": {
-      "meta": ["Alderman 41st Ward", 0, 47, 0],
-      "cands": [["TIM HENEGHAN", 0], ["ANTHONY V. NAPOLITANO", 0]]
+      "meta": ["41St Ward Alderman", 0, 47],
+      "cands": [["Tim Heneghan", 0], ["Anthony V. Napolitano", 0]]
     },
     "0054": {
-      "meta": ["Alderman 42nd Ward", 0, 42, 0],
-      "cands": [["BRENDAN REILLY", 0]]
+      "meta": ["42Nd Ward Alderman", 0, 42],
+      "cands": [["Brendan Reilly", 0]]
     },
     "0055": {
-      "meta": ["Alderman 43rd Ward", 0, 46, 0],
+      "meta": ["43Rd Ward Alderman", 0, 46],
       "cands": [
-        ["DEREK LINDBLOM", 0],
-        ["MICHELE SMITH", 0],
-        ["LESLIE FOX", 0],
-        ["JACOB RINGER", 0],
-        ["STEVEN MCCLELLAN", 0],
-        ["REBECCA JANOWITZ", 0]
+        ["Derek Lindblom", 0],
+        ["Michele Smith", 0],
+        ["Leslie Fox", 0],
+        ["Jacob Ringer", 0],
+        ["Steven McClellan", 0],
+        ["Rebecca Janowitz", 0]
       ]
     },
     "0056": {
-      "meta": ["Alderman 44th Ward", 0, 41, 0],
+      "meta": ["44Th Ward Alderman", 0, 41],
       "cands": [
-        ["TOM TUNNEY", 0],
-        ["AUSTIN BAIDAS", 0],
-        ["ELIZABETH SHYDLOWSKI", 0]
+        ["Tom Tunney", 0],
+        ["Austin Baidas", 0],
+        ["Elizabeth Shydlowski", 0]
       ]
     },
     "0057": {
-      "meta": ["Alderman 45th Ward", 0, 48, 0],
+      "meta": ["45Th Ward Alderman", 0, 48],
       "cands": [
-        ["MARILYN MORALES", 0],
-        ["JOHN S. ARENA", 0],
-        ["JAMES ''JIM'' GARDINER", 0],
-        ["ROBERT A. BANK", 0]
+        ["Marilyn Morales", 0],
+        ["John S. Arena", 0],
+        ["James \"Jim\" Gardiner", 0],
+        ["Robert A. Bank", 0]
       ]
     },
     "0058": {
-      "meta": ["Alderman 46th Ward", 0, 40, 0],
+      "meta": ["46Th Ward Alderman", 0, 40],
       "cands": [
-        ["MARIANNE LALONDE", 0],
-        ["ERIKA WOZNIAK FRANCIS", 0],
-        ["JUSTIN KREINDLER", 0],
-        ["JAMES CAPPLEMAN", 0],
-        ["ANGELA CLAY", 0],
-        ["JON-ROBERT MCDOWELL", 0]
+        ["Marianne Lalonde", 0],
+        ["Erika Wozniak Francis", 0],
+        ["Justin Kreindler", 0],
+        ["James Cappleman", 0],
+        ["Angela Clay", 0],
+        ["Jon-Robert McDowell", 0]
       ]
     },
     "0059": {
-      "meta": ["Alderman 47th Ward", 0, 48, 0],
+      "meta": ["47Th Ward Alderman", 0, 48],
       "cands": [
-        ["EILEEN DORDEK", 0],
-        ["ANGELA ''ANGIE'' MALONEY", 0],
-        ["HEATHER WAY KITZES", 0],
-        ["MICHAEL A. NEGRON", 0],
-        ["MATT MARTIN", 0],
-        ["GUS KATSAFAROS", 0],
-        ["THOMAS M. SCHWARTZERS", 0],
-        ["KIMBALL LADIEN", 0],
-        ["JEFF JENKINS", 0]
+        ["Eileen Dordek", 0],
+        ["Angela \"Angie\" Maloney", 0],
+        ["Heather Way Kitzes", 0],
+        ["Michael A. Negron", 0],
+        ["Matt Martin", 0],
+        ["Gus Katsafaros", 0],
+        ["Thomas M. Schwartzers", 0],
+        ["Kimball Ladien", 0],
+        ["Jeff Jenkins", 0]
       ]
     },
     "0060": {
-      "meta": ["Alderman 48th Ward", 0, 46, 0],
-      "cands": [["HARRY OSTERMAN", 0], ["DAVID EARL WILLIAMS III", 0]]
+      "meta": ["48Th Ward Alderman", 0, 46],
+      "cands": [["Harry Osterman", 0], ["David Earl Williams III", 0]]
     },
     "0061": {
-      "meta": ["Alderman 49th Ward", 0, 33, 0],
-      "cands": [["JOE MOORE", 0], ["MARIA HADDEN", 0]]
+      "meta": ["49Th Ward Alderman", 0, 33],
+      "cands": [["Joe Moore", 0], ["Maria Hadden", 0]]
     },
     "0062": {
-      "meta": ["Alderman 50th Ward", 0, 40, 0],
+      "meta": ["50Th Ward Alderman", 0, 40],
       "cands": [
-        ["DEBRA L. SILVERSTEIN", 0],
-        ["ANDREW D ROWLAS", 0],
-        ["ZEHRA QUADRI", 0]
+        ["Debra L. Silverstein", 0],
+        ["Andrew D. Rowlas", 0],
+        ["Zehra Quadri", 0]
       ]
     }
-  }
+  },
+  "cand_classes": ["", "amt append-bar"]
 }

@@ -10,11 +10,9 @@ class DataProvider extends Component {
 
     if (contest) {
       results.precinctsReporting =
-        contest.meta[results.contest_headers.indexOf('# Completed precincts')];
+        contest.meta[results.contest_headers.indexOf('prs_rpt')];
       results.precinctsTotal =
-        contest.meta[
-          results.contest_headers.indexOf('# of Eligible Precincts')
-        ];
+        contest.meta[results.contest_headers.indexOf('prs_tot')];
 
       results.dataHeaders = results.cand_headers;
       results.dataClasses = results.cand_classes;
