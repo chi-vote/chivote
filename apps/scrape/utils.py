@@ -95,7 +95,6 @@ def make_lookup_json(data=get_data()):
                 'chi_vote_name':candidate.full_name,
                 'cboe_results_name':cboe_cand_results_name,
                 }
-
         # add races, if not added already
         cboe_race_results_code = get_race_code(line)
         if cboe_race_results_code in lookup['races']:
@@ -109,6 +108,6 @@ def make_lookup_json(data=get_data()):
                 }
     
     # write out
-    lookup_file = open(lookup_json_path,'w')
-    json.dump(lookup,lookup_file)
+    lookup_file = open(lookup_json_path,'w',encoding='utf-8')
+    json.dump(lookup,lookup_file,ensure_ascii=False)
     lookup_file.close()
