@@ -40,7 +40,9 @@ class ResultsList extends Component {
       behavior: 'smooth'
     });
 
-    setTimeout(function() {
+    window.clearTimeout(this.resetDropdownTimeoutHandle);
+
+    this.resetDropdownTimeoutHandle = setTimeout(function() {
       dropdown.value = '';
     }, 3000);
 
