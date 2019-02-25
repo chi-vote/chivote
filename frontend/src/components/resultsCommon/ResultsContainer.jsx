@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
 import ResultsTable from './ResultsTable';
+import Reporting from './Reporting';
+import Provider from './Provider';
 import * as resultsJson from './results.tmp.json';
-
-const PrecinctsReportingText = ({ precinctsReporting, precinctsTotal }) => (
-  <>
-    <p className='small'>
-      {precinctsReporting} of {precinctsTotal} precincts reporting.
-    </p>
-  </>
-);
 
 class ResultsFeed extends Component {
   constructor(props) {
@@ -17,17 +11,11 @@ class ResultsFeed extends Component {
     const results = resultsJson.default;
 
     const contest = results.contests[props.cboeId];
-    const precinctsReporting =
-      contest.meta[results.contest_headers.indexOf('# Completed precincts')];
-    const precinctsTotal =
-      contest.meta[results.contest_headers.indexOf('# of Eligible Precincts')];
 
     this.state = {
       dataHeaders: results.cand_headers,
       dataClasses: results.cand_classes,
       data: contest.cands,
-      precinctsReporting,
-      precinctsTotal,
       drawBars: props.drawBars
     };
   }
@@ -35,7 +23,9 @@ class ResultsFeed extends Component {
   render() {
     return (
       <div className='contest'>
-        <PrecinctsReportingText {...this.state} />
+        <Provider cboeId={this.props.cboeId}>
+          <Reporting />
+        </Provider>
         <ResultsTable {...this.state} appendBarKey='append-bar' />
       </div>
     );
