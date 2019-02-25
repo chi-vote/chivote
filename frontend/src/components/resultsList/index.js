@@ -57,6 +57,7 @@ class ResultsList extends Component {
               defaultMessage='Results'
             />
           </h1>
+          <ResultsUpdated />
           <ResultsAboutText />
           <List className='columns is-multiline'>{otherRaces}</List>
           <h2 className='page-heading title is-4 mt-1'>

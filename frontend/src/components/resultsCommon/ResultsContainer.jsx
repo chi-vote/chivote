@@ -9,8 +9,7 @@ const PrecinctsReportingText = ({
   lastUpdated
 }) => (
   <p className='small'>
-    {precinctsReporting} of {precinctsTotal} precincts reporting. (
-    {moment(lastUpdated).format('lll')})
+    {precinctsReporting} of {precinctsTotal} precincts reporting.
   </p>
 );
 
