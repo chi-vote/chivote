@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ResultsAboutText } from 'Components/resultsCommon';
 import * as Results from 'Components/resultsCommon';
 
 class ResultsFeed extends Component {
@@ -7,7 +6,7 @@ class ResultsFeed extends Component {
     return (
       <div className='contest'>
         <Results.DataProvider cboeId={this.props.cboeId}>
-          <ResultsAboutText />
+          <Results.About />
           <Results.Reporting />
           <Results.Table appendBarKey='append-bar' drawBars={true} />
         </Results.DataProvider>

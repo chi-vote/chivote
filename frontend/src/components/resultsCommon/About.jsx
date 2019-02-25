@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ResultsAboutText = () => (
+const About = () => (
   <div className='notification is-warning'>
     Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum
     dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut,
@@ -10,4 +10,4 @@ const ResultsAboutText = () => (
   </div>
 );
 
-export default ResultsAboutText;
+export default About;

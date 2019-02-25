@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Breadcrumb, List, Page } from 'Components/common';
-import {
-  ResultsAboutText,
-  ResultsContainer,
-  ResultsUpdated
-} from 'Components/resultsCommon';
-import { DataProvider } from 'Components/resultsCommon';
+import * as Results from 'Components/resultsCommon';
 
 const ResultsItem = race => (
   <li className='column is-4'>
     <h3 className='is-size-5'>
       <a href={`../races/${race.id}/`}>{race.name}</a>
     </h3>
-    <ResultsContainer cboeId={race.cboeId} />
+    <Results.DataProvider cboeId={race.cboeId}>
+      <Results.Reporting />
+      <Results.Table />
+    </Results.DataProvider>
   </li>
 );
 
@@ -57,10 +55,10 @@ class ResultsList extends Component {
               defaultMessage='Results'
             />
           </h1>
-          <DataProvider>
-            <ResultsUpdated />
-          </DataProvider>
-          <ResultsAboutText />
+          <Results.DataProvider>
+            <Results.Updated />
+            <Results.About />
+          </Results.DataProvider>
           <List className='columns is-multiline'>{otherRaces}</List>
           <h2 className='page-heading title is-4 mt-1'>
             <FormattedMessage
