@@ -25,7 +25,7 @@ class ResultsFeed extends Component {
       <div className='contest'>
         <Provider cboeId={this.props.cboeId}>
           <Reporting />
-          <Table {...this.state} appendBarKey='append-bar' />
+          <Table appendBarKey='append-bar' drawBars={true} />
         </Provider>
       </div>
     );

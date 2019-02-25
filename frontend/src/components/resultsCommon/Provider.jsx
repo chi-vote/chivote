@@ -16,6 +16,10 @@ class DataProvider extends Component {
         contest.meta[
           results.contest_headers.indexOf('# of Eligible Precincts')
         ];
+
+      results.dataHeaders = results.cand_headers;
+      results.dataClasses = results.cand_classes;
+      results.data = contest.cands;
     }
 
     return (

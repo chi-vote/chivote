@@ -1,33 +1,42 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import cn from 'classnames';
 import { select } from 'd3-selection';
+import { DataContext } from './data-context';
 import styles from './Table.module.scss';
 
 class Table extends Component {
+  static contextType = DataContext;
+
   constructor(props) {
     super(props);
 
+    this.canAppend = this.canAppend.bind(this);
     this.initBars = this.initBars.bind(this);
     this.drawBars = this.drawBars.bind(this);
 
-    const canAppend =
-      props.dataClasses.findIndex(classStr =>
-        classStr.includes(props.appendBarKey)
-      ) > -1;
-
     this.state = {
-      canDraw: this.props.drawBars && canAppend,
+      canDraw: props.drawBars,
       canInit: true,
       isInit: false
     };
+
+    this.results = this.props;
   }
 
   componentDidMount() {
-    const { canDraw, canInit } = this.state;
+    const { canDraw } = this.state;
 
-    if (canDraw && canInit) {
-      this.initBars();
-    }
+    this.setState({ canDraw: canDraw && this.canAppend() });
+  }
+
+  canAppend() {
+    const { appendBarKey } = this.props;
+    const { dataClasses } = this.context;
+
+    const canAppend =
+      dataClasses.findIndex(classStr => classStr.includes(appendBarKey)) > -1;
+
+    return canAppend;
   }
 
   componentDidUpdate() {
@@ -73,11 +82,12 @@ class Table extends Component {
   drawBars() {
     const { appendBarKey } = this.props;
     const node = this.node;
+    const results = this.context;
 
-    const dataIdx = this.props.dataClasses.findIndex(classStr =>
+    const dataIdx = results.dataClasses.findIndex(classStr =>
       classStr.includes(appendBarKey)
     );
-    const data = this.props.data.map(d => parseFloat(d[dataIdx]));
+    const data = results.data.map(d => parseFloat(d[dataIdx]));
     const dataMax = Math.max(...data);
 
     select(node)
@@ -88,7 +98,7 @@ class Table extends Component {
   }
 
   render() {
-    const { dataHeaders, dataClasses, data } = this.props;
+    const { dataHeaders, dataClasses, data } = this.context;
 
     return (
       <table
