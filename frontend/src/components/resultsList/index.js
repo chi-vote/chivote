@@ -25,7 +25,8 @@ class ResultsList extends Component {
   }
 
   _onSelect() {
-    var element = document.getElementById(this.dropdown.value);
+    var dropdown = this.dropdown;
+    var element = document.getElementById(dropdown.value);
 
     var headerOffset = document
       .getElementsByClassName(styles.banner)[0]
@@ -38,6 +39,10 @@ class ResultsList extends Component {
       top: offsetTop,
       behavior: 'smooth'
     });
+
+    setTimeout(function() {
+      dropdown.value = '';
+    }, 3000);
 
     return;
   }
@@ -86,9 +91,10 @@ class ResultsList extends Component {
       <select
         onChange={this._onSelect}
         ref={node => (this.dropdown = node)}
+        defaultValue=''
         required
       >
-        <option value='' disabled selected>
+        <option value='' disabled>
           Select a race
         </option>
         {options.map(({ value, label }) => (
@@ -114,8 +120,10 @@ class ResultsList extends Component {
             <Results.About />
 
             <div className={cn('field is-grouped', styles.banner)}>
-              <Results.Updated />
-              <div className={cn('select', styles.select)}>
+              <Results.Updated className={styles.control} />
+              <div
+                className={cn('select control', styles.select, styles.control)}
+              >
                 <SelectRace options={citywideOptions.concat(wardOptions)} />
               </div>
             </div>

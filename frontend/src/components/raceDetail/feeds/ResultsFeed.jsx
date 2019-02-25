@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as Results from 'Components/results';
+import styles from './ResultsFeed.module.scss';
 
 class ResultsFeed extends Component {
   render() {
@@ -7,7 +8,10 @@ class ResultsFeed extends Component {
       <div className='contest'>
         <Results.DataProvider cboeId={this.props.cboeId}>
           <Results.About />
-          <Results.Reporting />
+          <div className={styles.info}>
+            <Results.Updated />
+            <Results.Reporting />
+          </div>
           <Results.Table appendBarKey='append-bar' drawBars={true} />
         </Results.DataProvider>
       </div>
