@@ -1,8 +1,8 @@
 {
   "contest_headers": ["name", "prs_rpt", "prs_tot"],
   "cand_headers": ["name", "vote_cnt"],
-  "datetime": "2019-02-25T14:27:42-06:00",
-  "timestamp": 1551126462,
+  "datetime": "2019-02-25T14:38:32-0600",
+  "timestamp": 1551127112,
   "contests": {
     "0010": {
       "meta": ["City Mayor", 0, 2069],

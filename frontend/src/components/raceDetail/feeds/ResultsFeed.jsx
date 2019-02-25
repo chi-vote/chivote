@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as Results from 'Components/resultsCommon';
+import * as Results from 'Components/results';
 
 class ResultsFeed extends Component {
   render() {

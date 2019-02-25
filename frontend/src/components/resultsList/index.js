@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Breadcrumb, List, Page } from 'Components/common';
-import * as Results from 'Components/resultsCommon';
+import * as Results from 'Components/results';
 
 const ResultsItem = race => (
   <li className='column is-4'>
