@@ -7,9 +7,9 @@ import {
   CandidateFeed,
   EventFeed,
   FinanceFeed,
+  ResultsFeed,
   StanceFeed
 } from './feeds';
-import { ResultsAboutText, ResultsContainer } from 'Components/resultsCommon';
 import { parseHtml } from 'Components/utils';
 import { Breadcrumb, Page } from 'Components/common';
 import './styles.scss';
@@ -85,12 +85,7 @@ class RaceDetail extends Component {
       case 'finances':
         return <FinanceFeed candidates={JSON.parse(this.props.candidates)} />;
       case 'results':
-        return (
-          <>
-            <ResultsAboutText />
-            <ResultsContainer cboeId={this.props.cboeId} drawBars={true} />
-          </>
-        );
+        return <ResultsFeed cboeId={this.props.cboeId} />;
     }
   };
 

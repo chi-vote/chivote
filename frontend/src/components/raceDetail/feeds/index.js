@@ -1,7 +1,6 @@
-import ArticleFeed from './ArticleFeed';
-import CandidateFeed from './CandidateFeed';
-import EventFeed from './EventFeed';
-import FinanceFeed from './FinanceFeed';
-import StanceFeed from './StanceFeed';
-
-export { ArticleFeed, CandidateFeed, EventFeed, FinanceFeed, StanceFeed };
+export { default as ArticleFeed } from './ArticleFeed';
+export { default as CandidateFeed } from './CandidateFeed';
+export { default as EventFeed } from './EventFeed';
+export { default as FinanceFeed } from './FinanceFeed';
+export { default as ResultsFeed } from './ResultsFeed';
+export { default as StanceFeed } from './StanceFeed';
