@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import cn from 'classnames';
 import { select } from 'd3-selection';
-import styles from './styles.module.scss';
+import styles from './Table.module.scss';
 
-class ResultsFeed extends Component {
+class Table extends Component {
   constructor(props) {
     super(props);
 
@@ -120,4 +120,4 @@ class ResultsFeed extends Component {
   }
 }
 
-export default ResultsFeed;
+export default Table;

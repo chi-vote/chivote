@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ResultsTable from './ResultsTable';
+import Table from './Table';
 import Reporting from './Reporting';
 import Provider from './Provider';
 import * as resultsJson from './results.tmp.json';
@@ -25,8 +25,8 @@ class ResultsFeed extends Component {
       <div className='contest'>
         <Provider cboeId={this.props.cboeId}>
           <Reporting />
+          <Table {...this.state} appendBarKey='append-bar' />
         </Provider>
-        <ResultsTable {...this.state} appendBarKey='append-bar' />
       </div>
     );
   }
