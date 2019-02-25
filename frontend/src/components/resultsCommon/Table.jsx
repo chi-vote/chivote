@@ -1,12 +1,9 @@
-import React, { Component, useContext } from 'react';
+import React, { Component } from 'react';
 import cn from 'classnames';
 import { select } from 'd3-selection';
-import { DataContext } from './data-context';
 import styles from './Table.module.scss';
 
 class Table extends Component {
-  static contextType = DataContext;
-
   constructor(props) {
     super(props);
 
@@ -31,7 +28,7 @@ class Table extends Component {
 
   canAppend() {
     const { appendBarKey } = this.props;
-    const { dataClasses } = this.context;
+    const { dataClasses } = this.props;
 
     const canAppend =
       dataClasses.findIndex(classStr => classStr.includes(appendBarKey)) > -1;
@@ -82,7 +79,7 @@ class Table extends Component {
   drawBars() {
     const { appendBarKey } = this.props;
     const node = this.node;
-    const results = this.context;
+    const results = this.props;
 
     const dataIdx = results.dataClasses.findIndex(classStr =>
       classStr.includes(appendBarKey)
@@ -98,7 +95,7 @@ class Table extends Component {
   }
 
   render() {
-    const { dataHeaders, dataClasses, data } = this.context;
+    const { dataHeaders, dataClasses, data } = this.props;
 
     return (
       <table

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { DataContext } from './data-context';
 import * as resultsJson from './results.tmp.json';
 
 class DataProvider extends Component {
@@ -22,9 +21,19 @@ class DataProvider extends Component {
       results.data = contest.cands;
     }
 
+    const DataContext = React.createContext(results);
+
+    const children = this.props.children;
+
     return (
       <DataContext.Provider value={results}>
-        {this.props.children}
+        {React.Children.map(children, child => {
+          return (
+            <DataContext.Consumer>
+              {value => React.cloneElement(child, { ...value })}
+            </DataContext.Consumer>
+          );
+        })}
       </DataContext.Provider>
     );
   }
