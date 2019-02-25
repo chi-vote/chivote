@@ -22,6 +22,7 @@ def load_cand_cboe_ids(apps, schema_editor):
     from django.core.exceptions import ObjectDoesNotExist
 
     Race = apps.get_model('races', 'Race')
+    Candidate = apps.get_model('candidates','Candidate')
 
     page = get_page().decode()
     data = page.splitlines()[data_line_range_start:data_line_range_end]
@@ -43,8 +44,13 @@ def load_cand_cboe_ids(apps, schema_editor):
         cand = lookup_our_cand(cand_name, race_obj)
         if (cand):
             cand.cboe_results_id = cand_code
-            cand.save()
-
+        # special case
+        elif cand_name == 'R. RODRIGUEZ SANCHEZ':
+            cand=Candidate.objects.get(id=322)
+            cand.cboe_results_id = cand_code
+        else:
+            pass
+        cand.save()
 
 def get_page():
     return requests.get(scrape_target).content
@@ -80,7 +86,8 @@ def lookup_our_cand(cboe_name, race_obj):
         except ObjectDoesNotExist:
             print(
                 f'\nCould not identify {cboe_name} {race_obj}')
-
+    if cand_obj:
+        print(cboe_name,cand_obj.full_name)
     return cand_obj
 
 
