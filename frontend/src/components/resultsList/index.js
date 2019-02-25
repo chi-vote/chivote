@@ -6,6 +6,8 @@ import {
   ResultsContainer,
   ResultsUpdated
 } from 'Components/resultsCommon';
+import { DataContext } from 'Components/resultsCommon/data-context';
+import * as resultsJson from 'Components/resultsCommon/results.tmp.2.json';
 import styles from './styles.module.scss';
 
 const ResultsItem = race => (
@@ -57,7 +59,9 @@ class ResultsList extends Component {
               defaultMessage='Results'
             />
           </h1>
-          <ResultsUpdated />
+          <DataContext.Provider value={resultsJson.default}>
+            <ResultsUpdated />
+          </DataContext.Provider>
           <ResultsAboutText />
           <List className='columns is-multiline'>{otherRaces}</List>
           <h2 className='page-heading title is-4 mt-1'>
