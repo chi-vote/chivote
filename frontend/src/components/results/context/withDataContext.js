@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataContext } from './appProvider';
+import { DataContext } from './DataProvider';
 
 export function withDataContext(Component) {
   return function WrapperComponent(props) {

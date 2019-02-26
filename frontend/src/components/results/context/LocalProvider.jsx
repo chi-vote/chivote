@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as emptyResultsJson from './results.empty.json';
 import { withDataContext } from './withDataContext';
 
 function recursiveMap(children, fn) {
@@ -41,41 +40,32 @@ function transformData(results, cboeId) {
   return transformed;
 }
 
-class DataProvider extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      results: emptyResultsJson,
-      transformed: {}
-    };
-  }
-
+class LocalProvider extends Component {
   render() {
     const results = this.props.context;
     const { cboeId } = this.props;
     const transformed = transformData(results, cboeId);
 
-    const ThisContext = React.createContext({ ...results, ...transformed });
+    const LocalContext = React.createContext({ ...results, ...transformed });
 
     const children = this.props.children;
 
     return (
-      <ThisContext.Provider value={{ ...results, ...transformed }}>
+      <LocalContext.Provider value={{ ...results, ...transformed }}>
         {recursiveMap(children, child => {
           if (typeof child.type == `function`) {
             return (
-              <ThisContext.Consumer>
-                {value => React.cloneElement(child, { ...value })}
-              </ThisContext.Consumer>
+              <LocalContext.Consumer>
+                {data => React.cloneElement(child, { ...data })}
+              </LocalContext.Consumer>
             );
           } else {
             return child;
           }
         })}
-      </ThisContext.Provider>
+      </LocalContext.Provider>
     );
   }
 }
 
-export default withDataContext(DataProvider);
+export default withDataContext(LocalProvider);

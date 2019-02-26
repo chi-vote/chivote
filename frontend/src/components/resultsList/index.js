@@ -4,17 +4,16 @@ import { Breadcrumb, List, Page } from 'Components/common';
 import * as Results from 'Components/results';
 import cn from 'classnames';
 import styles from './styles.module.scss';
-import AppProvider from 'Components/results/appProvider';
 
 const ResultsItem = race => (
   <li className='column is-4' id={`race--${race.id}`}>
     <h3 className='is-size-5'>
       <a href={`../races/${race.id}/`}>{race.name}</a>
     </h3>
-    <Results.DataProvider cboeId={race.cboeId}>
+    <Results.LocalProvider cboeId={race.cboeId}>
       <Results.Reporting />
       <Results.Table />
-    </Results.DataProvider>
+    </Results.LocalProvider>
   </li>
 );
 
@@ -109,7 +108,7 @@ class ResultsList extends Component {
     );
 
     return (
-      <AppProvider>
+      <Results.DataProvider>
         <Page childClass='page--detail container'>
           <Breadcrumb activeLabel={activeLabel} />
           <h1 className='page-heading title is-3'>
@@ -119,9 +118,8 @@ class ResultsList extends Component {
             />
           </h1>
 
-          <Results.DataProvider>
+          <Results.LocalProvider>
             <Results.About />
-
             <div className={cn('field is-grouped', styles.banner)}>
               <Results.Updated className={styles.control} />
               <div
@@ -130,7 +128,7 @@ class ResultsList extends Component {
                 <SelectRace options={citywideOptions.concat(wardOptions)} />
               </div>
             </div>
-          </Results.DataProvider>
+          </Results.LocalProvider>
 
           <List className='columns is-multiline'>{otherRaces}</List>
           <h2 className='page-heading title is-4 mt-1'>
@@ -141,7 +139,7 @@ class ResultsList extends Component {
           </h2>
           <List className='columns is-multiline'>{wardRaces}</List>
         </Page>
-      </AppProvider>
+      </Results.DataProvider>
     );
   }
 }
