@@ -51,7 +51,7 @@ class RaceList extends Component {
     ));
 
     const otherRaces = flattenRemains.map(race => (
-      <li className='column' key={race.id}>
+      <li className='column is-4' key={race.id}>
         <a href={`./${race.id}/`} className={styles.wardButton}>
           {race.name}
         </a>

@@ -19,7 +19,7 @@ class Nav extends Component {
         <div className={cn(styles.tagline, classes.tagline)}>
           <FormattedMessage
             id='Nav.tagline'
-            defaultMessage='Everything you need to vote on Feb. 26th'
+            defaultMessage='Everything you need to vote in Chicago elections'
           />
         </div>
 

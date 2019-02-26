@@ -169,7 +169,7 @@ class VotingStageSlider extends Component {
                 <h1 className='header__tagline is-size-4 mb-1'>
                   <FormattedMessage
                     id='Homepage.LandingPageMobile.tagline'
-                    defaultMessage='Everything you need to know to vote in Chicago on Tuesday, Feb. 26th'
+                    defaultMessage='Everything you need to vote in Chicago elections'
                   />
                 </h1>
                 <button

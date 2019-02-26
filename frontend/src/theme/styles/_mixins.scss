@@ -26,7 +26,8 @@
     .button.language-toggle {
       color: $color-language;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: transparent;
         border-color: $color-language-hover;
         color: $color-language-hover;

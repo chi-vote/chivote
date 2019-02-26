@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 
 const ResultsItem = race => (
   <li className='column is-4' id={`race--${race.id}`}>
-    <h3 className='is-size-5'>
+    <h3 className='is-size-5' className={styles.raceName}>
       <a href={`../races/${race.id}/`}>{race.name}</a>
     </h3>
     <Results.LocalProvider cboeId={race.cboeId}>
@@ -39,6 +39,8 @@ class ResultsList extends Component {
       top: offsetTop,
       behavior: 'smooth'
     });
+
+    element.querySelector('a').focus();
 
     window.clearTimeout(this.resetDropdownTimeoutHandle);
 

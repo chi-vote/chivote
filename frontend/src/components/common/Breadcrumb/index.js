@@ -11,7 +11,7 @@ const Link = props => (
 
 const ActiveLink = props => (
   <li className='is-active'>
-    <a href={props.url} aria-current='page'>
+    <a href={props.url} aria-current='page' tabindex='-1'>
       {props.content}
     </a>
   </li>
