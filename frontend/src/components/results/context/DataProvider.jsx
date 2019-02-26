@@ -25,7 +25,7 @@ class DataProvider extends Component {
   }
 
   fetchData() {
-    let url = "https://chi.vote.app.stage.s3.amazonaws.com/results.json";
+    let url = "https://chi.vote/results.json";
 
     fetch(url)
       .then(res => res.json())
