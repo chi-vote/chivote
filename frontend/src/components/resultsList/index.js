@@ -106,7 +106,7 @@ class ResultsList extends Component {
         required
       >
         <option value='' disabled>
-          Select a race
+          Jump to a race
         </option>
         {options.map(({ value, label }) => (
           <option value={value} key={value}>
@@ -123,7 +123,7 @@ class ResultsList extends Component {
           <h1 className='page-heading title is-3'>
             <FormattedMessage
               id='ResultsList.heading'
-              defaultMessage='Results'
+              defaultMessage='Live Chicago election results'
             />
           </h1>
 

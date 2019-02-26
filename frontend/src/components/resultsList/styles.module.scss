@@ -3,6 +3,9 @@
 $banner-height: 75px;
 
 .select {
+  border-radius: 4px;
+  box-shadow: 0 0 0 0.125em fade-out($link-hover, 0.75);
+
   &::after {
     border-color: $link !important;
   }

@@ -59,7 +59,7 @@
     "WardLookup.loading": "Loading...",
     "WardLookup.no-matches": "No matches for {inputAddress}",
     "WardLookup.match": "This address is located in <strong>Ward {wardNumber}</strong>.",
-    "ResultsList.heading": "Results"
+    "ResultsList.heading": "Live Chicago election results"
   },
   "es": {
     "CandidateView.no-data": "No disponible*",

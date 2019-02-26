@@ -4,6 +4,35 @@ import { hot } from 'react-hot-loader/root';
 import MailchimpEmbed from './MailchimpEmbed';
 import { manifest } from './org-logos';
 import styles from './styles.module.scss';
+import cn from 'classnames';
+
+const SectionResults = prop => (
+  <section
+    className={cn('bottom-live-results', styles.liveResults)}
+    id='live-results'
+  >
+    <div className={styles.heading}>
+      <FormattedMessage
+        id='Footer.live-results.heading'
+        defaultMessage='Live results'
+      />
+    </div>
+    <p className='is-lsb is-size-5 has-text-centered'>
+      <FormattedMessage
+        id='Footer.live-results.text.1'
+        defaultMessage='Watch on Chi.vote as the votes are tallied.'
+      />
+    </p>
+    <p className='is-lsb is-size-5 has-text-centered'>
+      <a href='/results/' className='button'>
+        <FormattedMessage
+          id='Footer.live-results.text.2'
+          defaultMessage='See results'
+        />
+      </a>
+    </p>
+  </section>
+);
 
 const SectionMailchimp = props => (
   <section className={`mc-embed ${styles.signUp}`} id='sign-up'>
@@ -82,6 +111,7 @@ class Footer extends Component {
   render() {
     return (
       <>
+        <SectionResults />
         <SectionMailchimp key='sign-up' />
         <SectionEmail />
         <SectionAbout />
