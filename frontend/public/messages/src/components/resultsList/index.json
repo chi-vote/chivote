@@ -1,11 +1,11 @@
 [
   {
-    "id": "common.link.results",
-    "defaultMessage": "Results"
+    "id": "ResultsList.select.message",
+    "defaultMessage": "Jump to a race"
   },
   {
     "id": "ResultsList.heading",
-    "defaultMessage": "Results"
+    "defaultMessage": "Live Chicago election results"
   },
   {
     "id": "RaceList.aldermanic.heading",

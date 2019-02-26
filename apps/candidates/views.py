@@ -18,31 +18,33 @@ from bakery.views import BuildableDetailView, BuildableListView, BuildableTempla
 # from .forms import RenewBookForm, RenewBookModelForm
 from .models import Candidate, CandidateContact
 
+
 class CandidateDetailView(BuildableTemplateView):
-  template_name = 'index.html'
-  def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
+    template_name = 'index.html'
 
-    # from apps.races.models import Race
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
 
-    candidateData = Candidate.objects.filter(
-      pk=self.kwargs['candidateId']
-    )
+        # from apps.races.models import Race
 
-    contactData = CandidateContact.objects.filter(
-      candidate=self.kwargs['candidateId']
-    )
+        candidateData = Candidate.objects.filter(
+            pk=self.kwargs['candidateId']
+        )
 
-    react_dict = {
-      'component': 'CandidateDetail',
-      'props': {
-        'data': {
-          'modelData': serializers.serialize('json', candidateData),
-          'contactData': serializers.serialize('json', contactData)
-        },
-      }
-    }
+        contactData = CandidateContact.objects.filter(
+            candidate=self.kwargs['candidateId']
+        )
 
-    context.update(react_dict)
+        react_dict = {
+            'component': 'CandidateDetail',
+            'props': {
+                'data': {
+                    'modelData': serializers.serialize('json', candidateData),
+                    'contactData': serializers.serialize('json', contactData)
+                },
+            }
+        }
 
-    return context
+        context.update(react_dict)
+
+        return context

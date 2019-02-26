@@ -1,6 +1,11 @@
 @import '~Theme/styles/variables';
 
+$banner-height: 75px;
+
 .select {
+  border-radius: 4px;
+  box-shadow: 0 0 0 0.125em fade-out($link-hover, 0.75);
+
   &::after {
     border-color: $link !important;
   }
@@ -29,6 +34,7 @@
 .banner {
   background: $dark;
   color: $white;
+  height: $banner-height;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -41,10 +47,23 @@
 }
 
 .control {
-  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
+
+  &:last-child {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.resultsItem {
+  padding-top: $banner-height;
+  margin-top: -#{$banner-height};
+  padding-bottom: 2rem;
 }
 
 @media (min-width: $tablet) {
+  $banner-height: 55px;
+
   .select {
     margin-left: auto;
   }
@@ -52,5 +71,11 @@
   .banner {
     align-items: center;
     flex-direction: row;
+    height: $banner-height;
+  }
+
+  .resultsItem {
+    padding-top: $banner-height;
+    margin-top: -#{$banner-height};
   }
 }

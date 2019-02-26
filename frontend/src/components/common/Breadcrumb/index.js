@@ -11,7 +11,7 @@ const Link = props => (
 
 const ActiveLink = props => (
   <li className='is-active'>
-    <a href={props.url} aria-current='page'>
+    <a href={props.url} aria-current='page' tabIndex='-1'>
       {props.content}
     </a>
   </li>
@@ -41,6 +41,12 @@ class Breadcrumb extends Component {
           id='common.link.all-races'
           defaultMessage='All races'
         />
+      ),
+      '/results/': (
+        <FormattedMessage
+          id='common.link.results'
+          defaultMessage='Live results'
+        />
       )
     };
 
@@ -65,8 +71,8 @@ class Breadcrumb extends Component {
   }
 
   getItems() {
-    let isHome = false;
     let path = this.state.activePath;
+    let isHome = normalizePath(path) == '/';
     let paths = [path];
 
     const getLabel = path => this.state.links[normalizePath(path)];

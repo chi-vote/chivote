@@ -1,0 +1,14 @@
+[
+  {
+    "id": "Results.Table.header.candidate",
+    "defaultMessage": "Candidate"
+  },
+  {
+    "id": "Results.Table.header.votes",
+    "defaultMessage": "Votes"
+  },
+  {
+    "id": "Results.Table.header.percent",
+    "defaultMessage": "Percent"
+  }
+]

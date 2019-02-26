@@ -1,5 +1,29 @@
 @import '~Theme/styles/variables';
 
+@function color-diff($a, $b) {
+  $sat: saturation($a) - saturation($b);
+  $lig: lightness($a) - lightness($b);
+  $fn-sat: if($sat > 0, 'desaturate', 'saturate');
+  $fn-lig: if($lig > 0, 'darken', 'lighten');
+
+  @return (
+    adjust-hue: -
+      (
+        hue($a) - hue($b)
+      ),
+    #{$fn-sat}: abs($sat),
+    #{$fn-lig}: abs($lig)
+  );
+}
+
+@function apply-diff($color, $diff) {
+  @each $function, $value in $diff {
+    $color: call(get-function($function), $color, $value);
+  }
+
+  @return $color;
+}
+
 .section {
   color: $white;
   padding: 3rem 1.5rem;
@@ -50,6 +74,13 @@
 .contactUs {
   composes: section;
   background: mix($dark-accent, $dark);
+}
+
+$diff: color-diff($dark, mix($dark-accent, $dark));
+
+.liveResults {
+  composes: section;
+  background: apply-diff($dark-accent, $diff);
 }
 
 .heading {

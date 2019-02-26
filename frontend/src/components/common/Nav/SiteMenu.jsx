@@ -22,6 +22,7 @@ const SiteMenu = props => {
     //   slug: 'results',
     //   label: 'Results'
     // },
+    // FEB26 uncomment this
     {
       href: urlRoot + 'races/',
       iconClasses: 'fas fa-vote-yea',

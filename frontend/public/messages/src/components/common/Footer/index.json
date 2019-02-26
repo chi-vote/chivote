@@ -1,5 +1,17 @@
 [
   {
+    "id": "Footer.live-results.heading",
+    "defaultMessage": "Live results"
+  },
+  {
+    "id": "Footer.live-results.text.1",
+    "defaultMessage": "Watch on Chi.vote as the votes are tallied."
+  },
+  {
+    "id": "Footer.live-results.text.2",
+    "defaultMessage": "See results"
+  },
+  {
     "id": "Footer.sign-up.heading",
     "defaultMessage": "Sign up"
   },

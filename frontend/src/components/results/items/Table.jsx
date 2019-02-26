@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import cn from 'classnames';
 import { select } from 'd3-selection';
 import styles from './Table.module.scss';
 
 const _headers = {
-  name: 'Candidate',
-  vote_cnt: 'Votes'
+  name: (
+    <FormattedMessage
+      id='Results.Table.header.candidate'
+      defaultMessage='Candidate'
+    />
+  ),
+  vote_cnt: (
+    <FormattedMessage id='Results.Table.header.votes' defaultMessage='Votes' />
+  ),
+  vote_pct: (
+    <FormattedMessage
+      id='Results.Table.header.percent'
+      defaultMessage='Percent'
+    />
+  )
 };
 
 class Table extends Component {

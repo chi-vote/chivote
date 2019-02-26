@@ -22,7 +22,7 @@ class RaceDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      feed: this.props.feed ? this.props.feed : 'candidates',
+      feed: this.props.feed ? this.props.feed : 'candidates', // FEB26 replace with results
       currentCandidate: null,
       slideViewActive: false
     };
@@ -134,6 +134,7 @@ class RaceDetail extends Component {
       //   label: 'Results',
       //   icon: 'fa-chart-bar'
       // },
+      // FEB26 uncomment this
       {
         slug: 'candidates',
         label: 'Candidates',

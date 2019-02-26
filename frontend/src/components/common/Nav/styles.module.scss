@@ -1,9 +1,9 @@
 @import '~Theme/styles/variables';
 
-$nav-height: 30px;
-$nav-padding: 1rem;
-$logo-width: 93px;
-$tagline-width: 10rem;
+$nav-height: 28px;
+$nav-padding: 0.8rem;
+$logo-width: 86px;
+$tagline-width: 9rem;
 
 .root {
   background: rgba(49, 49, 59, 1);
@@ -39,22 +39,26 @@ $tagline-width: 10rem;
 .tagline {
   color: white;
   font-family: 'League Spartan Bold', sans-serif;
-  font-size: $size-7;
+  font-size: 0.75rem;
   height: $nav-height;
-  left: calc(#{$nav-padding} + #{$logo-width} + 1rem);
+  left: calc(#{$nav-padding} + #{$logo-width} + #{$nav-padding});
+  line-height: calc((#{$nav-padding} + #{$nav-height}) / 3);
   position: absolute;
   text-align: left;
+  top: calc(#{$nav-padding} / 2);
   width: $tagline-width;
 
   // Desktop sizing
   @media (min-width: $desktop) {
     font-size: $size-4;
+    line-height: $nav-height;
     left: $nav-padding;
     right: $nav-padding;
     margin-left: auto;
     margin-right: auto;
     width: auto;
     text-align: center;
+    top: unset;
   }
 }
 

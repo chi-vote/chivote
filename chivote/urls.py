@@ -8,6 +8,7 @@ from apps.newsfeed.feeds import LatestArticlesFeed
 from apps.races.urls import races_patterns, results_patterns
 from apps.core.urls import core_patterns
 from apps.site_content.urls import site_content_patterns
+from .views import IndexView
 
 """chivote URL Configuration
 
@@ -34,6 +35,7 @@ urlpatterns += i18n_patterns(
     path('results/', include(results_patterns)),
     path('', include(core_patterns)),
     path('', include(site_content_patterns)),
+    path('', IndexView.as_view(), name='index'),
     prefix_default_language=False
 )
 

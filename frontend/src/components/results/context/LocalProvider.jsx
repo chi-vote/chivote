@@ -31,6 +31,8 @@ function transformData(results, cboeId) {
       contest.meta[results.contest_headers.indexOf('prs_rpt')];
     transformed.precinctsTotal =
       contest.meta[results.contest_headers.indexOf('prs_tot')];
+    transformed.votesTotal =
+      contest.meta[results.contest_headers.indexOf('vote_tot')];
 
     transformed.dataHeaders = results.cand_headers;
     transformed.dataClasses = results.cand_classes;

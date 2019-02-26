@@ -1,5 +1,6 @@
+# from apps.races.views import ResultsListView
 from django.utils.translation import gettext as _
-from bakery.views import BuildableTemplateView
+from bakery.views import BuildableTemplateView, BuildableRedirectView, BuildableListView
 
 
 class RenderReactMixin(object):
@@ -70,7 +71,7 @@ class RenderReactMixin(object):
 class HomePageView(RenderReactMixin, BuildableTemplateView):
     """View function for home page of site."""
     template_name = 'base_rendered.html'
-    build_path = 'index.html'
+    build_path = 'home/index.html'
 
     react_component = 'homepage'
 
@@ -98,7 +99,7 @@ class HomePageView(RenderReactMixin, BuildableTemplateView):
             for language_code, language in settings.LANGUAGES:
                 activate(language_code)
                 self.build_path = reverse(
-                    'index')[1:] + '/index.html'  # strip leading slash
+                    'home')[1:] + '/index.html'  # strip leading slash
                 super(HomePageView, self).build()
         else:
             super(HomePageView, self).build()
