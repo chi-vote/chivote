@@ -38,55 +38,57 @@ results = {
         "cand_classes": ["", "amt append-bar"],
     }
 
-# loop through scraped data
-# and append to results
-races = [] # keeps track of which results are in
-for row in data:
-    # parse data from page, 
-    # row by row
-    race_name = get_race_name(row)
-    race_code = get_race_code(row)
-    cv_race_name = lookup_json['races'][race_code]['chi_vote_name']
 
-    cand_name = get_cand_name(row)
-    cand_code = get_cand_code(row)
-    try:
-        cv_cand_name = lookup_json['candidates'][cand_code]['chi_vote_name']
-    except Exception as e:
-        print(e)
-        import ipdb; ipdb.set_trace()
-    cand_vote_total = get_cand_vote_total(row)
+def scrape_results():
+    # loop through scraped data
+    # and append to results
+    races = [] # keeps track of which results are in
+    for row in data:
+        # parse data from page, 
+        # row by row
+        race_name = get_race_name(row)
+        race_code = get_race_code(row)
+        cv_race_name = lookup_json['races'][race_code]['chi_vote_name']
 
-    comp_precincts = get_race_completed_precincts(row) # reporting
-    elig_precincts = get_race_eligible_precincts(row) # total
+        cand_name = get_cand_name(row)
+        cand_code = get_cand_code(row)
+        try:
+            cv_cand_name = lookup_json['candidates'][cand_code]['chi_vote_name']
+        except Exception as e:
+            print(e)
+            import ipdb; ipdb.set_trace()
+        cand_vote_total = get_cand_vote_total(row)
 
-    # adds race-level data
-    # to results['contests']
-    if race_name not in races:
-        results['contests'][race_code] = {
-                            'meta': [cv_race_name,comp_precincts,elig_precincts],
-                            'cands': []
-                        }
-        # don't process this top-level race data next time
-        races.append(race_name)
-    
-    
-    # adds candidate-level data 
-    # to results['contests'][race]['candidates'] 
-    results['contests'][race_code]['cands'].append(
-            [cv_cand_name, cand_vote_total]
-        )
+        comp_precincts = get_race_completed_precincts(row) # reporting
+        elig_precincts = get_race_eligible_precincts(row) # total
 
-# write out
-results_json_file = open(results_output_path,'w') 
-json.dump(results,results_json_file)
-results_json_file.close()
+        # adds race-level data
+        # to results['contests']
+        if race_name not in races:
+            results['contests'][race_code] = {
+                                'meta': [cv_race_name,comp_precincts,elig_precincts],
+                                'cands': []
+                            }
+            # don't process this top-level race data next time
+            races.append(race_name)
+        
+        
+        # adds candidate-level data 
+        # to results['contests'][race]['candidates'] 
+        results['contests'][race_code]['cands'].append(
+                [cv_cand_name, cand_vote_total]
+            )
 
-# upload to s3
-s3 = boto3.resource('s3')
-results_json_wb = open(results_output_path,'rb')
-print('uploading results')
-s3.Bucket(name=s3_bucket_name).put_object(
-        Key='results.json',
-        Metadata={'Content-Type': 'text/json'},
-        Body=results_json_wb)
+    # write out
+    results_json_file = open(results_output_path,'w') 
+    json.dump(results,results_json_file)
+    results_json_file.close()
+
+    # upload to s3
+    s3 = boto3.resource('s3')
+    results_json_wb = open(results_output_path,'rb')
+    print('uploading results')
+    s3.Bucket(name=s3_bucket_name).put_object(
+            Key='results.json',
+            Metadata={'Content-Type': 'text/json'},
+            Body=results_json_wb)
