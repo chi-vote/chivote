@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 // Create a new context for the data
 export const DataContext = React.createContext();
@@ -17,7 +17,7 @@ class DataProvider extends Component {
 
   componentDidMount() {
     this.fetchData();
-    this.interval = setInterval(() => this.fetchData(), 60 * 1000);
+    this.interval = setInterval(() => this.fetchData(), 30 * 1000);
   }
 
   componentWillUnmount() {
@@ -25,7 +25,7 @@ class DataProvider extends Component {
   }
 
   fetchData() {
-    let url = "https://chi.vote/results.json";
+    let url = 'https://chi.vote/results.json';
 
     fetch(url)
       .then(res => res.json())
