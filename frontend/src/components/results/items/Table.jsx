@@ -13,6 +13,12 @@ const _headers = {
   ),
   vote_cnt: (
     <FormattedMessage id='Results.Table.header.votes' defaultMessage='Votes' />
+  ),
+  vote_pct: (
+    <FormattedMessage
+      id='Results.Table.header.percent'
+      defaultMessage='Percent'
+    />
   )
 };
 

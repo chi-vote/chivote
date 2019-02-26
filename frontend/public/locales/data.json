@@ -68,6 +68,7 @@
     "Results.Reporting.text": "{precinctsReporting} of {precinctsTotal} precincts reporting.",
     "Results.Table.header.candidate": "Candidate",
     "Results.Table.header.votes": "Votes",
+    "Results.Table.header.percent": "Percent",
     "Results.Updated.text": "Last updated: {datetime}",
     "ResultsList.select.message": "Jump to a race",
     "ResultsList.heading": "Live Chicago election results"

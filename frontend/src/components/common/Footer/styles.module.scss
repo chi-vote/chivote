@@ -18,7 +18,7 @@
 
 @function apply-diff($color, $diff) {
   @each $function, $value in $diff {
-    $color: call($function, $color, $value);
+    $color: call(get-function($function), $color, $value);
   }
 
   @return $color;
