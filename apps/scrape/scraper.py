@@ -9,7 +9,8 @@ from apps.scrape.utils import lookup_json_path, get_data,\
 ### START CONFIG ###
 results_output_path = '/tmp/results.json'
 timestamp_format = '%Y-%m-%dT%H:%M:%S%z'
-s3_bucket_name = 'chi.vote.app.stage' # switch to prod on elex nite
+#s3_bucket_name = 'chi.vote.app.stage' # switch to prod on elex nite
+s3_bucket_name = 'chi.vote.app.prod' # switch to prod on elex nite
 ### END CONFIG ###
 
 now = datetime.now().astimezone(pytz.timezone('US/Central'))
