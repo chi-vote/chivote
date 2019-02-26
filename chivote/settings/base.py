@@ -165,13 +165,14 @@ INSTALLED_APPS += ('bakery',)
 BUILD_DIR = os.path.join(BASE_DIR, 'build')
 BAKERY_VIEWS = (
     'apps.core.views.HomePageView',
+    'chivote.views.IndexView',
     'apps.races.views.RaceDetailView',
     'apps.races.views.RaceListView',
     'apps.races.views.ResultsListView',
     'apps.site_content.views.ContentItemDetailView',
     'apps.core.views.ErrorView',
     'apps.races.feeds.RaceFeed',
-    'apps.newsfeed.feeds.LatestArticlesFeed',
+    'apps.newsfeed.feeds.LatestArticlesFeed'
 )
 
 AWS_BUCKET_NAME = config('AWS_BUCKET_NAME')
@@ -248,7 +249,7 @@ if bool(config('CELERY_BROKER_URL', default=False)):
         # }
         'update_ri_candidates_all': {
             'task': 'apps.candidates.tasks.update_ri_candidates_all',
-            'schedule': crontab(day_of_week='mon-fri', hour='7',minute='0')
+            'schedule': crontab(day_of_week='mon-fri', hour='7', minute='0')
         },
         'scrape_cboe': {
             'task': 'apps.scrape.tasks.run_scraper',
