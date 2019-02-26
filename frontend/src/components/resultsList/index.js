@@ -6,8 +6,11 @@ import cn from 'classnames';
 import styles from './styles.module.scss';
 
 const ResultsItem = race => (
-  <li className='column is-4' id={`race--${race.id}`}>
-    <h3 className='is-size-5' className={styles.raceName}>
+  <li
+    className={cn('column is-4', styles.resultsItem)}
+    id={`result-${race.id}`}
+  >
+    <h3 className={cn('is-size-5', styles.raceName)}>
       <a href={`../races/${race.id}/`}>{race.name}</a>
     </h3>
     <Results.LocalProvider cboeId={race.cboeId}>
@@ -31,6 +34,7 @@ class ResultsList extends Component {
     var headerOffset = document
       .getElementsByClassName(styles.banner)[0]
       .getBoundingClientRect().height;
+    headerOffset = 0;
     var elementTop = element.getBoundingClientRect().top;
     var windowTop = window.pageYOffset || document.documentElement.scrollTop;
     var offsetTop = windowTop + elementTop - headerOffset;
@@ -40,7 +44,14 @@ class ResultsList extends Component {
       behavior: 'smooth'
     });
 
-    element.querySelector('a').focus();
+    const currPath = window.location.pathname;
+
+    let url = currPath.split('#')[0];
+    url += '#' + dropdown.value;
+
+    window.history.pushState({}, null, url);
+
+    // element.querySelector('a').focus();
 
     window.clearTimeout(this.resetDropdownTimeoutHandle);
 
@@ -74,7 +85,7 @@ class ResultsList extends Component {
     ));
 
     const wardOptions = extractWardData.map(race => ({
-      value: 'race--' + race.id,
+      value: 'result-' + race.id,
       label: race.name
     }));
 
@@ -83,13 +94,9 @@ class ResultsList extends Component {
     ));
 
     const citywideOptions = flattenRemains.map(race => ({
-      value: 'race--' + race.id,
+      value: 'result-' + race.id,
       label: race.name
     }));
-
-    const activeLabel = (
-      <FormattedMessage id={`common.link.results`} defaultMessage='Results' />
-    );
 
     const SelectRace = ({ options }) => (
       <select
@@ -112,7 +119,7 @@ class ResultsList extends Component {
     return (
       <Results.DataProvider>
         <Page childClass='page--detail container'>
-          <Breadcrumb activeLabel={activeLabel} />
+          <Breadcrumb />
           <h1 className='page-heading title is-3'>
             <FormattedMessage
               id='ResultsList.heading'

@@ -16,12 +16,12 @@ const SiteMenu = props => {
       slug: 'home',
       label: 'Home'
     },
-    // {
-    //   href: urlRoot + 'results/',
-    //   iconClasses: 'fas fa-chart-bar',
-    //   slug: 'results',
-    //   label: 'Results'
-    // },
+    {
+      href: urlRoot + 'results/',
+      iconClasses: 'fas fa-chart-bar',
+      slug: 'results',
+      label: 'Results'
+    },
     {
       href: urlRoot + 'races/',
       iconClasses: 'fas fa-vote-yea',

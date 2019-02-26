@@ -2,6 +2,7 @@
   "en": {
     "common.link.home": "Home",
     "common.link.all-races": "All races",
+    "common.link.results": "Live results",
     "Footer.sign-up.heading": "Sign up",
     "Footer.contact-us.heading": "Contact us",
     "Footer.contact-us.text.1": "Got questions? Need help? Did we miss something?",
@@ -46,6 +47,7 @@
     "RaceDetail.FinanceFeed.footnote": "<u><strong>Notes:</strong></u> 'Cash on hand' represents a committee's total available funds to spend this quarter. 'Total raised' represents the amount of funds raised during this election cycle.",
     "RaceDetail.FinanceFeed.updated": "<u><strong>Last updated:</strong></u> {date}",
     "RaceDetail.FinanceFeed.credit": "Powered by <a href=\"https://www.reformforillinois.org\">Reform for Illinois</a>",
+    "RaceDetail.ResultsFeed.heading": "Results",
     "RaceDetail.StancesFeed.heading": "Stances",
     "RaceDetail.heading": "Race for {officeName}",
     "RaceList.heading": "Races",
@@ -57,7 +59,6 @@
     "WardLookup.loading": "Loading...",
     "WardLookup.no-matches": "No matches for {inputAddress}",
     "WardLookup.match": "This address is located in <strong>Ward {wardNumber}</strong>.",
-    "common.link.results": "Results",
     "ResultsList.heading": "Results"
   },
   "es": {

@@ -1,9 +1,5 @@
 [
   {
-    "id": "common.link.results",
-    "defaultMessage": "Results"
-  },
-  {
     "id": "ResultsList.heading",
     "defaultMessage": "Results"
   },
