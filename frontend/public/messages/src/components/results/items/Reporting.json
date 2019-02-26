@@ -1,6 +1,6 @@
 [
   {
     "id": "Results.Reporting.text",
-    "defaultMessage": "{precinctsReporting} of {precinctsTotal} precincts reporting."
+    "defaultMessage": "{precinctsReporting} of {precinctsTotal} precincts reporting. Total votes: {votesTotal}"
   }
 ]
