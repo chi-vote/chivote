@@ -19,33 +19,49 @@ timestamp_format = '%Y-%m-%dT%H:%M:%S%z'
 s3_bucket_name = 'chi.vote.app.prod'  # switch to prod on elex nite
 ### END CONFIG ###
 
-now = datetime.now().astimezone(pytz.timezone('US/Central'))
-
-# if data fails to load,
-# pass exception to logger
-
-
-try:
-    data = get_data()
-except Exception(e):
-    logger.error(e)
-
 # helps translate cboe race, cand codes
 # into proper chi.vote style
 lookup_json = json.load(open(lookup_json_path))
 
-# collect results
-results = {
-    'contest_headers': ["name", "prs_rpt", "prs_tot"],
-    'cand_headers': ["name", "vote_cnt"],
-    'datetime': now.strftime(timestamp_format),
-    'timestamp': int(now.replace(microsecond=0).timestamp()),
-    'contests': {},
-    "cand_classes": ["", "amt append-bar"],
-}
-
 
 def scrape_results():
+    # if data fails to load,
+    # pass exception to logger
+    try:
+        data = get_data()
+    except Exception(e):
+        logger.error(e)
+
+    results = transform_results(data)
+
+    # write out
+    results_json_file = open(results_output_path, 'w')
+    json.dump(results, results_json_file)
+    results_json_file.close()
+
+    # upload to s3
+    s3 = boto3.resource('s3')
+    results_json_wb = open(results_output_path, 'rb')
+    logger.info('uploading results')
+    s3.Bucket(name=s3_bucket_name).put_object(
+        Key='results.json',
+        Metadata={'Content-Type': 'text/json'},
+        Body=results_json_wb)
+
+
+def transform_results(data):
+    now = datetime.now().astimezone(pytz.timezone('US/Central'))
+
+    # collect results
+    results = {
+        'contest_headers': ["name", "prs_rpt", "prs_tot"],
+        'cand_headers': ["name", "vote_cnt"],
+        'datetime': now.strftime(timestamp_format),
+        'timestamp': int(now.replace(microsecond=0).timestamp()),
+        'contests': {},
+        "cand_classes": ["", "amt append-bar"],
+    }
+
     # loop through scraped data
     # and append to results
     races = []  # keeps track of which results are in
@@ -84,16 +100,4 @@ def scrape_results():
             [cv_cand_name, cand_vote_total]
         )
 
-    # write out
-    results_json_file = open(results_output_path, 'w')
-    json.dump(results, results_json_file)
-    results_json_file.close()
-
-    # upload to s3
-    s3 = boto3.resource('s3')
-    results_json_wb = open(results_output_path, 'rb')
-    logger.info('uploading results')
-    s3.Bucket(name=s3_bucket_name).put_object(
-        Key='results.json',
-        Metadata={'Content-Type': 'text/json'},
-        Body=results_json_wb)
+    return results
