@@ -104,7 +104,7 @@ class Breadcrumb extends Component {
       <nav className={`breadcrumb${extraClasses}`} aria-label='breadcrumbs'>
         <ul>
           <RenderedLinks items={this.getItems()} />
-          <LanguageToggle />
+          {!this.props.hideToggle && <LanguageToggle />}
         </ul>
       </nav>
     );

@@ -127,7 +127,7 @@ class ResultsList extends Component {
     return (
       <Results.DataProvider>
         <Page childClass='page--detail container'>
-          <Breadcrumb />
+          <Breadcrumb hideToggle={true} />
           <h1 className='page-heading title is-3'>
             <FormattedMessage
               id='ResultsList.heading'
@@ -136,10 +136,10 @@ class ResultsList extends Component {
           </h1>
 
           <Results.LocalProvider>
-            <div className='columns'>
-              <div className='column is-two-thirds is-size-6'>
-                <Results.About />
-              </div>
+            {/* <div className='columns'>
+              <div className='column is-two-thirds is-size-6'> */}
+            <Results.About />
+            {/* </div>
 
               <div className='column is-one-third'>
                 <Timeline
@@ -155,7 +155,7 @@ class ResultsList extends Component {
                   onLoad={() => console.log('Timeline is loaded!')}
                 />
               </div>
-            </div>
+            </div> */}
             <div className={cn('field is-grouped', styles.banner)}>
               <Results.Updated className={styles.control} />
               <div
