@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 // Create a new context for the data
 export const DataContext = React.createContext();
@@ -25,7 +25,7 @@ class DataProvider extends Component {
   }
 
   fetchData() {
-    let url = 'http://chi.vote.app.stage.s3.amazonaws.com/results.json';
+    let url = "https://chi.vote.app.stage.s3.amazonaws.com/results.json";
 
     fetch(url)
       .then(res => res.json())
