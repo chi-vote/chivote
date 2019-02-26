@@ -1,8 +1,13 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 const Reporting = ({ precinctsReporting, precinctsTotal }) => (
   <p>
-    {precinctsReporting} of {precinctsTotal} precincts reporting.
+    <FormattedMessage
+      id='Results.Reporting.text'
+      defaultMessage='{precinctsReporting} of {precinctsTotal} precincts reporting.'
+      values={{ precinctsReporting, precinctsTotal }}
+    />
   </p>
 );
 

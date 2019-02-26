@@ -105,9 +105,16 @@ class ResultsList extends Component {
         defaultValue=''
         required
       >
-        <option value='' disabled>
-          Jump to a race
-        </option>
+        <FormattedMessage
+          id='ResultsList.select.message'
+          defaultMessage='Jump to a race'
+        >
+          {placeholder => (
+            <option value='' disabled>
+              {placeholder}
+            </option>
+          )}
+        </FormattedMessage>
         {options.map(({ value, label }) => (
           <option value={value} key={value}>
             {label}

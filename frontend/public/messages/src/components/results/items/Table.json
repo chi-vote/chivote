@@ -1,0 +1,10 @@
+[
+  {
+    "id": "Results.Table.header.candidate",
+    "defaultMessage": "Candidate"
+  },
+  {
+    "id": "Results.Table.header.votes",
+    "defaultMessage": "Votes"
+  }
+]
