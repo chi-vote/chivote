@@ -77,11 +77,7 @@
   }
 }
 
-#the-candidates,
-#the-articles,
-#the-stances,
-#the-events,
-#the-finances {
+.the-feed {
   padding-top: 1rem;
 }
 
@@ -90,11 +86,7 @@
   width: 30%;
 }
 
-.is-candidates-active .is-candidates,
-.is-articles-active .is-articles,
-.is-stances-active .is-stances,
-.is-events-active .is-events,
-.is-finances-active .is-finances {
+.toggle-feed .button[data-selected] {
   background-color: #55c1e8;
   border-color: #55c1e8;
   color: white;

@@ -44,7 +44,7 @@ class CandidateAdmin(admin.ModelAdmin):
         }),
         ('Alternate keys', {
             'classes': ('collapse',),
-            'fields': ('cboe_id', 'isbe_id', 'br_id', 'ri_id')
+            'fields': ('cboe_id', 'isbe_id', 'br_id', 'ri_id', 'cboe_results_id')
         }),
         ('From Ballot Ready', {
             'fields': ('br_thumb_url', 'br_photo_url', 'br_urls', 'br_endorsements', 'br_experience', 'br_education')
@@ -66,6 +66,6 @@ class CandidateAdmin(admin.ModelAdmin):
 
     # list screen
     list_display = ('__str__', 'link_to_race', 'status',
-                    'incumbent', 'cboe_id', 'br_id')
+                    'incumbent', 'cboe_id', 'br_id', 'cboe_results_id')
     list_filter = ('status', 'race',)
     ordering = ('race', 'ballot_order',)

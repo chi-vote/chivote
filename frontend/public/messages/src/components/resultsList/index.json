@@ -1,0 +1,14 @@
+[
+  {
+    "id": "common.link.results",
+    "defaultMessage": "Results"
+  },
+  {
+    "id": "ResultsList.heading",
+    "defaultMessage": "Results"
+  },
+  {
+    "id": "RaceList.aldermanic.heading",
+    "defaultMessage": "Aldermanic"
+  }
+]

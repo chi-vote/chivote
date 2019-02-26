@@ -44,16 +44,16 @@ class RaceList extends Component {
 
     const flattenRemains = copyRaceData.filter(x => (x ? true : false));
 
-    const wardButtons = extractWardData.map(data => (
-      <li className='column is-4' key={data.id}>
-        <WardButton data={data} />
+    const wardButtons = extractWardData.map(race => (
+      <li className='column is-4' key={race.id}>
+        <WardButton data={race} />
       </li>
     ));
 
-    const otherRaces = flattenRemains.map(data => (
-      <li className='column' key={data.id}>
-        <a href={`./${data.id}/`} className={styles.wardButton}>
-          {data.name}
+    const otherRaces = flattenRemains.map(race => (
+      <li className='column' key={race.id}>
+        <a href={`./${race.id}/`} className={styles.wardButton}>
+          {race.name}
         </a>
       </li>
     ));

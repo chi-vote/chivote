@@ -75,7 +75,7 @@ const StanceFeed = props => {
   // );
 
   return (
-    <section id='the-stances'>
+    <>
       <h2 className='is-hidden-tablet page-heading title is-4'>
         <FormattedMessage
           id='RaceDetail.StancesFeed.heading'
@@ -84,7 +84,7 @@ const StanceFeed = props => {
       </h2>
       {/* {issue_labels} */}
       {feed}
-    </section>
+    </>
   );
 };
 

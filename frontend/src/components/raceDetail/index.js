@@ -7,6 +7,7 @@ import {
   CandidateFeed,
   EventFeed,
   FinanceFeed,
+  ResultsFeed,
   StanceFeed
 } from './feeds';
 import { parseHtml } from 'Components/utils';
@@ -55,34 +56,45 @@ class RaceDetail extends Component {
     this.componentDidMount();
   }
 
-  renderFeed = () => {
-    if (this.state.feed === 'candidates') {
-      return (
-        <CandidateFeed
-          candidates={JSON.parse(this.props.candidates)}
-          handleClick={this.setCandidateView}
-        />
-      );
-    } else if (this.state.feed === 'articles') {
-      return (
-        <ArticleFeed
-          articles={JSON.parse(this.props.data.articles)}
-          feed_url={`/races/${this.props.data.slug}/rss.xml`}
-        />
-      );
-    } else if (this.state.feed === 'stances') {
-      return (
-        <StanceFeed
-          stances={JSON.parse(this.props.data.stances)}
-          issues={JSON.parse(this.props.data.issues)}
-          candidates={JSON.parse(this.props.candidates)}
-        />
-      );
-    } else if (this.state.feed === 'events') {
-      return <EventFeed slug={this.props.data.documenters_slug} />;
-    } else if (this.state.feed === 'finances') {
-      return <FinanceFeed candidates={JSON.parse(this.props.candidates)} />;
+  getFeed = () => {
+    switch (this.state.feed) {
+      case 'candidates':
+        return (
+          <CandidateFeed
+            candidates={JSON.parse(this.props.candidates)}
+            handleClick={this.setCandidateView}
+          />
+        );
+      case 'articles':
+        return (
+          <ArticleFeed
+            articles={JSON.parse(this.props.data.articles)}
+            feed_url={`/races/${this.props.data.slug}/rss.xml`}
+          />
+        );
+      case 'stances':
+        return (
+          <StanceFeed
+            stances={JSON.parse(this.props.data.stances)}
+            issues={JSON.parse(this.props.data.issues)}
+            candidates={JSON.parse(this.props.candidates)}
+          />
+        );
+      case 'events':
+        return <EventFeed slug={this.props.data.documenters_slug} />;
+      case 'finances':
+        return <FinanceFeed candidates={JSON.parse(this.props.candidates)} />;
+      case 'results':
+        return <ResultsFeed cboeId={this.props.cboeId} />;
     }
+  };
+
+  renderFeed = () => {
+    return (
+      <section className='the-feed' id={`the-${this.state.feed}`}>
+        {this.getFeed()}
+      </section>
+    );
   };
 
   renderButtons = () => {
@@ -96,9 +108,9 @@ class RaceDetail extends Component {
           <div className='control column is-one-third'>
             <button
               className={`button is-rounded is-large is-${props.slug}`}
+              data-selected={props.slug === this.state.feed || null}
               onClick={() => this.setState({ feed: props.slug })}
             >
-              {/* Events */}
               <span className='icon'>
                 <i className={`fa fa-lg ${props.icon}`} />{' '}
               </span>
@@ -117,6 +129,11 @@ class RaceDetail extends Component {
     };
 
     const buttons = [
+      // {
+      //   slug: 'results',
+      //   label: 'Results',
+      //   icon: 'fa-chart-bar'
+      // },
       {
         slug: 'candidates',
         label: 'Candidates',

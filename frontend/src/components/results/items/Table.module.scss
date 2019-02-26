@@ -1,0 +1,37 @@
+@import '~Theme/styles/variables';
+
+.table {
+  border-radius: 5px;
+  font-family: $futura;
+  position: relative;
+  width: 100%;
+
+  @media (max-width: $tablet) {
+    // margin-left: -1.5rem;
+    // margin-right: -1.5rem;
+    max-width: unset;
+    overflow-x: scroll;
+    // width: calc(100% + 3rem);
+  }
+
+  :global {
+    th,
+    td {
+      vertical-align: middle;
+    }
+
+    .amt {
+      text-align: right;
+    }
+  }
+}
+
+.barContainer {
+  width: 50%;
+}
+
+.barValue {
+  background: $primary;
+  display: inline-block;
+  width: 0; // default value, overridden inline
+}

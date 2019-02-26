@@ -2,47 +2,74 @@ import React from 'react';
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from 'react-intl';
 import { slide as Menu } from 'react-burger-menu';
 
+function FormattedMessageFixed(props) {
+  return <FormattedMessage {...props} />;
+}
+
 const SiteMenu = props => {
   const urlRoot = props.intl.locale === 'es' ? '/es/' : '/';
 
+  const menuItems = [
+    {
+      href: urlRoot,
+      iconClasses: 'fas fa-home',
+      slug: 'home',
+      label: 'Home'
+    },
+    // {
+    //   href: urlRoot + 'results/',
+    //   iconClasses: 'fas fa-chart-bar',
+    //   slug: 'results',
+    //   label: 'Results'
+    // },
+    {
+      href: urlRoot + 'races/',
+      iconClasses: 'fas fa-vote-yea',
+      slug: 'races',
+      label: 'Races'
+    },
+    {
+      href: urlRoot + 'faq/',
+      iconClasses: 'far fa-question-circle',
+      slug: 'faq',
+      label: 'FAQ'
+    },
+    {
+      href: urlRoot + 'ask/',
+      iconClasses: 'far fa-comment-alt',
+      slug: 'ask',
+      label: 'Ask'
+    },
+    {
+      href: urlRoot + 'quiz/',
+      iconClasses: 'fas fa-gamepad',
+      slug: 'quiz',
+      label: 'Quiz'
+    },
+    {
+      href: urlRoot + 'events/',
+      iconClasses: 'fas fa-calendar',
+      slug: 'events',
+      label: 'Events'
+    }
+  ];
+
+  const getMenuItems = () =>
+    menuItems.map(item => (
+      <a className='menu-item' href={item.href} key={item.slug}>
+        <span className='icon'>
+          <i className={item.iconClasses} />
+        </span>
+        <FormattedMessageFixed
+          id={`common.link.${item.slug}`}
+          defaultMessage={item.label}
+        />
+      </a>
+    ));
+
   return (
     <Menu {...props}>
-      <a className='menu-item' href={urlRoot}>
-        <span className='icon'>
-          <i className='fas fa-home' />
-        </span>
-        <FormattedMessage id='common.link.home' defaultMessage='Home' />
-      </a>
-      <a className='menu-item' href={urlRoot + 'races/'}>
-        <span className='icon'>
-          <i className='fas fa-vote-yea' />
-        </span>
-        <FormattedMessage id='common.link.races' defaultMessage='Races' />
-      </a>
-      <a className='menu-item' href={urlRoot + 'faq/'}>
-        <span className='icon'>
-          <i className='far fa-question-circle' />
-        </span>
-        <FormattedMessage id='common.link.faq' defaultMessage='FAQ' />
-      </a>
-      <a className='menu-item' href={urlRoot + 'ask/'}>
-        <span className='icon'>
-          <i className='far fa-comment-alt' />
-        </span>
-        <FormattedMessage id='common.link.ask' defaultMessage='Ask' />
-      </a>
-      <a className='menu-item' href={urlRoot + 'quiz/'}>
-        <span className='icon'>
-          <i className='fas fa-gamepad' />
-        </span>
-        <FormattedMessage id='common.link.quiz' defaultMessage='Quiz' />
-      </a>
-      <a className='menu-item' href={urlRoot + 'events/'}>
-        <span className='icon'>
-          <i className='fas fa-calendar' />
-        </span>
-        <FormattedMessage id='common.link.events' defaultMessage='Events' />
-      </a>
+      {getMenuItems()}
       <hr />
       <div>
         <p className='has-text-weight-bold'>

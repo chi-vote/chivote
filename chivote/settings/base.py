@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     # 'apps.questionnaires',
     'apps.site_content',
     'adminsortable2',
+    'apps.scrape'
 ]
 
 MIDDLEWARE = [
@@ -166,6 +167,7 @@ BAKERY_VIEWS = (
     'apps.core.views.HomePageView',
     'apps.races.views.RaceDetailView',
     'apps.races.views.RaceListView',
+    'apps.races.views.ResultsListView',
     'apps.site_content.views.ContentItemDetailView',
     'apps.core.views.ErrorView',
     'apps.races.feeds.RaceFeed',

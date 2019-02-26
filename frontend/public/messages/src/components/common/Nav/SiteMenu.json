@@ -1,29 +1,5 @@
 [
   {
-    "id": "common.link.home",
-    "defaultMessage": "Home"
-  },
-  {
-    "id": "common.link.races",
-    "defaultMessage": "Races"
-  },
-  {
-    "id": "common.link.faq",
-    "defaultMessage": "FAQ"
-  },
-  {
-    "id": "common.link.ask",
-    "defaultMessage": "Ask"
-  },
-  {
-    "id": "common.link.quiz",
-    "defaultMessage": "Quiz"
-  },
-  {
-    "id": "common.link.events",
-    "defaultMessage": "Events"
-  },
-  {
     "id": "SiteMenu.contact.1",
     "defaultMessage": "Contact us"
   },

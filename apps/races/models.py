@@ -10,8 +10,15 @@ class Race(AutoPublishingBuildableModel):
     office = models.ForeignKey(Office, on_delete=models.CASCADE)
     explainer = RichTextField(blank=True, null=True)
     slug = models.SlugField(max_length=250)
-    documenters_slug = models.CharField(max_length=20, verbose_name='Documenters.org embed slug',
+    documenters_slug = models.CharField(max_length=20,          verbose_name='Documenters.org embed slug',
                                         help_text='Embed will populate at https://embed.documenters.org/chivote-forums/[SLUG].html', null=True, blank=True)
+
+    # CBOE results
+    cboe_results_id = models.CharField(max_length=4, null=True)
+
+    @property
+    def results_slug(self):
+        return self.slug.replace('-', ' ').title()
 
     # BuildableModel field
     detail_views = ('apps.races.views.RaceDetailView',)
