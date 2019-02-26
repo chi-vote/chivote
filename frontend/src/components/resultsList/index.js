@@ -4,6 +4,7 @@ import { Breadcrumb, List, Page } from 'Components/common';
 import * as Results from 'Components/results';
 import cn from 'classnames';
 import styles from './styles.module.scss';
+import AppProvider from 'Components/results/appProvider';
 
 const ResultsItem = race => (
   <li className='column is-4' id={`race--${race.id}`}>
@@ -108,7 +109,7 @@ class ResultsList extends Component {
     );
 
     return (
-      <div>
+      <AppProvider>
         <Page childClass='page--detail container'>
           <Breadcrumb activeLabel={activeLabel} />
           <h1 className='page-heading title is-3'>
@@ -140,7 +141,7 @@ class ResultsList extends Component {
           </h2>
           <List className='columns is-multiline'>{wardRaces}</List>
         </Page>
-      </div>
+      </AppProvider>
     );
   }
 }

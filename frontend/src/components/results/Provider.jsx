@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as emptyResultsJson from './results.empty.json';
+import { withDataContext } from './withDataContext';
 
 function recursiveMap(children, fn) {
   return React.Children.map(children, child => {
@@ -17,81 +18,64 @@ function recursiveMap(children, fn) {
   });
 }
 
+function transformData(results, cboeId) {
+  const transformed = {};
+
+  let contest;
+
+  if ('contests' in results) {
+    contest = results.contests[cboeId];
+  }
+
+  if (contest) {
+    transformed.precinctsReporting =
+      contest.meta[results.contest_headers.indexOf('prs_rpt')];
+    transformed.precinctsTotal =
+      contest.meta[results.contest_headers.indexOf('prs_tot')];
+
+    transformed.dataHeaders = results.cand_headers;
+    transformed.dataClasses = results.cand_classes;
+    transformed.data = contest.cands;
+  }
+
+  return transformed;
+}
+
 class DataProvider extends Component {
   constructor() {
     super();
 
     this.state = {
-      results: emptyResultsJson
+      results: emptyResultsJson,
+      transformed: {}
     };
-
-    this.fetchData = this.fetchData.bind(this);
-  }
-
-  componentDidMount() {
-    this.fetchData();
-    this.interval = setInterval(() => this.fetchData(), 60 * 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  fetchData() {
-    let url = 'http://chi.vote.app.stage.s3.amazonaws.com/results.json';
-
-    fetch(url)
-      .then(res => res.json())
-      .then(results => {
-        this.setState({ results });
-      })
-      .catch(err => {
-        throw err;
-      });
   }
 
   render() {
-    let { results } = this.state;
-
+    const results = this.props.context;
     const { cboeId } = this.props;
+    const transformed = transformData(results, cboeId);
 
-    let contest;
-
-    if ('contests' in results) {
-      contest = results.contests[cboeId];
-    }
-
-    if (contest) {
-      results.precinctsReporting =
-        contest.meta[results.contest_headers.indexOf('prs_rpt')];
-      results.precinctsTotal =
-        contest.meta[results.contest_headers.indexOf('prs_tot')];
-
-      results.dataHeaders = results.cand_headers;
-      results.dataClasses = results.cand_classes;
-      results.data = contest.cands;
-    }
-
-    const DataContext = React.createContext(results);
+    const ThisContext = React.createContext({ ...results, ...transformed });
 
     const children = this.props.children;
 
     return (
-      <DataContext.Provider value={results}>
+      <ThisContext.Provider value={{ ...results, ...transformed }}>
         {recursiveMap(children, child => {
           if (typeof child.type == `function`) {
             return (
-              <DataContext.Consumer>
+              <ThisContext.Consumer>
                 {value => React.cloneElement(child, { ...value })}
-              </DataContext.Consumer>
+              </ThisContext.Consumer>
             );
           } else {
             return child;
           }
         })}
-      </DataContext.Provider>
+      </ThisContext.Provider>
     );
   }
 }
 
-export default DataProvider;
+export default withDataContext(DataProvider);
