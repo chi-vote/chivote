@@ -111,7 +111,7 @@ class Footer extends Component {
   render() {
     return (
       <>
-        {/* <SectionResults /> // FEB26 uncomment */}
+        <SectionResults />
         <SectionMailchimp key='sign-up' />
         <SectionEmail />
         <SectionAbout />
