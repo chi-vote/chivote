@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import _ from 'lodash';
-import moment from 'moment-mini';
+import moment from 'moment';
 import './FinanceFeed.scss';
 
 function formatNumber(num) {

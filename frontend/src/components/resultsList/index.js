@@ -5,20 +5,30 @@ import * as Results from 'Components/results';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 
-const ResultsItem = race => (
-  <li
-    className={cn('column is-half-tablet is-4-desktop', styles.resultsItem)}
-    id={`result-${race.id}`}
-  >
-    <h3 className={cn('is-size-5', styles.raceName)}>
-      <a href={`../races/${race.id}/`}>{race.name}</a>
-    </h3>
-    <Results.LocalProvider cboeId={race.cboeId}>
-      <Results.Reporting />
-      <Results.Table />
-    </Results.LocalProvider>
-  </li>
-);
+const ResultsItem = race => {
+  let link = `../races/${race.id}/`;
+
+  if (typeof window !== `undefined`) {
+    const currPath = window.location.pathname;
+
+    link = `${currPath}races/${race.id}`.replace('results/', '');
+  }
+
+  return (
+    <li
+      className={cn('column is-half-tablet is-4-desktop', styles.resultsItem)}
+      id={`result-${race.id}`}
+    >
+      <h3 className={cn('is-size-5', styles.raceName)}>
+        <a href={link}>{race.name}</a>
+      </h3>
+      <Results.LocalProvider cboeId={race.cboeId}>
+        <Results.Reporting />
+        <Results.Table />
+      </Results.LocalProvider>
+    </li>
+  );
+};
 
 class ResultsList extends Component {
   constructor() {

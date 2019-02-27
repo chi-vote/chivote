@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment-mini';
+import moment from 'moment';
 import { parseHtml } from 'Components/utils';
 
 const ArticleItem = props => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment-mini';
+import moment from 'moment';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
 
