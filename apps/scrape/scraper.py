@@ -25,7 +25,7 @@ data_line_range_start, data_line_range_end = 3, 181
 # into proper chi.vote style
 lookup_json = json.load(open(lookup_json_path))
 
-scrape_target = 'https://chicagoelections.com/ap/summary.txt'
+scrape_target = 'https://chicagoelections.com/results/ap/summary.txt'
 
 def get_page():
     return requests.get(scrape_target).content.decode()

@@ -27,7 +27,7 @@ SECRET_KEY_DEV_ONLY = 'abj*h0p8*n1az4sfa%kxp0s4&88^k$k&gw8vi)-ig!i@cq@=p&'
 SECRET_KEY = config('DJANGO_SECRET_KEY', default=SECRET_KEY_DEV_ONLY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(config('DJANGO_DEBUG', default=True))
+DEBUG = config('DJANGO_DEBUG', default=False,cast=bool)
 
 ALLOWED_HOSTS = []
 ALLOWED_HOSTS += ['127.0.0.1', 'localhost']
