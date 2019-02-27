@@ -1,3 +1,1 @@
-import SiteLogo from './chivote-logo-7x.png';
-
-export { SiteLogo };
+export { default as SiteLogo } from './chivote-logo-7x.png';

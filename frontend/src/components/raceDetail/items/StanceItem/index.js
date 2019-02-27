@@ -1,4 +1,5 @@
 import React from 'react';
+import { injectIntl } from 'react-intl';
 import moment from 'moment';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
@@ -26,7 +27,11 @@ const StanceItem = props => {
         <AccordionItemTitle className='accordion__title row u-position-relative'>
           <div className='media-item__meta'>
             {date && (
-              <time dateTime={date}>{moment(date).format('MMM D, YYYY')}</time>
+              <time dateTime={date}>
+                {moment(date)
+                  .locale(props.intl.locale)
+                  .format('MMM D, YYYY')}
+              </time>
             )}
             <cite className='media-item__source'>
               <a className='media-item__link' href={link}>
@@ -62,4 +67,4 @@ const StanceItem = props => {
   );
 };
 
-export default StanceItem;
+export default injectIntl(StanceItem);

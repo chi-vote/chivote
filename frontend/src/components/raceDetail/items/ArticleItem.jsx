@@ -1,4 +1,5 @@
 import React from 'react';
+import { injectIntl } from 'react-intl';
 import moment from 'moment';
 import { parseHtml } from 'Components/utils';
 
@@ -11,7 +12,9 @@ const ArticleItem = props => {
       <div className='media-item__meta'>
         {date && (
           <time dateTime={date} className='media-item__date'>
-            {moment(date).format('MMM D, YYYY')}
+            {moment(date)
+              .locale(props.intl.locale)
+              .format('MMM D, YYYY')}
           </time>
         )}
         <cite className='media-item__source'>{source}</cite>
@@ -27,4 +30,4 @@ const ArticleItem = props => {
   );
 };
 
-export default ArticleItem;
+export default injectIntl(ArticleItem);

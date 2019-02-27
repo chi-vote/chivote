@@ -1,11 +1,10 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
 import moment from 'moment';
-
-moment.locale('es');
 
 const Updated = props => {
   const { className, datetime, isLoading } = props;
+  const { locale } = props.intl;
 
   if (isLoading) {
     return (
@@ -23,7 +22,9 @@ const Updated = props => {
           id='Results.Updated.text'
           defaultMessage='Last updated: {datetime}'
           values={{
-            datetime: moment(datetime).format('lll')
+            datetime: moment(datetime)
+              .locale('en')
+              .format('lll')
           }}
         />
       </div>
@@ -31,4 +32,4 @@ const Updated = props => {
   }
 };
 
-export default Updated;
+export default injectIntl(Updated);

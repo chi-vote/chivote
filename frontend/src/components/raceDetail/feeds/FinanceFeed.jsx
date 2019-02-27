@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
+import { injectIntl, FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import _ from 'lodash';
 import moment from 'moment';
 import './FinanceFeed.scss';
@@ -156,9 +156,9 @@ class FinanceFeed extends Component {
             id='RaceDetail.FinanceFeed.updated'
             defaultMessage='<u><strong>Last updated:</strong></u> {date}'
             values={{
-              date: moment(
-                this.props.candidates[0].fields.ri_last_updated
-              ).format('MMM D, YYYY')
+              date: moment(this.props.candidates[0].fields.ri_last_updated)
+                .locale(this.props.intl.locale)
+                .format('ll')
             }}
           />
         </p>
@@ -173,4 +173,4 @@ class FinanceFeed extends Component {
   }
 }
 
-export default FinanceFeed;
+export default injectIntl(FinanceFeed);

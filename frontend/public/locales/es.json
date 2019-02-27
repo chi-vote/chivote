@@ -61,6 +61,7 @@
   "RaceDetail.FinanceFeed.credit": "Datos de <a href=\"https://www.reformforillinois.org\">Reform for Illinois</a>",
   "common.link.all-races": "Todas las contiendas",
   "RaceDetail.heading": "Contienda para {officeName}",
+  "RaceDetail.button.results": "Resultados",
   "RaceDetail.button.candidates": "Candidatos",
   "RaceDetail.button.articles": "Artículos",
   "RaceDetail.button.stances": "Posturas",
