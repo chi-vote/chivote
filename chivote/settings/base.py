@@ -251,8 +251,4 @@ if bool(config('CELERY_BROKER_URL', default=False)):
             'task': 'apps.candidates.tasks.update_ri_candidates_all',
             'schedule': crontab(day_of_week='mon-fri', hour='7', minute='0')
         },
-        'scrape_cboe': {
-            'task': 'apps.scrape.tasks.run_scraper',
-            'schedule': 60.0,
-        }
     }
