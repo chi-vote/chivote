@@ -23,7 +23,7 @@ const Updated = props => {
           defaultMessage='Last updated: {datetime}'
           values={{
             datetime: moment(datetime)
-              .locale('en')
+              .locale(locale)
               .format('lll')
           }}
         />
