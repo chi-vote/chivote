@@ -1,5 +1,9 @@
 [
   {
+    "id": "Results.Updated.loading",
+    "defaultMessage": "Checking for new results..."
+  },
+  {
     "id": "Results.Updated.text",
     "defaultMessage": "Last updated: {datetime}"
   }

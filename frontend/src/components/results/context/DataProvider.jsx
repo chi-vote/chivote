@@ -9,7 +9,8 @@ class DataProvider extends Component {
     super(props);
 
     this.state = {
-      results: null
+      results: null,
+      isLoading: false
     };
 
     this.fetchData = this.fetchData.bind(this);
@@ -25,12 +26,14 @@ class DataProvider extends Component {
   }
 
   fetchData() {
+    this.setState({ isLoading: true });
+
     let url = 'https://chi.vote/results.json';
 
     fetch(url)
       .then(res => res.json())
       .then(results => {
-        this.setState({ results });
+        setTimeout(() => this.setState({ results, isLoading: false }), 1000);
       })
       .catch(err => {
         throw err;
@@ -39,7 +42,9 @@ class DataProvider extends Component {
 
   render() {
     return (
-      <DataContext.Provider value={{ ...this.state.results }}>
+      <DataContext.Provider
+        value={{ ...this.state.results, isLoading: this.state.isLoading }}
+      >
         {this.props.children}
       </DataContext.Provider>
     );

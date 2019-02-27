@@ -46,6 +46,7 @@ class LocalProvider extends Component {
   render() {
     const results = this.props.context;
     const { cboeId } = this.props;
+
     const transformed = transformData(results, cboeId);
 
     const LocalContext = React.createContext({ ...results, ...transformed });
