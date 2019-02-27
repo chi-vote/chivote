@@ -138,7 +138,7 @@ class ResultsList extends Component {
 
     return (
       <Results.DataProvider>
-        <Page childClass='page--detail container'>
+        <Page childClass='container'>
           <Breadcrumb />
           <h1 className='page-heading title is-3'>
             <FormattedMessage
@@ -159,14 +159,14 @@ class ResultsList extends Component {
             </div>
           </Results.LocalProvider>
 
-          <List className='columns is-multiline'>{otherRaces}</List>
+          <ul className='columns is-multiline'>{otherRaces}</ul>
           <h2 className='page-heading title is-4 mt-1'>
             <FormattedMessage
               id='RaceList.aldermanic.heading'
               defaultMessage='Aldermanic'
             />
           </h2>
-          <List className='columns is-multiline'>{wardRaces}</List>
+          <ul className='columns is-multiline'>{wardRaces}</ul>
         </Page>
       </Results.DataProvider>
     );

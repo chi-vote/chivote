@@ -21,7 +21,7 @@ const CandidateFeed = props => {
           defaultMessage='Candidates appear in ballot order.'
         />
       </p>
-      <List className='candidates-list columns is-multiline is-0-mobile'>
+      <ul className='candidates-list columns is-multiline is-0-mobile'>
         {candidates.map(item => (
           <div className='column is-4' key={item.pk}>
             <CandidateItem
@@ -31,7 +31,7 @@ const CandidateFeed = props => {
             />
           </div>
         ))}
-      </List>
+      </ul>
     </>
   );
 };

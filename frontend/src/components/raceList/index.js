@@ -60,7 +60,7 @@ class RaceList extends Component {
 
     return (
       <div>
-        <Page childClass='page--detail container'>
+        <Page childClass='container'>
           <Breadcrumb />
           <h1 className='page-heading title is-3'>
             <FormattedMessage id='RaceList.heading' defaultMessage='Races' />
@@ -71,7 +71,7 @@ class RaceList extends Component {
               defaultMessage='Choose a specific race to get more information and view candidates.'
             />
           </p>
-          <List className='columns'>{otherRaces}</List>
+          <ul className='columns'>{otherRaces}</ul>
           <h2 className='page-heading title is-4 mt-1'>
             <FormattedMessage
               id='RaceList.aldermanic.heading'
@@ -85,7 +85,7 @@ class RaceList extends Component {
             />
           </p>
           {this.state.showWardLookup ? <WardLookup /> : null}
-          <List className='columns is-mobile is-multiline'>{wardButtons}</List>
+          <ul className='columns is-mobile is-multiline'>{wardButtons}</ul>
         </Page>
       </div>
     );

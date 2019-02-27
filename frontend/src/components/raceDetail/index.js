@@ -205,7 +205,7 @@ class RaceDetail extends Component {
           )}
         </SlideView>
 
-        <Page childClass='container page--detail' sectionClass='race-detail'>
+        <Page childClass='container' sectionClass='race-detail'>
           <Breadcrumb activePath={currPage} activeLabel={officeName} />
           <h1 className='page-heading title is-3'>
             <FormattedMessage
