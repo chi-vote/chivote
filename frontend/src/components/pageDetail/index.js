@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { FormattedMessage, injectIntl } from 'react-intl';
-import decode from 'decode-html';
-import Parser from 'html-react-parser';
+import { injectIntl } from 'react-intl';
+import { parseHtml } from 'Components/utils';
 import { Helmet } from 'react-helmet';
-import { Breadcrumb, FormattedMessageFixed, Page } from 'Components/common';
+import {
+  Breadcrumb,
+  FormattedMessageFixed,
+  Page,
+  PageHeading
+} from 'Components/common';
 import './style.scss';
 
 String.prototype.capitalize = function() {
@@ -13,7 +17,7 @@ String.prototype.capitalize = function() {
 class ContentItemDetail extends Component {
   render() {
     const { title, slug, content, helmet, background } = this.props;
-    let pageContent = Parser(decode(content.replace(/"'|'"/g, '"'))); // fixing bad quotes that were breaking links
+    let pageContent = parseHtml(content); // fixing bad quotes that were breaking links
 
     if (slug == 'quiz' && typeof window !== `undefined`) {
       var { ReactTypeformEmbed } = require('react-typeform-embed');
@@ -57,12 +61,12 @@ class ContentItemDetail extends Component {
       <>
         <Helmet>
           <style>{`body { background: ${background} !important; }`}</style>
-          {Parser(decode(helmet))}
+          {parseHtml(helmet)}
         </Helmet>
         <Page childClass={classes}>
-          <div className={'columns is-multiline is-centered'}>
+          <div className='columns is-multiline is-centered'>
             <Breadcrumb className='column is-full' activeLabel={activeLabel} />
-            <h1 className='column is-full page-heading title'>{title}</h1>
+            <PageHeading className='column is-full' title={title} />
             {pageContent}
           </div>
         </Page>

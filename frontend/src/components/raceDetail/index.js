@@ -11,7 +11,12 @@ import {
   StanceFeed
 } from './feeds';
 import { parseHtml } from 'Components/utils';
-import { Breadcrumb, FormattedMessageFixed, Page } from 'Components/common';
+import {
+  Breadcrumb,
+  FormattedMessageFixed,
+  Page,
+  PageHeading
+} from 'Components/common';
 import './styles.scss';
 
 class RaceDetail extends Component {
@@ -203,15 +208,19 @@ class RaceDetail extends Component {
 
         <Page childClass='container' sectionClass='race-detail'>
           <Breadcrumb activePath={currPage} activeLabel={officeName} />
-          <h1 className='page-heading title is-3'>
-            <FormattedMessage
-              id='RaceDetail.heading'
-              defaultMessage='Race for {officeName}'
-              values={{ officeName }}
-            />
-          </h1>
-          {parseHtml(description, [[/"'|'"/g, '"']])}
+
+          <FormattedMessage
+            id='RaceDetail.heading'
+            defaultMessage='Race for {officeName}'
+            values={{ officeName }}
+          >
+            {txt => <PageHeading title={txt} />}
+          </FormattedMessage>
+
+          {parseHtml(description)}
+
           {this.renderButtons()}
+
           {this.renderFeed()}
         </Page>
       </>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Breadcrumb, List, Page } from 'Components/common';
+import { Breadcrumb, Page, PageHeading } from 'Components/common';
 import * as Results from 'Components/results';
 import cn from 'classnames';
 import styles from './styles.module.scss';
@@ -140,12 +140,13 @@ class ResultsList extends Component {
       <Results.DataProvider>
         <Page childClass='container'>
           <Breadcrumb />
-          <h1 className='page-heading title is-3'>
-            <FormattedMessage
-              id='ResultsList.heading'
-              defaultMessage='Live Chicago election results'
-            />
-          </h1>
+
+          <FormattedMessage
+            id='ResultsList.heading'
+            defaultMessage='Live Chicago election results'
+          >
+            {txt => <PageHeading title={txt} />}
+          </FormattedMessage>
 
           <Results.LocalProvider>
             <Results.About />

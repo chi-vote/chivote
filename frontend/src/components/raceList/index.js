@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Breadcrumb, List, Page } from 'Components/common';
+import { Breadcrumb, Page, PageHeading } from 'Components/common';
 import styles from './styles.module.scss';
 
 const WardButton = props => (
@@ -62,9 +62,11 @@ class RaceList extends Component {
       <div>
         <Page childClass='container'>
           <Breadcrumb />
-          <h1 className='page-heading title is-3'>
-            <FormattedMessage id='RaceList.heading' defaultMessage='Races' />
-          </h1>
+
+          <FormattedMessage id='RaceList.heading' defaultMessage='Races'>
+            {title => <PageHeading title={title} />}
+          </FormattedMessage>
+
           <p className='is-lsb'>
             <FormattedMessage
               id='RaceList.text.1'
