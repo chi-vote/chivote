@@ -1,0 +1,27 @@
+@import '~Theme/styles/variables';
+@import '~Theme/styles/mixins';
+
+.breadcrumb {
+  background: transparent;
+
+  &:global(.column) {
+    padding-bottom: 0;
+  }
+
+  :global {
+    ul {
+      align-items: center;
+      padding: 0;
+    }
+
+    a {
+      font-family: $family-secondary;
+    }
+
+    .language-toggle {
+      margin-left: auto;
+    }
+  }
+}
+
+@include setBreadcrumbColors($primary, $color-language: $yellow);

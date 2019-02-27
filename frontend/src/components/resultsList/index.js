@@ -16,7 +16,10 @@ const ResultsItem = race => {
 
   return (
     <li
-      className={cn('column is-half-tablet is-4-desktop', styles.resultsItem)}
+      className={cn(
+        'column is-half-tablet is-one-third-widescreen',
+        styles.resultsItem
+      )}
       id={`result-${race.id}`}
     >
       <h3 className={cn('is-size-5', styles.raceName)}>
