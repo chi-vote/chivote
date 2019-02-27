@@ -12,7 +12,8 @@ from apps.races.models import Race
 from chivote.settings.base import BASE_DIR
 
 ### START CONFIG ###
-scrape_target = 'https://chicagoelections.com/results/ap/summary.txt'
+#scrape_target = 'https://chicagoelections.com/results/ap/summary.txt'
+scrape_target = 'https://chicagoelections.com/ap/summary.txt'
 lookup_json_path = BASE_DIR + '/apps/scrape/lookup.json'
 
 data_line_range_start, data_line_range_end = 3, 181

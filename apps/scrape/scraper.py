@@ -18,11 +18,23 @@ results_output_path = '/tmp/results.json'
 timestamp_format = '%Y-%m-%dT%H:%M:%S%z'
 #s3_bucket_name = 'chi.vote.app.stage' # switch to prod on elex nite
 s3_bucket_name = 'chi.vote.app.prod' # switch to prod on elex nite
+data_line_range_start, data_line_range_end = 3, 181
 ### END CONFIG ###
 
 # helps translate cboe race, cand codes
 # into proper chi.vote style
 lookup_json = json.load(open(lookup_json_path))
+
+scrape_target = 'https://chicagoelections.com/ap/summary.txt'
+
+def get_page():
+    return requests.get(scrape_target).content.decode()
+
+
+def get_data(page=get_page()):
+    return page.splitlines()[data_line_range_start:data_line_range_end]
+
+
 
 
 def scrape_results():
@@ -33,6 +45,7 @@ def scrape_results():
         # data[0] = set_cand_vote_total(data[0], 10)
         # data[2] = set_cand_vote_total(data[2], 20)
         results = transform_results(data)
+        logger.info(results['contests']['0010']['cands'][0])
         write_results(results, results_output_path)
         upload_results(results_output_path)
     except KeyboardInterrupt:
@@ -63,27 +76,14 @@ def transform_results(data):
     for row in data:
         # parse data from page,
         # row by row
-        race_name = get_race_name(row)
         race_code = get_race_code(row)
         cv_race_name = lookup_json['races'][race_code]['chi_vote_name']
-        # for sanity check
-        lj_race_name = lookup_json['races'][race_code]['cboe_results_name']
-        if race_name != lj_race_name:
-            logger.error('race name mismatch: ' + race_name + ' ' + lj_race_name)
-            raise Exception
-        cand_name = get_cand_name(row)
+        
         cand_code = get_cand_code(row)
         try:
             cv_cand_name = lookup_json['candidates'][cand_code]['chi_vote_name']
         except Exception as e:
             logger.error(e)
-
-        # for sanity check
-        lj_cand_name = lookup_json['candidates'][cand_code]['cboe_results_name']
-
-        if cand_name != lj_cand_name:
-            logger.error('cand name mismatch: ' + cand_name + ' ' + lj_cad_name)
-            raise Exception
 
         cand_vote_total = get_cand_vote_total(row)
 
@@ -92,21 +92,17 @@ def transform_results(data):
 
         # adds race-level data
         # to results['contests']
-        if race_name not in races:
+        if race_code not in results['contests']:
             results['contests'][race_code] = {
-                'meta': [cv_race_name, comp_precincts, elig_precincts],
-                'cands': []
+	        'meta': [cv_race_name, comp_precincts, elig_precincts],
+	        'cands': []
             }
-            # don't process this top-level race data next time
-            races.append(race_name)
 
         # adds candidate-level data
         # to results['contests'][race]['candidates']
-        results['contests'][race_code]['cands'].append(
-            [cv_cand_name, cand_vote_total])
-
+        results['contests'][race_code]['cands'].append([cv_cand_name, cand_vote_total])
+     
     # calc percentages and add to results
-
     if 'vote_pct' in results['cand_headers']:
         for key in results['contests']:
             cand_items = results['contests'][key]['cands']
@@ -123,7 +119,7 @@ def transform_results(data):
             cand_items = cand_items.sort(key=_sort_by_vote, reverse=True)
     else:
         pass
-
+    import sys; sys.stdout.write(str(results))
     return results
 
 
