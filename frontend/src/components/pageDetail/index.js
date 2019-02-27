@@ -3,16 +3,12 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
 import { Helmet } from 'react-helmet';
-import { Breadcrumb, Page } from 'Components/common';
+import { Breadcrumb, FormattedMessageFixed, Page } from 'Components/common';
 import './style.scss';
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
-
-function FormattedMessageFixed(props) {
-  return <FormattedMessage {...props} />;
-}
 
 class ContentItemDetail extends Component {
   render() {

@@ -11,12 +11,8 @@ import {
   StanceFeed
 } from './feeds';
 import { parseHtml } from 'Components/utils';
-import { Breadcrumb, Page } from 'Components/common';
+import { Breadcrumb, FormattedMessageFixed, Page } from 'Components/common';
 import './styles.scss';
-
-function FormattedMessageFixed(props) {
-  return <FormattedMessage {...props} />;
-}
 
 class RaceDetail extends Component {
   constructor(props) {

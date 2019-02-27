@@ -1,10 +1,7 @@
 import React from 'react';
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from 'react-intl';
+import { FormattedMessageFixed } from 'Components/common';
 import { slide as Menu } from 'react-burger-menu';
-
-function FormattedMessageFixed(props) {
-  return <FormattedMessage {...props} />;
-}
 
 const SiteMenu = props => {
   const urlRoot = props.intl.locale === 'es' ? '/es/' : '/';
