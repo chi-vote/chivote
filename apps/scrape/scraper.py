@@ -39,6 +39,7 @@ def scrape_results():
         raise
     except Exception as e:
         logger.error(e)
+        raise Exception
 
 
 def transform_results(data):
@@ -65,13 +66,24 @@ def transform_results(data):
         race_name = get_race_name(row)
         race_code = get_race_code(row)
         cv_race_name = lookup_json['races'][race_code]['chi_vote_name']
-
+        # for sanity check
+        lj_race_name = lookup_json['races'][race_code]['cboe_results_name']
+        if race_name != lj_race_name:
+            logger.error('race name mismatch: ' + race_name + ' ' + lj_race_name)
+            raise Exception
         cand_name = get_cand_name(row)
         cand_code = get_cand_code(row)
         try:
             cv_cand_name = lookup_json['candidates'][cand_code]['chi_vote_name']
         except Exception as e:
             logger.error(e)
+
+        # for sanity check
+        lj_cand_name = lookup_json['candidates'][cand_code]['cboe_results_name']
+
+        if cand_name != lj_cand_name:
+            logger.error('cand name mismatch: ' + cand_name + ' ' + lj_cad_name)
+            raise Exception
 
         cand_vote_total = get_cand_vote_total(row)
 
