@@ -291,3 +291,7 @@ body {
 .page-heading {
   color: $primary;
 }
+
+.tag:not(body).is-primary {
+  background-color: $primary;
+}

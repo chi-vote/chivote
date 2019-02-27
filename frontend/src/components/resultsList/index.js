@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Breadcrumb, List, Page } from 'Components/common';
 import * as Results from 'Components/results';
-import { Timeline } from 'react-twitter-widgets';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 
 const ResultsItem = race => (
   <li
-    className={cn('column is-4', styles.resultsItem)}
+    className={cn('column is-half-tablet is-4-desktop', styles.resultsItem)}
     id={`result-${race.id}`}
   >
     <h3 className={cn('is-size-5', styles.raceName)}>
@@ -127,7 +126,7 @@ class ResultsList extends Component {
     return (
       <Results.DataProvider>
         <Page childClass='page--detail container'>
-          <Breadcrumb hideToggle={true} />
+          <Breadcrumb />
           <h1 className='page-heading title is-3'>
             <FormattedMessage
               id='ResultsList.heading'
@@ -136,28 +135,9 @@ class ResultsList extends Component {
           </h1>
 
           <Results.LocalProvider>
-            {/* <div className='columns'>
-              <div className='column is-two-thirds is-size-6'> */}
             <Results.About />
-            {/* </div>
-
-              <div className='column is-one-third'>
-                <Timeline
-                  dataSource={{
-                    sourceType: 'list',
-                    ownerScreenName: 'bettergov',
-                    slug: 'chi-vote'
-                  }}
-                  options={{
-                    height: '400'
-                    // theme: 'dark'
-                  }}
-                  onLoad={() => console.log('Timeline is loaded!')}
-                />
-              </div>
-            </div> */}
-            <div className={cn('field is-grouped', styles.banner)}>
-              <Results.Updated className={styles.control} />
+            <div className={styles.banner}>
+              <Results.Updated className={cn(styles.control, styles.updated)} />
               <div
                 className={cn('select control', styles.select, styles.control)}
               >

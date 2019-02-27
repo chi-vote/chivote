@@ -16,12 +16,6 @@ const About = () => (
       />
     </p>
     <p>
-      <FormattedMessage
-        id='Results.About.text.4'
-        defaultMessage='Candidates with an asterisk (*) by their names denote incumbents (current office holders).'
-      />
-    </p>
-    <p>
       <em>
         <FormattedMessage
           id='Results.About.text.3'

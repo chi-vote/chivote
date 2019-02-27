@@ -19,6 +19,7 @@ class ResultsFeed extends Component {
             <Results.Updated />
             <Results.Reporting />
           </div>
+          {/* <Results.Key /> */}
           <Results.Table appendBarKey='append-bar' drawBars={true} />
           <p className='has-text-right'>
             <a href='/results'>See all results →</a>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import cn from 'classnames';
 import { select } from 'd3-selection';
+import { numberWithCommas, parseHtml } from 'Components/utils';
 import styles from './Table.module.scss';
 
 const _headers = {
@@ -21,6 +22,8 @@ const _headers = {
     />
   )
 };
+
+const processData = (d, i) => {};
 
 class Table extends Component {
   constructor(props) {
@@ -90,7 +93,8 @@ class Table extends Component {
         return this.getElementsByClassName(appendBarKey)[0].nextSibling;
       })
       .classed(styles.barContainer, true)
-      .html(`<span class="${styles.barValue}"></span>`);
+      // .html(`<span class="${styles.barValue}"></span>`);
+      .html(`<progress class="${cn('progress', styles.barValue)}"></progress>`);
 
     this.setState({ canInit: false });
   }
@@ -104,13 +108,31 @@ class Table extends Component {
       classStr.includes(appendBarKey)
     );
     const data = results.data.map(d => parseFloat(d[dataIdx]));
-    const dataMax = Math.max(...data);
+    const dataMax = data.reduce((x, y) => x + y);
 
     select(node)
       .selectAll(`.${styles.barValue}`)
       .data(data)
-      .style('width', d => `${(d / dataMax) * 100}%`)
-      .html('&nbsp;');
+      .attr('value', d => d)
+      .attr('max', dataMax);
+  }
+
+  processData(d, i) {
+    const { dataHeaders } = this.props;
+
+    if (typeof d == `number`) {
+      return numberWithCommas(d);
+    }
+
+    if (dataHeaders[i] == 'name') {
+      const name = d.replace(
+        '*',
+        ' <span class="tag is-white is-lsb"><abbr title="Incumbent" class="has-text-grey-dark">( I )</abbr></span>'
+      );
+      return parseHtml(name);
+    }
+
+    return d;
   }
 
   render() {
@@ -135,7 +157,7 @@ class Table extends Component {
             <tr key={idx}>
               {row.map((d, i) => (
                 <td key={i} className={dataClasses[i]}>
-                  {d}
+                  {this.processData(d, i)}
                 </td>
               ))}
             </tr>

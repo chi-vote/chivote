@@ -22,22 +22,35 @@ function transformData(results, cboeId) {
 
   let contest;
 
-  if ('contests' in results) {
+  if ('contests' in results && cboeId) {
     contest = results.contests[cboeId];
-  }
 
-  if (contest) {
     transformed.precinctsReporting =
       contest.meta[results.contest_headers.indexOf('prs_rpt')];
     transformed.precinctsTotal =
       contest.meta[results.contest_headers.indexOf('prs_tot')];
     transformed.votesTotal =
       contest.meta[results.contest_headers.indexOf('vote_tot')];
-
-    transformed.dataHeaders = results.cand_headers;
-    transformed.dataClasses = results.cand_classes;
     transformed.data = contest.cands;
+  } else if ('contests' in results) {
+    // if no cboeId, return *all* the candidates
+    transformed.data = Object.entries(results.contests)
+      .map(x => x[1].cands)
+      .flat();
   }
+
+  transformed.dataHeaders = results.cand_headers;
+  transformed.dataClasses = results.cand_classes;
+
+  // if (contest) {
+  //   transformed.precinctsReporting =
+  //     contest.meta[results.contest_headers.indexOf('prs_rpt')];
+  //   transformed.precinctsTotal =
+  //     contest.meta[results.contest_headers.indexOf('prs_tot')];
+  //   transformed.votesTotal =
+  //     contest.meta[results.contest_headers.indexOf('vote_tot')];
+  //   transformed.data = contest.cands;
+  // }
 
   return transformed;
 }
