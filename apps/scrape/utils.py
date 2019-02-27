@@ -92,7 +92,7 @@ def make_lookup_json(data=get_data()):
             print(e)
             import ipdb; ipdb.set_trace()
         lookup['candidates'][cboe_cand_results_code] = {
-                'chi_vote_name':candidate.full_name,
+                'chi_vote_name':candidate.full_name if not candidate.incumbent else candidate.full_name+'*',
                 'cboe_results_name':cboe_cand_results_name,
                 }
         # add races, if not added already
