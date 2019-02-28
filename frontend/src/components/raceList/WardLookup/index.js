@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import Autocomplete from 'react-autocomplete';
 import Fuse from 'fuse.js';
-import _ from 'lodash';
 import 'whatwg-fetch';
 import './style.scss';
+
+var _ = {
+  find: require('lodash/find')
+};
 
 var fuseOptions = {
   shouldSort: true,

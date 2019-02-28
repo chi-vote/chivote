@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import _ from 'lodash';
 import * as pym from 'pym.js';
-// import { Helmet } from 'react-helmet';
 
 class EventFeed extends Component {
-  // const { candidates, handleClick } = props;
-
   componentDidMount() {
     const embedUrl = `https://embed.documenters.org/chivote-forums/${
       this.props.slug
