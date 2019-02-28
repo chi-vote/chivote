@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Masonry from 'react-masonry-component';
 import { StanceItem } from '../items';
 
+const _ = {
+  find: require('lodash/find')
+};
+
 export default class StanceItems extends Component {
   render() {
     return (
