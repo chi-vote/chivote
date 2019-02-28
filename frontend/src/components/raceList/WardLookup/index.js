@@ -123,11 +123,6 @@ class WardLookup extends Component {
                     )}
                   </div>
                 )}
-                // renderItem={item => (
-                //   <li className="list-item address-choice is-lsb is-lightblue-text">
-                //     {item.address}
-                //   </li>
-                // )}
                 renderInput={props => (
                   <span className='text-input-wrapper'>
                     <input
