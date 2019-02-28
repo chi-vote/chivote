@@ -63,9 +63,7 @@ class RaceList extends Component {
         <Page childClass='container'>
           <Breadcrumb />
 
-          <FormattedMessage id='RaceList.heading' defaultMessage='Races'>
-            {title => <PageHeading title={title} />}
-          </FormattedMessage>
+          <PageHeading id='RaceList.heading' title='Races' asFormatted />
 
           <p className='is-lsb'>
             <FormattedMessage

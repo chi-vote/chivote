@@ -295,3 +295,7 @@ body {
 .tag:not(body).is-primary {
   background-color: $primary;
 }
+
+.has-text-primary {
+  color: $primary !important;
+}

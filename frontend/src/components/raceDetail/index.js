@@ -209,13 +209,12 @@ class RaceDetail extends Component {
         <Page childClass='container' sectionClass='race-detail'>
           <Breadcrumb activePath={currPage} activeLabel={officeName} />
 
-          <FormattedMessage
+          <PageHeading
             id='RaceDetail.heading'
-            defaultMessage='Race for {officeName}'
+            title='Race for {officeName}'
             values={{ officeName }}
-          >
-            {txt => <PageHeading title={txt} />}
-          </FormattedMessage>
+            asFormatted
+          />
 
           {parseHtml(description)}
 

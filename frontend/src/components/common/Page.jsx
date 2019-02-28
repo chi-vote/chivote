@@ -7,7 +7,10 @@ const Page = props => {
   return (
     <>
       <Nav />
-      <section className={cn('section', props.sectionClass)} id='page'>
+      <section
+        className={cn('section container', props.sectionClass)}
+        id='page'
+      >
         <div className={props.childClass}>
           <PageHeading className='column is-full' title={heading} />
 

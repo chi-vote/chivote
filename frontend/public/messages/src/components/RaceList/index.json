@@ -1,9 +1,5 @@
 [
   {
-    "id": "RaceList.heading",
-    "defaultMessage": "Races"
-  },
-  {
     "id": "RaceList.text.1",
     "defaultMessage": "Choose a specific race to get more information and view candidates."
   },
