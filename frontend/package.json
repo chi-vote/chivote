@@ -34,6 +34,8 @@
   "dependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/polyfill": "^7.2.5",
+    "array-flat-polyfill": "^1.0.0",
     "autotrack": "^2.4.1",
     "babel-plugin-react-intl": "^3.0.1",
     "babel-watch": "^7.0.0",

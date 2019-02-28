@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withDataContext } from './withDataContext';
+import 'array-flat-polyfill';
 
 function recursiveMap(children, fn) {
   return React.Children.map(children, child => {
