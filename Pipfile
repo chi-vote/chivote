@@ -27,6 +27,8 @@ django-colorfield = "*"
 celery = "*"
 redis = "*"
 django-modeltranslation = {editable = true, git = "https://github.com/deschler/django-modeltranslation.git", ref = "0.13-beta1"}
+"beautifulsoup4" = "*"
+python-dateutil = "*"
 
 [requires]
 python_version = "3.6"
