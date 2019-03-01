@@ -219,7 +219,7 @@ With that in mind, here's the process for updating code. Eventually this should 
 ```bash
 sudo supervisorctl stop chivote_worker # stops celery server from uploading to s3
 git pull
-pipenv install
+pipenv install --sequential
 # this is where any db updates would occur, i.e. migrations, tasks, etc.
 sudo systemctl restart gunicorn
 pipenv run ./manage.py rebuild && pipenv run ./manage.py publish # should only publish after a successful build
