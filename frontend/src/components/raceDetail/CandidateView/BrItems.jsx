@@ -2,6 +2,12 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import decode from 'decode-html';
 
+var _ = {
+  orderBy: require('lodash/orderBy'),
+  indexOf: require('lodash/indexOf'),
+  uniqBy: require('lodash/uniqBy')
+};
+
 const BrDataList = props => {
   const { label, renderItem, sortItems, sortOrder, data } = props;
   let items = data;

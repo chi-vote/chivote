@@ -159,9 +159,18 @@ class FinanceFeed extends Component {
             id='RaceDetail.FinanceFeed.updated'
             defaultMessage='<u><strong>Last updated:</strong></u> {date}'
             values={{
-              date: moment(this.props.candidates[0].fields.ri_last_updated)
-                .locale(this.props.intl.locale)
-                .format('ll')
+              date: (() => {
+                var last_updated_list = this.props.candidates
+                  .map(c => c.fields.ri_last_updated)
+                  .filter(Boolean)
+                  .map(d => moment(d));
+
+                var last_updated = Math.max(...last_updated_list);
+
+                return moment(last_updated)
+                  .locale(this.props.intl.locale)
+                  .format('ll');
+              })()
             }}
           />
         </p>
