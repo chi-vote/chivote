@@ -206,7 +206,11 @@ class RaceDetail extends Component {
         </SlideView>
 
         <Page childClass='container page--detail' sectionClass='race-detail'>
-          <Breadcrumb activePath={currPage} activeLabel={officeName} />
+          <Breadcrumb
+            activePath={currPage}
+            activeLabel={officeName}
+            rootPath='/2019-feb-26/'
+          />
           <h1 className='page-heading title is-3'>
             <FormattedMessage
               id='RaceDetail.heading'

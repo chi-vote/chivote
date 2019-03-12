@@ -136,7 +136,7 @@ class ResultsList extends Component {
     return (
       <Results.DataProvider>
         <Page childClass='page--detail container'>
-          <Breadcrumb />
+          <Breadcrumb rootPath='/2019-feb-26/' />
           <h1 className='page-heading title is-3'>
             <FormattedMessage
               id='ResultsList.heading'
