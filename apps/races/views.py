@@ -56,8 +56,26 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
         }
 
     def get_articles(self):
-        articles_queryset = self.object.tagged_articles.filter(
+        # get candidates for this race
+        candidates = self.object.candidates.all().exclude(status='inactive')
+
+        if settings.CHIVOTE_IS_RUNOFF:
+            candidates = candidates.exclude(status='candidate')
+
+        base_articles_queryset = self.object.tagged_articles.filter(
             article__is_published=True)
+
+        # get article querysets tagged to current candidates
+        candidates_queryset = base_articles_queryset.filter(
+            article__candidates__in=candidates)
+
+        # get article querysets tagged to no particular candidates
+        no_candidates_queryset = base_articles_queryset.filter(
+            article__candidates=None)
+
+        # combine querysets
+        articles_queryset = (candidates_queryset |
+                             no_candidates_queryset).distinct()
 
         articles_json = serializers.serialize(
             'json', [a.article for a in articles_queryset])

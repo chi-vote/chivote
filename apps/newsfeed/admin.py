@@ -59,6 +59,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display = ('hed', 'date', 'source',
                     'rendered_link', 'str_races', 'str_candidates', 'str_issues', 'is_published', )
     ordering = ('-date',)
+    list_filter = ('races',)
 
 
 @admin.register(CandidateStance)
