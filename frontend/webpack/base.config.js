@@ -1,5 +1,6 @@
 const path = require('path');
 const BundleTracker = require('webpack-bundle-tracker');
+const webpack = require('webpack');
 
 module.exports = {
   context: path.resolve(__dirname, '..'),
@@ -26,5 +27,6 @@ module.exports = {
       Public: path.resolve(__dirname, '../public/'),
       Theme: path.resolve(__dirname, '../src/theme/')
     }
-  }
+  },
+  plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)]
 };

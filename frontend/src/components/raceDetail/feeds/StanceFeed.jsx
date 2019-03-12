@@ -3,28 +3,34 @@ import { FormattedMessage } from 'react-intl';
 import decode from 'decode-html';
 import Parser from 'html-react-parser';
 // import ScrollMenu from 'react-horizontal-scrolling-menu';
-import { parseHtml, ReadMoreReact, slugify } from 'Components/utils';
+import { ReadMoreReact, slugify } from 'Components/utils';
 import StanceItems from './StanceItems';
+
+const _ = {
+  find: require('lodash/fp/find'),
+  flow: require('lodash/fp/flow'),
+  groupBy: require('lodash/fp/groupBy'),
+  map: require('lodash/fp/map').convert({ cap: false }),
+  sortBy: require('lodash/fp/sortBy')
+};
 
 const StanceFeed = props => {
   const feed = [];
   const { stances, issues, candidates } = props;
 
-  let groupedStances = _(stances)
-    .groupBy(x => x.fields.issue)
-    .map((value, key) => ({ issue: key, stances: value }))
-    .value();
+  let groupedStances = _.flow(
+    _.groupBy(x => x.fields.issue),
+    _.map((val, key) => ({ issue: key, stances: val })),
+    // _.orderBy()
+    _.sortBy(x => {
+      var issueObj = _.find(i => i.pk == x.issue)(issues);
+      return issueObj.fields.issue_order;
+    })
+  )(stances);
 
-  groupedStances = _.orderBy(groupedStances, x => {
-    var issueObj = _.find(issues, i => i.pk == x.issue);
-    return issueObj.fields.issue_order;
-  });
-
-  for (const group of Object.values(groupedStances)) {
+  for (let group of Object.values(groupedStances)) {
     const { issue, stances } = group;
-    const issueObject = _.find(issues, i => {
-      return i.pk == issue;
-    });
+    const issueObject = _.find(i => i.pk == issue)(issues);
 
     feed.push(
       <div
@@ -52,9 +58,7 @@ const StanceFeed = props => {
   }
 
   const menu = Object.values(groupedStances).map(x => {
-    const issueObject = _.find(issues, i => {
-      return i.pk == x.issue;
-    });
+    const issueObject = _.find(i => i.pk == x.issue)(issues);
     const issueLabel = issueObject.fields.name;
 
     return (

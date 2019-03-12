@@ -27,7 +27,7 @@ SECRET_KEY_DEV_ONLY = 'abj*h0p8*n1az4sfa%kxp0s4&88^k$k&gw8vi)-ig!i@cq@=p&'
 SECRET_KEY = config('DJANGO_SECRET_KEY', default=SECRET_KEY_DEV_ONLY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DJANGO_DEBUG', default=False,cast=bool)
+DEBUG = config('DJANGO_DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 ALLOWED_HOSTS += ['127.0.0.1', 'localhost']
@@ -179,7 +179,9 @@ AWS_BUCKET_NAME = config('AWS_BUCKET_NAME')
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_REGION = config('AWS_REGION')
-BAKERY_GZIP = bool(config('BAKERY_GZIP', default=False))
+BAKERY_GZIP = config('BAKERY_GZIP', default=False, cast=bool)
+ALLOW_BAKERY_AUTO_PUBLISHING = config(
+    'ALLOW_BAKERY_AUTO_PUBLISHING', default=False, cast=bool)
 
 # webpack_loader settings
 INSTALLED_APPS += ('webpack_loader', )
@@ -233,7 +235,7 @@ INSTALLED_APPS += ('colorfield', )
 # Celery application definition
 # http://docs.celeryproject.org/en/v4.0.2/userguide/configuration.html
 
-if bool(config('CELERY_BROKER_URL', default=False)):
+if config('CELERY_BROKER_URL', default=None):
     CELERY_BROKER_URL = config('CELERY_BROKER_URL')
     CELERY_RESULT_BACKEND = CELERY_BROKER_URL
     CELERY_ACCEPT_CONTENT = ['application/json']

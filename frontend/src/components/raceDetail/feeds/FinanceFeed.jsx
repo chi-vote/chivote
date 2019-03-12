@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { injectIntl, FormattedMessage, FormattedHTMLMessage } from 'react-intl';
-import _ from 'lodash';
 import moment from 'moment';
 import './FinanceFeed.scss';
+
+var _ = {
+  orderBy: require('lodash/orderBy')
+};
 
 function formatNumber(num) {
   if (num != null && typeof num !== undefined) {

@@ -10,7 +10,7 @@ import localeData from 'Public/locales/data.json';
 addLocaleData([...en, ...es]);
 
 const currPath = window.location.pathname;
-let language = currPath.includes('/es/') ? 'es' : 'en';
+let locale = currPath.includes('/es/') ? 'es' : 'en';
 
 /**
  * If Django hasn't injected these properties into the HTML
@@ -27,9 +27,13 @@ const main = () => {
     analytics.init()
   );
 
+  // Conditionally load moment-locale-es
+  locale == 'es' &&
+    import(/* webpackChunkName: "moment-es" */ 'moment/locale/es.js');
+
   // Initiate all other code paths here...
   ReactDOM.render(
-    <IntlProvider locale={language} messages={localeData[language]}>
+    <IntlProvider locale={locale} messages={localeData[locale]}>
       <App {...window.props} component={window.component} />
     </IntlProvider>,
     window.reactRoot
