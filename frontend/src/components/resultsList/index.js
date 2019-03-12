@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Breadcrumb, List, Page } from 'Components/common';
+import {
+  Breadcrumb,
+  Page,
+  PageHeading,
+  PageHeadingFormatted
+} from 'Components/common';
 import * as Results from 'Components/results';
 import cn from 'classnames';
 import styles from './styles.module.scss';
@@ -16,7 +21,10 @@ const ResultsItem = race => {
 
   return (
     <li
-      className={cn('column is-half-tablet is-4-desktop', styles.resultsItem)}
+      className={cn(
+        'column is-half-tablet is-one-third-widescreen',
+        styles.resultsItem
+      )}
       id={`result-${race.id}`}
     >
       <h3 className={cn('is-size-5', styles.raceName)}>
@@ -31,79 +39,57 @@ const ResultsItem = race => {
 };
 
 class ResultsList extends Component {
-  constructor() {
-    super();
+  _updateUrlId = newId => {
+    const currPath = window.location.pathname;
 
-    this._onSelect = this._onSelect.bind(this);
-  }
+    let url = currPath.split('#')[0];
+    url += '#' + newId;
 
-  _onSelect() {
-    var dropdown = this.dropdown;
+    window.history.pushState({}, null, url);
+
+    return;
+  };
+
+  _onSelect = () => {
+    var { dropdown } = this;
     var element = document.getElementById(dropdown.value);
 
-    var headerOffset = document
-      .getElementsByClassName(styles.banner)[0]
-      .getBoundingClientRect().height;
-    headerOffset = 0;
     var elementTop = element.getBoundingClientRect().top;
     var windowTop = window.pageYOffset || document.documentElement.scrollTop;
-    var offsetTop = windowTop + elementTop - headerOffset;
+    var offsetTop = windowTop + elementTop;
 
+    // do stuff
     window.scrollTo({
       top: offsetTop,
       behavior: 'smooth'
     });
 
-    const currPath = window.location.pathname;
+    window.clearTimeout(this.resetDropdownTimeout);
 
-    let url = currPath.split('#')[0];
-    url += '#' + dropdown.value;
-
-    window.history.pushState({}, null, url);
-
-    // element.querySelector('a').focus();
-
-    window.clearTimeout(this.resetDropdownTimeoutHandle);
-
-    this.resetDropdownTimeoutHandle = setTimeout(function() {
+    this.resetDropdownTimeout = setTimeout(function() {
       dropdown.value = '';
     }, 3000);
 
+    this._updateUrlId(dropdown.value);
+
     return;
-  }
+  };
 
   render() {
-    const parsedRaceData = JSON.parse(this.props.data.races);
-    const copyRaceData = [...parsedRaceData];
-    const extractWardData = [];
+    const races = JSON.parse(this.props.data.races);
+    const isWardRace = d => !!d.name.match(/(ward|distrito)/gi);
+    const wardRaces = races.filter(d => isWardRace(d));
+    const otherRaces = races.filter(d => !isWardRace(d));
 
-    for (let i = 0; i < parsedRaceData.length; i++) {
-      const race = parsedRaceData[i];
+    const ResultsItems = ({ races }) => (
+      <ul className='columns is-multiline'>
+        {races.map(race => (
+          <ResultsItem {...race} key={race.id} />
+        ))}
+      </ul>
+    );
 
-      if (
-        race.name.toLowerCase().indexOf('ward') > -1 ||
-        race.name.toLowerCase().indexOf('distrito') > -1
-      ) {
-        extractWardData.push(race);
-        copyRaceData[i] = null;
-      }
-    }
-
-    const flattenRemains = copyRaceData.filter(x => (x ? true : false));
-    const wardRaces = extractWardData.map(race => (
-      <ResultsItem {...race} key={race.id} />
-    ));
-
-    const wardOptions = extractWardData.map(race => ({
-      value: 'result-' + race.id,
-      label: race.name
-    }));
-
-    const otherRaces = flattenRemains.map(race => (
-      <ResultsItem {...race} key={race.id} />
-    ));
-
-    const citywideOptions = flattenRemains.map(race => ({
+    const selectOptions = otherRaces.concat(wardRaces).map(race => ({
       value: 'result-' + race.id,
       label: race.name
     }));
@@ -135,14 +121,14 @@ class ResultsList extends Component {
 
     return (
       <Results.DataProvider>
-        <Page childClass='page--detail container'>
+        <Page>
           <Breadcrumb />
-          <h1 className='page-heading title is-3'>
-            <FormattedMessage
-              id='ResultsList.heading'
-              defaultMessage='Live Chicago election results'
-            />
-          </h1>
+
+          <PageHeading
+            id='ResultsList.heading'
+            title='Live Chicago election results'
+            asFormatted
+          />
 
           <Results.LocalProvider>
             <Results.About />
@@ -151,19 +137,18 @@ class ResultsList extends Component {
               <div
                 className={cn('select control', styles.select, styles.control)}
               >
-                <SelectRace options={citywideOptions.concat(wardOptions)} />
+                <SelectRace options={selectOptions} />
               </div>
             </div>
           </Results.LocalProvider>
-
-          <List className='columns is-multiline'>{otherRaces}</List>
-          <h2 className='page-heading title is-4 mt-1'>
+          <ResultsItems races={otherRaces} />
+          <h2 className='has-text-primary title is-4'>
             <FormattedMessage
               id='RaceList.aldermanic.heading'
               defaultMessage='Aldermanic'
             />
           </h2>
-          <List className='columns is-multiline'>{wardRaces}</List>
+          <ResultsItems races={wardRaces} />
         </Page>
       </Results.DataProvider>
     );

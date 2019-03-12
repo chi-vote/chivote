@@ -163,7 +163,7 @@ class VotingStageSlider extends Component {
       <>
         <Slider {...settings} ref='stageSlider'>
           <div>
-            <section className='page page--landing has-text-centered'>
+            <section className='page--landing has-text-centered'>
               <div className='header__wrapper'>
                 <img src={SiteLogo} alt='Chi.vote logo' className='mb-1' />
                 <h1 className='header__tagline is-size-4 mb-1'>

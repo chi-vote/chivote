@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { LanguageToggle } from 'Components/common';
-import './styles.scss';
+import cn from 'classnames';
+import styles from './styles.module.scss';
+// import './styles.scss';
 
 const Link = props => (
   <li>
@@ -10,7 +12,7 @@ const Link = props => (
 );
 
 const ActiveLink = props => (
-  <li className='is-active'>
+  <li className={cn('is-active', styles['is-active'])}>
     <a href={props.url} aria-current='page' tabIndex='-1'>
       {props.content}
     </a>
@@ -101,7 +103,10 @@ class Breadcrumb extends Component {
     const extraClasses = this.props.className ? ' ' + this.props.className : '';
 
     return (
-      <nav className={`breadcrumb${extraClasses}`} aria-label='breadcrumbs'>
+      <nav
+        className={cn('breadcrumb', styles.breadcrumb, extraClasses)}
+        aria-label='breadcrumbs'
+      >
         <ul>
           <RenderedLinks items={this.getItems()} />
           {!this.props.hideToggle && <LanguageToggle />}
