@@ -24,16 +24,20 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
     def get_react_props(self):
         from apps.newsfeed.models import CandidateStance, Issue
 
+        candidates = self.object.candidates.all().exclude(status='inactive')
+
+        if settings.CHIVOTE_IS_RUNOFF:
+            candidates = candidates.exclude(status='candidate')
+
         curr_section = self.kwargs.get('section', None)
         issues = Issue.objects.all().order_by('issue_order')
         stances = CandidateStance.objects.filter(
-            candidate__race=self.object).order_by('-date')
+            candidate__in=candidates).order_by('-date')
         race_obj = {
             'id': self.object.pk,
             'office': self.object.__str__(),
         }
         description = mark_safe(self.object.explainer)
-        candidates = self.object.candidates.all().exclude(status='inactive')
 
         return {
             'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),

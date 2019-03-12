@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib import admin
 from adminsortable2.admin import SortableInlineAdminMixin
 
@@ -61,6 +62,10 @@ class RaceAdmin(admin.ModelAdmin):
 
     def num_candidates(self, obj):
         candidates = obj.candidates.all().exclude(status='inactive')
+
+        if (settings.CHIVOTE_IS_RUNOFF):
+            candidates = candidates.exclude(status='candidate')
+
         return len(candidates)
     num_candidates.short_description = '# active candidates'
 
