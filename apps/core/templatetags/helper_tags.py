@@ -19,3 +19,11 @@ def json(value):
     uncleaned = jsonlib.dumps(value)
     clean = bleach.clean(uncleaned)
     return mark_safe(clean)
+
+
+@register.filter
+def sanitize_language(value):
+    '''
+    Replace /en/ with /
+    '''
+    return value.replace('/en/', '/')

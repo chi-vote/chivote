@@ -43,9 +43,10 @@ content_patterns = [
     path('rss.xml', LatestArticlesFeed())
 ]
 
-date = datetime.date(2019, 2, 26)
-date_str = date.strftime("%Y %b %d")
-prefix = slugify(date_str)
+# date = datetime.date(2019, 2, 26)
+# date_str = date.strftime("%Y %b %d")
+# prefix = slugify(date_str)
+prefix = '2019-feb-26'
 
 prefix_patterns = [
     path(f'{prefix}/', include(content_patterns))

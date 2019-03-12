@@ -9,7 +9,7 @@ import App from './AppServer';
 
 export default function renderPage(page, props) {
   const Component = () => (
-    <AppContext.Provider value='/2019-feb-26/'>
+    <AppContext.Provider>
       <IntlProvider locale='en'>
         <App component={page} {...props} />
       </IntlProvider>

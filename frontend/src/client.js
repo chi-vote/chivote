@@ -21,8 +21,7 @@ let locale = currPath.includes('/es/') ? 'es' : 'en';
 window.component = window.component || 'Homepage';
 window.props = window.props || {};
 window.reactRoot = window.reactRoot || document.getElementById('root');
-
-let rootPath = `/${locale}/2019-feb-26/`.replace('/en/', '/');
+window.context = window.context || { rootPath: '/' };
 
 const main = () => {
   // Load custom tracking code lazily, so it's non-blocking
@@ -36,7 +35,7 @@ const main = () => {
 
   // Initiate all other code paths here...
   ReactDOM.render(
-    <AppContext.Provider value={{ rootPath }}>
+    <AppContext.Provider value={window.context}>
       <IntlProvider locale={locale} messages={localeData[locale]}>
         <App {...window.props} component={window.component} />
       </IntlProvider>
