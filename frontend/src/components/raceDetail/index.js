@@ -13,6 +13,7 @@ import {
 import { parseHtml } from 'Components/utils';
 import { Breadcrumb, Page } from 'Components/common';
 import './styles.scss';
+import { withAppContext } from 'Root/app-context';
 
 function FormattedMessageFixed(props) {
   return <FormattedMessage {...props} />;
@@ -66,12 +67,7 @@ class RaceDetail extends Component {
           />
         );
       case 'articles':
-        return (
-          <ArticleFeed
-            articles={JSON.parse(this.props.data.articles)}
-            feed_url={`/races/${this.props.data.slug}/rss.xml`}
-          />
-        );
+        return <ArticleFeed articles={JSON.parse(this.props.data.articles)} />;
       case 'stances':
         return (
           <StanceFeed
@@ -223,4 +219,4 @@ class RaceDetail extends Component {
   }
 }
 
-export default injectIntl(RaceDetail);
+export default withAppContext(injectIntl(RaceDetail));

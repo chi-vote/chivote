@@ -4,7 +4,7 @@ import { ArticleItem } from '../items';
 import Masonry from 'react-masonry-component';
 
 const ArticleFeed = props => {
-  const { articles, feed_url } = props;
+  const { articles } = props;
 
   const noArticles = articles.length === 0;
 
@@ -32,7 +32,7 @@ const ArticleFeed = props => {
           defaultMessage='Articles'
         />
         <a
-          href={feed_url}
+          href='rss.xml'
           className='is-hidden-tablet'
           style={{ marginLeft: '1rem' }}
         >
@@ -42,7 +42,7 @@ const ArticleFeed = props => {
         </a>
       </h2>
       <p className='has-text-right help-text is-hidden-mobile'>
-        <a href={feed_url}>
+        <a href='rss.xml'>
           <span className='icon'>
             <i className='fa fa-rss-square' />
           </span>

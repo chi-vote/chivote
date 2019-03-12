@@ -7,6 +7,11 @@ from django.utils.html import conditional_escape, mark_safe, strip_tags
 from bakery.feeds import BuildableFeed
 logger = logging.getLogger(__name__)
 
+try:
+    CHIVOTE_PREFIX_URL = settings.CHIVOTE_PREFIX_URL
+except AttributeError:
+    CHIVOTE_PREFIX_URL = ''
+
 
 class RaceFeed(BuildableFeed):
     # title = 'Chi.vote'
@@ -45,13 +50,13 @@ class RaceFeed(BuildableFeed):
         return item.date
 
     def link(self, obj):
-        return os.path.join('https://chi.vote/races/', obj.slug, 'articles/')
+        return os.path.join('https://chi.vote/', CHIVOTE_PREFIX_URL, 'races/', obj.slug, 'articles/')
 
     def feed_url(self, obj):
-        return os.path.join('https://chi.vote/races/', obj.slug, 'rss.xml')
+        return os.path.join('https://chi.vote/', CHIVOTE_PREFIX_URL, 'races/', obj.slug, 'articles/rss.xml')
 
     def build_path(self, obj):
-        return os.path.join('races/', obj.slug, 'rss.xml')
+        return os.path.join('races/', obj.slug, 'articles/rss.xml')
 
     def build_queryset(self, my_queryset=None):
         if my_queryset == None:
