@@ -171,9 +171,27 @@ From inside `frontend`, run `yarn build:langs` to generate `public/locales/data.
 
 ## Archiving
 
-settings.py: CHIVOTE_URL_PREFIX
+As is, our site can't handle multiple elections. To accomplish that, we'd need to create an election model, create race instances per elections, create candidate instances per race instance per election... So instead, we're doing this in a dumb, destructive way.
 
-TK
+- Generate a prefixed build of the site by setting `CHIVOTE_URL_PREFIX`
+
+```python
+# add to chivote/settings/base.py
+
+CHIVOTE_URL_PREFIX = 'archive/2019-feb-26/'
+```
+
+- **[TODO]** That prefixed build should host static versions of BallotReady data and results
+- Upload that prefixed build to the s3 bucket
+- From AWS, manually protect those archive folders from being deleted
+- Tag the version in git
+- Upload a copy of the db to that tagged version in git
+
+At this point, our archived version should be treated like it's dead and buried. Time to move on.
+
+Need to hide candidates for the run-off? Set them to inactive. Need to update references for other APIs? Do it directly.
+
+This 👏 is 👏 not 👏 great. 👏 But it's what we've got.
 
 [🔝](#chivote)
 
