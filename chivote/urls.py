@@ -46,17 +46,16 @@ content_patterns = [
 # date = datetime.date(2019, 2, 26)
 # date_str = date.strftime("%Y %b %d")
 # prefix = slugify(date_str)
-prefix = '2019-feb-26'
 
 try:
     prefix_patterns = [
-        path(f'{prefix}/', include(content_patterns)),
-        path('', include(content_patterns)),
+        path(settings.CHIVOTE_URL_PREFIX, include(content_patterns)),
+        # path('', include(content_patterns)),
     ]
 
     content_patterns = prefix_patterns
 
-except NameError:
+except:
     pass
 
 urlpatterns += i18n_patterns(*content_patterns, prefix_default_language=False)

@@ -5,6 +5,7 @@
 - [Env variables](#env-variables)
 - [Management commands](#management-commands)
 - [Internationalization](#internationalization)
+- [Archiving](#archiving)
 - [Production use](#production-use)
 - [Under the hood](#under-the-hood)
 - [References](#references)
@@ -165,6 +166,14 @@ From inside `frontend`, run `yarn build:langs` to generate `public/locales/data.
 **TODO**: Automate syncing local json to [Google Sheet](https://docs.google.com/spreadsheets/d/1SbRD9bJozEvcZz_6ZIOpT-uVrbZuKQ27j3PdUSMcIGY/edit?usp=sharing).
 
 **TODO**: Add compilemessages, etc. to rebuild.
+
+[🔝](#chivote)
+
+## Archiving
+
+settings.py: CHIVOTE_URL_PREFIX
+
+TK
 
 [🔝](#chivote)
 

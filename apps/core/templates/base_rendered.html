@@ -76,7 +76,7 @@
   window.props = {{ props | json }};
   window.reactRoot = document.getElementById('app');
 
-  {% with "/"|add:LANGUAGE_CODE|add:"/2019-feb-26/" as rootPath %}
+  {% with "/"|add:LANGUAGE_CODE|add:"/"|add:CHIVOTE_URL_PREFIX as rootPath %}
   window.context = {
       "rootPath": "{{rootPath | sanitize_language}}"
   };

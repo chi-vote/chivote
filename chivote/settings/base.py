@@ -87,6 +87,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'chivote.context_processors.app_context',
             ],
         },
     },
@@ -149,6 +150,7 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'chivote/locale/')
 ]
 
+# CHIVOTE_URL_PREFIX = 'archive/2019-feb-26/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
