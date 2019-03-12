@@ -149,6 +149,7 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'chivote/locale/')
 ]
 
+CHIVOTE_IS_RUNOFF = config('CHIVOTE_IS_RUNOFF', default=False, cast=bool)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
