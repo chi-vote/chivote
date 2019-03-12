@@ -177,6 +177,14 @@ TK
 
 [🔝](#chivote)
 
+## SSR
+
+see `frontend/package.json` for render-server commands
+
+TK
+
+[🔝](#chivote)
+
 ## Production use
 
 ### Server
