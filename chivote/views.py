@@ -1,11 +1,15 @@
-# from apps.core.views import HomePageView
-# from apps.races.views import ResultsListView
+
+import json
+
 from django.utils.translation import gettext as _
+from django.core.serializers.json import DjangoJSONEncoder
+
+from bakery.views import BuildableTemplateView, BuildableListView
+
 from apps.core.views import RenderReactMixin
 from apps.races.models import Race
-from bakery.views import BuildableTemplateView, BuildableListView
-import json
-from django.core.serializers.json import DjangoJSONEncoder
+# from apps.core.views import HomePageView
+# from apps.races.views import ResultsListView
 
 
 # class IndexView(RenderReactMixin, BuildableTemplateView):
@@ -43,6 +47,19 @@ from django.core.serializers.json import DjangoJSONEncoder
 #                 super(IndexView, self).build()
 #         else:
 #             super(IndexView, self).build()
+
+def chivote_prefix(url):
+    '''
+    prefix url path with CHIVOTE_URL_PREFIX from settings
+    '''
+    import os
+
+    from django.conf import settings
+
+    try:
+        return os.path.join(settings.CHIVOTE_URL_PREFIX, url)
+    except AttributeError:
+        return url
 
 
 class IndexView(RenderReactMixin, BuildableListView):
