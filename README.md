@@ -71,25 +71,26 @@ In production, you need a `.env` file in the root directory with the following f
 
 ```sh
 DJANGO_SECRET_KEY=
-# DJANGO_DEBUG= # uncomment to enable debug mode
+DJANGO_DEBUG=False
 DJANGO_URL_ENDPOINT=
 
 PG_NAME=
 PG_USER=
 PG_PASSWORD=
 
-## @datadesk/django-bakery settings ##
+## datadesk/django-bakery settings ##
 AWS_BUCKET_NAME=
 AWS_ACCESS_KEY_ID=
 AWS_SECRET_ACCESS_KEY=
 AWS_REGION=
 ALLOW_BAKERY_AUTO_PUBLISHING=
-# BAKERY_GZIP= # uncomment to gzip baked files
+BAKERY_GZIP=True
 
 BALLOT_READY_API_KEY=
 BALLOT_READY_API_URL=
 
-# CELERY_BROKER_URL= # uncomment and fill in if using celery
+CELERY_BROKER_URL=
+IL_SUNSHINE_API_URL=
 ```
 
 [🔝](#chivote)
@@ -151,35 +152,6 @@ for command in prodCommands:
     ...
 ```
 
-### Rebuild packages and assets: `./manage.py rebuild`
-
-Install packages (Django and Yarn) and rebuild the frontend. If you've updated your pipfile, you'll need to run `pipenv install` first.
-
-```python
-# this is pseudo python describing the task
-
-commands = [
-    # install frontend packages
-    'yarn --cwd ./frontend install',
-
-    # build frontend bundle
-    'yarn --cwd ./frontend build',
-
-    # run migrations
-    'python manage.py migrate',
-
-    # collect frontend bundle to be served in django
-    'python manage.py collectstatic --no-input',
-
-    # django-bakery build
-    'python manage.py build --settings=chivote.settings.production',
-]
-
-for command in commands:
-    # do command
-    ...
-```
-
 [🔝](#chivote)
 
 ## Internationalization
@@ -219,10 +191,9 @@ With that in mind, here's the process for updating code. Eventually this should 
 ```bash
 sudo supervisorctl stop chivote_worker # stops celery server from uploading to s3
 git pull
-pipenv install
-# this is where any db updates would occur, i.e. migrations, tasks, etc.
+./rebuild.sh
 sudo systemctl restart gunicorn
-pipenv run ./manage.py rebuild && pipenv run ./manage.py publish # should only publish after a successful build
+pipenv run ./manage.py publish
 sudo supervisorctl start chivote_worker # resume celery server uploads to s3
 ```
 
