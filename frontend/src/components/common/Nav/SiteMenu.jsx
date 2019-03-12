@@ -7,7 +7,8 @@ function FormattedMessageFixed(props) {
 }
 
 const SiteMenu = props => {
-  const urlRoot = props.intl.locale === 'es' ? '/es/' : '/';
+  let urlRoot = props.intl.locale === 'es' ? '/es/' : '/';
+  urlRoot += '2019-feb-26/';
 
   const menuItems = [
     {

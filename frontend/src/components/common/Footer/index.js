@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
-import { hot } from 'react-hot-loader/root';
+import { FormattedMessage, FormattedHTMLMessage, injectIntl } from 'react-intl';
 import MailchimpEmbed from './MailchimpEmbed';
 import { manifest } from './org-logos';
 import styles from './styles.module.scss';
 import cn from 'classnames';
 
-const SectionResults = prop => (
+const SectionResults = props => (
   <section
     className={cn('bottom-live-results', styles.liveResults)}
     id='live-results'
@@ -24,7 +23,14 @@ const SectionResults = prop => (
       />
     </p>
     <p className='is-lsb is-size-5 has-text-centered'>
-      <a href='/results/' className='button'>
+      <a
+        className='button'
+        href={
+          props.locale == 'es'
+            ? '/es/2019-feb-26/results'
+            : '/2019-feb-26/results'
+        }
+      >
         <FormattedMessage
           id='Footer.live-results.text.2'
           defaultMessage='See results'
@@ -34,7 +40,7 @@ const SectionResults = prop => (
   </section>
 );
 
-const SectionMailchimp = props => (
+const SectionMailchimp = () => (
   <section className={`mc-embed ${styles.signUp}`} id='sign-up'>
     <div className={styles.heading}>
       <FormattedMessage id='Footer.sign-up.heading' defaultMessage='Sign up' />
@@ -43,7 +49,7 @@ const SectionMailchimp = props => (
   </section>
 );
 
-const SectionEmail = props => (
+const SectionEmail = () => (
   <section className={styles.contactUs} id='contact-us'>
     <div className={styles.heading}>
       <FormattedMessage
@@ -66,7 +72,7 @@ const SectionEmail = props => (
   </section>
 );
 
-const SectionAbout = props => (
+const SectionAbout = () => (
   <footer className={`${styles.footer}`} id='about-us'>
     <div className='container'>
       <div className={styles.heading}>
@@ -111,7 +117,7 @@ class Footer extends Component {
   render() {
     return (
       <>
-        <SectionResults />
+        <SectionResults locale={this.props.intl.locale} />
         <SectionMailchimp key='sign-up' />
         <SectionEmail />
         <SectionAbout />
@@ -120,4 +126,4 @@ class Footer extends Component {
   }
 }
 
-export default hot(Footer);
+export default injectIntl(Footer);
