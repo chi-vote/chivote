@@ -72,7 +72,7 @@ def update_ri_candidates_all():
             if ri_committees and len(ri_committees) == 1:
                 ri_committee = ri_committees[0]
                 # don't publish so we send 53 publish_object tasks, not 190
-                update_ri_candidate(candidate, ri_committee, publish=False)
+                update_ri_candidate(candidate.pk, ri_committee, publish=False)
             else:
                 logger.info(
                     'ambiguous ri lookup for candidate id ' + str(candidate.id))
