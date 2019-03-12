@@ -48,11 +48,18 @@ content_patterns = [
 # prefix = slugify(date_str)
 prefix = '2019-feb-26'
 
-prefix_patterns = [
-    path(f'{prefix}/', include(content_patterns))
-]
+try:
+    prefix_patterns = [
+        path(f'{prefix}/', include(content_patterns)),
+        path('', include(content_patterns)),
+    ]
 
-urlpatterns += i18n_patterns(*prefix_patterns, prefix_default_language=False)
+    content_patterns = prefix_patterns
+
+except NameError:
+    pass
+
+urlpatterns += i18n_patterns(*content_patterns, prefix_default_language=False)
 
 # Use static() to add url mapping to serve static files during development (only)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
