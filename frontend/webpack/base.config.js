@@ -25,7 +25,8 @@ module.exports = {
       Assets: path.resolve(__dirname, '../src/assets/'),
       Components: path.resolve(__dirname, '../src/components/'),
       Public: path.resolve(__dirname, '../public/'),
-      Theme: path.resolve(__dirname, '../src/theme/')
+      Theme: path.resolve(__dirname, '../src/theme/'),
+      Root: path.resolve(__dirname, '../src/')
     }
   },
   plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)]

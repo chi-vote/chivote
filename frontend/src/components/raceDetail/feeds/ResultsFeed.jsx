@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import * as Results from 'Components/results';
 import styles from './ResultsFeed.module.scss';
+import { withAppContext } from 'Root/app-context';
 
 class ResultsFeed extends Component {
   render() {
@@ -22,13 +23,7 @@ class ResultsFeed extends Component {
           {/* <Results.Key /> */}
           <Results.Table appendBarKey='append-bar' drawBars={true} />
           <p className='has-text-right'>
-            <a
-              href={
-                this.props.intl.locale == 'es'
-                  ? '/es/2019-feb-26/results'
-                  : '/2019-feb-26/results'
-              }
-            >
+            <a href={this.props.context.rootPath + 'results/'}>
               See all results →
             </a>
           </p>
@@ -38,4 +33,4 @@ class ResultsFeed extends Component {
   }
 }
 
-export default injectIntl(ResultsFeed);
+export default withAppContext(ResultsFeed);

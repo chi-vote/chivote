@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { LanguageToggle } from 'Components/common';
+import { withAppContext } from 'Root/app-context';
 import './styles.scss';
 
 const Link = props => (
@@ -67,7 +68,7 @@ class Breadcrumb extends Component {
   }
 
   normalizePath(path) {
-    return path.replace('/es/', '/').replace(this.props.rootPath, '/');
+    return path.replace(this.props.context.rootPath, '/');
   }
 
   getItems() {
@@ -111,8 +112,4 @@ class Breadcrumb extends Component {
   }
 }
 
-Breadcrumb.defaultProps = {
-  rootPath: '/'
-};
-
-export default Breadcrumb;
+export default withAppContext(Breadcrumb);

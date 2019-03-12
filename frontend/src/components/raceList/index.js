@@ -61,7 +61,7 @@ class RaceList extends Component {
     return (
       <div>
         <Page childClass='page--detail container'>
-          <Breadcrumb rootPath='/2019-feb-26/' />
+          <Breadcrumb />
           <h1 className='page-heading title is-3'>
             <FormattedMessage id='RaceList.heading' defaultMessage='Races' />
           </h1>

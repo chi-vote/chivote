@@ -4,41 +4,41 @@ import MailchimpEmbed from './MailchimpEmbed';
 import { manifest } from './org-logos';
 import styles from './styles.module.scss';
 import cn from 'classnames';
+import { withAppContext } from 'Root/app-context';
 
-const SectionResults = props => (
-  <section
-    className={cn('bottom-live-results', styles.liveResults)}
-    id='live-results'
-  >
-    <div className={styles.heading}>
-      <FormattedMessage
-        id='Footer.live-results.heading'
-        defaultMessage='Live results'
-      />
-    </div>
-    <p className='is-lsb is-size-5 has-text-centered'>
-      <FormattedMessage
-        id='Footer.live-results.text.1'
-        defaultMessage='Watch on Chi.vote as the votes are tallied.'
-      />
-    </p>
-    <p className='is-lsb is-size-5 has-text-centered'>
-      <a
-        className='button'
-        href={
-          props.locale == 'es'
-            ? '/es/2019-feb-26/results'
-            : '/2019-feb-26/results'
-        }
+class SectionResults extends Component {
+  render() {
+    return (
+      <section
+        className={cn('bottom-live-results', styles.liveResults)}
+        id='live-results'
       >
-        <FormattedMessage
-          id='Footer.live-results.text.2'
-          defaultMessage='See results'
-        />
-      </a>
-    </p>
-  </section>
-);
+        <div className={styles.heading}>
+          <FormattedMessage
+            id='Footer.live-results.heading'
+            defaultMessage='Live results'
+          />
+        </div>
+        <p className='is-lsb is-size-5 has-text-centered'>
+          <FormattedMessage
+            id='Footer.live-results.text.1'
+            defaultMessage='Watch on Chi.vote as the votes are tallied.'
+          />
+        </p>
+        <p className='is-lsb is-size-5 has-text-centered'>
+          <a className='button' href={this.props.context.rootPath + 'results'}>
+            <FormattedMessage
+              id='Footer.live-results.text.2'
+              defaultMessage='See results'
+            />
+          </a>
+        </p>
+      </section>
+    );
+  }
+}
+
+const MySectionResults = withAppContext(SectionResults);
 
 const SectionMailchimp = () => (
   <section className={`mc-embed ${styles.signUp}`} id='sign-up'>
@@ -117,7 +117,7 @@ class Footer extends Component {
   render() {
     return (
       <>
-        <SectionResults locale={this.props.intl.locale} />
+        <MySectionResults />
         <SectionMailchimp key='sign-up' />
         <SectionEmail />
         <SectionAbout />

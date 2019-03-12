@@ -65,11 +65,7 @@ class ContentItemDetail extends Component {
         </Helmet>
         <Page childClass={classes}>
           <div className={'columns is-multiline is-centered'}>
-            <Breadcrumb
-              className='column is-full'
-              activeLabel={activeLabel}
-              rootPath='/2019-feb-26/'
-            />
+            <Breadcrumb className='column is-full' activeLabel={activeLabel} />
             <h1 className='column is-full page-heading title'>{title}</h1>
             {pageContent}
           </div>
