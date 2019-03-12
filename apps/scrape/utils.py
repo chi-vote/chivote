@@ -12,8 +12,8 @@ from apps.races.models import Race
 from chivote.settings.base import BASE_DIR
 
 ### START CONFIG ###
-#scrape_target = 'https://chicagoelections.com/results/ap/summary.txt'
-scrape_target = 'https://chicagoelections.com/ap/summary.txt'
+scrape_target = 'https://chicagoelections.com/results/ap/summary.txt'
+# scrape_target = 'https://chicagoelections.com/ap/summary.txt'
 lookup_json_path = BASE_DIR + '/apps/scrape/lookup.json'
 
 data_line_range_start, data_line_range_end = 3, 181
@@ -32,8 +32,8 @@ race_comp_precinct_range_start, race_comp_precinct_range_end = 18, 22
 ### END CONFIG ###
 
 
-def get_page():
-    return requests.get(scrape_target).content.decode()
+def get_page(target=scrape_target):
+    return requests.get(target).content.decode()
 
 
 def get_data(page=get_page()):
@@ -103,9 +103,9 @@ def make_lookup_json(data=get_data()):
             import ipdb
             ipdb.set_trace()
         lookup['candidates'][cboe_cand_results_code] = {
-                'chi_vote_name':candidate.full_name if not candidate.incumbent else candidate.full_name+'*',
-                'cboe_results_name':cboe_cand_results_name,
-                }
+            'chi_vote_name': candidate.full_name if not candidate.incumbent else candidate.full_name+'*',
+            'cboe_results_name': cboe_cand_results_name,
+        }
         # add races, if not added already
         cboe_race_results_code = get_race_code(line)
         if cboe_race_results_code in lookup['races']:

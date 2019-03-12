@@ -98,22 +98,21 @@ def load_br_ids(apps, schema_editor):
 
 
 def load_br_data(apps, schema_editor):
-    from tqdm import tqdm
 
     candidates = Candidate.objects.all()
-    for i in tqdm(range(len(candidates)), desc="Loading data from BallotReady"):
-        candidate = candidates[i]
+    for i in range(len(candidates):
+        candidate=candidates[i]
         candidate.update_br_data()
 
 
 class Migration(migrations.Migration):
 
-    dependencies = [
+    dependencies=[
         ('candidates', '0001_initial'),
         ('races', '0002_load_races')
     ]
 
-    operations = [
+    operations=[
         migrations.RunPython(load_candidates),
         migrations.RunPython(load_names),
         migrations.RunPython(load_br_ids),

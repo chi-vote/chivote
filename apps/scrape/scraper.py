@@ -4,7 +4,7 @@ import pytz
 import boto3
 import logging
 from datetime import datetime
-from apps.scrape.utils import lookup_json_path, get_data,\
+from .utils import lookup_json_path, \
     get_race_code, get_cand_code, get_race_name, get_cand_name,\
     get_cand_vote_total, get_race_eligible_precincts,\
     get_race_completed_precincts, set_cand_vote_total
@@ -16,8 +16,8 @@ logger = logging.getLogger(__name__)
 ### START CONFIG ###
 results_output_path = '/tmp/results.json'
 timestamp_format = '%Y-%m-%dT%H:%M:%S%z'
-#s3_bucket_name = 'chi.vote.app.stage' # switch to prod on elex nite
-s3_bucket_name = 'chi.vote.app.prod' # switch to prod on elex nite
+# s3_bucket_name = 'chi.vote.app.stage' # switch to prod on elex nite
+s3_bucket_name = 'chi.vote.app.prod'  # switch to prod on elex nite
 data_line_range_start, data_line_range_end = 3, 181
 ### END CONFIG ###
 
@@ -27,25 +27,17 @@ lookup_json = json.load(open(lookup_json_path))
 
 scrape_target = 'https://chicagoelections.com/results/ap/summary.txt'
 
-def get_page():
-    return requests.get(scrape_target).content.decode()
-
-
-def get_data(page=get_page()):
-    return page.splitlines()[data_line_range_start:data_line_range_end]
-
-
-
 
 def scrape_results():
+    from .utils import get_page, get_data
     # if data fails to load,
     # pass exception to logger
     try:
-        data = get_data()
+        data = get_data(get_page(scrape_target))
         # data[0] = set_cand_vote_total(data[0], 10)
         # data[2] = set_cand_vote_total(data[2], 20)
         results = transform_results(data)
-        logger.info(results['contests']['0010']['cands'][0])
+        # logger.info(results['contests']['0010']['cands'][0])
         write_results(results, results_output_path)
         upload_results(results_output_path)
     except KeyboardInterrupt:
@@ -55,15 +47,31 @@ def scrape_results():
         raise Exception
 
 
+def get_time():
+    try:
+        from bs4 import BeautifulSoup
+        from dateutil.parser import parse
+
+        response = requests.get(
+            'https://chicagoelections.com/results/ap/results.htm')
+        soup = BeautifulSoup(response.content, features="html.parser")
+        last_updated = soup.find(
+            id='ResultsContainer').get_text().split('Last Updated: ')[1]
+
+        return parse(last_updated)
+    except Exception:
+        raise Exception
+
+
 def transform_results(data):
-    now = datetime.now().astimezone(pytz.timezone('US/Central'))
+    latest = get_time().astimezone(pytz.timezone('US/Central'))
 
     # collect results
     results = {
         'contest_headers': ["name", "prs_rpt", "prs_tot", "vote_tot"],
         'cand_headers': ["name", "vote_cnt", "vote_pct"],
-        'datetime': now.strftime(timestamp_format),
-        'timestamp': int(now.replace(microsecond=0).timestamp()),
+        'datetime': latest.strftime(timestamp_format),
+        'timestamp': int(latest.replace(microsecond=0).timestamp()),
         'contests': {},
         "cand_classes": ["", "amt", "amt append-bar"],
     }
@@ -78,7 +86,7 @@ def transform_results(data):
         # row by row
         race_code = get_race_code(row)
         cv_race_name = lookup_json['races'][race_code]['chi_vote_name']
-        
+
         cand_code = get_cand_code(row)
         try:
             cv_cand_name = lookup_json['candidates'][cand_code]['chi_vote_name']
@@ -94,14 +102,15 @@ def transform_results(data):
         # to results['contests']
         if race_code not in results['contests']:
             results['contests'][race_code] = {
-	        'meta': [cv_race_name, comp_precincts, elig_precincts],
-	        'cands': []
+                'meta': [cv_race_name, comp_precincts, elig_precincts],
+                'cands': []
             }
 
         # adds candidate-level data
         # to results['contests'][race]['candidates']
-        results['contests'][race_code]['cands'].append([cv_cand_name, cand_vote_total])
-     
+        results['contests'][race_code]['cands'].append(
+            [cv_cand_name, cand_vote_total])
+
     # calc percentages and add to results
     if 'vote_pct' in results['cand_headers']:
         for key in results['contests']:
@@ -119,7 +128,9 @@ def transform_results(data):
             cand_items = cand_items.sort(key=_sort_by_vote, reverse=True)
     else:
         pass
-    import sys; sys.stdout.write(str(results))
+
+    import sys
+    sys.stdout.write(str(results))
     return results
 
 
