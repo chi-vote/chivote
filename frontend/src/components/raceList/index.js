@@ -44,6 +44,8 @@ class RaceList extends Component {
     const wardRaces = races.filter(d => isWardRace(d));
     const otherRaces = races.filter(d => !isWardRace(d));
 
+    const racesDecided = races.filter(d => d.decided).length > 0;
+
     return (
       <Page childClass='container'>
         <Breadcrumb />
@@ -80,26 +82,30 @@ class RaceList extends Component {
           listClass='is-mobile'
         />
 
-        <h2 className='page-heading title is-4 mt-1'>
-          <FormattedMessage
-            id='RaceList.decided.heading'
-            defaultMessage='Already decided'
-          />
-        </h2>
+        {racesDecided && (
+          <>
+            <h2 className='page-heading title is-4 mt-1'>
+              <FormattedMessage
+                id='RaceList.decided.heading'
+                defaultMessage='Already decided'
+              />
+            </h2>
 
-        <p className='is-lsb'>
-          <FormattedMessage
-            id='RaceList.decided.text.1'
-            defaultMessage='These races are already decided, because a candidate won more than 50 percent of votes cast.'
-          />
-        </p>
+            <p className='is-lsb'>
+              <FormattedMessage
+                id='RaceList.decided.text.1'
+                defaultMessage='These races are already decided, because a candidate won more than 50 percent of votes cast.'
+              />
+            </p>
 
-        <RaceItems races={otherRaces.filter(d => d.decided)} />
-        <br />
-        <RaceItems
-          races={wardRaces.filter(d => d.decided)}
-          listClass='is-mobile'
-        />
+            <RaceItems races={otherRaces.filter(d => d.decided)} />
+            <br />
+            <RaceItems
+              races={wardRaces.filter(d => d.decided)}
+              listClass='is-mobile'
+            />
+          </>
+        )}
       </Page>
     );
   }

@@ -20,11 +20,13 @@ def is_race_decided(race_obj):
     '''
     return true if there is a candidate with the status 'elected'
     '''
-    # get elected candidates for this race
-    candidates = race_obj.candidates.filter(status='elected')
 
-    if candidates:
-        return True
+    if settings.CHIVOTE_IS_RUNOFF:
+        # get elected candidates for this race
+        candidates = race_obj.candidates.filter(status='elected')
+
+        if candidates:
+            return True
 
     return False
 
