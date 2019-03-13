@@ -1,4 +1,5 @@
 import json
+import logging
 
 from django.conf import settings
 from django.core import serializers
@@ -12,8 +13,20 @@ from apps.core.views import RenderReactMixin
 
 from .models import Race
 
-import logging
 logger = logging.getLogger(__name__)
+
+
+def is_race_decided(race_obj):
+    '''
+    return true if there is a candidate with the status 'elected'
+    '''
+    # get elected candidates for this race
+    candidates = race_obj.candidates.filter(status='elected')
+
+    if candidates:
+        return True
+
+    return False
 
 
 class RaceDetailView(RenderReactMixin, BuildableDetailView):
@@ -36,6 +49,7 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
         race_obj = {
             'id': self.object.pk,
             'office': self.object.__str__(),
+            'decided': is_race_decided(self.object)
         }
         description = mark_safe(self.object.explainer)
 
@@ -56,7 +70,7 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
         }
 
     def get_articles(self):
-        # get candidates for this race
+            # get candidates for this race
         candidates = self.object.candidates.all().exclude(status='inactive')
 
         if settings.CHIVOTE_IS_RUNOFF:
@@ -115,21 +129,6 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
 
         react_dict = {
             'absolute_url': self.get_object().get_absolute_url(),
-            # 'component': 'raceDetail',
-            # 'props': {
-            #     'ballot_ready_api_url': getattr(settings, 'BALLOT_READY_API_URL'),
-            #     'feed': curr_section,
-            #     'data': {
-            #         'issues': serializers.serialize('json', issues),
-            #         'stances': serializers.serialize('json', stances),
-            #         'articles': self.get_articles(),
-            #         'office': json.dumps(race_obj),
-            #         'description': description,
-            #         'slug': self.object.slug,
-            #         'documenters_slug': self.object.documenters_slug,
-            #     },
-            #     'candidates': serializers.serialize('json', candidates)
-            # },
             'meta': {
                 'title': _('Race for %(office)s, 2019') % {'office': race_obj['office']},
                 'description': _('Candidate bios, related articles and more.'),
@@ -213,7 +212,8 @@ class RaceListView(RenderReactMixin, BuildableListView):
         for race in race_data:
             races.append({
                 'name': race.__str__(),
-                'id': race.slug
+                'id': race.slug,
+                'decided': is_race_decided(race)
             })
 
         return {
@@ -271,6 +271,7 @@ class ResultsListView(RenderReactMixin, BuildableListView):
                 'name': race.__str__(),
                 'id': race.slug,
                 'cboeId': race.cboe_results_id,
+                'decided': is_race_decided(race)
             })
 
         return {

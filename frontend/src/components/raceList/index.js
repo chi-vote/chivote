@@ -14,11 +14,13 @@ const RaceItems = ({ races, listClass }) => (
   </ul>
 );
 
-const RaceButton = ({ name, id }) => (
-  <a href={`./${id}/`} className={styles.button}>
-    {/\d+/.test(name) ? name.match(/\d+/) : name}
-  </a>
-);
+const RaceButton = ({ name, id }) => {
+  return (
+    <a href={`./${id}/`} className={styles.button}>
+      {/\d+/.test(name) ? name.match(/\d+/) : name}
+    </a>
+  );
+};
 
 let WardLookup;
 
@@ -55,7 +57,7 @@ class RaceList extends Component {
           />
         </p>
 
-        <RaceItems races={otherRaces} />
+        <RaceItems races={otherRaces.filter(d => !d.decided)} />
 
         <h2 className='page-heading title is-4 mt-1'>
           <FormattedMessage
@@ -73,7 +75,31 @@ class RaceList extends Component {
 
         {this.state.showWardLookup ? <WardLookup /> : null}
 
-        <RaceItems races={wardRaces} listClass='is-mobile' />
+        <RaceItems
+          races={wardRaces.filter(d => !d.decided)}
+          listClass='is-mobile'
+        />
+
+        <h2 className='page-heading title is-4 mt-1'>
+          <FormattedMessage
+            id='RaceList.decided.heading'
+            defaultMessage='Already decided'
+          />
+        </h2>
+
+        <p className='is-lsb'>
+          <FormattedMessage
+            id='RaceList.decided.text.1'
+            defaultMessage='These races are already decided, because the candidate with the most votes won more than 50 percent of the votes.'
+          />
+        </p>
+
+        <RaceItems races={otherRaces.filter(d => d.decided)} />
+        <br />
+        <RaceItems
+          races={wardRaces.filter(d => d.decided)}
+          listClass='is-mobile'
+        />
       </Page>
     );
   }

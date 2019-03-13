@@ -44,6 +44,18 @@ from django.core.serializers.json import DjangoJSONEncoder
 #         else:
 #             super(IndexView, self).build()
 
+def is_race_decided(race_obj):
+    '''
+    return true if there is a candidate with the status 'elected'
+    '''
+    # get elected candidates for this race
+    candidates = race_obj.candidates.filter(status='elected')
+
+    if candidates:
+        return True
+
+    return False
+
 
 class IndexView(RenderReactMixin, BuildableListView):
     model = Race
@@ -61,6 +73,7 @@ class IndexView(RenderReactMixin, BuildableListView):
                 'name': race.__str__(),
                 'id': race.slug,
                 'cboeId': race.cboe_results_id,
+                'decided': is_race_decided(race)
             })
 
         return {

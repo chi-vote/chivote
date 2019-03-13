@@ -179,6 +179,7 @@ class RaceDetail extends Component {
   render() {
     const { description, office, slug } = this.props.data;
     const officeName = JSON.parse(office).office;
+    const officeDecided = JSON.parse(office).decided;
 
     let currPage;
 
@@ -215,6 +216,10 @@ class RaceDetail extends Component {
             values={{ officeName }}
             asFormatted
           />
+
+          <h2 className='is-size-4 has-text-white'>
+            {officeDecided ? 'DECIDED ✓' : 'RUNOFF'}
+          </h2>
 
           {parseHtml(description)}
 

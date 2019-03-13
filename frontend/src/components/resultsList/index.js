@@ -27,9 +27,12 @@ const ResultsItem = race => {
       )}
       id={`result-${race.id}`}
     >
-      <h3 className={cn('is-size-5', styles.raceName)}>
+      <h3 className='is-size-5'>
         <a href={link}>{race.name}</a>
       </h3>
+      <span className={styles.raceStatus}>
+        {race.decided ? 'DECIDED ✓' : 'RUNOFF'}
+      </span>
       <Results.LocalProvider cboeId={race.cboeId}>
         <Results.Reporting />
         <Results.Table />

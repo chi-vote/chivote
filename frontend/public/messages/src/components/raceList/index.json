@@ -10,5 +10,13 @@
   {
     "id": "RaceList.aldermanic.text.1",
     "defaultMessage": "Choose a specific ward number to get more information and view candidates."
+  },
+  {
+    "id": "RaceList.decided.heading",
+    "defaultMessage": "Already decided"
+  },
+  {
+    "id": "RaceList.decided.text.1",
+    "defaultMessage": "These races are already decided, because the candidate with the most votes won more than 50 percent of the votes."
   }
 ]

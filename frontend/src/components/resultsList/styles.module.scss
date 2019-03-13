@@ -56,6 +56,11 @@ $banner-height: 75px;
   }
 }
 
+.raceStatus {
+  color: $white;
+  letter-spacing: 0.05rem;
+}
+
 .resultsItem {
   padding-top: $banner-height;
   margin-top: -#{$banner-height};
