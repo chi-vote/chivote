@@ -10,6 +10,43 @@ import * as Results from 'Components/results';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 
+const RunoffTag = ({ status }) => {
+  if (status == 'Runoff') {
+    return (
+      <div className={styles.runoffTag}>
+        <span className={styles.runoffTagInner}>Race goes to runoff</span>
+      </div>
+    );
+  }
+
+  return null;
+};
+
+const WinnerTag = ({ status }) => {
+  let contents;
+
+  switch (status) {
+    case 'Incumbent won':
+      contents = (
+        <>
+          <span className={styles.tagInnerOpen}>Incumbent</span> won
+        </>
+      );
+      break;
+    case 'Challenger won':
+      contents = (
+        <>
+          <span className={styles.tagInnerClosed}>Challenger</span> won
+        </>
+      );
+      break;
+    default:
+      return null;
+  }
+
+  return <div className={styles.winnerTag}>{contents}</div>;
+};
+
 const ResultsItem = race => {
   let link = `../races/${race.id}/`;
 
@@ -19,8 +56,6 @@ const ResultsItem = race => {
     link = `${currPath}races/${race.id}`.replace('results/', '');
   }
 
-  console.log(race);
-
   return (
     <li
       className={cn(
@@ -29,10 +64,14 @@ const ResultsItem = race => {
       )}
       id={`result-${race.id}`}
     >
-      <h3 className='is-size-5'>
-        <a href={link}>{race.name}</a>
-      </h3>
-      <span className={styles.raceStatus}>{race.status}</span>
+      <div className={styles.resultsItemTop}>
+        <h3 className={cn('is-size-5', styles.resultsItemHeading)}>
+          <a href={link}>{race.name}</a>
+        </h3>
+        <RunoffTag {...race} />
+        <WinnerTag {...race} />
+      </div>
+
       <Results.LocalProvider cboeId={race.cboeId}>
         <Results.Reporting />
         <Results.Table />
