@@ -3,11 +3,8 @@ from .models import Candidate
 
 
 class CandidateSerializer(serializers.ModelSerializer):
-    # full_name = serializers.CharField()
+    br_data = serializers.ReadOnlyField()
+
     class Meta:
         model = Candidate
         fields = '__all__'
-        # fields = ('full_name',)
-
-
-# class BallotReadySerializer(serializers.Serializer):

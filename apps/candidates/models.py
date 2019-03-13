@@ -98,6 +98,14 @@ class Candidate(AutoPublishingBuildableModel):
         except Exception as e:
             logger.info("illinois sunshine lookup error: " + e)
 
+    @property
+    def br_data(self):
+        return {
+            'education': self.br_education,
+            'experience': self.br_experience,
+            'endorsements': self.br_endorsements
+        }
+
     def save(self, *args, **kwargs):
         if not self.full_name:
             self.full_name = '{0}{1}{2}{3}'.format(
