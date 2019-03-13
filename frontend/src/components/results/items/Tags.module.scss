@@ -12,6 +12,7 @@
 }
 
 .tagInner {
+  border: 3px solid currentColor;
   border-radius: 5px;
   padding: 0.25rem;
 }
@@ -23,16 +24,18 @@
 .runoffTagInner {
   composes: tagInner;
   background: $yellow;
+  border-color: $yellow;
   color: $dark-accent;
 }
 
 .tagInnerOpen {
   composes: tagInner;
-  border: 3px solid $white;
+  border-color: $white;
 }
 
 .tagInnerClosed {
   composes: tagInner;
   background: $white;
+  border-color: $white;
   color: $dark-accent;
 }
