@@ -90,7 +90,7 @@ class RaceList extends Component {
         <p className='is-lsb'>
           <FormattedMessage
             id='RaceList.decided.text.1'
-            defaultMessage='These races are already decided, because the candidate with the most votes won more than 50 percent of the votes.'
+            defaultMessage='These races are already decided, because a candidate won more than 50 percent of votes cast.'
           />
         </p>
 

@@ -1,12 +1,15 @@
-# from apps.core.views import HomePageView
-# from apps.races.views import ResultsListView
-from django.utils.translation import gettext as _
-from apps.core.views import RenderReactMixin
-from apps.races.models import Race
-from bakery.views import BuildableTemplateView, BuildableListView
 import json
+
+from django.utils.translation import gettext as _
 from django.core.serializers.json import DjangoJSONEncoder
 
+from bakery.views import BuildableTemplateView, BuildableListView
+
+from apps.core.views import RenderReactMixin
+from apps.races.models import Race
+from apps.races.views import get_race_status, is_race_decided
+# from apps.core.views import HomePageView
+# from apps.races.views import ResultsListView
 
 # class IndexView(RenderReactMixin, BuildableTemplateView):
 #     """View function for the landing page (/index.html)"""
@@ -44,23 +47,11 @@ from django.core.serializers.json import DjangoJSONEncoder
 #         else:
 #             super(IndexView, self).build()
 
-def is_race_decided(race_obj):
-    '''
-    return true if there is a candidate with the status 'elected'
-    '''
-    # get elected candidates for this race
-    candidates = race_obj.candidates.filter(status='elected')
-
-    if candidates:
-        return True
-
-    return False
-
 
 class IndexView(RenderReactMixin, BuildableListView):
     model = Race
     template_name = 'base_rendered.html'
-    build_path = 'results/index.html'
+    build_path = 'index.html'
     react_component = 'resultsList'
 
     def get_react_props(self):
@@ -73,7 +64,8 @@ class IndexView(RenderReactMixin, BuildableListView):
                 'name': race.__str__(),
                 'id': race.slug,
                 'cboeId': race.cboe_results_id,
-                'decided': is_race_decided(race)
+                'decided': is_race_decided(race),
+                'status': get_race_status(race)
             })
 
         return {

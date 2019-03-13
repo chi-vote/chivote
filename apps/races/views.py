@@ -29,6 +29,36 @@ def is_race_decided(race_obj):
     return False
 
 
+def get_race_status(race_obj):
+    '''
+    return string of race status
+    '''
+    has_incumbent = bool(race_obj.candidates.filter(incumbent=True))
+
+    incumbent_won = bool(race_obj.candidates.filter(
+        status='elected').filter(incumbent=True))
+
+    if incumbent_won:
+        return "Incumbent won"
+
+    challenger_won = has_incumbent and bool(
+        race_obj.candidates.filter(status='elected').filter(incumbent=False))
+
+    if challenger_won:
+        return "Challenger won"
+
+    runoff = bool(race_obj.candidates.filter(status='runoff'))
+
+    if runoff:
+        return "Runoff"
+
+    new_alderman = not has_incumbent and bool(
+        race_obj.candidates.filter(status='elected'))
+
+    if new_alderman:
+        return "New alderman"
+
+
 class RaceDetailView(RenderReactMixin, BuildableDetailView):
     model = Race
     template_name = 'base_rendered.html'
@@ -49,7 +79,8 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
         race_obj = {
             'id': self.object.pk,
             'office': self.object.__str__(),
-            'decided': is_race_decided(self.object)
+            'decided': is_race_decided(self.object),
+            'status': get_race_status(self.object)
         }
         description = mark_safe(self.object.explainer)
 
@@ -70,7 +101,7 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
         }
 
     def get_articles(self):
-            # get candidates for this race
+        # get candidates for this race
         candidates = self.object.candidates.all().exclude(status='inactive')
 
         if settings.CHIVOTE_IS_RUNOFF:
@@ -107,25 +138,12 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
         return articles
 
     def get_context_data(self, **kwargs):
-        from apps.newsfeed.models import CandidateStance, Issue
-
         context = super().get_context_data(**kwargs)
-
-        candidates = self.object.candidates.all().exclude(status='inactive')
-
-        stances = CandidateStance.objects.filter(
-            candidate__race=self.object).order_by('-date')
-
-        issues = Issue.objects.all().order_by('issue_order')
 
         race_obj = {
             'id': self.object.pk,
             'office': self.object.__str__(),
         }
-
-        description = mark_safe(self.object.explainer)
-
-        curr_section = self.kwargs.get('section', None)
 
         react_dict = {
             'absolute_url': self.get_object().get_absolute_url(),
@@ -186,8 +204,6 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
             self.build_file(target_path, self.get_content())
 
     def build_object(self, obj):
-        from django.conf import settings
-
         if settings.USE_I18N:
             from django.utils.translation import activate
 
@@ -213,7 +229,8 @@ class RaceListView(RenderReactMixin, BuildableListView):
             races.append({
                 'name': race.__str__(),
                 'id': race.slug,
-                'decided': is_race_decided(race)
+                'decided': is_race_decided(race),
+                'status': get_race_status(race)
             })
 
         return {
@@ -240,8 +257,6 @@ class RaceListView(RenderReactMixin, BuildableListView):
         return context
 
     def build_queryset(self):
-        from django.conf import settings
-
         if settings.USE_I18N:
             from django.utils.translation import activate
             from django.urls import reverse
@@ -271,7 +286,8 @@ class ResultsListView(RenderReactMixin, BuildableListView):
                 'name': race.__str__(),
                 'id': race.slug,
                 'cboeId': race.cboe_results_id,
-                'decided': is_race_decided(race)
+                'decided': is_race_decided(race),
+                'status': get_race_status(race)
             })
 
         return {
@@ -298,8 +314,6 @@ class ResultsListView(RenderReactMixin, BuildableListView):
         return context
 
     def build_queryset(self):
-        from django.conf import settings
-
         if settings.USE_I18N:
             from django.utils.translation import activate
             from django.urls import reverse

@@ -19,6 +19,8 @@ const ResultsItem = race => {
     link = `${currPath}races/${race.id}`.replace('results/', '');
   }
 
+  console.log(race);
+
   return (
     <li
       className={cn(
@@ -30,9 +32,7 @@ const ResultsItem = race => {
       <h3 className='is-size-5'>
         <a href={link}>{race.name}</a>
       </h3>
-      <span className={styles.raceStatus}>
-        {race.decided ? 'DECIDED ✓' : 'RUNOFF'}
-      </span>
+      <span className={styles.raceStatus}>{race.status}</span>
       <Results.LocalProvider cboeId={race.cboeId}>
         <Results.Reporting />
         <Results.Table />
@@ -86,8 +86,8 @@ class ResultsList extends Component {
 
     const ResultsItems = ({ races }) => (
       <ul className='columns is-multiline'>
-        {races.map(race => (
-          <ResultsItem {...race} key={race.id} />
+        {races.map((race, idx) => (
+          <ResultsItem {...race} key={idx} />
         ))}
       </ul>
     );
