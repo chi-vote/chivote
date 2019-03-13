@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'livereload',
     'django.contrib.staticfiles',
+    'rest_framework',
     'apps.core',
     'apps.candidates',
     'apps.places',

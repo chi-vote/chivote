@@ -28,6 +28,8 @@ class CandidateView extends Component {
   componentDidMount() {
     this.setState({ isLoading: true });
     this.fetchData(this.props.data.br_id);
+
+    console.log(this.props.data);
   }
 
   componentDidUpdate(prevProps) {
@@ -53,6 +55,7 @@ class CandidateView extends Component {
         }
       })
       .then(data => {
+        console.log(data);
         this.setState({ data, isLoading: false });
       })
       .catch(error => this.setState({ error, isLoading: false }));

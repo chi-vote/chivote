@@ -7,9 +7,12 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as _
 
+from rest_framework.renderers import JSONRenderer
+
 from bakery.views import BuildableDetailView, BuildableListView
 
 from apps.core.views import RenderReactMixin
+from apps.candidates.serializers import CandidateSerializer
 
 from .models import Race
 
@@ -54,7 +57,8 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
                 'slug': self.object.slug,
                 'documenters_slug': self.object.documenters_slug,
             },
-            'candidates': serializers.serialize('json', candidates)
+            # 'candidates': serializers.serialize('json', candidates, fields=('full_name', 'br_id', 'br_thumb_url'))
+            'candidates': JSONRenderer().render(CandidateSerializer(candidates, many=True).data).decode()
         }
 
     def get_articles(self):

@@ -25,11 +25,9 @@ export default class StanceItems extends Component {
           <div className='grid-item' key={item.pk}>
             <StanceItem
               data={item.fields}
-              candidate={
-                _.find(this.props.candidates, c => {
-                  return c.pk == item.fields.candidate;
-                }).fields
-              }
+              candidate={_.find(this.props.candidates, c => {
+                return c.id == item.fields.candidate;
+              })}
               onChange={() => {
                 this.masonry.layout();
               }}

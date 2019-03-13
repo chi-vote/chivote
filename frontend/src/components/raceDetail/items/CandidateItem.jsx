@@ -5,6 +5,8 @@ import styles from './styles.module.scss';
 const CandidateItem = props => {
   const { data } = props;
 
+  // console.log(props);
+
   return (
     <dd
       className='media-item candidate-item on-hover'
