@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { List } from 'Components/common';
 import { CandidateItem } from '../items';
 
 const CandidateFeed = props => {

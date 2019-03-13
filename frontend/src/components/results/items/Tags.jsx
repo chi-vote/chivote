@@ -20,14 +20,14 @@ const WinnerTag = ({ status }) => {
     case 'Incumbent won':
       contents = (
         <>
-          <span className={styles.tagInnerOpen}>Incumbent</span> won
+          <span className={styles.tagInnerOpen}>Incumbent</span> reelected
         </>
       );
       break;
     case 'Challenger won':
       contents = (
         <>
-          <span className={styles.tagInnerClosed}>Challenger</span> won
+          <span className={styles.tagInnerClosed}>Challenger</span> elected
         </>
       );
       break;

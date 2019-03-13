@@ -19,6 +19,7 @@ import {
 } from 'Components/common';
 import { RunoffTag, WinnerTag } from 'Components/results';
 import './styles.scss';
+import styles from './styles.module.scss';
 
 class RaceDetail extends Component {
   constructor(props) {
@@ -210,15 +211,17 @@ class RaceDetail extends Component {
         <Page childClass='container' sectionClass='race-detail'>
           <Breadcrumb activePath={currPage} activeLabel={race.office} />
 
-          <PageHeading
-            id='RaceDetail.heading'
-            title='Race for {officeName}'
-            values={{ officeName: race.office }}
-            asFormatted
-          />
+          <div className={styles.raceDetailTop}>
+            <PageHeading
+              id='RaceDetail.heading'
+              title='Race for {officeName}'
+              values={{ officeName: race.office }}
+              asFormatted
+            />
 
-          <RunoffTag {...race} />
-          <WinnerTag {...race} />
+            <RunoffTag {...race} />
+            <WinnerTag {...race} />
+          </div>
 
           {parseHtml(description)}
 
