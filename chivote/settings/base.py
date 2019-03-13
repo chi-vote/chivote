@@ -150,7 +150,7 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'chivote/locale/')
 ]
 
-# CHIVOTE_URL_PREFIX = 'archive/2019-feb-26/'
+CHIVOTE_URL_PREFIX = config('CHIVOTE_URL_PREFIX', default='')
 CHIVOTE_IS_RUNOFF = config('CHIVOTE_IS_RUNOFF', default=False, cast=bool)
 
 # Static files (CSS, JavaScript, Images)

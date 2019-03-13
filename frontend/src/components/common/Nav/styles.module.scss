@@ -9,14 +9,9 @@ $tagline-width: 9rem;
   background: rgba(49, 49, 59, 1);
   padding: $nav-padding;
   height: calc(#{$nav-height} + 2 * #{$nav-padding});
-  position: absolute;
-  top: 0;
+  position: relative;
   width: 100%;
   z-index: auto;
-
-  + :global(.section) {
-    padding-top: 6rem;
-  }
 }
 
 .logo {

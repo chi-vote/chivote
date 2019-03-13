@@ -17,6 +17,11 @@ class PageHeading extends Component {
     }
 
     const { title, className } = this.props;
+
+    if (!title) {
+      return null;
+    }
+
     return <h1 className={cn('page-heading title', className)}>{title}</h1>;
   }
 }
