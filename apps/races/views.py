@@ -16,51 +16,6 @@ from .models import Race
 logger = logging.getLogger(__name__)
 
 
-def is_race_decided(race_obj):
-    '''
-    return true if there is a candidate with the status 'elected'
-    '''
-
-    if settings.CHIVOTE_IS_RUNOFF:
-        # get elected candidates for this race
-        candidates = race_obj.candidates.filter(status='elected')
-
-        if candidates:
-            return True
-
-    return False
-
-
-def get_race_status(race_obj):
-    '''
-    return string of race status
-    '''
-    has_incumbent = bool(race_obj.candidates.filter(incumbent=True))
-
-    incumbent_won = bool(race_obj.candidates.filter(
-        status='elected').filter(incumbent=True))
-
-    if incumbent_won:
-        return "Incumbent won"
-
-    challenger_won = has_incumbent and bool(
-        race_obj.candidates.filter(status='elected').filter(incumbent=False))
-
-    if challenger_won:
-        return "Challenger won"
-
-    runoff = bool(race_obj.candidates.filter(status='runoff'))
-
-    if runoff:
-        return "Runoff"
-
-    new_official = not has_incumbent and bool(
-        race_obj.candidates.filter(status='elected'))
-
-    if new_official:
-        return "New official"
-
-
 class RaceDetailView(RenderReactMixin, BuildableDetailView):
     model = Race
     template_name = 'base_rendered.html'
@@ -81,8 +36,8 @@ class RaceDetailView(RenderReactMixin, BuildableDetailView):
         race_obj = {
             'id': self.object.pk,
             'office': self.object.__str__(),
-            'decided': is_race_decided(self.object),
-            'status': get_race_status(self.object)
+            'decided': self.object.is_decided,
+            'status': self.object.status
         }
         description = mark_safe(self.object.explainer)
 
@@ -231,8 +186,8 @@ class RaceListView(RenderReactMixin, BuildableListView):
             races.append({
                 'name': race.__str__(),
                 'id': race.slug,
-                'decided': is_race_decided(race),
-                'status': get_race_status(race)
+                'decided': race.is_decided,
+                'status': race.status
             })
 
         return {
@@ -289,8 +244,8 @@ class ResultsListView(RenderReactMixin, BuildableListView):
                 'name': race.__str__(),
                 'id': race.slug,
                 'cboeId': race.cboe_results_id,
-                'decided': is_race_decided(race),
-                'status': get_race_status(race)
+                'decided': race.is_decided,
+                'status': race.status
             })
 
         return {

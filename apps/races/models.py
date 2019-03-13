@@ -17,6 +17,52 @@ class Race(AutoPublishingBuildableModel):
     cboe_results_id = models.CharField(max_length=4, null=True)
 
     @property
+    def status(self):
+        '''
+        return string of race status
+        '''
+        has_incumbent = bool(self.candidates.filter(incumbent=True))
+
+        incumbent_won = bool(self.candidates.filter(
+            status='elected').filter(incumbent=True))
+
+        if incumbent_won:
+            return "Incumbent won"
+
+        challenger_won = has_incumbent and bool(
+            self.candidates.filter(status='elected').filter(incumbent=False))
+
+        if challenger_won:
+            return "Challenger won"
+
+        runoff = bool(self.candidates.filter(status='runoff'))
+
+        if runoff:
+            return "Runoff"
+
+        new_official = not has_incumbent and bool(
+            self.candidates.filter(status='elected'))
+
+        if new_official:
+            return "New official"
+
+    @property
+    def is_decided(self):
+        '''
+        return true if there is a candidate with the status 'elected'
+        '''
+        from django.conf import settings
+
+        if settings.CHIVOTE_IS_RUNOFF:
+                # get elected candidates for this race
+            candidates = self.candidates.filter(status='elected')
+
+            if candidates:
+                return True
+
+        return False
+
+    @property
     def results_slug(self):
         return self.slug.replace('-', ' ').title()
 
