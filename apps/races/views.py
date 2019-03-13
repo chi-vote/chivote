@@ -275,6 +275,7 @@ class ResultsListView(RenderReactMixin, BuildableListView):
     template_name = 'base_rendered.html'
     build_path = 'results/index.html'
     react_component = 'resultsList'
+    url_name = 'results-list'
 
     def get_react_props(self):
         race_data = self.object_list.order_by('pk')
@@ -314,14 +315,18 @@ class ResultsListView(RenderReactMixin, BuildableListView):
         return context
 
     def build_queryset(self):
+        import os
+
         if settings.USE_I18N:
             from django.utils.translation import activate
             from django.urls import reverse
 
             for language_code, language in settings.LANGUAGES:
                 activate(language_code)
-                self.build_path = reverse(
-                    'results-list')[1:] + '/index.html'  # strip leading slash
+                self.build_path = os.path.join(
+                    reverse(self.url_name)[1:],  # strip leading slash
+                    'index.html'
+                )
                 super(ResultsListView, self).build_queryset()
         else:
             super(ResultsListView, self).build_queryset()
