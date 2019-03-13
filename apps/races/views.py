@@ -52,11 +52,11 @@ def get_race_status(race_obj):
     if runoff:
         return "Runoff"
 
-    new_alderman = not has_incumbent and bool(
+    new_official = not has_incumbent and bool(
         race_obj.candidates.filter(status='elected'))
 
-    if new_alderman:
-        return "New alderman"
+    if new_official:
+        return "New official"
 
 
 class RaceDetailView(RenderReactMixin, BuildableDetailView):

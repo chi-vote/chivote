@@ -40,6 +40,9 @@ const WinnerTag = ({ status }) => {
         </>
       );
       break;
+    case 'New official':
+      contents = <span className={styles.tagInnerClosed}>New official</span>;
+      break;
     default:
       return null;
   }
