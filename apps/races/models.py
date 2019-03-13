@@ -15,12 +15,17 @@ class Race(AutoPublishingBuildableModel):
 
     # CBOE results
     cboe_results_id = models.CharField(max_length=4, null=True)
+    are_cboe_results_final = models.BooleanField(default=False)
+    cboe_results_note = models.TextField(null=True, blank=True)
 
     @property
     def status(self):
         '''
         return string of race status
         '''
+        if not self.are_cboe_results_final:
+            return
+
         has_incumbent = bool(self.candidates.filter(incumbent=True))
 
         incumbent_won = bool(self.candidates.filter(

@@ -245,7 +245,8 @@ class ResultsListView(RenderReactMixin, BuildableListView):
                 'id': race.slug,
                 'cboeId': race.cboe_results_id,
                 'decided': race.is_decided,
-                'status': race.status
+                'status': race.status,
+                'note': race.cboe_results_note,
             })
 
         return {

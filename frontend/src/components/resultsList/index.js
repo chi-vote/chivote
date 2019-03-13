@@ -35,6 +35,12 @@ const ResultsItem = race => {
         <Results.WinnerTag {...race} />
       </div>
 
+      {race.note && (
+        <p>
+          <em>{race.note}</em>
+        </p>
+      )}
+
       <Results.LocalProvider cboeId={race.cboeId}>
         <Results.Reporting />
         <Results.Table />
