@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
+import Responsive from 'react-responsive';
+import { Nav, Footer } from 'Components/common';
+import styles from './styles.module.scss';
 
 const LandingPage = require('./LandingPage').default;
 const LandingPageMobile = require('./LandingPageMobile').default;
-import Responsive from 'react-responsive';
-
-import { Nav, Footer } from 'Components/common';
-
-import styles from './styles.module.scss';
 
 class Homepage extends Component {
   render() {

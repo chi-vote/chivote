@@ -2,10 +2,11 @@ import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { questionsIcon, researchIcon, readyIcon } from './icons';
 import { LanguageToggle } from 'Components/common';
+import { withAppContext } from 'Root/app-context';
 import './LandingPage.scss';
 
-const LandingPage = ({ intl }) => {
-  const urlRoot = intl.locale == 'es' ? '/es/' : '/';
+const LandingPage = ({ context, intl }) => {
+  let urlRoot = context.rootPath;
 
   return (
     <>
@@ -135,4 +136,4 @@ const LandingPage = ({ intl }) => {
   );
 };
 
-export default injectIntl(LandingPage);
+export default withAppContext(injectIntl(LandingPage));

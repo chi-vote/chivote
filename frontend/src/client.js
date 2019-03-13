@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './AppClient';
 import { AppContext } from './app-context';
 import { IntlProvider, addLocaleData } from 'react-intl';
+import { ArchiveMessage } from 'Components/common';
 import en from 'react-intl/locale-data/en';
 import es from 'react-intl/locale-data/es';
 
@@ -36,6 +37,7 @@ const main = () => {
   // Initiate all other code paths here...
   ReactDOM.render(
     <AppContext.Provider value={window.context}>
+      <ArchiveMessage message='Archived: Mar 13, 2019' />
       <IntlProvider locale={locale} messages={localeData[locale]}>
         <App {...window.props} component={window.component} />
       </IntlProvider>

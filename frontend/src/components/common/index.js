@@ -1,3 +1,4 @@
+export { default as ArchiveMessage } from './ArchiveMessage';
 export { default as Breadcrumb } from './Breadcrumb';
 export { default as Footer } from './Footer';
 export { default as FormattedMessageFixed } from './FormattedMessageFixed';
