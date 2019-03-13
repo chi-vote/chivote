@@ -1,11 +1,8 @@
 import React from 'react';
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from 'react-intl';
+import { FormattedMessageFixed } from 'Components/common';
 import { slide as Menu } from 'react-burger-menu';
 import { withAppContext } from 'Root/app-context';
-
-function FormattedMessageFixed(props) {
-  return <FormattedMessage {...props} />;
-}
 
 const SiteMenu = props => {
   let urlRoot = props.context.rootPath;

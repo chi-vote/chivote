@@ -23,7 +23,7 @@
       color: $color-link-active;
     }
 
-    .button.language-toggle {
+    :global(.button.language-toggle) {
       color: $color-language;
 
       &:hover,

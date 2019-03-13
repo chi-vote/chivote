@@ -1,23 +1,27 @@
 import React from 'react';
+import cn from 'classnames';
+import styles from './styles.module.scss';
 
 const CandidateItem = props => {
   const { data } = props;
-  const isIncumbent = props.data.incumbent ? 'is-incumbent' : '';
 
   return (
     <dd
-      className="media-item candidate-item on-hover"
-      onClick={() => props.handleClick(props.data)}
+      className='media-item candidate-item on-hover'
+      onClick={() => props.handleClick(data)}
+      data-status={data.status}
     >
-      <img src={data.br_thumb_url} alt="" className="media-item__img" />
-      <div className={`candidate-item__meta ${isIncumbent}`}>
-        <span className="is-size-5 media-item__title">
+      <img src={data.br_thumb_url} alt='' className='media-item__img' />
+      <div className='candidate-item__meta'>
+        <span className='is-size-5 media-item__title'>
           {`${data.full_name}`}
 
-          {props.data.incumbent && (
-            <span className="has-text-white is-size-7 incumbent-tag">
-              Incumbent
-            </span>
+          {(data.status == 'elected' || data.status == 'runoff') && (
+            <span className={styles.statusTag}>{data.status}</span>
+          )}
+
+          {data.incumbent && (
+            <span className={styles.incumbentTag}>Incumbent</span>
           )}
         </span>
       </div>

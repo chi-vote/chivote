@@ -151,6 +151,7 @@ LOCALE_PATHS = [
 ]
 
 # CHIVOTE_URL_PREFIX = 'archive/2019-feb-26/'
+CHIVOTE_IS_RUNOFF = config('CHIVOTE_IS_RUNOFF', default=False, cast=bool)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

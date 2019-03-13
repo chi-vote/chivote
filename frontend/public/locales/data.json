@@ -53,10 +53,11 @@
     "RaceDetail.ResultsFeed.heading": "Results",
     "RaceDetail.StancesFeed.heading": "Stances",
     "RaceDetail.heading": "Race for {officeName}",
-    "RaceList.heading": "Races",
     "RaceList.text.1": "Choose a specific race to get more information and view candidates.",
     "RaceList.aldermanic.heading": "Aldermanic",
     "RaceList.aldermanic.text.1": "Choose a specific ward number to get more information and view candidates.",
+    "RaceList.decided.heading": "Already decided",
+    "RaceList.decided.text.1": "These races are already decided, because a candidate won more than 50 percent of votes cast.",
     "WardLookup.heading": "Don't know your ward? Enter your address below to find your information.",
     "WardLookup.help-text": "Start typing your address, beginning with your street number.",
     "WardLookup.loading": "Loading...",
@@ -71,8 +72,7 @@
     "Results.Table.header.percent": "Percent",
     "Results.Updated.loading": "Checking for new results...",
     "Results.Updated.text": "Last updated: {datetime}",
-    "ResultsList.select.message": "Jump to a race",
-    "ResultsList.heading": "Live Chicago election results"
+    "ResultsList.select.message": "Jump to a race"
   },
   "es": {
     "CandidateView.no-data": "No disponible*",

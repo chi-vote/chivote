@@ -56,10 +56,24 @@ $banner-height: 75px;
   }
 }
 
+.raceStatus {
+  color: $white;
+  letter-spacing: 0.05rem;
+}
+
 .resultsItem {
   padding-top: $banner-height;
   margin-top: -#{$banner-height};
   padding-bottom: 2rem;
+}
+
+.resultsItemHeading {
+  margin-right: 0.5rem;
+}
+
+.resultsItemTop {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: $tablet) {
