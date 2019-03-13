@@ -28,7 +28,7 @@ lookup_json = json.load(open(lookup_json_path))
 scrape_target = 'https://chicagoelections.com/results/ap/summary.txt'
 
 
-def scrape_results():
+def scrape_results(upload=True):
     from .utils import get_page, get_data
     # if data fails to load,
     # pass exception to logger
@@ -39,7 +39,12 @@ def scrape_results():
         results = transform_results(data)
         # logger.info(results['contests']['0010']['cands'][0])
         write_results(results, results_output_path)
-        upload_results(results_output_path)
+
+        if upload:
+            upload_results(results_output_path)
+
+        return results
+
     except KeyboardInterrupt:
         raise
     except Exception as e:
@@ -129,8 +134,8 @@ def transform_results(data):
     else:
         pass
 
-    import sys
-    sys.stdout.write(str(results))
+    # import sys
+    # sys.stdout.write(str(results))
     return results
 
 
