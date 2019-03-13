@@ -17,6 +17,7 @@ import {
   Page,
   PageHeading
 } from 'Components/common';
+import { RunoffTag, WinnerTag } from 'Components/results';
 import './styles.scss';
 
 class RaceDetail extends Component {
@@ -178,8 +179,7 @@ class RaceDetail extends Component {
 
   render() {
     const { description, office, slug } = this.props.data;
-    const officeName = JSON.parse(office).office;
-    const officeStatus = JSON.parse(office).status;
+    const race = JSON.parse(office);
 
     let currPage;
 
@@ -208,16 +208,17 @@ class RaceDetail extends Component {
         </SlideView>
 
         <Page childClass='container' sectionClass='race-detail'>
-          <Breadcrumb activePath={currPage} activeLabel={officeName} />
+          <Breadcrumb activePath={currPage} activeLabel={race.office} />
 
           <PageHeading
             id='RaceDetail.heading'
             title='Race for {officeName}'
-            values={{ officeName }}
+            values={{ officeName: race.office }}
             asFormatted
           />
 
-          <h2 className='is-size-4 has-text-white'>{officeStatus}</h2>
+          <RunoffTag {...race} />
+          <WinnerTag {...race} />
 
           {parseHtml(description)}
 
