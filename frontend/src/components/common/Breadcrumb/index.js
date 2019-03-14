@@ -41,10 +41,7 @@ class Breadcrumb extends Component {
         />
       ),
       '/results/': (
-        <FormattedMessage
-          id='common.link.results'
-          defaultMessage='Live results'
-        />
+        <FormattedMessage id='common.link.results' defaultMessage='Results' />
       )
     };
 

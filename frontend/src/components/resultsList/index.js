@@ -137,7 +137,7 @@ class ResultsList extends Component {
 
           <PageHeading
             id='ResultsList.heading'
-            title='Live Chicago election results'
+            title='Chicago election results, Feb. 26, 2019'
             asFormatted
           />
 
