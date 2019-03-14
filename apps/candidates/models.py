@@ -103,7 +103,17 @@ class Candidate(AutoPublishingBuildableModel):
         return {
             'education': self.br_education,
             'experience': self.br_experience,
-            'endorsements': self.br_endorsements
+            'endorsements': self.br_endorsements,
+            'urls': self.br_urls,
+            'photo_url': self.br_photo_url
+        }
+
+    @property
+    def ri_data(self):
+        return {
+            'funds_raised_this_cycle': self.ri_funds_raised_this_cycle,
+            'cash_on_hand': self.ri_cash_on_hand,
+            'last_updated': self.ri_last_updated,
         }
 
     def save(self, *args, **kwargs):

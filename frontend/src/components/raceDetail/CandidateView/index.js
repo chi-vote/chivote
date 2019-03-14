@@ -28,8 +28,6 @@ class CandidateView extends Component {
   componentDidMount() {
     this.setState({ isLoading: true });
     this.fetchData(this.props.data.br_id);
-
-    console.log(this.props.data);
   }
 
   componentDidUpdate(prevProps) {
@@ -40,6 +38,12 @@ class CandidateView extends Component {
   }
 
   fetchData(br_id) {
+    if (this.props.data.br_data) {
+      const data = this.props.data.br_data;
+      this.setState({ data, isLoading: false });
+      return;
+    }
+
     var url = `${this.props.apiUrl}/candidate/${br_id}`;
 
     const headers = {
@@ -55,7 +59,6 @@ class CandidateView extends Component {
         }
       })
       .then(data => {
-        console.log(data);
         this.setState({ data, isLoading: false });
       })
       .catch(error => this.setState({ error, isLoading: false }));
