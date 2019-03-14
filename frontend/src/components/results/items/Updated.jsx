@@ -3,10 +3,24 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import moment from 'moment';
 
 const Updated = props => {
-  const { className, datetime, isLoading } = props;
+  const { className, datetime, isLoading, isFinal } = props;
   const { locale } = props.intl;
 
-  if (isLoading) {
+  if (isFinal) {
+    return (
+      <div className={className}>
+        <FormattedMessage
+          id='Results.Updated.final'
+          defaultMessage='Certified results: {datetime}'
+          values={{
+            datetime: moment(datetime)
+              .locale(locale)
+              .format('ll')
+          }}
+        />
+      </div>
+    );
+  } else if (isLoading) {
     return (
       <div className={className}>
         <FormattedMessage

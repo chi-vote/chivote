@@ -1,5 +1,9 @@
 [
   {
+    "id": "Results.Updated.final",
+    "defaultMessage": "Certified results: {datetime}"
+  },
+  {
     "id": "Results.Updated.loading",
     "defaultMessage": "Checking for new results..."
   },
