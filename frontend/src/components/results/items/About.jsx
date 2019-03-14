@@ -4,6 +4,14 @@ import { FormattedMessage } from 'react-intl';
 const About = () => (
   <>
     <p>
+      <strong>
+        <FormattedMessage
+          id='Results.About.text.0'
+          defaultMessage='Results for election day, Feb. 26, 2019'
+        />
+      </strong>
+    </p>
+    <p>
       <FormattedMessage
         id='Results.About.text.1'
         defaultMessage='To win, candidates must receive more than 50 percent of the vote. If no candidate reaches that threshold, the top two candidates will advance to a run off on April 2.'

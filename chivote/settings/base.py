@@ -153,6 +153,7 @@ LOCALE_PATHS = [
 
 CHIVOTE_URL_PREFIX = config('CHIVOTE_URL_PREFIX', default='')
 CHIVOTE_IS_RUNOFF = config('CHIVOTE_IS_RUNOFF', default=False, cast=bool)
+CHIVOTE_ARCHIVE_MESSAGE = config('CHIVOTE_ARCHIVE_MESSAGE', default='')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

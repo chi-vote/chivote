@@ -78,7 +78,9 @@
 
   {% with "/"|add:LANGUAGE_CODE|add:"/"|add:CHIVOTE_URL_PREFIX as rootPath %}
   window.context = {
-      "rootPath": "{{rootPath | sanitize_language}}"
+      "rootPath": "{{rootPath | sanitize_language}}",
+      "archived": "{{CHIVOTE_ARCHIVE}}",
+      "archiveMessage": "{{CHIVOTE_ARCHIVE_MESSAGE}}",
   };
   {% endwith %}
 

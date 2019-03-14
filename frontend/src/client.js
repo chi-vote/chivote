@@ -22,7 +22,7 @@ let locale = currPath.includes('/es/') ? 'es' : 'en';
 window.component = window.component || 'Homepage';
 window.props = window.props || {};
 window.reactRoot = window.reactRoot || document.getElementById('root');
-window.context = window.context || { rootPath: '/' };
+window.context = window.context || { rootPath: '/', archived: false };
 
 const main = () => {
   // Load custom tracking code lazily, so it's non-blocking
@@ -37,7 +37,7 @@ const main = () => {
   // Initiate all other code paths here...
   ReactDOM.render(
     <AppContext.Provider value={window.context}>
-      <ArchiveMessage message='Archived: Mar 13, 2019' />
+      <ArchiveMessage />
       <IntlProvider locale={locale} messages={localeData[locale]}>
         <App {...window.props} component={window.component} />
       </IntlProvider>
