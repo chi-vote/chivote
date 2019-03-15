@@ -18,6 +18,7 @@
         ["", "La Shawn K. Ford", 5606, "1.01%"],
         ["", "Robert \"Bob\" Fioretti", 4302, "0.77%"],
         ["", "John Kenneth Kozlar", 2349, "0.42%"],
+        ["", "Neal S\u00e1les-Griffin", 1523, "0.27%"],
         ["", "Write-in", 86, "0.02%"]
       ]
     },
@@ -101,6 +102,7 @@
         ["\u2713", "Michelle A. Harris*", 8723, "64.35%"],
         ["", "Linda Hudson", 2356, "17.38%"],
         ["", "Faheem Shabazz", 1385, "10.22%"],
+        ["", "Jewel R. Easterling-Smith", 1091, "8.05%"],
         ["", "Write-in", 0, "0.00%"]
       ]
     },
@@ -243,6 +245,7 @@
       "meta": ["Alderman 23rd Ward", 39, 39, 8804],
       "cands": [
         ["\u2713", "Silvana Tabares*", 6702, "76.12%"],
+        ["", "Paulino R. Villarreal Jr.", 2097, "23.82%"],
         ["", "Write-in", 5, "0.06%"]
       ]
     },
@@ -251,6 +254,7 @@
       "cands": [
         ["\u2713", "Michael Scott Jr.*", 3809, "59.90%"],
         ["", "Creative Scott", 1191, "18.73%"],
+        ["", "Traci \"Treasure\" Johnson", 991, "15.58%"],
         ["", "Toriano A. Sanzone", 364, "5.72%"],
         ["", "Write-in", 4, "0.06%"]
       ]
@@ -259,7 +263,8 @@
       "meta": ["Alderman 25th Ward", 32, 32, 9870],
       "cands": [
         ["\u2713", "Byron Sigcho-Lopez", 2885, "29.23%"],
-        ["\u2713", "Hilario Dominguez", 2056, "20.83%"],
+        ["\u2713", "Alexander \"Alex\" Acevedo", 2182, "22.11%"],
+        ["", "Hilario Dominguez", 2056, "20.83%"],
         ["", "Aida Flores", 1912, "19.37%"],
         ["", "Troy Antonio Hernandez", 835, "8.46%"],
         ["", "Write-in", 0, "0.00%"]
@@ -313,8 +318,9 @@
     "0043": {
       "meta": ["Alderman 31st Ward", 41, 41, 6419],
       "cands": [
+        ["\u2713", "Milagros \"Milly\" Santiago*", 2588, "40.32%"],
         ["\u2713", "Felix Cardona Jr.", 2132, "33.21%"],
-        ["\u2713", "Colin Bird-Martinez", 1699, "26.47%"],
+        ["", "Colin Bird-Martinez", 1699, "26.47%"],
         ["", "Write-in", 0, "0.00%"]
       ]
     },
@@ -328,9 +334,10 @@
     "0045": {
       "meta": ["Alderman 33rd Ward", 28, 28, 10935],
       "cands": [
+        ["\u2713", "Rossana Rodr\u00edguez-S\u00e1nchez", 4598, "42.05%"],
         ["\u2713", "Deborah L. Mell*", 4515, "41.29%"],
-        ["\u2713", "Katie Sieracki", 1822, "16.66%"],
-        ["", "Write-in", 0, "0.18%"]
+        ["", "Katie Sieracki", 1822, "16.66%"],
+        ["", "Write-in", 0, "0.00%"]
       ]
     },
     "0046": {
@@ -386,7 +393,8 @@
       "meta": ["Alderman 40th Ward", 39, 39, 13353],
       "cands": [
         ["\u2713", "Patrick J. O'Connor*", 4446, "33.30%"],
-        ["\u2713", "Dianne Daleiden", 2296, "17.19%"],
+        ["\u2713", "Andre Vasquez", 2683, "20.09%"],
+        ["", "Dianne Daleiden", 2296, "17.19%"],
         ["", "Maggie O'Keefe", 2058, "15.41%"],
         ["", "Ugo Okere", 1870, "14.00%"],
         ["", "Write-in", 0, "0.00%"]
