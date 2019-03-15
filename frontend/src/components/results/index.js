@@ -6,3 +6,4 @@ export { default as Key } from './items/Key';
 export { default as Reporting } from './items/Reporting';
 export { default as Table } from './items/Table';
 export { default as Updated } from './items/Updated';
+export { RunoffTag, WinnerTag } from './items/Tags';

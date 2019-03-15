@@ -1,13 +1,17 @@
+import datetime
+
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
+from django.utils.text import slugify
 # from django.conf.urls import include
 from django.conf.urls.static import static
 from apps.newsfeed.feeds import LatestArticlesFeed
 from apps.races.urls import races_patterns, results_patterns
 from apps.core.urls import core_patterns
 from apps.site_content.urls import site_content_patterns
+
 from .views import IndexView
 
 """chivote URL Configuration
@@ -30,21 +34,31 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-urlpatterns += i18n_patterns(
+content_patterns = [
     path('races/', include(races_patterns, namespace='races')),
     path('results/', include(results_patterns)),
     path('', include(core_patterns)),
     path('', include(site_content_patterns)),
     path('', IndexView.as_view(), name='index'),
-    prefix_default_language=False
-)
-
-# Use include() to add paths from the catalog application
-content_patterns = [
-    path('rss.xml', LatestArticlesFeed()),
+    path('rss.xml', LatestArticlesFeed())
 ]
 
-urlpatterns += content_patterns
+# date = datetime.date(2019, 2, 26)
+# date_str = date.strftime("%Y %b %d")
+# prefix = slugify(date_str)
+
+try:
+    prefix_patterns = [
+        path(settings.CHIVOTE_URL_PREFIX, include(content_patterns)),
+        # path('', include(content_patterns)),
+    ]
+
+    content_patterns = prefix_patterns
+
+except:
+    pass
+
+urlpatterns += i18n_patterns(*content_patterns, prefix_default_language=False)
 
 # Use static() to add url mapping to serve static files during development (only)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

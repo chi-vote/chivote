@@ -3,12 +3,12 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import Slider from 'react-slick';
 import { SiteLogo } from 'Theme/images';
 import { questionsIcon, researchIcon, readyIcon } from './icons';
+import { withAppContext } from 'Root/app-context';
 import './LandingPageMobile.scss';
 import { LanguageToggle } from 'Components/common';
 
 class VotingStageSlider extends Component {
   state = {
-    locale: this.props.intl.locale,
     stage: 'questions',
     slideIndex: 0
   };
@@ -27,7 +27,7 @@ class VotingStageSlider extends Component {
   };
 
   stageSwitch = () => {
-    const urlRoot = this.state.locale == 'es' ? '/es/' : '/';
+    let urlRoot = this.props.context.rootPath;
 
     switch (this.state.stage) {
       case 'questions':
@@ -112,7 +112,7 @@ class VotingStageSlider extends Component {
                 <li>
                   <a
                     href={
-                      this.state.locale == 'es'
+                      this.props.intl.locale == 'es'
                         ? 'https://chicagoelections.com/sp/register-to-vote-change-of-address.html'
                         : 'https://chicagoelections.com/en/register-to-vote-change-of-address.html'
                     }
@@ -127,7 +127,7 @@ class VotingStageSlider extends Component {
                 <li>
                   <a
                     href={
-                      this.state.locale == 'es'
+                      this.props.intl.locale == 'es'
                         ? 'https://chicagoelections.com/sp/your-voter-information.html'
                         : 'https://chicagoelections.com/en/your-voter-information.html'
                     }
@@ -163,7 +163,7 @@ class VotingStageSlider extends Component {
       <>
         <Slider {...settings} ref='stageSlider'>
           <div>
-            <section className='page page--landing has-text-centered'>
+            <section className='page--landing has-text-centered'>
               <div className='header__wrapper'>
                 <img src={SiteLogo} alt='Chi.vote logo' className='mb-1' />
                 <h1 className='header__tagline is-size-4 mb-1'>
@@ -249,4 +249,4 @@ class VotingStageSlider extends Component {
   }
 }
 
-export default injectIntl(VotingStageSlider);
+export default withAppContext(injectIntl(VotingStageSlider));

@@ -1,0 +1,41 @@
+@import '~Theme/styles/variables';
+
+.winnerTag {
+  color: $white;
+  font-family: $futura, sans-serif;
+  font-size: $size-7;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin: 0.5rem 0;
+  position: relative;
+  top: -2px;
+}
+
+.tagInner {
+  border: 3px solid currentColor;
+  border-radius: 5px;
+  padding: 0.25rem;
+}
+
+.runoffTag {
+  composes: winnerTag;
+}
+
+.runoffTagInner {
+  composes: tagInner;
+  background: $yellow;
+  border-color: $yellow;
+  color: $dark-accent;
+}
+
+.tagInnerOpen {
+  composes: tagInner;
+  border-color: $white;
+}
+
+.tagInnerClosed {
+  composes: tagInner;
+  background: $white;
+  border-color: $white;
+  color: $dark-accent;
+}

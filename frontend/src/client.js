@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './AppClient';
+import { AppContext } from './app-context';
 import { IntlProvider, addLocaleData } from 'react-intl';
+import { ArchiveMessage } from 'Components/common';
 import en from 'react-intl/locale-data/en';
 import es from 'react-intl/locale-data/es';
 
@@ -20,6 +22,7 @@ let locale = currPath.includes('/es/') ? 'es' : 'en';
 window.component = window.component || 'Homepage';
 window.props = window.props || {};
 window.reactRoot = window.reactRoot || document.getElementById('root');
+window.context = window.context || { rootPath: '/', archived: false };
 
 const main = () => {
   // Load custom tracking code lazily, so it's non-blocking
@@ -33,9 +36,12 @@ const main = () => {
 
   // Initiate all other code paths here...
   ReactDOM.render(
-    <IntlProvider locale={locale} messages={localeData[locale]}>
-      <App {...window.props} component={window.component} />
-    </IntlProvider>,
+    <AppContext.Provider value={window.context}>
+      <ArchiveMessage />
+      <IntlProvider locale={locale} messages={localeData[locale]}>
+        <App {...window.props} component={window.component} />
+      </IntlProvider>
+    </AppContext.Provider>,
     window.reactRoot
   );
 };

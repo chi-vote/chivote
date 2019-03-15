@@ -7,30 +7,32 @@
   $color-language-hover: $color-language
 ) {
   .breadcrumb {
-    a {
-      color: $color-link;
+    :global {
+      a {
+        color: $color-link;
 
-      &:hover {
-        color: $color-link-hover;
+        &:hover {
+          color: $color-link-hover;
+        }
       }
-    }
 
-    li + li:before {
-      color: $color-divider;
-    }
+      li + li:before {
+        color: $color-divider;
+      }
 
-    li.is-active a {
-      color: $color-link-active;
-    }
+      li.is-active a {
+        color: $color-link-active;
+      }
 
-    .button.language-toggle {
-      color: $color-language;
+      .button.language-toggle {
+        color: $color-language;
 
-      &:hover,
-      &:focus {
-        background-color: transparent;
-        border-color: $color-language-hover;
-        color: $color-language-hover;
+        &:hover,
+        &:focus {
+          background-color: transparent;
+          border-color: $color-language-hover;
+          color: $color-language-hover;
+        }
       }
     }
   }

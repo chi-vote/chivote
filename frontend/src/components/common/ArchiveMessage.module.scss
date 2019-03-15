@@ -1,0 +1,9 @@
+@import '~Theme/styles/variables';
+
+.archiveMessage {
+  background: $yellow;
+  padding: 1.5rem;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+}

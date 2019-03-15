@@ -1,13 +1,11 @@
 import React from 'react';
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from 'react-intl';
+import { FormattedMessageFixed } from 'Components/common';
 import { slide as Menu } from 'react-burger-menu';
-
-function FormattedMessageFixed(props) {
-  return <FormattedMessage {...props} />;
-}
+import { withAppContext } from 'Root/app-context';
 
 const SiteMenu = props => {
-  const urlRoot = props.intl.locale === 'es' ? '/es/' : '/';
+  let urlRoot = props.context.rootPath;
 
   const menuItems = [
     {
@@ -95,4 +93,4 @@ const SiteMenu = props => {
   );
 };
 
-export default injectIntl(SiteMenu);
+export default withAppContext(SiteMenu);

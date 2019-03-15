@@ -38,6 +38,12 @@ class CandidateView extends Component {
   }
 
   fetchData(br_id) {
+    if (this.props.data.br_data) {
+      const data = this.props.data.br_data;
+      this.setState({ data, isLoading: false });
+      return;
+    }
+
     var url = `${this.props.apiUrl}/candidate/${br_id}`;
 
     const headers = {

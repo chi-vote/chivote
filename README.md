@@ -5,6 +5,7 @@
 - [Env variables](#env-variables)
 - [Management commands](#management-commands)
 - [Internationalization](#internationalization)
+- [Archiving](#archiving)
 - [Production use](#production-use)
 - [Under the hood](#under-the-hood)
 - [References](#references)
@@ -91,6 +92,10 @@ BALLOT_READY_API_URL=
 
 CELERY_BROKER_URL=
 IL_SUNSHINE_API_URL=
+
+CHIVOTE_IS_RUNOFF=
+# CHIVOTE_URL_PREFIX=
+# CHIVOTE_ARCHIVE_MESSAGE=
 ```
 
 [🔝](#chivote)
@@ -165,6 +170,39 @@ From inside `frontend`, run `yarn build:langs` to generate `public/locales/data.
 **TODO**: Automate syncing local json to [Google Sheet](https://docs.google.com/spreadsheets/d/1SbRD9bJozEvcZz_6ZIOpT-uVrbZuKQ27j3PdUSMcIGY/edit?usp=sharing).
 
 **TODO**: Add compilemessages, etc. to rebuild.
+
+[🔝](#chivote)
+
+## Archiving
+
+As is, our site can't handle multiple elections. To accomplish that, we'd need to create an election model, create race instances per elections, create candidate instances per race instance per election... So instead, we're doing this in a dumb, destructive way.
+
+- Generate a prefixed build of the site by setting `CHIVOTE_URL_PREFIX`
+
+```python
+# add to .env
+
+CHIVOTE_URL_PREFIX = 'archive/2019-feb-26/'
+CHIVOTE_ARCHIVE_MESSAGE='Archived: March 15, 2019'
+```
+
+- That prefixed build should host static versions of BallotReady data and results
+- Upload that prefixed build to the s3 bucket
+- From AWS, manually protect those archive folders from being deleted
+- Tag the version in git
+- Upload a copy of the db to s3 bucket/_private/pg_dump_\*.psql
+
+At this point, our archived version should be treated like it's dead and buried. Time to move on.
+
+This 👏 is 👏 not 👏 great. 👏 But it's what we've got.
+
+[🔝](#chivote)
+
+## SSR
+
+see `frontend/package.json` for render-server commands
+
+TK
 
 [🔝](#chivote)
 

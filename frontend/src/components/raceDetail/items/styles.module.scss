@@ -1,0 +1,52 @@
+@import '~Theme/styles/variables';
+
+.tag {
+  border: 2px solid white;
+  border-radius: 20px;
+  color: $white;
+  display: inline-block;
+  font-size: $size-7;
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  vertical-align: middle;
+}
+
+.incumbentTag {
+  composes: tag;
+}
+
+.statusTag {
+  composes: tag;
+  background: $yellow;
+  border-color: $yellow;
+  color: $dark-accent;
+  text-transform: capitalize;
+}
+
+:global {
+  .media-item[data-status='elected'] {
+    background: fade-out($primary, 0.1);
+
+    &.on-hover:hover {
+      background: fade-out($primary, 0.4);
+    }
+
+    .media-item__title {
+      color: $white;
+    }
+  }
+
+  .media-item[data-status='runoff'] {
+    $background: mix($primary, $dark-accent);
+
+    background: $background;
+
+    &.on-hover:hover {
+      background: fade-out($background, 0.3);
+    }
+
+    .media-item__title {
+      color: $white;
+    }
+  }
+}

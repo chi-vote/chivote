@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'livereload',
     'django.contrib.staticfiles',
+    'rest_framework',
     'apps.core',
     'apps.candidates',
     'apps.places',
@@ -87,6 +88,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'chivote.context_processors.app_context',
             ],
         },
     },
@@ -149,6 +151,9 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'chivote/locale/')
 ]
 
+CHIVOTE_URL_PREFIX = config('CHIVOTE_URL_PREFIX', default='')
+CHIVOTE_IS_RUNOFF = config('CHIVOTE_IS_RUNOFF', default=False, cast=bool)
+CHIVOTE_ARCHIVE_MESSAGE = config('CHIVOTE_ARCHIVE_MESSAGE', default='')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

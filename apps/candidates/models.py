@@ -1,12 +1,14 @@
-import logging, requests
+import logging
+import requests
 
+from django.conf import settings
 from django.db import models
 from django.contrib.postgres.fields import JSONField
 from django.utils import timezone
+
 from bakery.models import AutoPublishingBuildableModel
 
-from ..races.models import Race
-from chivote.settings.base import IL_SUNSHINE_API_URL
+from apps.races.models import Race
 
 logger = logging.getLogger(__name__)
 
@@ -23,6 +25,7 @@ class Candidate(AutoPublishingBuildableModel):
 
     STATUS_CHOICES = (
         ('elected', 'Elected'),
+        ('runoff', 'Runoff'),
         ('candidate', 'Candidate'),
         ('inactive', 'Inactive')
     )
@@ -33,10 +36,12 @@ class Candidate(AutoPublishingBuildableModel):
     ballot_order = models.PositiveSmallIntegerField(
         default=0, blank=False, null=False)
 
-    cboe_id = models.IntegerField(null=True, blank=True) # chi board elex cand id
-    isbe_id = models.IntegerField(null=True, blank=True) # il state board elex cand committee id
-    br_id = models.IntegerField(null=True, blank=True) 
-    ri_id = models.IntegerField(null=True, blank=True) 
+    cboe_id = models.IntegerField(
+        null=True, blank=True)  # chi board elex cand id
+    # il state board elex cand committee id
+    isbe_id = models.IntegerField(null=True, blank=True)
+    br_id = models.IntegerField(null=True, blank=True)
+    ri_id = models.IntegerField(null=True, blank=True)
 
     # Ballot Ready fields
     br_thumb_url = models.URLField(
@@ -49,9 +54,8 @@ class Candidate(AutoPublishingBuildableModel):
     br_experience = JSONField(null=True, blank=True, verbose_name="Experience")
     br_education = JSONField(null=True, blank=True, verbose_name="Education")
 
-
     # CBOE results
-    cboe_results_id = models.CharField(max_length=7,null=True)
+    cboe_results_id = models.CharField(max_length=7, null=True)
 
     def update_br_data(self):
         from django.conf import settings
@@ -70,28 +74,47 @@ class Candidate(AutoPublishingBuildableModel):
                 self.br_endorsements = r_json['endorsements']
                 self.br_experience = r_json['experience']
                 self.br_education = r_json['education']
-    
+
     # Reform Illinois/ Illinois Sunshine fields
-    ri_cash_on_hand = models.IntegerField(null=True,blank=True)
-    ri_funds_raised_this_cycle = models.IntegerField(null=True,blank=True)
-    ri_last_updated = models.DateTimeField(null=True,blank=True)
+    ri_cash_on_hand = models.IntegerField(null=True, blank=True)
+    ri_funds_raised_this_cycle = models.IntegerField(null=True, blank=True)
+    ri_last_updated = models.DateTimeField(null=True, blank=True)
 
     def ri_committee_url(self):
         return 'https://illinoissunshine.org/committees/' + self.isbe_id
 
     def update_ri_data(self):
         """
-        you may want to 
+        you may want to
         tasks.update_ri_candidates_all()
         instead
         """
         try:
-            ri_data = requests.get(IL_SUNSHINE_API_URL+'?committee_id='+self.isbe_id).json['objects']
+            ri_data = requests.get(
+                settings.IL_SUNSHINE_API_URL+'?committee_id='+self.isbe_id).json['objects']
             self.ri_cash_on_hand = ri_data['cash_on_hand']
             self.ri_funds_raised_this_cycle = ri_data['total_funds_raised']
             self.ri_last_updated = timezone.now()
         except Exception as e:
             logger.info("illinois sunshine lookup error: " + e)
+
+    @property
+    def br_data(self):
+        return {
+            'education': self.br_education,
+            'experience': self.br_experience,
+            'endorsements': self.br_endorsements,
+            'urls': self.br_urls,
+            'photo_url': self.br_photo_url
+        }
+
+    @property
+    def ri_data(self):
+        return {
+            'funds_raised_this_cycle': self.ri_funds_raised_this_cycle,
+            'cash_on_hand': self.ri_cash_on_hand,
+            'last_updated': self.ri_last_updated,
+        }
 
     def save(self, *args, **kwargs):
         if not self.full_name:

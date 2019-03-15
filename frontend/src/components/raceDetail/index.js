@@ -11,12 +11,16 @@ import {
   StanceFeed
 } from './feeds';
 import { parseHtml } from 'Components/utils';
-import { Breadcrumb, Page } from 'Components/common';
+import {
+  Breadcrumb,
+  FormattedMessageFixed,
+  Page,
+  PageHeading
+} from 'Components/common';
+import { RunoffTag, WinnerTag } from 'Components/results';
+import { withAppContext } from 'Root/app-context';
+import styles from './styles.module.scss';
 import './styles.scss';
-
-function FormattedMessageFixed(props) {
-  return <FormattedMessage {...props} />;
-}
 
 class RaceDetail extends Component {
   constructor(props) {
@@ -66,12 +70,7 @@ class RaceDetail extends Component {
           />
         );
       case 'articles':
-        return (
-          <ArticleFeed
-            articles={JSON.parse(this.props.data.articles)}
-            feed_url={`/races/${this.props.data.slug}/rss.xml`}
-          />
-        );
+        return <ArticleFeed articles={JSON.parse(this.props.data.articles)} />;
       case 'stances':
         return (
           <StanceFeed
@@ -177,7 +176,7 @@ class RaceDetail extends Component {
 
   render() {
     const { description, office, slug } = this.props.data;
-    const officeName = JSON.parse(office).office;
+    const race = JSON.parse(office);
 
     let currPage;
 
@@ -205,17 +204,25 @@ class RaceDetail extends Component {
           )}
         </SlideView>
 
-        <Page childClass='container page--detail' sectionClass='race-detail'>
-          <Breadcrumb activePath={currPage} activeLabel={officeName} />
-          <h1 className='page-heading title is-3'>
-            <FormattedMessage
+        <Page childClass='container' sectionClass='race-detail'>
+          <Breadcrumb activePath={currPage} activeLabel={race.office} />
+
+          <div className={styles.raceDetailTop}>
+            <PageHeading
               id='RaceDetail.heading'
-              defaultMessage='Race for {officeName}'
-              values={{ officeName }}
+              title='Race for {officeName}'
+              values={{ officeName: race.office }}
+              asFormatted
             />
-          </h1>
-          {parseHtml(description, [[/"'|'"/g, '"']])}
+
+            <RunoffTag {...race} />
+            <WinnerTag {...race} />
+          </div>
+
+          {parseHtml(description)}
+
           {this.renderButtons()}
+
           {this.renderFeed()}
         </Page>
       </>
@@ -223,4 +230,4 @@ class RaceDetail extends Component {
   }
 }
 
-export default injectIntl(RaceDetail);
+export default withAppContext(injectIntl(RaceDetail));

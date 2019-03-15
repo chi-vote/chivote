@@ -41,3 +41,8 @@
   max-width: calc(#{$tablet}/ 3 + 2rem);
   white-space: normal;
 }
+
+.page--landing {
+  height: 100%;
+  min-height: 100vh;
+}

@@ -56,7 +56,7 @@ class FinanceFeed extends Component {
   render() {
     const sorted = _.orderBy(
       this.props.candidates,
-      d => d.fields[this.state.sortBy] || '',
+      d => d[this.state.sortBy] || '',
       this.state.order
     );
 
@@ -131,17 +131,17 @@ class FinanceFeed extends Component {
                   <td data-name='candidate'>
                     <a
                       href={`https://illinoissunshine.org/committees/${
-                        data.fields.isbe_id
+                        data.isbe_id
                       }`}
                     >
-                      {data.fields.full_name}
+                      {data.full_name}
                     </a>
                   </td>
                   <td data-name='on-hand' className='amt'>
-                    {formatNumber(data.fields.ri_cash_on_hand)}
+                    {formatNumber(data.ri_cash_on_hand)}
                   </td>
                   <td data-name='total' className='amt'>
-                    {formatNumber(data.fields.ri_funds_raised_this_cycle)}
+                    {formatNumber(data.ri_funds_raised_this_cycle)}
                   </td>
                 </tr>
               ))}
@@ -161,7 +161,7 @@ class FinanceFeed extends Component {
             values={{
               date: (() => {
                 var last_updated_list = this.props.candidates
-                  .map(c => c.fields.ri_last_updated)
+                  .map(c => c.ri_last_updated)
                   .filter(Boolean)
                   .map(d => moment(d));
 

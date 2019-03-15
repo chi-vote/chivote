@@ -1,0 +1,505 @@
+{
+  "contest_headers": ["name", "prs_rpt", "prs_tot", "vote_tot"],
+  "cand_headers": ["winner", "name", "vote_cnt", "vote_pct"],
+  "contests": {
+    "0010": {
+      "meta": ["Mayor", 2069, 2069, 556844],
+      "cands": [
+        ["\u2713", "Lori Lightfoot", 97667, "17.54%"],
+        ["\u2713", "Toni Preckwinkle", 89343, "16.04%"],
+        ["", "William M. Daley", 82294, "14.78%"],
+        ["", "Willie L. Wilson", 59072, "10.61%"],
+        ["", "Susana A. Mendoza", 50373, "9.05%"],
+        ["", "Amara Enyia", 44589, "8.01%"],
+        ["", "Jerry Joyce", 40099, "7.20%"],
+        ["", "Gery Chico", 34521, "6.20%"],
+        ["", "Paul Vallas", 30236, "5.43%"],
+        ["", "Garry McCarthy", 14784, "2.65%"],
+        ["", "La Shawn K. Ford", 5606, "1.01%"],
+        ["", "Robert \"Bob\" Fioretti", 4302, "0.77%"],
+        ["", "John Kenneth Kozlar", 2349, "0.42%"],
+        ["", "Neal S\u00e1les-Griffin", 1523, "0.27%"],
+        ["", "Write-in", 86, "0.02%"]
+      ]
+    },
+    "0011": {
+      "meta": ["Clerk", 2069, 2069, 264706],
+      "cands": [
+        ["\u2713", "Anna M. Valencia*", 264319, "99.85%"],
+        ["", "Write-in", 387, "0.15%"]
+      ]
+    },
+    "0012": {
+      "meta": ["Treasurer", 2069, 2069, 509216],
+      "cands": [
+        ["\u2713", "Melissa Conyears-Ervin", 225385, "44.26%"],
+        ["\u2713", "Ameya Pawar", 211759, "41.59%"],
+        ["", "Peter Gariepy", 72068, "14.15%"],
+        ["", "Write-in", 4, "0.00%"]
+      ]
+    },
+    "0013": {
+      "meta": ["Alderman 1st Ward", 44, 44, 11964],
+      "cands": [
+        ["\u2713", "Daniel La Spata", 7326, "61.23%"],
+        ["", "Proco \"Joe\" Moreno*", 4635, "38.74%"],
+        ["", "Write-in", 3, "0.03%"]
+      ]
+    },
+    "0014": {
+      "meta": ["Alderman 2nd Ward", 46, 46, 10981],
+      "cands": [
+        ["\u2713", "Brian Hopkins*", 10977, "99.96%"],
+        ["", "Write-in", 4, "0.04%"]
+      ]
+    },
+    "0015": {
+      "meta": ["Alderman 3rd Ward", 41, 41, 13167],
+      "cands": [
+        ["\u2713", "Patricia \"Pat\" Dowell*", 9085, "69.00%"],
+        ["", "Alexandria Willis", 4079, "30.98%"],
+        ["", "Write-in", 3, "0.02%"]
+      ]
+    },
+    "0016": {
+      "meta": ["Alderman 4th Ward", 38, 38, 13886],
+      "cands": [
+        ["\u2713", "Sophia King*", 9178, "66.10%"],
+        ["", "Ebony D. Lucas", 4708, "33.90%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0017": {
+      "meta": ["Alderman 5th Ward", 41, 41, 12954],
+      "cands": [
+        ["\u2713", "Leslie A.  Hairston*", 6284, "48.51%"],
+        ["\u2713", "William Calloway", 3464, "26.74%"],
+        ["", "Gabriel Piemonte", 3205, "24.74%"],
+        ["", "Write-in", 1, "0.01%"]
+      ]
+    },
+    "0018": {
+      "meta": ["Alderman 6th Ward", 48, 48, 10119],
+      "cands": [
+        ["\u2713", "Roderick T. Sawyer*", 5053, "49.94%"],
+        ["\u2713", "Deborah A. Foster-Bonner", 3159, "31.22%"],
+        ["", "Richard A. Wooten", 1900, "18.78%"],
+        ["", "Write-in", 7, "0.07%"]
+      ]
+    },
+    "0019": {
+      "meta": ["Alderman 7th Ward", 46, 46, 10082],
+      "cands": [
+        ["\u2713", "Gregory I. Mitchell*", 6684, "66.30%"],
+        ["", "Jedidiah L. Brown", 2100, "20.83%"],
+        ["", "Charles Kyle", 1294, "12.83%"],
+        ["", "Write-in", 4, "0.04%"]
+      ]
+    },
+    "0020": {
+      "meta": ["Alderman 8th Ward", 56, 56, 13555],
+      "cands": [
+        ["\u2713", "Michelle A. Harris*", 8723, "64.35%"],
+        ["", "Linda Hudson", 2356, "17.38%"],
+        ["", "Faheem Shabazz", 1385, "10.22%"],
+        ["", "Jewel R. Easterling-Smith", 1091, "8.05%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0021": {
+      "meta": ["Alderman 9th Ward", 51, 51, 11431],
+      "cands": [
+        ["\u2713", "Anthony A. Beale*", 6773, "59.25%"],
+        ["", "Cleopatra Watson", 2949, "25.80%"],
+        ["", "Paul Collins", 938, "8.21%"],
+        ["", "Essie Hall", 763, "6.67%"],
+        ["", "Write-in", 8, "0.07%"]
+      ]
+    },
+    "0022": {
+      "meta": ["Alderman 10th Ward", 36, 36, 8413],
+      "cands": [
+        ["\u2713", "Susan Sadlowski Garza*", 5773, "68.62%"],
+        ["", "Robert \"Bobby\" Loncar", 2640, "31.38%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0023": {
+      "meta": ["Alderman 11th Ward", 38, 38, 10263],
+      "cands": [
+        ["\u2713", "Patrick Daley Thompson*", 7537, "73.44%"],
+        ["", "David Mihalyfy", 2726, "26.56%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0024": {
+      "meta": ["Alderman 12th Ward", 23, 23, 5949],
+      "cands": [
+        ["\u2713", "George Cardenas*", 2987, "50.21%"],
+        ["", "Pete Demay", 1019, "17.13%"],
+        ["", "Jose Rico", 1006, "16.91%"],
+        ["", "Martha Yerania Rangel", 929, "15.62%"],
+        ["", "Write-in", 8, "0.13%"]
+      ]
+    },
+    "0025": {
+      "meta": ["Alderman 13th Ward", 48, 48, 12505],
+      "cands": [
+        ["\u2713", "Marty Quinn*", 10759, "86.04%"],
+        ["", "David J. Krupa", 1746, "13.96%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0026": {
+      "meta": ["Alderman 14th Ward", 31, 31, 7221],
+      "cands": [
+        ["\u2713", "Edward M. Burke*", 3917, "54.24%"],
+        ["", "Tanya G. Patino", 2123, "29.40%"],
+        ["", "Jaime Guzman", 1181, "16.36%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0027": {
+      "meta": ["Alderman 15th Ward", 24, 24, 5113],
+      "cands": [
+        ["\u2713", "Raymond A. Lopez*", 2541, "49.70%"],
+        ["\u2713", "Rafael \"Rafa\" Yanez", 1116, "21.83%"],
+        ["", "Berto Aguayo", 833, "16.29%"],
+        ["", "Joseph G. Williams", 413, "8.08%"],
+        ["", "Otis Davis Jr.", 210, "4.11%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0028": {
+      "meta": ["Alderman 16th Ward", 36, 36, 5585],
+      "cands": [
+        ["\u2713", "Stephanie D. Coleman", 2464, "44.12%"],
+        ["\u2713", "Toni L. Foulkes*", 1758, "31.48%"],
+        ["", "Latasha M. Sanders", 540, "9.67%"],
+        ["", "Eddie Johnson III", 371, "6.64%"],
+        ["", "Kenny C. Doss II", 364, "6.52%"],
+        ["", "Jeffrey L. Lewis", 88, "1.58%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0029": {
+      "meta": ["Alderman 17th Ward", 41, 41, 7910],
+      "cands": [
+        ["\u2713", "David H. Moore*", 5316, "67.21%"],
+        ["", "Raynetta Greenleaf", 2594, "32.79%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0030": {
+      "meta": ["Alderman 18th Ward", 50, 50, 11957],
+      "cands": [
+        ["\u2713", "Derrick G. Curtis*", 8050, "67.32%"],
+        ["", "Chuks Onyezia", 3904, "32.65%"],
+        ["", "Write-in", 3, "0.03%"]
+      ]
+    },
+    "0031": {
+      "meta": ["Alderman 19th Ward", 57, 57, 20710],
+      "cands": [
+        ["\u2713", "Matthew J. O'Shea*", 17654, "85.24%"],
+        ["", "David A. Dewar", 3056, "14.76%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0032": {
+      "meta": ["Alderman 20th Ward", 39, 39, 7484],
+      "cands": [
+        ["\u2713", "Jeanette B Taylor", 2154, "28.78%"],
+        ["\u2713", "Nicole J. Johnson", 1644, "21.97%"],
+        ["", "Kevin M. Bailey", 1211, "16.18%"],
+        ["", "Maya Hodari", 701, "9.37%"],
+        ["", "Andre Smith", 600, "8.02%"],
+        ["", "Anthony Driver Jr.", 486, "6.49%"],
+        ["", "Jennifer O. Maddox", 460, "6.15%"],
+        ["", "Quandra V. Speights", 157, "2.10%"],
+        ["", "Dernard D. Newell", 71, "0.95%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0033": {
+      "meta": ["Alderman 21st Ward", 54, 54, 12440],
+      "cands": [
+        ["\u2713", "Howard B. Brookins Jr.*", 5700, "45.82%"],
+        ["\u2713", "Marvin McNeil", 3143, "25.27%"],
+        ["", "Patricia A. Foster", 2382, "19.15%"],
+        ["", "Joseph C. Ziegler Jr.", 1215, "9.77%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0034": {
+      "meta": ["Alderman 22nd Ward", 25, 25, 4865],
+      "cands": [
+        ["\u2713", "Michael D. Rodriguez", 3104, "63.80%"],
+        ["", "Lisette \"Liz\" Lopez", 675, "13.87%"],
+        ["", "Richard Juarez", 610, "12.54%"],
+        ["", "Neftalie Gonzalez", 476, "9.78%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0035": {
+      "meta": ["Alderman 23rd Ward", 39, 39, 8804],
+      "cands": [
+        ["\u2713", "Silvana Tabares*", 6702, "76.12%"],
+        ["", "Paulino R. Villarreal Jr.", 2097, "23.82%"],
+        ["", "Write-in", 5, "0.06%"]
+      ]
+    },
+    "0036": {
+      "meta": ["Alderman 24th Ward", 41, 41, 6359],
+      "cands": [
+        ["\u2713", "Michael Scott Jr.*", 3809, "59.90%"],
+        ["", "Creative Scott", 1191, "18.73%"],
+        ["", "Traci \"Treasure\" Johnson", 991, "15.58%"],
+        ["", "Toriano A. Sanzone", 364, "5.72%"],
+        ["", "Write-in", 4, "0.06%"]
+      ]
+    },
+    "0037": {
+      "meta": ["Alderman 25th Ward", 32, 32, 9870],
+      "cands": [
+        ["\u2713", "Byron Sigcho-Lopez", 2885, "29.23%"],
+        ["\u2713", "Alexander \"Alex\" Acevedo", 2182, "22.11%"],
+        ["", "Hilario Dominguez", 2056, "20.83%"],
+        ["", "Aida Flores", 1912, "19.37%"],
+        ["", "Troy Antonio Hernandez", 835, "8.46%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0038": {
+      "meta": ["Alderman 26th Ward", 49, 49, 8769],
+      "cands": [
+        ["\u2713", "Roberto Maldonado*", 4431, "50.53%"],
+        ["", "Theresa Siaw", 2467, "28.13%"],
+        ["", "David Herrera", 1866, "21.28%"],
+        ["", "Write-in", 5, "0.06%"]
+      ]
+    },
+    "0039": {
+      "meta": ["Alderman 27th Ward", 50, 50, 10164],
+      "cands": [
+        ["\u2713", "Walter Burnett Jr.*", 6962, "68.50%"],
+        ["", "Cynthia D. Bednarz", 3191, "31.40%"],
+        ["", "Write-in", 11, "0.11%"]
+      ]
+    },
+    "0040": {
+      "meta": ["Alderman 28th Ward", 46, 46, 8095],
+      "cands": [
+        ["\u2713", "Jason C. Ervin*", 4954, "61.20%"],
+        ["", "Jasmine Jackson", 1230, "15.19%"],
+        ["", "Miguel Bautista", 1122, "13.86%"],
+        ["", "Beverly Miles", 764, "9.44%"],
+        ["", "Write-in", 25, "0.31%"]
+      ]
+    },
+    "0041": {
+      "meta": ["Alderman 29th Ward", 44, 44, 10619],
+      "cands": [
+        ["\u2713", "Chris Taliaferro*", 6235, "58.72%"],
+        ["", "Dwayne Truss", 2915, "27.45%"],
+        ["", "Zerlina A. Smith", 1469, "13.83%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0042": {
+      "meta": ["Alderman 30th Ward", 32, 32, 7438],
+      "cands": [
+        ["\u2713", "Ariel E. Reboyras*", 3563, "47.90%"],
+        ["\u2713", "Jessica W. Gutierrez", 3536, "47.54%"],
+        ["", "Edgar \"Edek\" Esparza", 339, "4.56%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0043": {
+      "meta": ["Alderman 31st Ward", 41, 41, 6419],
+      "cands": [
+        ["\u2713", "Milagros \"Milly\" Santiago*", 2588, "40.32%"],
+        ["\u2713", "Felix Cardona Jr.", 2132, "33.21%"],
+        ["", "Colin Bird-Martinez", 1699, "26.47%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0044": {
+      "meta": ["Alderman 32nd Ward", 43, 43, 11519],
+      "cands": [
+        ["\u2713", "Scott Waguespack*", 11519, "100.00%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0045": {
+      "meta": ["Alderman 33rd Ward", 28, 28, 10935],
+      "cands": [
+        ["\u2713", "Rossana Rodr\u00edguez-S\u00e1nchez", 4598, "42.05%"],
+        ["\u2713", "Deborah L. Mell*", 4515, "41.29%"],
+        ["", "Katie Sieracki", 1822, "16.66%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0046": {
+      "meta": ["Alderman 34th Ward", 53, 53, 11612],
+      "cands": [
+        ["\u2713", "Carrie M. Austin*", 6306, "54.31%"],
+        ["", "Preston Brown Jr.", 5294, "45.59%"],
+        ["", "Write-in", 12, "0.10%"]
+      ]
+    },
+    "0047": {
+      "meta": ["Alderman 35th Ward", 31, 31, 7908],
+      "cands": [
+        ["\u2713", "Carlos Ramirez-Rosa*", 4700, "59.43%"],
+        ["", "Amanda Yu Dieterich", 3208, "40.57%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0048": {
+      "meta": ["Alderman 36th Ward", 30, 30, 5377],
+      "cands": [
+        ["\u2713", "Gilbert Villegas*", 5376, "99.98%"],
+        ["", "Write-in", 1, "0.02%"]
+      ]
+    },
+    "0049": {
+      "meta": ["Alderman 37th Ward", 41, 41, 7675],
+      "cands": [
+        ["\u2713", "Emma M. Mitts*", 4151, "54.08%"],
+        ["", "Tara Stamps", 3083, "40.17%"],
+        ["", "Deondre Rutues", 436, "5.68%"],
+        ["", "Write-in", 5, "0.07%"]
+      ]
+    },
+    "0050": {
+      "meta": ["Alderman 38th Ward", 41, 41, 9340],
+      "cands": [
+        ["\u2713", "Nicholas Sposato*", 9340, "100.00%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0051": {
+      "meta": ["Alderman 39th Ward", 45, 45, 13241],
+      "cands": [
+        ["\u2713", "Samantha \"Sam\" Nugent", 4396, "33.20%"],
+        ["\u2713", "Robert Murphy", 3914, "29.56%"],
+        ["", "Casey Smagala", 3644, "27.52%"],
+        ["", "Joe Duplechin", 1287, "9.72%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0052": {
+      "meta": ["Alderman 40th Ward", 39, 39, 13353],
+      "cands": [
+        ["\u2713", "Patrick J. O'Connor*", 4446, "33.30%"],
+        ["\u2713", "Andre Vasquez", 2683, "20.09%"],
+        ["", "Dianne Daleiden", 2296, "17.19%"],
+        ["", "Maggie O'Keefe", 2058, "15.41%"],
+        ["", "Ugo Okere", 1870, "14.00%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0053": {
+      "meta": ["Alderman 41st Ward", 47, 47, 17791],
+      "cands": [
+        ["\u2713", "Anthony V. Napolitano*", 12502, "70.27%"],
+        ["", "Tim Heneghan", 5289, "29.73%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0054": {
+      "meta": ["Alderman 42nd Ward", 42, 42, 11129],
+      "cands": [
+        ["\u2713", "Brendan Reilly*", 11129, "100.00%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0055": {
+      "meta": ["Alderman 43rd Ward", 46, 46, 14073],
+      "cands": [
+        ["\u2713", "Michele Smith*", 5486, "38.98%"],
+        ["\u2713", "Derek Lindblom", 3913, "27.81%"],
+        ["", "Leslie Fox", 1892, "13.44%"],
+        ["", "Jacob Ringer", 1776, "12.62%"],
+        ["", "Rebecca Janowitz", 681, "4.84%"],
+        ["", "Steven McClellan", 325, "2.31%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0056": {
+      "meta": ["Alderman 44th Ward", 41, 41, 15105],
+      "cands": [
+        ["\u2713", "Tom Tunney*", 9734, "64.44%"],
+        ["", "Austin Baidas", 3794, "25.12%"],
+        ["", "Elizabeth Shydlowski", 1577, "10.44%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0057": {
+      "meta": ["Alderman 45th Ward", 48, 48, 14865],
+      "cands": [
+        ["\u2713", "James \"Jim\" Gardiner", 7570, "50.92%"],
+        ["", "John S. Arena*", 5382, "36.21%"],
+        ["", "Marilyn Morales", 1353, "9.10%"],
+        ["", "Robert A. Bank", 553, "3.72%"],
+        ["", "Write-in", 7, "0.05%"]
+      ]
+    },
+    "0058": {
+      "meta": ["Alderman 46th Ward", 40, 40, 13801],
+      "cands": [
+        ["\u2713", "James Cappleman*", 6082, "44.07%"],
+        ["\u2713", "Marianne Lalonde", 2494, "18.07%"],
+        ["", "Erika Wozniak Francis", 2324, "16.84%"],
+        ["", "Angela Clay", 2127, "15.41%"],
+        ["", "Justin Kreindler", 545, "3.95%"],
+        ["", "Jon-Robert McDowell", 229, "1.66%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0059": {
+      "meta": ["Alderman 47th Ward", 48, 48, 19297],
+      "cands": [
+        ["\u2713", "Matt Martin", 7586, "39.31%"],
+        ["\u2713", "Michael A. Negron", 4126, "21.38%"],
+        ["", "Eileen Dordek", 3373, "17.48%"],
+        ["", "Jeff Jenkins", 1602, "8.30%"],
+        ["", "Heather Way Kitzes", 931, "4.82%"],
+        ["", "Angela \"Angie\" Maloney", 888, "4.60%"],
+        ["", "Thomas M. Schwartzers", 372, "1.93%"],
+        ["", "Gus Katsafaros", 344, "1.78%"],
+        ["", "Kimball Ladien", 75, "0.39%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    },
+    "0060": {
+      "meta": ["Alderman 48th Ward", 46, 46, 14859],
+      "cands": [
+        ["\u2713", "Harry Osterman*", 12442, "83.73%"],
+        ["", "David Earl Williams III", 2415, "16.25%"],
+        ["", "Write-in", 2, "0.01%"]
+      ]
+    },
+    "0061": {
+      "meta": ["Alderman 49th Ward", 33, 33, 12341],
+      "cands": [
+        ["\u2713", "Maria Hadden", 7820, "63.37%"],
+        ["", "Joe Moore*", 4514, "36.58%"],
+        ["", "Write-in", 7, "0.06%"]
+      ]
+    },
+    "0062": {
+      "meta": ["Alderman 50th Ward", 40, 40, 9134],
+      "cands": [
+        ["\u2713", "Debra L. Silverstein*", 6014, "65.84%"],
+        ["", "Andrew D. Rowlas", 1678, "18.37%"],
+        ["", "Zehra Quadri", 1442, "15.79%"],
+        ["", "Write-in", 0, "0.00%"]
+      ]
+    }
+  },
+  "cand_classes": ["", "", "amt", "amt append-bar"],
+  "datetime": "2019-03-13",
+  "isFinal": true
+}
