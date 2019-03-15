@@ -40,10 +40,11 @@ app.get('/', function(req, res) {
 });
 
 app.post('/render', function(req, res) {
-  log.info('rendering', req.body.url);
-
   const page = req.body.page;
   const props = JSON.parse(req.body.serializedProps);
+
+  log.info('rendering', page, req.body.url);
+
   const html = render(page, props);
 
   res.json({

@@ -8,7 +8,7 @@ import {
   PageHeading
 } from 'Components/common';
 import { withAppContext } from 'Root/app-context';
-import * as typeformEmbed from '@typeform/embed';
+// import * as typeformEmbed from '@typeform/embed';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 
@@ -24,6 +24,8 @@ class MyTypeformEmbed extends Component {
 
   componentDidMount() {
     if (this.el) {
+      const typeformEmbed = require('@typeform/embed');
+
       typeformEmbed.makeWidget(
         this.el,
         this.props.context.rootPath.includes('/es/')
@@ -52,10 +54,13 @@ class MyTypeformEmbed extends Component {
 class ContentItemDetail extends Component {
   render() {
     const { title, slug, content, helmet, background } = this.props;
-    let pageContent = parseHtml(content); // fixing bad quotes that were breaking links
+
+    let pageContent;
 
     if (slug == 'quiz' && typeof window !== `undefined`) {
       pageContent = <MyTypeformEmbed {...this.props} />;
+    } else {
+      pageContent = parseHtml(content); // fixing bad quotes that were breaking links
     }
 
     if (slug == 'faq') {
@@ -79,7 +84,7 @@ class ContentItemDetail extends Component {
       <>
         <Helmet>
           <style>{`body { background: ${background} !important; }`}</style>
-          {parseHtml(helmet)}
+          {helmet && parseHtml(helmet)}
         </Helmet>
         <Page childClass={classes}>
           <div className='columns is-multiline is-centered'>
