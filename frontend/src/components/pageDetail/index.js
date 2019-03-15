@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { injectIntl } from 'react-intl';
 import { parseHtml } from 'Components/utils';
 import { Helmet } from 'react-helmet';
 import {
@@ -8,7 +7,9 @@ import {
   Page,
   PageHeading
 } from 'Components/common';
-import './style.scss';
+import { withAppContext } from 'Root/app-context';
+import cn from 'classnames';
+import styles from './styles.module.scss';
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
@@ -28,9 +29,11 @@ class ContentItemDetail extends Component {
           style={{ height: '500px', position: 'relative' }}
         >
           <ReactTypeformEmbed
-            buttonText={this.props.intl.locale === 'es' ? 'Empezar' : 'Start'}
+            buttonText={
+              this.props.context.rootPath.includes('/es/') ? 'Empezar' : 'Start'
+            }
             url={
-              this.props.intl.locale === 'es'
+              this.props.context.rootPath.includes('/es/')
                 ? 'https://starlyn.typeform.com/to/UFJDYa'
                 : 'https://starlyn.typeform.com/to/WdZTNE'
             }
@@ -44,7 +47,7 @@ class ContentItemDetail extends Component {
       require('./PageFaq.scss');
     }
 
-    var classes = `container page-${slug}`;
+    var classes = cn('container', styles[`page${slug.capitalize()}`]);
 
     const titles = {
       faq: 'FAQ'
@@ -65,7 +68,10 @@ class ContentItemDetail extends Component {
         </Helmet>
         <Page childClass={classes}>
           <div className='columns is-multiline is-centered'>
-            <Breadcrumb className='column is-full' activeLabel={activeLabel} />
+            <Breadcrumb
+              className={cn('column is-full', styles.breadcrumb)}
+              activeLabel={activeLabel}
+            />
             <PageHeading className='column is-full' title={title} />
             {pageContent}
           </div>
@@ -75,4 +81,4 @@ class ContentItemDetail extends Component {
   }
 }
 
-export default injectIntl(ContentItemDetail);
+export default withAppContext(ContentItemDetail);

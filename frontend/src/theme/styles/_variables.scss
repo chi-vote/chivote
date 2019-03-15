@@ -1,4 +1,4 @@
-/* COLORS */
+// COLORS //
 $red: #ce112d;
 $blue: #55c1e8;
 $dark: #31313b;
@@ -16,7 +16,7 @@ $primary-light: lightsteelblue;
 $link: $blue;
 $link-hover: darken($blue, 20);
 
-/* FONT SIZES */
+// FONT SIZES //
 $body-size: 17px; // bulma default
 $body-size-mobile: 15px;
 $size-3: 2rem; // bulma default
@@ -25,12 +25,12 @@ $size-5: 1.25rem; // bulma default
 $size-6: 1rem; // bulma default
 $size-7: 0.75rem; // bulma default
 
-/* DIMENSIONS */
+// DIMENSIONS //
 $gap: 64px; // bulma default
 $tablet: 769px; // bulma default
 $desktop: 960px + (2 * $gap); // bulma default
 
-/* OTHER */
+// OTHER //
 $futura: 'futura';
 $lsb: 'League Spartan Bold';
 $family-primary: $futura, 'sans-serif';
