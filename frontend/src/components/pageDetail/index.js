@@ -27,8 +27,8 @@ class MyTypeformEmbed extends Component {
       typeformEmbed.makeWidget(
         this.el,
         this.props.context.rootPath.includes('/es/')
-          ? 'https://starlyn.typeform.com/to/UFJDYa'
-          : 'https://starlyn.typeform.com/to/WdZTNE',
+          ? 'https://starlyn.typeform.com/to/yc4cP5' // english runoff
+          : 'https://starlyn.typeform.com/to/yc4cP5', // english runoff
         {
           buttonText: this.props.context.rootPath.includes('/es/')
             ? 'Empezar'
