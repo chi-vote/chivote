@@ -190,7 +190,7 @@ CHIVOTE_ARCHIVE_MESSAGE='Archived: March 15, 2019'
 - Upload that prefixed build to the s3 bucket
 - From AWS, manually protect those archive folders from being deleted
 - Tag the version in git
-- Upload a copy of the db to that tagged version in git
+- Upload a copy of the db to s3 bucket/_private/pg_dump_\*.psql
 
 At this point, our archived version should be treated like it's dead and buried. Time to move on.
 
