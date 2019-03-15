@@ -750,30 +750,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.6.7.tgz#53e9f1892f725b194d5e6a1684a7b394df592397"
   integrity sha512-Arj1hncvEVqQ2p7Ega08uHLr1JuRYBuO5cIvcA+WWEQ5+VmkOE3ZXzl04NbQxeQpWX78G7u6MqxKuNX3wvYZxg==
 
-"@typeform/embed@^0.6.1":
+"@typeform/embed@0.6.1":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@typeform/embed/-/embed-0.6.1.tgz#ee679c7d086324af11b4a024d760d04ef5634148"
   integrity sha512-oDoQsOdpNpoJR/c4+DIO99r26QSx9JC8PMGXA2j1CJ/8HRzYifjCd24DBxy3r1jLCkvcLAo2ws5D1aWjHzOK1w==
-  dependencies:
-    classnames "^2.2.5"
-    create-emotion "^9.0.2"
-    create-emotion-styled "^9.0.1"
-    custom-event "^1.0.1"
-    fetch-jsonp "^1.0.6"
-    is-url "^1.2.2"
-    preact "^8.2.7"
-    preact-compat "^3.15.0"
-    prop-types "^15.5.10"
-    scrollbar-width "^3.1.1"
-    spin.js "^2.3.2"
-    tinycolor2 "^1.4.1"
-    url-parse "^1.1.7"
-    webfontloader "^1.6.27"
-
-"@typeform/embed@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@typeform/embed/-/embed-0.7.0.tgz#2d66f1825531bb1bcbad0c6d3e4a0c67b516c2ba"
-  integrity sha512-aT0325mdV3LtA3WRdSI04cpe2NM9+ejo9MnbeBmlNF41FYtSBCrgRcX8AebrkVSB/9qQRRpJfB48hq6yhAPVew==
   dependencies:
     classnames "^2.2.5"
     create-emotion "^9.0.2"
@@ -5898,13 +5878,6 @@ react-twitter-widgets@^1.7.1:
     lodash "^4.17.4"
     prop-types "^15.3.0"
     scriptjs "^2.5.8"
-
-react-typeform-embed@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/react-typeform-embed/-/react-typeform-embed-0.2.0.tgz#ecc6a06f97ebf910296e9fccaa24081502a97e78"
-  integrity sha512-B/7zmExni6If3xwoX3nA6e6edLk5sNDa0DksI+r0gmdzr2QvkKNwXhrH4Icl/pYxr49odriLELjJWGKsck3nkQ==
-  dependencies:
-    "@typeform/embed" "^0.6.1"
 
 react@15:
   version "15.6.2"

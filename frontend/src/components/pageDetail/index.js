@@ -8,6 +8,7 @@ import {
   PageHeading
 } from 'Components/common';
 import { withAppContext } from 'Root/app-context';
+import * as typeformEmbed from '@typeform/embed';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 
@@ -15,32 +16,46 @@ String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
+class MyTypeformEmbed extends Component {
+  constructor(props) {
+    super(props);
+    this.el = null;
+  }
+
+  componentDidMount() {
+    if (this.el) {
+      typeformEmbed.makeWidget(
+        this.el,
+        this.props.context.rootPath.includes('/es/')
+          ? 'https://starlyn.typeform.com/to/UFJDYa'
+          : 'https://starlyn.typeform.com/to/WdZTNE',
+        {
+          buttonText: this.props.context.rootPath.includes('/es/')
+            ? 'Empezar'
+            : 'Start'
+        }
+      );
+    }
+  }
+
+  render() {
+    return (
+      <div
+        ref={el => (this.el = el)}
+        className='column is-full'
+        style={{ height: '500px', position: 'relative' }}
+      />
+    );
+  }
+}
+
 class ContentItemDetail extends Component {
   render() {
     const { title, slug, content, helmet, background } = this.props;
     let pageContent = parseHtml(content); // fixing bad quotes that were breaking links
 
     if (slug == 'quiz' && typeof window !== `undefined`) {
-      var { ReactTypeformEmbed } = require('react-typeform-embed');
-
-      pageContent = (
-        <div
-          className='column is-full'
-          style={{ height: '500px', position: 'relative' }}
-        >
-          <ReactTypeformEmbed
-            buttonText={
-              this.props.context.rootPath.includes('/es/') ? 'Empezar' : 'Start'
-            }
-            url={
-              this.props.context.rootPath.includes('/es/')
-                ? 'https://starlyn.typeform.com/to/UFJDYa'
-                : 'https://starlyn.typeform.com/to/WdZTNE'
-            }
-            style={{ height: '500px' }}
-          />
-        </div>
-      );
+      pageContent = <MyTypeformEmbed {...this.props} />;
     }
 
     if (slug == 'faq') {

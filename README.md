@@ -94,6 +94,8 @@ CELERY_BROKER_URL=
 IL_SUNSHINE_API_URL=
 
 CHIVOTE_IS_RUNOFF=
+# CHIVOTE_URL_PREFIX=
+# CHIVOTE_ARCHIVE_MESSAGE=
 ```
 
 [🔝](#chivote)
@@ -178,20 +180,19 @@ As is, our site can't handle multiple elections. To accomplish that, we'd need t
 - Generate a prefixed build of the site by setting `CHIVOTE_URL_PREFIX`
 
 ```python
-# add to chivote/settings/base.py
+# add to .env
 
 CHIVOTE_URL_PREFIX = 'archive/2019-feb-26/'
+CHIVOTE_ARCHIVE_MESSAGE='Archived: March 15, 2019'
 ```
 
-- **[TODO]** That prefixed build should host static versions of BallotReady data and results
+- That prefixed build should host static versions of BallotReady data and results
 - Upload that prefixed build to the s3 bucket
 - From AWS, manually protect those archive folders from being deleted
 - Tag the version in git
 - Upload a copy of the db to that tagged version in git
 
 At this point, our archived version should be treated like it's dead and buried. Time to move on.
-
-Need to hide candidates for the run-off? Set them to inactive. Need to update references for other APIs? Do it directly.
 
 This 👏 is 👏 not 👏 great. 👏 But it's what we've got.
 
