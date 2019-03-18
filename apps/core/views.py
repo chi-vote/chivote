@@ -83,7 +83,7 @@ class HomePageView(RenderReactMixin, BuildableTemplateView):
             'meta': {
                 'title': _('Everything you need to know to vote in Chicago on Feb. 26th'),
                 'description': _('No matter if you’re a rookie voter or a veteran, we have everything you need.'),
-                'img': _('images/socialrunoff.png'),
+                'img': _('images/socialrunoff.jpg'),
             }
         })
 

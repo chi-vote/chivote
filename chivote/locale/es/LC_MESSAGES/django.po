@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps/core/templates/base_react.html:7 apps/core/views.py:19
-msgid "images/socialrunoff.png"
+msgid "images/socialrunoff.jpg"
 msgstr "images/C_2x1_Chi-vote_socialcard_spanish.png"
 
 #: apps/core/views.py:17
@@ -46,7 +46,7 @@ msgstr "Biografías de candidatos, artículos relacionados y más."
 
 #: apps/races/views.py:81 apps/races/views.py:175 apps/site_content/views.py:28
 #, fuzzy
-#| msgid "images/socialrunoff.png"
+#| msgid "images/socialrunoff.jpg"
 msgid "images/C_2x1_Chi-vote_advert.png"
 msgstr "images/C_2x1_Chi-vote_socialcard_spanish.png"
 
