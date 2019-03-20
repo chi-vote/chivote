@@ -29,7 +29,7 @@ class ContentItemDetailView(RenderReactMixin, BuildableDetailView):
             'meta': {
                 'title': self.object.title,
                 'description': self.object.description,
-                'img': _('images/C_2x1_Chi-vote_advert.png'),
+                'img': _('images/socialrunoff.jpg'),
             }
         })
 

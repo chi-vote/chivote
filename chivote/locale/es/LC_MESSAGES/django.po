@@ -47,7 +47,7 @@ msgstr "Biografías de candidatos, artículos relacionados y más."
 #: apps/races/views.py:81 apps/races/views.py:175 apps/site_content/views.py:28
 #, fuzzy
 #| msgid "images/socialrunoff.jpg"
-msgid "images/C_2x1_Chi-vote_advert.png"
+msgid "images/socialrunoff.jpg"
 msgstr "images/C_2x1_Chi-vote_socialcard_spanish.png"
 
 #: apps/races/views.py:173
