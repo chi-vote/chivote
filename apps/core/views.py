@@ -81,7 +81,7 @@ class HomePageView(RenderReactMixin, BuildableTemplateView):
         context.update({
             'absolute_url': '/',
             'meta': {
-                'title': _('Everything you need to know to vote in Chicago on Feb. 26th'),
+                'title': _('Everything you need to vote in Chicago elections'),
                 'description': _('No matter if you’re a rookie voter or a veteran, we have everything you need.'),
                 'img': _('images/socialrunoff.jpg'),
             }

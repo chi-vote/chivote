@@ -23,10 +23,9 @@ msgid "images/socialrunoff.jpg"
 msgstr "images/C_2x1_Chi-vote_socialcard_spanish.png"
 
 #: apps/core/views.py:17
-msgid "Everything you need to know to vote in Chicago on Feb. 26th"
+msgid "Everything you need to vote in Chicago elections"
 msgstr ""
-"Todo lo que necesita saber para votar en las elecciones de Chicago el 26 de "
-"febrero"
+"Todo lo que necesita saber para votar en las elecciones de Chicago"
 
 #: apps/core/views.py:18
 msgid ""
