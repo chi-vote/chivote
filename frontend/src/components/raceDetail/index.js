@@ -26,7 +26,7 @@ class RaceDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      feed: this.props.feed ? this.props.feed : 'results',
+      feed: this.props.feed ? this.props.feed : 'candidates',
       currentCandidate: null,
       slideViewActive: false
     };
@@ -129,11 +129,6 @@ class RaceDetail extends Component {
 
     const buttons = [
       {
-        slug: 'results',
-        label: 'Results',
-        icon: 'fa-chart-bar'
-      },
-      {
         slug: 'candidates',
         label: 'Candidates',
         icon: 'fa-user-tie'
@@ -158,6 +153,11 @@ class RaceDetail extends Component {
         slug: 'finances',
         label: 'Finances',
         icon: 'fa-money-check-alt'
+      },
+      {
+        slug: 'results',
+        label: 'Results',
+        icon: 'fa-chart-bar'
       }
     ];
 
