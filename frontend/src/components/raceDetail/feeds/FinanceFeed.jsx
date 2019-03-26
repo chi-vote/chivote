@@ -95,7 +95,7 @@ class FinanceFeed extends Component {
                     />
                   </button>
                 </th>
-                <th className='amt'>
+                {/* <th className='amt'>
                   <button
                     className='button is-text col-sort'
                     data-order='desc'
@@ -108,7 +108,7 @@ class FinanceFeed extends Component {
                       defaultMessage='Cash on hand'
                     />
                   </button>
-                </th>
+                </th> */}
                 <th className='amt'>
                   <button
                     className='button is-text col-sort'
@@ -137,9 +137,9 @@ class FinanceFeed extends Component {
                       {data.full_name}
                     </a>
                   </td>
-                  <td data-name='on-hand' className='amt'>
+                  {/* <td data-name='on-hand' className='amt'>
                     {formatNumber(data.ri_cash_on_hand)}
-                  </td>
+                  </td> */}
                   <td data-name='total' className='amt'>
                     {formatNumber(data.ri_funds_raised_this_cycle)}
                   </td>
@@ -151,7 +151,7 @@ class FinanceFeed extends Component {
         <p className='has-text-grey-light'>
           <FormattedHTMLMessage
             id='RaceDetail.FinanceFeed.footnote'
-            defaultMessage="<u><strong>Notes:</strong></u> 'Cash on hand' represents a committee's total available funds to spend this quarter. 'Total raised' represents the amount of funds raised during this election cycle."
+            defaultMessage="<u><strong>Note:</strong></u> 'Total raised' represents the amount of funds raised during this election cycle."
           />
         </p>
         <p className='has-text-grey-light'>

@@ -12,16 +12,12 @@
     "defaultMessage": "Candidate"
   },
   {
-    "id": "RaceDetail.FinanceFeed.th.cashOnHand",
-    "defaultMessage": "Cash on hand"
-  },
-  {
     "id": "RaceDetail.FinanceFeed.th.totalRaised",
     "defaultMessage": "Total raised"
   },
   {
     "id": "RaceDetail.FinanceFeed.footnote",
-    "defaultMessage": "<u><strong>Notes:</strong></u> 'Cash on hand' represents a committee's total available funds to spend this quarter. 'Total raised' represents the amount of funds raised during this election cycle."
+    "defaultMessage": "<u><strong>Note:</strong></u> 'Total raised' represents the amount of funds raised during this election cycle."
   },
   {
     "id": "RaceDetail.FinanceFeed.updated",

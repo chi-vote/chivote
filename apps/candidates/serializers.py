@@ -8,6 +8,7 @@ class CandidateSerializer(serializers.ModelSerializer):
         model = Candidate
         fields = ('id',
                   'full_name',
+                  'last_name',
                   'status',
                   'br_thumb_url',
                   'br_id',

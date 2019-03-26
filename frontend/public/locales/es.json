@@ -56,7 +56,7 @@
   "RaceDetail.FinanceFeed.th.candidate": "Candidato",
   "RaceDetail.FinanceFeed.th.cashOnHand": "Dinero en efectivo disponible",
   "RaceDetail.FinanceFeed.th.totalRaised": "Total recaudado",
-  "RaceDetail.FinanceFeed.footnote": "<u><strong>Notas:</strong></u> 'Dinero en efectivo disponible' representa el total de fondos de un comité para este trimestre. 'Total recaudado' representa los fondos recaudados este ciclo electoral.",
+  "RaceDetail.FinanceFeed.footnote": "<u><strong>Nota:</strong></u> 'Total recaudado' representa los fondos recaudados este ciclo electoral.",
   "RaceDetail.FinanceFeed.updated": "<u><strong>Última actualización:</strong></u> {date}",
   "RaceDetail.FinanceFeed.credit": "Datos de <a href=\"https://www.reformforillinois.org\">Reform for Illinois</a>",
   "common.link.all-races": "Todas las contiendas",

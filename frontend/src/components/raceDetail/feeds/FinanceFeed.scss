@@ -73,9 +73,10 @@
       display: none;
       font-family: 'Font Awesome 5 Free';
       font-weight: 900;
-      position: absolute;
+      // position: absolute;
       // bottom: -22px;
-      right: -1em;
+      // right: -1em;
+      margin-left: 1em;
     }
 
     &[data-order='asc']::after {
