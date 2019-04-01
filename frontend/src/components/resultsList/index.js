@@ -31,8 +31,8 @@ const ResultsItem = race => {
         <h3 className={cn('is-size-5', styles.resultsItemHeading)}>
           <a href={link}>{race.name}</a>
         </h3>
-        <Results.RunoffTag {...race} />
-        <Results.WinnerTag {...race} />
+        {/* <Results.RunoffTag {...race} />
+        <Results.WinnerTag {...race} /> */}
       </div>
 
       {race.note && (
@@ -137,7 +137,7 @@ class ResultsList extends Component {
 
           <PageHeading
             id='ResultsList.heading'
-            title='Chicago election results, Feb. 26, 2019'
+            title='Chicago runoff election results, Apr. 2, 2019'
             asFormatted
           />
 

@@ -128,6 +128,12 @@ class RaceDetail extends Component {
     };
 
     const buttons = [
+      // {
+      //   slug: 'results',
+      //   label: 'Results',
+      //   icon: 'fa-chart-bar',
+      //   enabled: !!this.props.cboeId
+      // },
       {
         slug: 'candidates',
         label: 'Candidates',
@@ -153,11 +159,6 @@ class RaceDetail extends Component {
         slug: 'finances',
         label: 'Finances',
         icon: 'fa-money-check-alt'
-      },
-      {
-        slug: 'results',
-        label: 'Results',
-        icon: 'fa-chart-bar'
       }
     ];
 
