@@ -17,6 +17,7 @@ tue_scrape_target = 'https://chicagoelections.com/ap/summary.txt'
 # est time window: ~0200 WED - all votes counted (+ pre-elex testing)
 wed_scrape_target = 'https://chicagoelections.com/results/ap/summary.txt'
 
+# flip this either manually or maybe smart try/except logic
 scrape_target = wed_scrape_target
 
 lookup_json_path = BASE_DIR + '/apps/scrape/lookup.json'

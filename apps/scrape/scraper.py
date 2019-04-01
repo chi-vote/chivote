@@ -4,7 +4,7 @@ import pytz
 import boto3
 import logging
 from datetime import datetime
-from .utils import lookup_json_path, \
+from .utils import lookup_json_path, scrape_target,\
     get_race_code, get_cand_code, get_race_name, get_cand_name,\
     get_cand_vote_total, get_race_eligible_precincts,\
     get_race_completed_precincts, set_cand_vote_total
@@ -24,8 +24,6 @@ data_line_range_start, data_line_range_end = 3, 181
 # helps translate cboe race, cand codes
 # into proper chi.vote style
 lookup_json = json.load(open(lookup_json_path))
-
-scrape_target = 'https://chicagoelections.com/results/ap/summary.txt'
 
 
 def scrape_results(upload=True):
