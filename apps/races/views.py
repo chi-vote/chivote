@@ -239,7 +239,8 @@ class ResultsListView(RenderReactMixin, BuildableListView):
     url_name = 'results-list'
 
     def get_react_props(self):
-        race_data = self.object_list.order_by('pk')
+        race_data = self.object_list.order_by(
+            'pk').exclude(cboe_results_id=None)
 
         races = []
 
@@ -266,7 +267,7 @@ class ResultsListView(RenderReactMixin, BuildableListView):
             # 'absolute_path': self.object.get_absolute_path(),
             'absolute_url': '/results/',
             'meta': {
-                'title': _('Live Chicago election results, February 26, 2019'),
+                'title': _('Live Chicago runoff election results, April 2, 2019'),
                 'description': _('Full results list of Chicago races and candidates.'),
                 'img': _('images/results-social-2.png'),
             }
