@@ -227,12 +227,14 @@ The [public site](https://chi.vote/) is hosted on an S3 bucket. On the server, d
 With that in mind, here's the process for updating code. Eventually this should be automated, but for now, you need to run each command in sequence:
 
 ```bash
-sudo supervisorctl stop chivote_worker # stops celery server from uploading to s3
+sudo supervisorctl stop all # stops celery server from uploading to s3
 git pull
 ./rebuild.sh
+sudo supervisorctl start chivote_render
 sudo systemctl restart gunicorn
+pipenv run ./manage.py build --settings=chivote.settings.production
 pipenv run ./manage.py publish
-sudo supervisorctl start chivote_worker # resume celery server uploads to s3
+sudo supervisorctl start all # resume celery server uploads to s3
 ```
 
 [🔝](#chivote)
