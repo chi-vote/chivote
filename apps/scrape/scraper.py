@@ -34,8 +34,6 @@ def scrape_results(upload=True):
     # pass exception to logger
     try:
         data = get_data(get_page(scrape_target))
-        # data[0] = set_cand_vote_total(data[0], 10)
-        # data[2] = set_cand_vote_total(data[2], 20)
         results = transform_results(data)
         # logger.info(results['contests']['0010']['cands'][0])
         write_results(results, results_output_path)
