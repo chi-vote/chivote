@@ -36,9 +36,11 @@ const Updated = props => {
           id='Results.Updated.text'
           defaultMessage='Last updated: {datetime}'
           values={{
-            datetime: moment(datetime)
-              .locale(locale)
-              .format('lll')
+            datetime: datetime
+              ? moment(datetime)
+                  .locale(locale)
+                  .format('lll')
+              : 'N/A'
           }}
         />
       </div>
