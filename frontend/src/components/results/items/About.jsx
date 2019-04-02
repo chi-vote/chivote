@@ -19,7 +19,7 @@ const About = () => (
       <em>
         <FormattedMessage
           id='Results.About.text.3'
-          defaultMessage='Source: Chicago Board of Elections. Results are unofficial until certified on April 17.'
+          defaultMessage='Source: Chicago Board of Elections. Results are unofficial until certified on April 18.'
         />
       </em>
     </p>
