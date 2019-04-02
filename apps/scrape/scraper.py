@@ -33,8 +33,9 @@ def scrape_results(upload=True):
         data = get_data(get_page(scrape_target))
         results = transform_results(data)
         write_results(results, results_output_path)
+        import ipdb; ipdb.set_trace()
 
-        if upload:
+        if upload and results['contests']:
             upload_results(results_output_path)
 
         return results
@@ -69,8 +70,8 @@ def transform_results(data):
     results = {
         'contest_headers': ["name", "prs_rpt", "prs_tot", "vote_tot"],
         'cand_headers': ["name", "vote_cnt", "vote_pct"],
-        'datetime': latest.strftime(timestamp_format),
-        'timestamp': int(latest.replace(microsecond=0).timestamp()),
+        'datetime': latest.strftime(timestamp_format) if latest else None,
+        'timestamp': int(latest.replace(microsecond=0).timestamp()) if latest else None,
         'contests': {},
         "cand_classes": ["", "amt", "amt append-bar"],
     }
