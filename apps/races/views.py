@@ -267,7 +267,7 @@ class ResultsListView(RenderReactMixin, BuildableListView):
             # 'absolute_path': self.object.get_absolute_path(),
             'absolute_url': '/results/',
             'meta': {
-                'title': _('Live Chicago runoff election results, April 2, 2019'),
+                'title': _('Chicago runoff election results, April 2, 2019'),
                 'description': _('Full results list of Chicago races and candidates.'),
                 'img': _('images/results-runoff-social-01.png'),
             }
