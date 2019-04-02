@@ -4,7 +4,7 @@ import pytz
 import boto3
 import logging
 from datetime import datetime
-from .utils import lookup_json_path, \
+from .utils import lookup_json_path, scrape_target,\
     get_race_code, get_cand_code, get_race_name, get_cand_name,\
     get_cand_vote_total, get_race_eligible_precincts,\
     get_race_completed_precincts, set_cand_vote_total
@@ -25,8 +25,6 @@ data_line_range_start, data_line_range_end = 3, 181
 # into proper chi.vote style
 lookup_json = json.load(open(lookup_json_path))
 
-scrape_target = 'https://chicagoelections.com/results/ap/summary.txt'
-
 
 def scrape_results(upload=True):
     from .utils import get_page, get_data
@@ -34,8 +32,6 @@ def scrape_results(upload=True):
     # pass exception to logger
     try:
         data = get_data(get_page(scrape_target))
-        # data[0] = set_cand_vote_total(data[0], 10)
-        # data[2] = set_cand_vote_total(data[2], 20)
         results = transform_results(data)
         # logger.info(results['contests']['0010']['cands'][0])
         write_results(results, results_output_path)

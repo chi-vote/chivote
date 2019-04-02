@@ -6,6 +6,20 @@ from apps.races.models import Race
 import csv
 
 
+def clear_codes(apps,schema_editor):
+    clear_candidate_codes()
+    clear_race_codes()
+
+def clear_candidate_codes():
+    for candidate in Candidate.objects.all():
+        candidate.cboe_results_id = None
+        candidate.save()
+
+def clear_race_codes():
+    for race in Race.objects.all():
+        race.cboe_results_id = None
+        race.save()
+
 def load_candidates(apps, schema_editor):
     input_file_path = BASE_DIR + '/apps/candidates/data/candidates.csv'
 
@@ -113,6 +127,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunPython(clear_codes),
         migrations.RunPython(load_candidates),
         migrations.RunPython(load_names),
         migrations.RunPython(load_br_ids),
