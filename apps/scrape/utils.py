@@ -13,16 +13,22 @@ from chivote.settings.base import BASE_DIR
 
 ### START CONFIG ###
 # est time window: 19:20 TUE - ~0200 WED
-tue_scrape_target = 'https://chicagoelections.com/ap/summary.txt'
+tue_scrape_url_prefix = 'https://chicagoelections.com/ap/'
 # est time window: ~0200 WED - all votes counted (+ pre-elex testing)
-wed_scrape_target = 'https://chicagoelections.com/results/ap/summary.txt'
+wed_scrape_url_prefix = 'https://chicagoelections.com/results/ap/'
 
+# TOGGLE
+this_scrape_url_prefix = wed_scrape_url_prefix
+
+scrape_file = 'summary.txt'
+results_file = 'results.htm'
 # flip this either manually or maybe smart try/except logic
-scrape_target = wed_scrape_target
+scrape_target = this_scrape_url_prefix + scrape_file
+scrape_results_target = this_scrape_url_prefix + results_file
 
 lookup_json_path = BASE_DIR + '/apps/scrape/lookup.json'
 
-# skip 
+# skip precincts counted, voters, ballots cast
 data_line_range_start = 3
 
 race_code_range_start, race_code_range_end = 0, 4

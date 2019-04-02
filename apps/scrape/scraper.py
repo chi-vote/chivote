@@ -4,7 +4,7 @@ import pytz
 import boto3
 import logging
 from datetime import datetime
-from .utils import lookup_json_path, scrape_target,\
+from .utils import lookup_json_path, scrape_target, scrape_results_target,\
     get_race_code, get_cand_code, get_race_name, get_cand_name,\
     get_cand_vote_total, get_race_eligible_precincts,\
     get_race_completed_precincts, set_cand_vote_total,\
@@ -51,8 +51,7 @@ def get_time():
         from bs4 import BeautifulSoup
         from dateutil.parser import parse
 
-        response = requests.get(
-            'https://chicagoelections.com/results/ap/results.htm')
+        response = requests.get(scrape_results_target)
         soup = BeautifulSoup(response.content, features="html.parser")
         last_updated = soup.find(
             id='ResultsContainer').get_text().split('Last Updated: ')[1]
