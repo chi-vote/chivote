@@ -7,7 +7,8 @@ from datetime import datetime
 from .utils import lookup_json_path, scrape_target,\
     get_race_code, get_cand_code, get_race_name, get_cand_name,\
     get_cand_vote_total, get_race_eligible_precincts,\
-    get_race_completed_precincts, set_cand_vote_total
+    get_race_completed_precincts, set_cand_vote_total,\
+    get_page, get_data
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -18,7 +19,6 @@ results_output_path = '/tmp/results.json'
 timestamp_format = '%Y-%m-%dT%H:%M:%S%z'
 # s3_bucket_name = 'chi.vote.app.stage' # switch to prod on elex nite
 s3_bucket_name = 'chi.vote.app.prod'  # switch to prod on elex nite
-data_line_range_start, data_line_range_end = 3, 181
 ### END CONFIG ###
 
 # helps translate cboe race, cand codes
@@ -27,13 +27,11 @@ lookup_json = json.load(open(lookup_json_path))
 
 
 def scrape_results(upload=True):
-    from .utils import get_page, get_data
     # if data fails to load,
     # pass exception to logger
     try:
         data = get_data(get_page(scrape_target))
         results = transform_results(data)
-        # logger.info(results['contests']['0010']['cands'][0])
         write_results(results, results_output_path)
 
         if upload:
@@ -59,13 +57,14 @@ def get_time():
         last_updated = soup.find(
             id='ResultsContainer').get_text().split('Last Updated: ')[1]
 
-        return parse(last_updated)
-    except Exception:
-        raise Exception
+        return parse(last_updated).astimezone(pytz.timezone('US/Central'))
+    except Exception as e:
+        logger.error(e)
+        # fail gracefully
 
 
 def transform_results(data):
-    latest = get_time().astimezone(pytz.timezone('US/Central'))
+    latest = get_time()
 
     # collect results
     results = {
@@ -89,10 +88,7 @@ def transform_results(data):
         cv_race_name = lookup_json['races'][race_code]['chi_vote_name']
 
         cand_code = get_cand_code(row)
-        try:
-            cv_cand_name = lookup_json['candidates'][cand_code]['chi_vote_name']
-        except Exception as e:
-            logger.error(e)
+        cv_cand_name = lookup_json['candidates'][cand_code]['chi_vote_name']
 
         cand_vote_total = get_cand_vote_total(row)
 
