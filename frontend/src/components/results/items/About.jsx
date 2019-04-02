@@ -12,7 +12,7 @@ const About = () => (
     <p>
       <FormattedHTMLMessage
         id='Results.About.text.4'
-        defaultMessage='Wondering where the rest of the races are? Most races were decided in the general election last February. <a href="https://chi.vote/archive/2019-feb-26/results/">You can find those results here.</a>'
+        defaultMessage='Wondering where the rest of the races and candidates are? Most races were decided in the general election last February. <a href="https://chi.vote/archive/2019-feb-26/results/">You can find those results here.</a>'
       />
     </p>
     <p>
