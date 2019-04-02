@@ -12,11 +12,24 @@ from apps.races.models import Race
 from chivote.settings.base import BASE_DIR
 
 ### START CONFIG ###
-scrape_target = 'https://chicagoelections.com/results/ap/summary.txt'
-# scrape_target = 'https://chicagoelections.com/ap/summary.txt'
+# est time window: 19:20 TUE - ~0200 WED
+tue_scrape_url_prefix = 'https://chicagoelections.com/ap/'
+# est time window: ~0200 WED - all votes counted (+ pre-elex testing)
+wed_scrape_url_prefix = 'https://chicagoelections.com/results/ap/'
+
+# TOGGLE
+this_scrape_url_prefix = wed_scrape_url_prefix
+
+scrape_file = 'summary.txt'
+results_file = 'results.htm'
+# flip this either manually or maybe smart try/except logic
+scrape_target = this_scrape_url_prefix + scrape_file
+scrape_results_target = this_scrape_url_prefix + results_file
+
 lookup_json_path = BASE_DIR + '/apps/scrape/lookup.json'
 
-data_line_range_start, data_line_range_end = 3, 181
+# skip precincts counted, voters, ballots cast
+data_line_range_start = 3
 
 race_code_range_start, race_code_range_end = 0, 4
 race_name_range_start, race_name_range_end = 32, 87
@@ -37,7 +50,7 @@ def get_page(target=scrape_target):
 
 
 def get_data(page=get_page()):
-    return page.splitlines()[data_line_range_start:data_line_range_end]
+    return page.splitlines()[data_line_range_start:]
 
 
 def get_race_code(line):
@@ -62,6 +75,11 @@ def get_cand_vote_total(line):
 
 
 def set_cand_vote_total(line, amt):
+    """
+    for testing:
+    replaces results with 
+    zeroed out dummy data
+    """
     new_amt = str(amt).zfill(cand_vote_range_end - cand_vote_range_start)
     new_line = line[:cand_vote_range_start] + \
         new_amt + line[cand_vote_range_end:]
