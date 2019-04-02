@@ -1,5 +1,5 @@
-# from apps.races.views import ResultsListView as Ancestor
-from apps.core.views import HomePageView as Ancestor
+from apps.races.views import ResultsListView as Ancestor
+# from apps.core.views import HomePageView as Ancestor
 
 
 class IndexView(Ancestor):

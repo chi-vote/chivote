@@ -74,7 +74,7 @@
   "RaceList.aldermanic.text.1": "Elija un distrito específico para ver más información y más candidatos.",
   "Results.About.text.1": "Para ganar, los candidatos necesitan más del 50 por ciento de los votos. Si ningún candidato alcanza ese umbral, los dos candidatos principales avanzarán a una segunda vuelta el 2 de abril.",
   "Results.About.text.2": "Los porcentajes se basan en las boletas disponibles contabilizadas por la Junta de Elecciones de Chicago. Los porcentajes enumerados no indican un ganador hasta que se cuenten todas las boletas.",
-  "Results.About.text.3": "Fuente: Junta de Elecciones de Chicago. Los resultados no son oficiales hasta que se certifiquen el TODO.",
+  "Results.About.text.3": "Fuente: Junta de Elecciones de Chicago. Los resultados no son oficiales hasta que se certifiquen el 18 de abril.",
   "Results.About.text.4": "Wondering where the rest of the races are? Most races were decided in the general election last February. <a href=\"https://chi.vote/archive/2019-feb-26/results/\">You can find those results here.</a>",
   "Results.Reporting.text": "{precinctsReporting} de {precinctsTotal} recintos reportando. Total de votos: {votesTotal}",
   "Results.Table.header.candidate": "Candidato",
@@ -83,7 +83,7 @@
   "Results.Updated.loading": "Comprobando nuevos resultados...",
   "Results.Updated.text": "Última actualización: {datetime}",
   "ResultsList.select.message": "Saltar a una carrera",
-  "ResultsList.heading": "Resultados en vivo de las elecciones de Chicago",
+  "ResultsList.heading": "Resultados de la Segunda Vuelta de las elecciones de Chicago",
   "Footer.archive.heading": "Archive",
   "Footer.archive.text.1": "Previous versions of this site are available for each Chicago election since 2019.",
   "Footer.archive.link-list": "<ul><li><a href=\"https://chi.vote/es/archive/2019-feb-26/\">2019 General (Feb. 26)</a></li></ul>"

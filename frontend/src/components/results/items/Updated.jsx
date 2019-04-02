@@ -40,7 +40,7 @@ const Updated = props => {
               ? moment(datetime)
                   .locale(locale)
                   .format('lll')
-              : 'N/A'
+              : ''
           }}
         />
       </div>
