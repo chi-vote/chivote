@@ -13,6 +13,9 @@
     "Footer.about-us.heading": "About Chi.vote",
     "Footer.about-us.text.1": "The Chi.vote website is the core product of the Chi.vote Collective, a new group of nonpartisan media and civic organizations that believe in fostering a safer, more prosperous and more equitable and connected Chicago by creating content and tools of the highest quality and accessibility around city elections. The founding partners of the Collective are the Better Government Association, Block Club Chicago, The Chicago Reporter, The Daily Line and The Triibe.",
     "Footer.about-us.text.2": "The Collective is to proud to welcome and acknowledge a new group of contributors to our effort as Outreach & Information Partners: Chalkbeat Chicago, City Bureau, Reform Illinois, South Side Weekly, and Univision.",
+    "Footer.archive.heading": "Archive",
+    "Footer.archive.text.1": "Previous versions of this site are available for each Chicago election since 2019.",
+    "Footer.archive.link-list": "<ul>\n          <li>\n            <a href=\"https://chi.vote/archive/2019-feb-26/\">2019 General (Feb. 26)</a>\n          </li>\n        </ul>",
     "Nav.tagline": "Everything you need to vote in Chicago elections",
     "SiteMenu.contact.1": "Contact us",
     "SiteMenu.contact.2": "Got questions? Need help? Did we miss something?",
@@ -62,9 +65,9 @@
     "WardLookup.loading": "Loading...",
     "WardLookup.no-matches": "No matches for {inputAddress}",
     "WardLookup.match": "This address is located in <strong>Ward {wardNumber}</strong>.",
-    "Results.About.text.1": "To win, candidates must receive more than 50 percent of the vote. If no candidate reaches that threshold, the top two candidates will advance to a run off on April 2.",
     "Results.About.text.2": "Percentages are based on the available ballots tallied by the Chicago Board of Elections. Percentages listed do not indicate a winner until all ballots are counted.",
-    "Results.About.text.3": "Source: Chicago Board of Elections. Results are unofficial until certified on March 13.",
+    "Results.About.text.4": "Wondering where the rest of the races are? Most races were decided in the general election last February. <a href=\"https://chi.vote/archive/2019-feb-26/results/\">You can find those results here.</a>",
+    "Results.About.text.3": "Source: Chicago Board of Elections. Results are unofficial until certified on April 17.",
     "Results.Reporting.text": "{precinctsReporting} of {precinctsTotal} precincts reporting. Total votes: {votesTotal}",
     "Results.Table.header.candidate": "Candidate",
     "Results.Table.header.votes": "Votes",
@@ -150,7 +153,8 @@
     "RaceList.aldermanic.text.1": "Elija un distrito específico para ver más información y más candidatos.",
     "Results.About.text.1": "Para ganar, los candidatos necesitan más del 50 por ciento de los votos. Si ningún candidato alcanza ese umbral, los dos candidatos principales avanzarán a una segunda vuelta el 2 de abril.",
     "Results.About.text.2": "Los porcentajes se basan en las boletas disponibles contabilizadas por la Junta de Elecciones de Chicago. Los porcentajes enumerados no indican un ganador hasta que se cuenten todas las boletas.",
-    "Results.About.text.3": "Fuente: Junta de Elecciones de Chicago. Los resultados no son oficiales hasta que se certifiquen el 13 de marzo.",
+    "Results.About.text.3": "Fuente: Junta de Elecciones de Chicago. Los resultados no son oficiales hasta que se certifiquen el TODO.",
+    "Results.About.text.4": "Wondering where the rest of the races are? Most races were decided in the general election last February. <a href=\"https://chi.vote/archive/2019-feb-26/results/\">You can find those results here.</a>",
     "Results.Reporting.text": "{precinctsReporting} de {precinctsTotal} recintos reportando. Total de votos: {votesTotal}",
     "Results.Table.header.candidate": "Candidato",
     "Results.Table.header.votes": "Votos",
@@ -158,6 +162,9 @@
     "Results.Updated.loading": "Comprobando nuevos resultados...",
     "Results.Updated.text": "Última actualización: {datetime}",
     "ResultsList.select.message": "Saltar a una carrera",
-    "ResultsList.heading": "Resultados en vivo de las elecciones de Chicago"
+    "ResultsList.heading": "Resultados en vivo de las elecciones de Chicago",
+    "Footer.archive.heading": "Archive",
+    "Footer.archive.text.1": "Previous versions of this site are available for each Chicago election since 2019.",
+    "Footer.archive.link-list": "<ul><li><a href=\"https://chi.vote/es/archive/2019-feb-26/\">2019 General (Feb. 26)</a></li></ul>"
   }
 }

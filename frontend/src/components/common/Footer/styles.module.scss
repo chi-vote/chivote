@@ -77,13 +77,20 @@
 }
 
 $diff: color-diff($dark, mix($dark-accent, $dark));
+$diff-darker: color-diff(mix($dark-accent, $dark), $dark);
 
 .liveResults {
   composes: section;
   background: apply-diff($dark-accent, $diff);
 }
 
+.archive {
+  composes: section;
+  background: apply-diff($dark, $diff-darker);
+}
+
 .heading {
+  color: $white;
   font-size: $size-3;
   margin-bottom: 1rem;
   text-align: center;

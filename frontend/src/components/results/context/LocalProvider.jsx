@@ -23,7 +23,7 @@ function transformData(results, cboeId) {
 
   let contest;
 
-  if ('contests' in results && cboeId) {
+  if ('contests' in results && cboeId && cboeId in results.contests) {
     contest = results.contests[cboeId];
 
     transformed.precinctsReporting =
@@ -34,10 +34,13 @@ function transformData(results, cboeId) {
       contest.meta[results.contest_headers.indexOf('vote_tot')];
     transformed.data = contest.cands;
   } else if ('contests' in results) {
+    // races without a cboeId should just return null
+    return null;
+
     // if no cboeId, return *all* the candidates
-    transformed.data = Object.entries(results.contests)
-      .map(x => x[1].cands)
-      .flat();
+    // transformed.data = Object.entries(results.contests)
+    //   .map(x => x[1].cands)
+    //   .flat();
   }
 
   transformed.dataHeaders = results.cand_headers;

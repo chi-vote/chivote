@@ -1,14 +1,14 @@
 [
   {
-    "id": "Results.About.text.1",
-    "defaultMessage": "To win, candidates must receive more than 50 percent of the vote. If no candidate reaches that threshold, the top two candidates will advance to a run off on April 2."
-  },
-  {
     "id": "Results.About.text.2",
     "defaultMessage": "Percentages are based on the available ballots tallied by the Chicago Board of Elections. Percentages listed do not indicate a winner until all ballots are counted."
   },
   {
+    "id": "Results.About.text.4",
+    "defaultMessage": "Wondering where the rest of the races are? Most races were decided in the general election last February. <a href=\"https://chi.vote/archive/2019-feb-26/results/\">You can find those results here.</a>"
+  },
+  {
     "id": "Results.About.text.3",
-    "defaultMessage": "Source: Chicago Board of Elections. Results are unofficial until certified on March 13."
+    "defaultMessage": "Source: Chicago Board of Elections. Results are unofficial until certified on April 17."
   }
 ]

@@ -38,5 +38,17 @@
   {
     "id": "Footer.about-us.text.2",
     "defaultMessage": "The Collective is to proud to welcome and acknowledge a new group of contributors to our effort as Outreach & Information Partners: Chalkbeat Chicago, City Bureau, Reform Illinois, South Side Weekly, and Univision."
+  },
+  {
+    "id": "Footer.archive.heading",
+    "defaultMessage": "Archive"
+  },
+  {
+    "id": "Footer.archive.text.1",
+    "defaultMessage": "Previous versions of this site are available for each Chicago election since 2019."
+  },
+  {
+    "id": "Footer.archive.link-list",
+    "defaultMessage": "<ul>\n          <li>\n            <a href=\"https://chi.vote/archive/2019-feb-26/\">2019 General (Feb. 26)</a>\n          </li>\n        </ul>"
   }
 ]

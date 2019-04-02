@@ -113,6 +113,32 @@ const SectionAbout = () => (
   </footer>
 );
 
+const SectionArchive = () => (
+  <section className={styles.archive} id='archive'>
+    <div className={styles.heading}>
+      <FormattedMessage id='Footer.archive.heading' defaultMessage='Archive' />
+    </div>
+    <p className='has-text-centered'>
+      <FormattedMessage
+        id='Footer.archive.text.1'
+        defaultMessage='Previous versions of this site are available for each Chicago election since 2019.'
+      />
+    </p>
+    <p className='has-text-centered'>
+      <FormattedHTMLMessage
+        id='Footer.archive.link-list'
+        defaultMessage={`
+        <ul>
+          <li>
+            <a href="https://chi.vote/archive/2019-feb-26/">2019 General (Feb. 26)</a>
+          </li>
+        </ul>
+        `}
+      />
+    </p>
+  </section>
+);
+
 class Footer extends Component {
   render() {
     return (
@@ -121,6 +147,7 @@ class Footer extends Component {
         <SectionMailchimp key='sign-up' />
         <SectionEmail />
         <SectionAbout />
+        <SectionArchive />
       </>
     );
   }

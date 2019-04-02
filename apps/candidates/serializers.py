@@ -14,7 +14,8 @@ class CandidateSerializer(serializers.ModelSerializer):
                   'br_id',
                   'ri_funds_raised_this_cycle',
                   'ri_cash_on_hand',
-                  'ri_last_updated'
+                  'ri_last_updated',
+                  'incumbent',
                   )
 
         if settings.CHIVOTE_URL_PREFIX:
