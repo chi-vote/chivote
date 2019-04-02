@@ -269,7 +269,7 @@ class ResultsListView(RenderReactMixin, BuildableListView):
             'meta': {
                 'title': _('Live Chicago runoff election results, April 2, 2019'),
                 'description': _('Full results list of Chicago races and candidates.'),
-                'img': _('images/results-social-2.png'),
+                'img': _('images/results-runoff-social-01.png'),
             }
         }
 
