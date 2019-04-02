@@ -17,18 +17,18 @@ class DataProvider extends Component {
   }
 
   componentDidMount() {
-    try {
-      // if local final results file exists, read from that
-      var results = require('./results.json');
+    // try {
+    //   // if local final results file exists, read from that
+    //   var results = require('./results.json');
 
-      if (results) {
-        this.setState({ results, isLoading: false });
-      }
-    } catch (err) {
-      // otherwise read from remote source
-      this.fetchData();
-      this.interval = setInterval(() => this.fetchData(), 30 * 1000);
-    }
+    //   if (results) {
+    //     this.setState({ results, isLoading: false });
+    //   }
+    // } catch (err) {
+    // otherwise read from remote source
+    this.fetchData();
+    this.interval = setInterval(() => this.fetchData(), 30 * 1000);
+    // }
   }
 
   componentWillUnmount() {
