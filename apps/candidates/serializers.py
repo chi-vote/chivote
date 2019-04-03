@@ -18,5 +18,8 @@ class CandidateSerializer(serializers.ModelSerializer):
                   'incumbent',
                   )
 
-        if settings.CHIVOTE_URL_PREFIX:
+        # if settings.CHIVOTE_URL_PREFIX:
+        # [br tear down] pass br_data to site so that we're not using ballot ready anymore
+        # this is handled on the frontend: components/RaceDetail/CandidateView
+        if True:
             fields += ('br_data',)
