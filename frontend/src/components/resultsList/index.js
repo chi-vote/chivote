@@ -31,8 +31,7 @@ const ResultsItem = race => {
         <h3 className={cn('is-size-5', styles.resultsItemHeading)}>
           <a href={link}>{race.name}</a>
         </h3>
-        {/* <Results.RunoffTag {...race} />
-        <Results.WinnerTag {...race} /> */}
+        <Results.WinnerTag {...race} />
       </div>
 
       {race.note && (
