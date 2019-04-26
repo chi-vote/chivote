@@ -15,6 +15,7 @@ class CandidateSerializer(serializers.ModelSerializer):
                   'ri_funds_raised_this_cycle',
                   'ri_cash_on_hand',
                   'ri_last_updated',
+                  'isbe_id',
                   'incumbent',
                   )
 

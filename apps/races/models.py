@@ -40,7 +40,7 @@ class Race(AutoPublishingBuildableModel):
         if challenger_won:
             return "Challenger won"
 
-        runoff = bool(self.candidates.filter(status='runoff'))
+        runoff = len(self.candidates.filter(status='runoff')) == 2
 
         if runoff:
             return "Runoff"
